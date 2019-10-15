@@ -21,8 +21,8 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'OmiseGo: Developer Documentation', // Title for your website.
-  tagline: 'A website for testing',
+  title: 'Developers @ OmiseGo', // Title for your website.
+  tagline: 'developer documentation for OmiseGo',
   url: 'https://omisego.github.io', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
