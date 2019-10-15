@@ -1,0 +1,134 @@
+{
+  "docs": {
+    "OmiseGO Docs": [
+        "welcome",
+        "glossary"
+      ],
+      "OmiseGO Network": [
+          "overview-omg-network",
+          "network-upgrade-guide",
+          "send-your-first-transaction",
+          "network-connection-details",
+          "block-explorer-status-get",
+          "omisego-network-resources",
+          {
+            "type": "subcategory",
+            "label": "Plasma",
+            "ids": [
+              "the-plasma-lifecycle",
+              "introduction-plasma-more-vp", 
+              "morevp-technical-overview"
+            ]
+          },
+          {
+
+          "type": "subcategory",
+          "label": "Block Explorer",
+          "ids": [
+            "block-explorer-overview",
+            "block-explorer-get-started",
+            "block-explorer-using",
+            "block-explorer-ewallet",
+            "block-explorer-troubleshooting"
+          ]
+        },
+
+        {
+
+          "type": "subcategory",
+          "label": "Blockchain",
+          "ids": [
+            "blockchain-design",
+            "blockchain-architecture"
+          ]
+        }
+        
+      ],
+          
+       
+      "OmiseGO eWallet Suite": [
+        "overview-ewallet",
+        {
+          "type": "subcategory",
+          "label": "Guides",
+          "ids": [
+            "install-eWallet-server", 
+            "e-wallet-run-tests",
+            "upgrade-ewallet-server",
+            "integrate-the-eWallet-server",
+            "ewallet-server-configuration",
+            "environment-variables",
+            "transaction-request-flow",
+            "advanced_filtering",
+            "two_factor_authentication",
+            "e-wallet-faqs"
+          ]
+        },
+        {
+          "type": "subcategory",
+          "label": "Design",
+          "ids": [
+            "ewallet-components",
+            "ewallet-databases",
+            "users",
+            "wallets",
+            "transactions-and-entries",
+            "conventions"
+          ]
+        },
+        {
+          "type": "subcategory",
+          "label": "Resources",
+          "ids": [
+            "e-wallet-resources",
+            "ruby-sdk",
+            "ios-sdk",
+            "android-sdk"
+          ]
+        }
+      ],
+
+      "elixir-omg": [
+        "overview-elixir-omg",
+        "elixir-omg-applications",
+        "starting-the-blockchain-services",
+        "elixir-omg-contracts",
+        "elixir-omg-testing",
+        "contributing-elixir-omg"
+        
+    ],
+
+  
+
+  "Plasma Contracts": [
+    "constributing-plasma-contracts",
+    "abstract-layer-design"
+    
+],
+
+      "API Reference": [
+        "api-reference-introduction",
+        {
+          "type": "subcategory",
+          "label": "OmiseGO Network API",
+          "ids": [
+            "omg-network-apis"
+          ]
+        },
+          {
+       
+          "type": "subcategory",
+          "label": "OmiseGO eWallet API",
+          "ids": [
+            "e-wallet-overview-api-docs",
+            "api-responsibilities",
+            "ewallet_api_websockets"
+          ]
+        }
+    
+      ]
+    }
+  }
+  
+
+
