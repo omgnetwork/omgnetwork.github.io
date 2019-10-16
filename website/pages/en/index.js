@@ -60,13 +60,8 @@ class HomeSplash extends React.Component {
 
     return (
       <SplashContainer>
-        <Logo img_src={`${baseUrl}img/undraw_monitor.svg`} />
         <div className="inner">
-          <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <Button href="#try">Try It Out</Button>
-            <Button href={docUrl('doc1.html')}>Example Link</Button>
-            <Button href={docUrl('doc2.html')}>Example Link 2</Button>
           </PromoSection>
         </div>
       </SplashContainer>
@@ -96,8 +91,14 @@ class Index extends React.Component {
       <div
         className="productShowcaseSection paddingBottom"
         style={{textAlign: 'center'}}>
-        <h2>Feature Callout</h2>
-        <MarkdownBlock>These are features of this project</MarkdownBlock>
+        <h2>Build Scalable Decentralized Payment Apps</h2>
+        <MarkdownBlock>
+          Leverage Plasma architecture to build a L2 Application with
+          high throughputs and strong safety gaurantees
+        </MarkdownBlock>
+        <div className="pluginWrapper buttonWrapper">
+          <a className="button" href="#">Get Started Now</a>
+        </div>
       </div>
     );
 
@@ -146,19 +147,25 @@ class Index extends React.Component {
     );
 
     const Features = () => (
-      <Block layout="fourColumn">
+      <Block layout="threeColumn">
         {[
           {
-            content: 'This is the content of my feature',
-            image: `${baseUrl}img/undraw_react.svg`,
+            content: 'Understand MoreVP Architecture and how it works under the hood',
+            image: `${baseUrl}img/01-plasmaarchitecture.png`,
             imageAlign: 'top',
-            title: 'Feature One',
+            title: 'Learn MoreVP Architecture',
           },
           {
-            content: 'The content of my second feature',
-            image: `${baseUrl}img/undraw_operating_system.svg`,
+            content: 'Making interactions with the OmiseGO Network APIs from the browser',
+            image: `${baseUrl}img/02-plasmainterface.png`,
             imageAlign: 'top',
-            title: 'Feature Two',
+            title: 'Get to know the Plasma Interface',
+          },
+          {
+            content: 'Start making more complex transactions from the terminal',
+            image: `${baseUrl}img/03-utxo.png`,
+            imageAlign: 'top',
+            title: 'Making sense of the UTXOs',
           },
         ]}
       </Block>
@@ -197,12 +204,8 @@ class Index extends React.Component {
       <div>
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
-          <Features />
           <FeatureCallout />
-          <LearnHow />
-          <TryOut />
-          <Description />
-          <Showcase />
+          <Features />
         </div>
       </div>
     );
