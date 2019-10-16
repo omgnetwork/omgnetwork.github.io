@@ -49,7 +49,7 @@ const siteConfig = {
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/OmiseGO-White.png',
+  headerIcon: 'img/omisego-blue.svg',
   footerIcon: 'img/favicon.ico',
   favicon: 'img/favicon.ico',
 
