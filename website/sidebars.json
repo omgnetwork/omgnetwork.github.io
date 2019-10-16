@@ -20,19 +20,6 @@
               "morevp-technical-overview"
             ]
           },
-          {
-
-          "type": "subcategory",
-          "label": "Block Explorer",
-          "ids": [
-            "block-explorer-overview",
-            "block-explorer-get-started",
-            "block-explorer-using",
-            "block-explorer-ewallet",
-            "block-explorer-troubleshooting"
-          ]
-        },
-
         {
 
           "type": "subcategory",
@@ -44,68 +31,6 @@
         }
         
       ],
-          
-       
-      "OmiseGO eWallet Suite": [
-        "overview-ewallet",
-        {
-          "type": "subcategory",
-          "label": "Guides",
-          "ids": [
-            "install-eWallet-server", 
-            "e-wallet-run-tests",
-            "upgrade-ewallet-server",
-            "integrate-the-eWallet-server",
-            "ewallet-server-configuration",
-            "environment-variables",
-            "transaction-request-flow",
-            "advanced_filtering",
-            "two_factor_authentication",
-            "e-wallet-faqs"
-          ]
-        },
-        {
-          "type": "subcategory",
-          "label": "Design",
-          "ids": [
-            "ewallet-components",
-            "ewallet-databases",
-            "users",
-            "wallets",
-            "transactions-and-entries",
-            "conventions"
-          ]
-        },
-        {
-          "type": "subcategory",
-          "label": "Resources",
-          "ids": [
-            "e-wallet-resources",
-            "ruby-sdk",
-            "ios-sdk",
-            "android-sdk"
-          ]
-        }
-      ],
-
-      "elixir-omg": [
-        "overview-elixir-omg",
-        "elixir-omg-applications",
-        "starting-the-blockchain-services",
-        "elixir-omg-contracts",
-        "elixir-omg-testing",
-        "contributing-elixir-omg"
-        
-    ],
-
-  
-
-  "Plasma Contracts": [
-    "constributing-plasma-contracts",
-    "abstract-layer-design"
-    
-],
-
       "API Reference": [
         "api-reference-introduction",
         {
