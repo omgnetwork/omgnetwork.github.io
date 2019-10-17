@@ -1,15 +1,20 @@
 {
   "docs": {
     "OmiseGO Docs": [
-      "welcome"
-    ],
-    "OmiseGO Network": [
+      "welcome",
       "overview-omg-network",
-      "network-upgrade-guide",
+      "network-connection-details"
+    ],
+    "Getting Started": [
+      "quick-start",
       "send-your-first-transaction",
-      "network-connection-details",
       "block-explorer-status-get",
-      "omisego-network-resources",
+      "omisego-network-resources"
+    ],
+    "Client Libraries": [],
+    "Appendix": [
+      "glossary",
+      "network-upgrade-guide",
       {
         "type": "subcategory",
         "label": "Plasma",
@@ -27,28 +32,6 @@
           "blockchain-architecture"
         ]
       }
-    ],
-    "API Reference": [
-      "api-reference-introduction",
-      {
-        "type": "subcategory",
-        "label": "OmiseGO Network API",
-        "ids": [
-          "omg-network-apis"
-        ]
-      },
-      {
-        "type": "subcategory",
-        "label": "OmiseGO eWallet API",
-        "ids": [
-          "e-wallet-overview-api-docs",
-          "api-responsibilities",
-          "ewallet_api_websockets"
-        ]
-      }
-    ],
-    "Appendix": [
-      "glossary"
     ]
   }
 }
