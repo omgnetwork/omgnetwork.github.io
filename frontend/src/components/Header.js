@@ -67,16 +67,24 @@ const XHeader = styled.div`
 
 const menuItems = [
   {
+    title: 'Docs',
+    href: '/docs/welcome'
+  },
+  {
+    title: 'API',
+    href: '/docs/api-reference-introduction'
+  },
+  {
     title: 'Block Explorer',
     href: 'http://quest.samrong.omg.network'
   },
   {
-    title: 'API Specification',
-    href: 'https://omisego.github.io/elixir-omg/'
+    title: 'Use cases',
+    href: 'https://omisego.co/use-cases'
   },
   {
-    title: 'Connection Details',
-    href: 'https://github.com/omisego/dev-portal/blob/master/guides/network_endpoints.md'
+    title: 'Product',
+    href: 'https://omisego.co/'
   }
 ]
 
