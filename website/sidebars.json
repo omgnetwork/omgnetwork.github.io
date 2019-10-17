@@ -1,59 +1,54 @@
 {
   "docs": {
     "OmiseGO Docs": [
-        "welcome",
-        "glossary"
-      ],
-      "OmiseGO Network": [
-          "overview-omg-network",
-          "network-upgrade-guide",
-          "send-your-first-transaction",
-          "network-connection-details",
-          "block-explorer-status-get",
-          "omisego-network-resources",
-          {
-            "type": "subcategory",
-            "label": "Plasma",
-            "ids": [
-              "the-plasma-lifecycle",
-              "introduction-plasma-more-vp", 
-              "morevp-technical-overview"
-            ]
-          },
-        {
-
-          "type": "subcategory",
-          "label": "Blockchain",
-          "ids": [
-            "blockchain-design",
-            "blockchain-architecture"
-          ]
-        }
-        
-      ],
-      "API Reference": [
-        "api-reference-introduction",
-        {
-          "type": "subcategory",
-          "label": "OmiseGO Network API",
-          "ids": [
-            "omg-network-apis"
-          ]
-        },
-          {
-       
-          "type": "subcategory",
-          "label": "OmiseGO eWallet API",
-          "ids": [
-            "e-wallet-overview-api-docs",
-            "api-responsibilities",
-            "ewallet_api_websockets"
-          ]
-        }
-    
-      ]
-    }
+      "welcome"
+    ],
+    "OmiseGO Network": [
+      "overview-omg-network",
+      "network-upgrade-guide",
+      "send-your-first-transaction",
+      "network-connection-details",
+      "block-explorer-status-get",
+      "omisego-network-resources",
+      {
+        "type": "subcategory",
+        "label": "Plasma",
+        "ids": [
+          "the-plasma-lifecycle",
+          "introduction-plasma-more-vp",
+          "morevp-technical-overview"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "Blockchain",
+        "ids": [
+          "blockchain-design",
+          "blockchain-architecture"
+        ]
+      }
+    ],
+    "API Reference": [
+      "api-reference-introduction",
+      {
+        "type": "subcategory",
+        "label": "OmiseGO Network API",
+        "ids": [
+          "omg-network-apis"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "OmiseGO eWallet API",
+        "ids": [
+          "e-wallet-overview-api-docs",
+          "api-responsibilities",
+          "ewallet_api_websockets"
+        ]
+      }
+    ],
+    "Appendix": [
+      "glossary"
+    ]
   }
-  
-
-
+}
