@@ -1,4 +1,6 @@
 MAKEFLAGS += --silent
+OS_NAME := $(shell uname -s | tr A-Z a-z)
+
 all: clean serve
 
 help:
@@ -35,7 +37,11 @@ frontend-copy:
 	@cp frontend/build/index.html website/static
 
 frontend-fix-paths:
+ifeq ($(OS_NAME), darwin)
 	@cd website/static && sed -i '' 's/\/static\//\//g' index.html
+else
+	@cd website/static && sed -i 's/\/static\//\//g' index.html
+endif
 
 website-deps:
 	@echo "Website: Installing deps..."
