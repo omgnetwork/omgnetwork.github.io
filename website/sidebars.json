@@ -9,7 +9,8 @@
       "quick-start",
       "send-your-first-transaction",
       "block-explorer-status-get",
-      "omisego-network-resources"
+      "omisego-network-resources",
+      "integration"
     ],
     "Client Libraries": [],
     "Appendix": [

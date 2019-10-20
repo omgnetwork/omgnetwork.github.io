@@ -43,7 +43,6 @@ npm install
 npm run dev
 ```
 
-
 ### Depositing Funds into the Contract
 
 ### Sending Your First Transaction
