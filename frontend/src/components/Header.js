@@ -67,6 +67,10 @@ const XHeader = styled.div`
 
 const menuItems = [
   {
+    title: 'Docs',
+    href: '/docs/welcome'
+  },
+  {
     title: 'Block Explorer',
     href: 'http://quest.samrong.omg.network'
   },
