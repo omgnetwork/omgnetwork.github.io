@@ -4,35 +4,22 @@ title: About OmiseGO
 sidebar_label: About OmiseGO
 ---
 
-Welcome to the OmiseGO developer documentation.
+## Welcome to the OmiseGO developer documentation.
 
-## Why OmiseGO?
+The OmiseGO Network is a decentralized, public network that allows instant, peer-to-peer transactions in real-time, facilitating financial services across geographies, asset classes, and applications.
 
-OmiseGO's mission and vision is to enable fast, fair, and secure, and open and accessible financial services. Our goal is large. We want to become the standard backbone infrastructure that underpins a healthy, open, and accessible financial services ecosystem.
+OmiseGO Network leverages Layer 2 Plasma architecture to provide high througput and strong saftety guarantees for third parties who wish to build scalable, decentralized payment apps on the network. 
 
-OmiseGO is an impact driven company that builds on blockchain to enable access to financial services. 
+The OmiseGO Network allows you to access, manage, and transact with digital assets that are kept securely on the blockchain. 
 
-For more information, see the official [OmiseGO website](https://omisego.co/).
+## Try it out!
 
-To join the OmiseGO developer community, go to https://developer.omisego.co/
+Check out the OmiseGO Network with our [online block explorer](http://quest.samrong.omg.network/) and then send your [own first transaction]() in our [Quick start guide](). 
 
-***
+## Learn more
 
-## OmiseGO Network
+* To learn more about OmiseGO's network architecture and what you can build with it, see the [Introduction to Plasma (MoreVP)](introduction-plasma-more-vp) and [technical details](morevp-technical-overview.md)
 
-The OmiseGO Network provides secure access to financial services, to invest, exchange, spend digital assets anytime, anywhere. The OmiseGO Network is a scaling solution for Ethereum focused on enabling payments, trades, and other financial transactions.
-
-## Software Development Kit (SDK)
-
-OmiseGO develops the open-source, white label digital wallet Software Development Kit (SDK), which is free for anyone to use, and makes it easy for those who need online asset exchange as part of their business, to connect seamlessly to the OmiseGO Network. 
-
-The SDK gives wallet providers the exibility to enhance, add, and customize payment solutions for many use cases.
-
-OmiseGO offers mainstream end-customers an introduction to the many benets of blockchain technology — the wallet SDK makes it easy to create dapps that let the end user take advantage of Ethereum’s immense potential.
-
-
-
-[https://omisego.to/disclaimer](https://omisego.to/disclaimer)
-
+* For more information about the benefits of the OmiseGO Network, see the [OmiseGO website](https://omisego.co/network).
 
 
