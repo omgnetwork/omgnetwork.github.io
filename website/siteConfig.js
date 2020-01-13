@@ -8,6 +8,7 @@ const siteConfig = {
   baseUrl: '/',
   projectName: 'omisego.github.co',
   organizationName: 'omisego',
+  docsUrl: '',
   headerLinks: [
     { doc: 'welcome', label: 'Docs' },
     { doc: 'api-reference-introduction', label: 'API' },
@@ -15,7 +16,6 @@ const siteConfig = {
     { href: 'https://omisego.co/use-cases', external: true, label: 'Use cases' },
     { href: 'https://omisego.co/', external: true, label: 'Product' },
   ],
-  users: [],
   headerIcon: 'img/omisego-white.svg',
   footerIcon: 'img/favicon.ico',
   favicon: 'img/favicon.ico',
