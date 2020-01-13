@@ -1,19 +1,111 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 const React = require('react');
 
-class Footer extends React.Component {
-  render() {
-    return (
-      <footer className="nav-footer" id="footer">
-      </footer>
-    );
-  }
+function Footer () {
+  return (
+    <div className='footer-content'>
+      <div className='footer-wrapper'>
+        <div className='footer-column'>
+          <span className='footer-title'>
+            Getting Started
+          </span>
+          <span className='footer-item'>
+            <a href='https://github.com/omisego/dev-portal/blob/master/guides/morevp_eli5.md'>
+              {`Learn MoreVP\nArchitecture`}
+            </a>
+          </span>
+          <span className='footer-item'>
+            <a href='https://github.com/omisego/dev-portal/blob/master/guides/plasma_interface_from_browser.md'>
+              {`Get to know\nthe Plasma Interface`}
+            </a>
+          </span>
+        </div>
+
+        <div className='footer-column'>
+          <span className='footer-title'>APIs</span>
+          <span className='footer-item'>
+            <a href='https://developer.omisego.co/elixir-omg/docs-ui/?url=0.2/informational_api_specs.yaml'>
+              {`Watcher\nInformational API`}
+            </a>
+          </span>
+          <span className='footer-item'>
+            <a href='https://developer.omisego.co/elixir-omg/docs-ui/?url=0.2/security_critical_api_specs.yaml'>
+              {`Watcher\nSecurity Critical API`}
+            </a>
+          </span>
+          <span className='footer-item'>
+            <a href='https://developer.omisego.co/elixir-omg/docs-ui/?url=0.2/operator_api_specs.yaml'>
+              {`Childchain API`}
+            </a>
+          </span>
+        </div>
+
+        <div className='footer-column'>
+          <span className='footer-title'>
+            Documentation
+          </span>
+          <span className='footer-item'>
+            <a href='https://github.com/omisego/elixir-omg/blob/master/README.md'>
+              {`OmiseGO Network`}
+            </a>
+          </span>
+          <span className='footer-item'>
+            <a href='https://github.com/omisego/omg-js/blob/master/README.md'>
+              {`omg-js`}
+            </a>
+          </span>
+        </div>
+
+        <div className='footer-column'>
+          <span className='footer-title'>
+            Links
+          </span>
+          <span className='footer-item'>
+            <a href='http://quest.samrong.omg.network'>
+              {`Block Explorer`}
+            </a>
+          </span>
+          <span className='footer-item'>
+            <a href='https://omisego.co/'>
+              {`OmiseGO`}
+            </a>
+          </span>
+          <span className='footer-item'>
+            <a href='https://github.com/omisego'>
+              {`GitHub`}
+            </a>
+          </span>
+        </div>
+
+        <div className='footer-column' style={{ position: 'relative' }}>
+          <span className='footer-title'>
+            Follow us
+          </span>
+
+          <span className='footer-item'>
+            <a href='https://twitter.com/omise_go'>
+              <img src='img/twitter.svg' alt='twitter' className='footer-social' />
+            </a>
+            <a href='https://www.linkedin.com/company/omisego/'>
+              <img src='img/linkedin.svg' alt='linkedin' className='footer-social' />
+            </a>
+            <a href='https://github.com/omisego'>
+              <img src='img/github.svg' alt='github' className='footer-social' />
+            </a>
+            <a href='https://reddit.com/r/omise_go/'>
+              <img src='img/reddit.svg' alt='reddit' className='footer-social' />
+            </a>
+            <a href='https://www.youtube.com/channel/UC-NfGRxTkJfVbFgyJoOxzCQ'>
+              <img src='img/youtube.svg' alt='youtube' className='footer-social' />
+            </a>
+          </span>
+
+          <span className='footer-item' style={{ position: 'absolute', bottom: 0 }}>
+            {`© 2019-present OmiseGO.\nAll rights reserved`}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 module.exports = Footer;
