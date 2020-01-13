@@ -22,9 +22,9 @@ const users = [
 
 const siteConfig = {
   title: 'Developers @ OmiseGo', // Title for your website.
-  tagline: 'developer documentation for OmiseGo',
+  tagline: 'Developer documentation for OmiseGo',
   url: 'https://omisego.github.io', // Your website URL
-  baseUrl: '/', // Base URL for your project */
+  baseUrl: '/omisego.github.co/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
@@ -38,8 +38,8 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: 'welcome', label: 'Docs'},
-    {doc: 'api-reference-introduction', label: 'API'},
+    { doc: 'welcome', label: 'Docs' },
+    { doc: 'api-reference-introduction', label: 'API' },
     { href: 'http://quest.samrong.omg.network/', external: true, label: 'Block explorer' },
     { href: 'https://omisego.co/use-cases', external: true, label: 'Use cases' },
     { href: 'https://omisego.co/', external: true, label: 'Product' },
