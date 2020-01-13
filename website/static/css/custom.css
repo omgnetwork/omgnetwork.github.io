@@ -47,12 +47,6 @@
   font-size: 0.7rem;
 }
 
-@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
-}
-
-@media only screen and (min-width: 900px) {
-}
-
 @media only screen and (max-width: 900px) {
   .footer-wrapper {
     flex-direction: column;
@@ -60,10 +54,4 @@
   .footer-content {
     padding: 1.5rem;
   }
-}
-
-@media only screen and (min-width: 1400px) {
-}
-
-@media only screen and (min-width: 1500px) {
 }
