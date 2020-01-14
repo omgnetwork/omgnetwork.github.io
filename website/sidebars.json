@@ -1,8 +1,7 @@
 {
   "docs": {
     "Introduction": [
-      "welcome",
-      "network-connection-details"
+      "welcome"
     ],
     "Getting Started": [
       "quick-start",
@@ -12,6 +11,7 @@
       "integration"
     ],
     "Integration": [
+      "network-connection-details",
       "deposits",
       "transfers",
       "standard-exits",

@@ -14,7 +14,7 @@ The OmiseGO Network allows you to access, manage, and transact with digital asse
 
 ## Try it out!
 
-Check out the OmiseGO Network with our [online block explorer](http://quest.samrong.omg.network/) and then send your first transaction in our [Quick start guide](quick-start).
+Check out the OmiseGO Network with our [online block explorer](http://quest.samrong.omg.network/) and then send your first transaction in our [quick start guide](quick-start).
 
 ## Learn more
 
