@@ -5,10 +5,7 @@
     ],
     "Getting Started": [
       "quick-start",
-      "send-your-first-transaction",
-      "block-explorer-status-get",
-      "omisego-network-resources",
-      "integration"
+      "send-your-first-transaction"
     ],
     "Integration": [
       "network-connection-details",
