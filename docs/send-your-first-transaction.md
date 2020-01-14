@@ -6,6 +6,8 @@ sidebar_label: Send your First Transaction
 
 > If you haven't already, open the [browser wallet]() in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.
 
+> The browser wallet is deployed against the [Pre-lumphini Network environment](network-connection-details.md).
+
 ## Fund Rootchain Wallet
 Before we can transact on the OMG Network, we first have to make sure that we have ETH on the Rootchain (Ethereum's Rinkeby test network).
 1. If you need some Rinkeby ETH, you can easily send yourself some using [this faucet](https://faucet.rinkeby.io/). Please follow the instructions on their website.
