@@ -14,11 +14,11 @@ The OmiseGO Network allows you to access, manage, and transact with digital asse
 
 ## Try it out!
 
-Check out the OmiseGO Network with our [online block explorer](http://quest.samrong.omg.network/) and then send your [own first transaction]() in our [Quick start guide](). 
+Check out the OmiseGO Network with our [online block explorer](http://quest.samrong.omg.network/) and then send your first transaction in our [Quick start guide](quick-start).
 
 ## Learn more
 
-* To learn more about OmiseGO's network architecture and what you can build with it, see the [Introduction to Plasma (MoreVP)](introduction-plasma-more-vp) and [technical details](morevp-technical-overview.md)
+* To learn more about OmiseGO's network architecture and what you can build with it, see the [Introduction to Plasma (MoreVP)](introduction-plasma-more-vp) and the [MoreVP Technical Overview](morevp-technical-overview.md)
 
 * For more information about the benefits of the OmiseGO Network, see the [OmiseGO website](https://omisego.co/network).
 

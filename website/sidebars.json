@@ -1,6 +1,6 @@
 {
   "docs": {
-    "OmiseGO Docs": [
+    "Introduction": [
       "welcome",
       "network-connection-details"
     ],
@@ -10,6 +10,12 @@
       "block-explorer-status-get",
       "omisego-network-resources",
       "integration"
+    ],
+    "Integration": [
+      "deposits",
+      "transfers",
+      "standard-exits",
+      "in-flight-exits"
     ],
     "Client Libraries": [],
     "Appendix": [
