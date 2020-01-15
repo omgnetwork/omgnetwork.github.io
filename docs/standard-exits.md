@@ -8,7 +8,5 @@ Exits provide the ability to exit funds from the Plasma contract back onto the R
 
 > The exit protocol forms the crux of the Plasma design. This guide aims to only discuss implementation of these concepts with respect to the OMG Network. If you want a deeper dive of these concepts, further discussion can be found on the [MoreVP Technical Overview](morevp-technical-overview).
 
-A standard exit is 
-
 ## Implementation
 
