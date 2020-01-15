@@ -49,4 +49,17 @@ You've successfully deposited and made a transfer on the OMG Network. If you wan
 3. Click **OK**. Your web3 wallet will pop up and ask you to confirm the transaction.
 4. If the transaction was successful, you have started a standard exit. You will have to wait for the challenge period to pass before being able to process your exit, releasing the funds back to you.
 
-You've performed an end-to-end process of transacting on the OMG Network.
+> The challenge period for this browser wallet is approximately 2 days (will vary depending on various factors as explained [here]()). This window of time allows other users on the network to challenge your exit if it is dishonest.
+
+## Process Exits
+
+You've started a standard exit and the challenge period has passed. Your exit is honest and so nobody had to challenge your exit. You can now process your exit to release your funds back to you.
+
+1. Click **Process Exits**.
+2. Fill out the token of the UTXO you are exiting and the number of exits you would like to process.
+3. Click **OK**. Your web3 wallet will pop up and ask you to confirm the transaction.
+4. If the transaction was successful, and your exit was queued within the max number of exits you specified, you should have received your funds back on the Rootchain.
+
+> Exit are processed as queues. When a ETH UTXO is being exited, it is added to the ETH exit queue. This queue is processed in order, so if you are 5th in the queue, you are unable to release your funds until exits 1-4 are processed first. The browser wallet provides a general way to process a block of exits in the queue.
+
+Congratulations! You've performed an end-to-end process of transacting on the OMG Network.

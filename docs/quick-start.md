@@ -8,7 +8,7 @@ This guide will show you how to make transactions directly from a browser. By th
 
 * Learn about the Plasma interface
 * Interact with Plasma from end to end
-* Make a deposit, transfer and exit 
+* Make a deposit, transfer, standard exit and process exits
 
 ## Setup
 
