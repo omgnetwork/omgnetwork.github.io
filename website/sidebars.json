@@ -8,7 +8,6 @@
       "send-your-first-transaction"
     ],
     "Integration": [
-      "network-connection-details",
       "deposits",
       "transfers",
       "standard-exits",
@@ -17,6 +16,7 @@
     "Client Libraries": [],
     "Appendix": [
       "glossary",
+      "network-connection-details",
       "network-upgrade-guide",
       {
         "type": "subcategory",
