@@ -23,7 +23,7 @@ The first step in interacting with the OMG Network is to deposit ETH into the ne
 3. Click **OK**. Your web3 wallet should pop up and ask you to confirm the transaction.
 4. Click **Confirm**. By confirming the transaction, you are signing the transaction with your private key and sending it to the OMG Network. You may need to wait for around 2-3 minutes for the deposit to complete, depending on network congestion.
 5. Click **Refresh**. If the deposit was successful, you should see your OMG Network balance update.
-6. Congratulations! 🎉 A deposit UTXO was created and you now have funds on the OMG Network!
+6. A deposit UTXO was created and you now have funds on the OMG Network.
 
 > When you perform a deposit, you are sending funds to the Plasma Framework contract and creating a deposit UTXO for your account. With this new UTXO, you will later be able to transfer funds on the OMG Network. For a further discussion on understanding what is a UTXO, you can check out [this documentation]().
 
@@ -36,7 +36,7 @@ Now that you have funds on the OMG Network, you can make your first transaction.
 3. Click **OK**. Your web3 wallet will pop up and ask you to confirm the transaction.
 4. Verify the inputs and outputs of your transactions to ensure they're accurate.
 5. Click **Confirm**. After a few moments, your OMG Network balance should update.
-6. You've sent your first transaction using Plasma! 🎊 
+6. You've sent your first transaction using Plasma!
 
 > To view the status of your transaction, retrieve the txhash and search for the hash via the [Block Explorer](https://quest-pre-lumphini.omg.network/) to view the transaction details.
 
