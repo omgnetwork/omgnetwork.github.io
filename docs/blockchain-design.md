@@ -1,11 +1,9 @@
 ---
 id: blockchain-design
-title: Design
-sidebar_label: Design
+title: Blockchain Design
+sidebar_label: Blockchain Design
 ---
 
-
-## Overview
 This page describes the blockchain (consensus) design used by the first iteration of OmiseGO Plasma-based implementation. This design is a modified version of [Minimal Viable Plasma design](https://ethresear.ch/t/minimal-viable-plasma/426).
 
 > This content assumes that you have prior knowledge of Ethereum and general familiarity with Plasma.

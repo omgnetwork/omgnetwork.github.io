@@ -17,22 +17,8 @@
       "glossary",
       "network-connection-details",
       "network-upgrade-guide",
-      {
-        "type": "subcategory",
-        "label": "Plasma",
-        "ids": [
-          "introduction-plasma-more-vp",
-          "morevp-technical-overview"
-        ]
-      },
-      {
-        "type": "subcategory",
-        "label": "Blockchain",
-        "ids": [
-          "blockchain-design",
-          "blockchain-architecture"
-        ]
-      }
+      "morevp-technical-overview",
+      "blockchain-design"
     ]
   }
 }
