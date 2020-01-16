@@ -1,16 +1,14 @@
-<!-- ---
+---
 id: deposits
 title: Deposits
 sidebar_label: Deposits
---- -->
+---
 
-## Deposits
-
-### Definition
+## Definition
 
 A deposit involves sending tokens to the Plasma smart contract on Ethereum for subsequent use on the Plasma chain.
 
-### Implementation
+## Implementation
 
 Funds can be deposited using the `deposit()` call in the `omg-js` rootchain module.
 
@@ -32,7 +30,7 @@ const transactionReceipt = await rootChain.deposit({
 })
 ```
 
-### Lifecycle
+## Lifecycle
 
 The `deposit()` call creates an RLP-encoded transaction string, which it will use to deposit into the ETH or ERC-20 `Vault` smart contracts.
 
@@ -42,6 +40,6 @@ After a defined finality period, this UTXO is ready for transacting on the netwo
 
 Note that in the case of an ERC-20 token deposit, the `approveToken()` method must have been called beforehand.
 
-_For detailed function specifications, please refer to the [API documentation](https://developer.omisego.co/omg-js/#deposit)._
+> For detailed function specifications, please refer to the [API documentation](https://developer.omisego.co/omg-js/#deposit).
 
-_For further information on how a deposit transaction is signed, please see the [Appendix]()._
+> For further information on how a deposit transaction is signed, please see the [Appendix]().
