@@ -6,12 +6,6 @@ sidebar_label: Introduction
 
 The intergration section aims to give a deeper technical explanation around the transaction lifecycle. It serves as a guide for integrators using the OmiseGO Network.
 
-You will find documentation on:
-1. [Deposits](deposits)
-2. [Transfers](transfers)
-3. [Standard Exits](standard-exits)
-4. [In Flight Exits](in-flight-exits)
-
 ## Code Examples
 You will find numerous code examples in this section. These code examples are using the [omg-js](https://github.com/omisego/omg-js) integration library, as it abstracts a lot of the processes away from the user. 
 
