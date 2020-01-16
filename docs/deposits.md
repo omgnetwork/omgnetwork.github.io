@@ -6,7 +6,7 @@ sidebar_label: Deposits
 
 ## Definition
 
-A deposit involves sending ETH or ERC-20 tokens to the `Vault` smart contract on Ethereum for subsequent use on the OMG network.
+A deposit involves sending ETH or ERC-20 tokens to the `Vault` smart contract on the root chain for subsequent use on the OMG network.
 
 ## Implementation
 
