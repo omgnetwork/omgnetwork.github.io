@@ -6,7 +6,7 @@ sidebar_label: Deposits
 
 ## Definition
 
-A deposit involves sending tokens to the Plasma smart contract on Ethereum for subsequent use on the Plasma chain.
+A deposit involves sending ETH or ERC-20 tokens to the `Vault` smart contract on Ethereum for subsequent use on the OMG network.
 
 ## Implementation
 
@@ -36,9 +36,9 @@ The `deposit()` call creates an RLP-encoded transaction string, which it will us
 
 The `Vault` in question will then emit a deposit creation event to the Plasma Chain, which generates a single UTXO corresponding the deposited amount.
 
-After a defined finality period, this UTXO is ready for transacting on the network.
+After a defined finality period, the UTXO is ready for transacting on the network.
 
-Note that in the case of an ERC-20 token deposit, the `approveToken()` method must have been called beforehand.
+> Note that in the case of an ERC-20 token deposit, the ERC-20 `Vault` must be pre-authorized to effect a transfer from the sender. To do this, call the `approveToken()` method with the corresponding token address and authorized amount.
 
 > For detailed function specifications, please refer to the [API documentation](https://developer.omisego.co/omg-js/#deposit).
 
