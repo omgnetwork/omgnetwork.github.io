@@ -17,9 +17,9 @@ Funds can be deposited using the `deposit()` call in the `omg-js` rootchain modu
 ```
 const transactionReceipt = await rootChain.deposit({
   amount: 1000,
-  owner: "0xAliceAddress",
   currency: "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07"
   txOptions: {
+    from: "0xAliceAddress",
     privateKey: "0xAlicePrivateKey",
     gas: 10000000000,
     gasPrice: "1000000000"
