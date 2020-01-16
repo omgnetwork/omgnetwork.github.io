@@ -10,10 +10,8 @@ This page provides explanations of the core concepts and terminology for OmiseGO
 The ability to detect that a trade did not execute as expected.
 
 
-
 ## Accounts
 Accounts refers to a grouping of users and wallets. 
-
 
 
 ## API
@@ -42,8 +40,8 @@ Centralized network, in which users and nodes are all connected to a central ser
 A cash in/cash out solution assumes that everyone everyone has a smartphone with access to e-wallet applications that exist in a 'closed loop' payment infrastructure. OmiseGO aims to open up these wallet siloes to allow wallets to exchange with each other. Cash in and cash out touchpoints aim to create a network of banking, hardware, and retail partners where users can deposit and withdraw their cash. The cash becomes tokenized on any wallet applicatoin the user chooses, and may immediately be exchanged for other tokenized currencies and assets via the OmiseGO blockchain.
 
 
-## Child chain
-The OmiseGO Network, also known as the Plasma child chain. See also root chain.
+## Childchain
+The OmiseGO Network.
 
 
 ## Chain validator
@@ -64,7 +62,6 @@ A contract is an agreement involving two or more parties to a mutual obligation.
 
 ## Cold storage
 An offline wallet provided for storing cryptocurrency.
-
 
 
 ## Custody
@@ -89,15 +86,12 @@ Also known as DEX. A cryptocurrency exchange that trades via an automated, peer-
 * Infrastructure is more secure because it's distributed through nodes
 
 
-
 ## Decentralized Finance
 Also known as DeFi. OmiseGO contributes to and supports DeFi, enabling interoperability of multiple solutions to guard against fragmentation. DeFi requires a network with an ecosystem that makes it attractive to build products on it, including adequate liquidity. DeFi can lower barriers to access financial services, supporting provision of loans, for example, since data on the blockchain can be used as input to identify credit risk of the debtor. Financial literacy is a requirement since users must look after their own keys and use the technology responsibly.
 
 
-
 ## Decentralized network
 In a decentralized network, such as a blockchain, data is redundantly stored and monitored by multiple nodes, instead of on a private server. Additionally, data is distributed amongst a web of individual machines with different owners that perform continuous consensus on the validity of changes to its state. In a decentralized network, mechanisms exist to reward nodes that align themselves with network consensus, and penalize those which do not. See Proof of Stake for more information about OmiseGO's enforcement mechanisms. Centralized networks require trust in a central party, are opaque, and gated. Centralized databases are vulnerable to attack because they present a single point of entry for bad actors looking to steal or manipulate data. Decentralized networks are transparent in that every state and every state change (i.e. every balance and every transaction) is stored on a shared ledger, which can be viewed by anyone, or are obscured in a way that makes voluntary provable traceability possible where necessary, so there is no need to trust the word of a central authority.
-
 
 
 ## EIP-712
@@ -117,15 +111,12 @@ See also: https://www.ethereum.org/
 Exit refers to the position at which an investor or institution sells their stake or liquidates their assets to claim a gain or loss.
 
 
-
 ## Front running
 Also known as tailgating. The prohibited practice of entering into an equity (stock) trade, option, futures contract, derivative, or security-based swap, to capitalize on advance, nonpublic knowledge of a large ("block") pending transaction that will influence the price of the underlying security.
 
 
-
 ## Gas price
 Refers to the amount of Ether you're willing to pay per unit of gas. Gas is the measure for the computational work of running transactions or smart contracts on the Ethereum network. Gas may be compared to the use of kilowatts (kW) for measuring electricity use. Gas price is typically measured in Gwei. 
-
 
 
 ## Hard spoon
@@ -142,7 +133,6 @@ Integration libraries exist in the layer between web applications and the blockc
 
 ## Interoperability
 A characteristic of a product or system, which has interfaces that are understood to be able to work with other products or systems, at present or in the future, in either implementation or access, without any restrictions. See https://en.wikipedia.org/wiki/Interoperability
-
 
 
 ## Liquidity
@@ -172,10 +162,8 @@ A mint is a record of each occurrence when more tokens were put into circulation
 Any computer that connects to the blockchain network.
 
 
-
 ## ODP
 Short for OmiseGO Developer Program. Find out more [here](https://developer.omisego.co/)
-
 
 
 ## OMG
@@ -185,7 +173,6 @@ Short for OmiseGO, the name of the OmiseGO Network. Also, the ticker of the ERC2
 ## OMG token
 A utility and staking token that gives users the right to take an active role by running validator nodes on OmiseGO's Proof of Stake network, using their tokens as a security deposit. 
 An OMG token brings value to the Ethereum Mainnet because the value of the OMG token is backed by the value of the amounts transacted on the OmiseGO Network (both external, real-world money, and crypto-money) and being pushed through the network’s decentralized exchange (including the other applications, businesses, and token projects that are outsourcing their DEX requirements to it). As the OmiseGO platform and the underlying network evolves over time, so does the nature and role of the OMG token.
-
 
 
 ## OmiseGO
@@ -214,7 +201,6 @@ Also known as P2P, a system in which peers (computers) connect, share resources,
 Also known as *PoW*. A blockchain consensus algorithm, invented by Satoshi Nakamoto.
 
 
-
 ## Plasma
 Plasma is the scaling solution of OmiseGO. It is a framework for incentivized and enforced execution of smart contracts.
 
@@ -223,35 +209,28 @@ Plasma is the scaling solution of OmiseGO. It is a framework for incentivized an
 The entity that verifies blocks in a Plasma chain. In OmiseGO’s case, an entity that runs the watcher software.
 
 
-
 ## Plasma cash
 Assets deposited into a Plasma cash chain are represented as non-fungible tokens (NFTs). Blocks are different from Plasma MVP, in that each Plasma cash block allocates a slot for each token. When a token is transacted, a record of that transaction is placed at the corresponding slot. Plasma cash removes Plasma MVP’s exit time constraints and reduces user storage and computation requirements by only requiring users watch their own value.
-
 
 
 ## Plasma XT
 Introduces checkpointing from the Plasma chain to the root chain, which allows for periodic finalization of a coin’s ownership in order to reduce the amount of data taht must be stored and verified by each user to limit the storage and computation requirements per coin.
 
 
-
 ## Plasma debit
 A proposal for enabling partial balances (spending only part of the value of a non-fungible token) in a Plasma cash construction, by making every token a payment channel between the user and the chain operator.
-
 
 
 ## Private key
 The private key grants a cryptocurrency user ownership of the funds on a given address. The Blockchain wallet automatically generates and stores private keys for you.
 
 
-
 ## Proof
 A piece of data that you can show to the world to prove that some fact is correct or incorrect.
 
 
-
 ## Proof of Authority
 Also known as PoA. A consensus mechanism in a private blockchain that gives one client (or a specific number of clients) with one particular private key, the right to make all of the blocks in the blockchain.
-
 
 
 ## Proof of Stake
@@ -264,15 +243,12 @@ Also known as PoS. An alternative to Proof-of-Work (PoW). In PoW, a miner spends
 OmiseGO used soft slashing in its initial Honte implementation. Returns are distributed in proportion to the number of tokens staked. However, PoS still represents a more equitable system in that returns are directly proportional to your stake. In PoW, the more computing power you have, the cheaper it is to add more - and since computing power is what earns you mining rewards, this leads to people with lots of money collecting disproportionately larger returns. In PoS, a dollar is a dollar no matter how many of them you have.
 
 
-
 ## Protocol
 An established set of rules or parameters for formatting, transmitting, and communicating data between network devices.
 
 
-
 ## Prover
 The entity that generates proofs for trades.
-
 
 
 ## Restricted custody
@@ -281,17 +257,14 @@ A safety guarantee that protects user funds on the network.
 OmiseGO's restricted custody is the safety mechanism that protects users funds when they trade at an exchange. If the operator (OmiseGO, in this case) tries to steal funds, users will not lose their money. The only way funds can be lost is if the operator and the exchange collude. OmiseGO's security guarantee is enforced in its protocol, whereby the actual platform prevents the operator from acting dishonestly. Three parties must agree to allow OmiseGO's exchange to trade: user, operator/OmiseGO, and exchange. This mechanism allows OmiseGO to provide protection for the exchange.
 
 
-
-## Root chain
-The Ethereum root chain. The main blockchain, or Mainnet. See also, child chain
-
+## Rootchain
+The Ethereum root chain. Can be differing in environment, ie. Rinkeby, Ropsten, Mainnet, etc.
 
 
 ## Settlement
 Refers to the exchange of payment to the seller and the transfer of securities to the buyer of a trade.
 Settlement is the final step in the lifecycle of a securities transaction.
 Settlement is similar to PSP (Payment Service Provider), reconciliation reports, and so on. The purpose of the audit layer is to support the integrity of these settlements, to ensure that all data is valid.
-
 
 
 ## Shared liquidity
@@ -304,12 +277,6 @@ Staking refers to holding a cryptocurrency or token in a wallet for a period of 
 
 ## Testnet
 A sandbox blockchain environment for developers working on a project prototype.
-
-
-
-## Token
-A type of currency, such as loyalty points, cryptocurrency, or tokenized fiat. Identified by a symbol (OMG, BTC, USD). By default, a token is not backed by the blockchain, which means a provider can only make internal transfers, between the provider's wallets and the user's wallets (back and forth) or between accounts. If a provider wishes to have one of its token backed, the address of the smart contract on the blockchain needs to be defined in the token details to uniquely identify it.
-
 
 
 ## Trading protocol
@@ -332,7 +299,6 @@ In blockchain, a transaction is an exchange of value between two wallets. Transa
 While this is not a typical technical glossary term, it's important to clarify what we mean when we say that the OmiseGO Network is 'Unstoppable'. We use this term to characterize the OmiseGO Network, because even if OmiseGO (the company) ceased to exist and our servers were shut down, the OmiseGO Network can be restarted. All software required to run the network is open source and freely available, and anyone could restart the OmiseGO Network. Additionally, OmiseGO does not control the OMG token; the token cannot be withdrawn from circulation because the authority key for the contract was destroyed. 
 
 
-
 ## UTXO
 Short for Unspent Transaction Output. See: https://bitcoin.org/en/glossary/unspent-transaction-output
 
@@ -343,9 +309,3 @@ The person responsible for verifying transactions in a blockchain.
 
 ## Venue
 An entity that holds the order book and matches orders. Venues may be retail or institutional.
-
-
-
-## White label
-White label SDKs allow developers to create their own designs, styles, and even custom application integrations.
-
