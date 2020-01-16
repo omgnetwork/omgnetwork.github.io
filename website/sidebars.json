@@ -13,8 +13,8 @@
       "transfers",
       "standard-exits",
       "in-flight-exits",
-      "process-exits",
-      "challenges"
+      "challenges",
+      "process-exits"
     ],
     "Appendix": [
       "glossary",

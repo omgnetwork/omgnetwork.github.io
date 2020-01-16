@@ -4,14 +4,12 @@ title: In Flight Exits
 sidebar_label: In Flight Exits
 ---
 
-Exits are the ability to exit funds from the OmiseGO Network back onto the Rootchain. There are 2 types of exits, standard exits and in-flight exits. This section will only discuss in-flight exits.
+Exits provide the ability to exit funds from the OmiseGO Network back onto the Rootchain. There are 2 types of exits, standard exits and in-flight exits. This section will only discuss in-flight exits.
 
 A transaction is considered in-flight in these scenarios:
 
 * Transaction has been broadcast but has not yet been included in the child chain, or the user does not have access to the block in which the transaction is included; or,
 * User has access to the block, but the block is invalid (due to a dishonest operator).
-
-In-flight exits provide additional protection when something goes wrong on the child chain while you have transactions in-flight. For example, if a dishonest operator withholds blocks.
 
 > The exit protocol forms the crux of the Plasma design. This guide aims to only discuss implementation of these concepts with respect to the OmiseGO Network. If you want a deeper dive of these concepts, further discussion can be found on the [MoreVP Technical Overview](morevp-technical-overview).
 

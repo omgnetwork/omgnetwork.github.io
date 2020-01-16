@@ -16,15 +16,13 @@ To better understand this mechanism, consider this example:
 `omg-js` provides a general way to process exits in blocks, with `maxExitsToProcess` defining how many exits in the queue we would like to process. Under the hood, this is a direct call to `processExits()` on the Plasma framework contract.
 
 ```js
-async function processEthExits () {
-  const processExitReceipt = await rootChain.processExits({
-    token,
-    exitId: 0,
-    maxExitsToProcess: 20,
-    txOptions: {
-      from: Alice,
-      privateKey: AlicePrivateKey
-    }
-  })
-}
+rootChain.processExits({
+  token,
+  exitId: 0,
+  maxExitsToProcess: 20,
+  txOptions: {
+    from: Alice,
+    privateKey: AlicePrivateKey
+  }
+})
 ```
