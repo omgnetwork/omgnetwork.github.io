@@ -8,6 +8,7 @@
       "send-your-first-transaction"
     ],
     "Integration": [
+      "integration-introduction",
       "deposits",
       "transfers",
       "standard-exits",
@@ -15,6 +16,7 @@
     ],
     "Appendix": [
       "glossary",
+      "faq",
       "network-connection-details",
       "network-upgrade-guide",
       "morevp-technical-overview",

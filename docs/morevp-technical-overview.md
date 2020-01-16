@@ -4,9 +4,6 @@ title: MoreVP Technical Overview
 sidebar_label: MoreVP Technical Overview
 ---
 
-
-
-## Overview
 This page provides a technical description of More Viable Plasma (MoreVP).
 
 [Minimal Viable Plasma](https://ethresear.ch/t/minimal-viable-plasma/426) (Plasma MVP) describes a simple specification for a UTXO-based Plasma chain.

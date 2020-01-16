@@ -17,7 +17,7 @@ The first version of the OmiseGO Network is the Plasma chain known as _Ari_ (v0.
 
 
 ## WHY UPGRADE 
-This upgrade requires a change to the immutable smart contract on _Ari_. For this reason, _Samrong_ will eventually replace Ari entirely. If you wish to continue using the OMG Network, you will need to move your Rinkeby ETH (Ethereum) and ERC20 from Ari to Samrong.
+This upgrade requires a change to the immutable smart contract on _Ari_. For this reason, _Samrong_ will eventually replace Ari entirely. If you wish to continue using the OmiseGO Network, you will need to move your Rinkeby ETH (Ethereum) and ERC20 from Ari to Samrong.
 
 
 ## Benefits
