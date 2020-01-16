@@ -10,6 +10,8 @@ A standard exit can be performed by a user who has access to the contents of a v
 
 > The exit protocol forms the crux of the Plasma design. This guide aims to only discuss implementation of these concepts with respect to the OmiseGO Network. If you want a deeper dive of these concepts, further discussion can be found on the [MoreVP Technical Overview](morevp-technical-overview).
 
+> The standard exit process is the same for both ETH and ERC20 UTXOs.
+
 ## Implementation
 Below are the necessary steps to take when performing a standard exit. Each step is explained in more detail in this guide.
 
@@ -17,7 +19,6 @@ Below are the necessary steps to take when performing a standard exit. Each step
 2. Get the exiting UTXO's information.
 3. Start the standard exit.
 4. Wait for the challenge period.
-5. Process the exit if not challenged and receive funds on the Rootchain.
 
 ## Checking the Exit Queue
 Exits are processed in queues. Before starting a standard exit, the exit queue for that token must exist. Calls are made directly to the Plasma framework contract to get this information.
@@ -74,4 +75,23 @@ async function startStandardExit () {
 > You can only exit one UTXO at a time. Therefore, it is recommended that you consolidate your UTXOs to reduce the number of exits you'll need to perform. See the [transfer](transfers) guide for further information on merging UTXOs.
 
 ## Waiting for the Challenge Period
+After successfully starting a standard exit, Alice will have to wait for the challenge period to pass before being able to process and release her funds back to the Rootchain. The challenge period exists to provide time for other users to disprove the canonicity of the transaction if the transaction is indeed dishonest. 
 
+We can look to `omg-js` to give us more information on how long we have to wait with some of the information we already have from the exit process. Behind the scenes, these functions are calling the `Payment Exit Game` contract as well as retrieving the minimum exit period defined on the `Plasma Framework Contract`. Based on different rules set on exit priority (deposits having an elevated exit priority), the scheduled finalization time is calculated.
+
+```js
+async function waitForChallengePeriod () {
+  const exitId = await rootChain.getStandardExitId({
+    txBytes: exitData.txbytes,
+    utxoPos: exitData.utxo_pos,
+    isDeposit: false
+  })
+  return rootChain.getExitTime({
+    exitRequestBlockNumber: transactionReceipt.blockNumber,
+    submissionBlockNumber: alicesUtxos[0].blknum
+  })
+}
+```
+
+This function will return the scheduled finalization unix time and the milliseconds until that time. 
+Only when this time has passed, can we [process the exit](process-exits) and release the funds.

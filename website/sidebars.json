@@ -12,7 +12,9 @@
       "deposits",
       "transfers",
       "standard-exits",
-      "in-flight-exits"
+      "in-flight-exits",
+      "process-exits",
+      "challenges"
     ],
     "Appendix": [
       "glossary",
