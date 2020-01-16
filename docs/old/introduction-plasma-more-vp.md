@@ -4,9 +4,6 @@ title: Introduction to Plasma (MoreVP)
 sidebar_label: Introduction to Plasma (MoreVP)
 ---
 
-
-
-## Overview
 This page provides a high-level introduction to OmiseGO's implementation of More Viable Plasma (MoreVP), and explains how it works as a scaling solution.
 
 ## What is Plasma?
