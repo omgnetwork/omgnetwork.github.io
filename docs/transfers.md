@@ -28,7 +28,7 @@ The child chain will subsequently create a transaction hash, mark the transactio
 
 ## Implementation
 
-Four steps are required to implement the deposit flow:
+The transfer flow can be broken down into four steps:
 
 1. Create a transaction body with the basic information pertaining to the transaction, including the UTXOs to be spent by the sender.
 
@@ -37,3 +37,34 @@ Four steps are required to implement the deposit flow:
 3. Sign and encode the typed data into a signed transaction.
 
 4. Submit the signed transaction to the `Watcher`.
+
+#### Example:
+
+```
+const payments = [
+  {
+    owner: bobAddress,
+    currency: tokenAddress,
+    amount: transferAmount
+  }
+];
+const fee = {
+  currency: tokenAddress,
+  amount: transferAmount
+};
+
+const transactionBody = transaction.createTransactionBody({
+  fromAddress: aliceAddress,
+  fromUtxos: aliceUtxos,
+  payments,
+  fee,
+  metadata: "data"
+});
+
+const typedData = transaction.getTypedData(transactionBody, rootChainPlasmaContractAddress)
+const privateKeys = new Array(createdTxn.transactions[0].inputs.length).fill(alicePrivateKey)
+const signatures = childChain.signTransaction(typedData, privateKeys)
+const signedTxn = childChain.buildSignedTransaction(typedData, signatures)
+const receipt = await childChain.submitTransaction(signedTxn)
+
+```
