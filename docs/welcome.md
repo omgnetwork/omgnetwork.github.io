@@ -6,7 +6,7 @@ sidebar_label: About OmiseGO
 
 The OmiseGO Network is a decentralized, public network that allows instant, peer-to-peer transactions in real-time, facilitating financial services across geographies, asset classes, and applications.
 
-OmiseGO Network leverages Layer 2 Plasma architecture to provide high througput and strong safety guarantees for third parties who wish to build scalable, decentralized payment apps on the network. 
+OmiseGO Network leverages Layer 2 Plasma architecture to provide high throughput and strong safety guarantees for third parties who wish to build scalable, decentralized payment apps on the network. 
 
 The OmiseGO Network allows you to access, manage, and transact with digital assets that are kept securely on the blockchain. 
 

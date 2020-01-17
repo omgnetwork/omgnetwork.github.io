@@ -47,7 +47,7 @@ In order to start a standard exit, you first need to retrieve the UTXO informati
 async function getUTXOInformation () {
   const alicesUtxos = await childChain.getUtxos(Alice)
 
-  // we will naively take Alice's first UTXO for the sake of this example
+  // we will pick Alice's first UTXO for the sake of this example
   const exitData = await childChain.getExitData(alicesUtxos[0])
 }
 ```

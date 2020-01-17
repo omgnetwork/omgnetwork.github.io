@@ -36,7 +36,7 @@ Now that you have funds on the OmiseGO Network, you can make your first transact
 3. Click **OK**. Your web3 wallet will pop up and ask you to confirm the transaction.
 4. Verify the inputs and outputs of your transactions to ensure they're accurate.
 5. Click **Confirm**. After a few moments, your OmiseGO Network balance should update.
-6. You've sent your first transaction using Plasma!
+6. You've sent your first transaction on the OmiseGO Network!
 
 > To view the status of your transaction, retrieve the txhash and search for the hash via the [Block Explorer](https://quest-pre-lumphini.omg.network/) to view the transaction details.
 
@@ -49,7 +49,7 @@ You've successfully deposited and made a transfer on the OmiseGO Network. If you
 3. Click **OK**. Your web3 wallet will pop up and ask you to confirm the transaction.
 4. If the transaction was successful, you have started a standard exit. You will have to wait for the challenge period to pass before being able to process your exit, releasing the funds back to you.
 
-> The challenge period for this browser wallet is approximately 2 days (will vary depending on various factors as explained [here]()). This window of time allows other users on the network to challenge your exit if it is dishonest.
+> The challenge period for this browser wallet is approximately 2 days (will vary depending on various factors as explained [here](challenges#finalization-time)). This window of time allows other users on the network to challenge your exit if it is dishonest.
 
 ## Process Exits
 
