@@ -41,7 +41,7 @@ A cash in/cash out solution assumes that everyone everyone has a smartphone with
 
 
 ## Childchain
-The OmiseGO Network.
+The OMG Network.
 
 
 ## Chain validator
@@ -167,12 +167,12 @@ Short for OmiseGO Developer Program. Find out more [here](https://developer.omis
 
 
 ## OMG
-Short for OmiseGO, the name of the OmiseGO Network. Also, the ticker of the ERC20 token used to secure the network.
+Short for OmiseGO, the name of the OMG Network. Also, the ticker of the ERC20 token used to secure the network.
 
 
 ## OMG token
 A utility and staking token that gives users the right to take an active role by running validator nodes on OmiseGO's Proof of Stake network, using their tokens as a security deposit. 
-An OMG token brings value to the Ethereum Mainnet because the value of the OMG token is backed by the value of the amounts transacted on the OmiseGO Network (both external, real-world money, and crypto-money) and being pushed through the network’s decentralized exchange (including the other applications, businesses, and token projects that are outsourcing their DEX requirements to it). As the OmiseGO platform and the underlying network evolves over time, so does the nature and role of the OMG token.
+An OMG token brings value to the Ethereum Mainnet because the value of the OMG token is backed by the value of the amounts transacted on the OMG Network (both external, real-world money, and crypto-money) and being pushed through the network’s decentralized exchange (including the other applications, businesses, and token projects that are outsourcing their DEX requirements to it). As the OmiseGO platform and the underlying network evolves over time, so does the nature and role of the OMG token.
 
 
 ## OmiseGO
@@ -296,7 +296,7 @@ In blockchain, a transaction is an exchange of value between two wallets. Transa
 
 
 ## Unstoppable
-While this is not a typical technical glossary term, it's important to clarify what we mean when we say that the OmiseGO Network is 'Unstoppable'. We use this term to characterize the OmiseGO Network, because even if OmiseGO (the company) ceased to exist and our servers were shut down, the OmiseGO Network can be restarted. All software required to run the network is open source and freely available, and anyone could restart the OmiseGO Network. Additionally, OmiseGO does not control the OMG token; the token cannot be withdrawn from circulation because the authority key for the contract was destroyed. 
+While this is not a typical technical glossary term, it's important to clarify what we mean when we say that the OMG Network is 'Unstoppable'. We use this term to characterize the OMG Network, because even if OmiseGO (the company) ceased to exist and our servers were shut down, the OMG Network can be restarted. All software required to run the network is open source and freely available, and anyone could restart the OMG Network. Additionally, OmiseGO does not control the OMG token; the token cannot be withdrawn from circulation because the authority key for the contract was destroyed. 
 
 
 ## UTXO

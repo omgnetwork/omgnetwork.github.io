@@ -5,7 +5,7 @@ sidebar_label: Troubleshooting
 ---
 
 ## Check Network Availability
-A color marker on the block explorer toolbar allows you to see whether the Plasma child chain and API (OmiseGO Network) is available, unavailable, or problematic: 
+A color marker on the block explorer toolbar allows you to see whether the Plasma child chain and API (OMG Network) is available, unavailable, or problematic: 
 * Green - available
 * Amber - problem state; byzantine events detected
 * Red - unavailable
@@ -31,7 +31,7 @@ The table desribes events that may cause network failures, and proposed solution
 
 
 ## Byzantine Events
-This section describes byzantine events that interfere with the health and performance of the OmiseGO Network. When byzantine events are detected, a color indicator adjacent to the network name on the block explorer toolbar changes to amber, indicating that the network is problematic.
+This section describes byzantine events that interfere with the health and performance of the OMG Network. When byzantine events are detected, a color indicator adjacent to the network name on the block explorer toolbar changes to amber, indicating that the network is problematic.
 
 Three categories of byzantine events may occur: 
 * Dishonest users
@@ -39,7 +39,7 @@ Three categories of byzantine events may occur:
 * Dishonest venues
 
 ### Dishonest user
-The table describes how dishonest user events may interfere with the state of the OmiseGO Network: 
+The table describes how dishonest user events may interfere with the state of the OMG Network: 
 
 | Event | Description | 
 | --- | --- |
@@ -48,7 +48,7 @@ The table describes how dishonest user events may interfere with the state of th
 
 
 ### Dishonest operator
-The table describes how a dishonest operator may interfere with the state of the OmiseGO Network: 
+The table describes how a dishonest operator may interfere with the state of the OMG Network: 
 
 | Event | Description | 
 | -------- | ------- |
@@ -60,7 +60,7 @@ The table describes how a dishonest operator may interfere with the state of the
 
 
 ### Dishonest venue
-The table describes how a dishonest venue may interfere with the state of the OmiseGO Network: 
+The table describes how a dishonest venue may interfere with the state of the OMG Network: 
 
 
 | Event | Description | 

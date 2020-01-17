@@ -4,14 +4,14 @@ title: In Flight Exits
 sidebar_label: In Flight Exits
 ---
 
-Exits provide the ability to exit funds from the OmiseGO Network back onto the Rootchain. There are 2 types of exits, standard exits and in-flight exits. This section will only discuss in-flight exits (IFE).
+Exits provide the ability to exit funds from the OMG Network back onto the Rootchain. There are 2 types of exits, standard exits and in-flight exits. This section will only discuss in-flight exits (IFE).
 
 A transaction is considered in-flight in these scenarios:
 
 * Transaction has been broadcast but has not yet been included in the child chain, or the user does not have access to the block in which the transaction is included; or,
 * User has access to the block, but the block is invalid (due to a dishonest operator).
 
-> The exit protocol forms the crux of the Plasma design. This guide aims to only discuss implementation of these concepts with respect to the OmiseGO Network. If you want a deeper dive of these concepts, further discussion can be found on the [MoreVP Technical Overview](morevp-technical-overview).
+> The exit protocol forms the crux of the Plasma design. This guide aims to only discuss implementation of these concepts with respect to the OMG Network. If you want a deeper dive of these concepts, further discussion can be found on the [MoreVP Technical Overview](morevp-technical-overview).
 
 ## Implementation
 
@@ -34,7 +34,7 @@ childChain.inFlightExitGetData(signedTransaction)
 ```
 
 ## Starting the IFE
-With sufficient data about the exit, users can start an in-flight exit and later piggyback their input or output to get their funds out of the OmiseGO Network. 
+With sufficient data about the exit, users can start an in-flight exit and later piggyback their input or output to get their funds out of the OMG Network. 
 
 Behind the scenes, the `Payment Exit Game` contract's `startInFlightExit()` method is called while also commiting a bond to the exit. 
 

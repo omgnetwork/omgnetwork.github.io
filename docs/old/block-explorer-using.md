@@ -26,7 +26,7 @@ This procedure searches the block explorer for specific blocks, transactions, or
 
 
 ## View Transactions
-This procedure displays a list of recent transactions on the OmiseGO Network.
+This procedure displays a list of recent transactions on the OMG Network.
 
 **Perform these steps**:
 
@@ -52,7 +52,7 @@ This procedure displays a list of recent transactions on the OmiseGO Network.
   
 
 ## View Blocks
-This procedure displays blocks added to the OmiseGO Network.
+This procedure displays blocks added to the OMG Network.
 
 **Perform these steps**:
 
@@ -74,7 +74,7 @@ This procedure displays blocks added to the OmiseGO Network.
 
 
 ## View Addresses
-This procedure displays all wallet addresses transacting on the OmiseGO Network.
+This procedure displays all wallet addresses transacting on the OMG Network.
 
 **Perform these steps**:
 

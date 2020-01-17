@@ -1,4 +1,4 @@
-# OmiseGO Network Documentation
+# OMG Network Documentation
 
 ### Documentation changes
 To update the documentation, you only need to work inside the `/docs` folder. All changes to `master` will be deployed and reflected in the published docs.

@@ -45,7 +45,7 @@ function Footer () {
           </span>
           <span className='footer-item'>
             <a target='_blank' href='https://github.com/omisego/elixir-omg/blob/master/README.md'>
-              {`OmiseGO Network`}
+              {`OMG Network`}
             </a>
           </span>
           <span className='footer-item'>
