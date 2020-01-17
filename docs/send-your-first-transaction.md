@@ -25,7 +25,7 @@ The first step in interacting with the OMG Network is to deposit ETH into the ne
 5. Click **Refresh**. If the deposit was successful, you should see your OMG Network balance update.
 6. A deposit UTXO was created and you now have funds on the OMG Network.
 
-> When you perform a deposit, you are sending funds to the `Plasma Framework Contract` and creating a deposit UTXO for your account. With this new UTXO, you will later be able to transfer funds on the OMG Network. For a further discussion on understanding what is a UTXO, you can check out [this documentation]().
+> When you perform a deposit, you are sending funds to the `Plasma Framework` contract and creating a deposit UTXO for your account. With this new UTXO, you will later be able to transfer funds on the OMG Network. For a further discussion on understanding what is a UTXO, you can check out [this documentation]().
 
 ## Make a Transaction
 

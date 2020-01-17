@@ -11,7 +11,7 @@ You will find numerous code examples in this section. These code examples are us
 
 > Best effort is given to generally explain what is going on `under the hood` but if you want to dive deeper into the implementation, you can check out the relevant code in their respective repositories.
 >
-> [Plasma Framework Contracts](https://github.com/omisego/plasma-contracts)  
+> [Plasma Framework contracts](https://github.com/omisego/plasma-contracts)  
 > [Childchain and Watcher](https://github.com/omisego/elixir-omg)  
 
 For the sake of brevity, library imports are not included in the examples, but you will see references to the `rootChain`, `childChain` and `OmgUtil` objects from `omg-js`. For your understanding on where these objects come from, the way these objects are instantiated are shown below.

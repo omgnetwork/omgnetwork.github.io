@@ -20,7 +20,7 @@ Below are the necessary steps to take when performing a standard exit. Each step
 3. Start the standard exit.
 
 ## Checking the Exit Queue
-Exits are processed in queues. Before starting a standard exit, the exit queue for that token must exist. Calls are made directly to the `Plasma Framework Contract` to get this information.
+Exits are processed in queues. Before starting a standard exit, the exit queue for that token must exist. Calls are made directly to the `Plasma Framework` contract to get this information.
 
 ```js
 async function checkForExitQueue (tokenAddress) {

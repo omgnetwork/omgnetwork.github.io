@@ -4,7 +4,7 @@ title: In Flight Exits
 sidebar_label: In Flight Exits
 ---
 
-Exits provide the ability to exit funds from the OMG Network back onto the Rootchain. There are 2 types of exits, standard exits and in-flight exits. This section will only discuss in-flight exits (IFE).
+Exits provide the ability to exit funds from the OMG Network back onto the Rootchain. There are 2 types of exits, standard exits and in-flight exits. This section will only discuss in-flight exits (also referred to as IFE).
 
 A transaction is considered in-flight in these scenarios:
 

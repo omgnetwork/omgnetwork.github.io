@@ -24,7 +24,7 @@ This table describes the scheduled finalization time calculation for different t
 | In-flight exits   | exitable_at = max(exit_request_block.timestamp + MFP, youngest_input_block.timestamp + MFP + REP) |
 | Deposits  |   The exit priority for deposits is elevated to protect against malicious operators:   SFT = max(exit_request_block.timestamp + MFP, utxo_submission_block.timestamp + MFP) |
 
-This table describes the configuration parameters for Scheduled Finalization Time (SFT): 
+This table describes the configuration parameters for the Scheduled Finalization Time (SFT): 
 
 | Parameter | Description |
 |   ---     |   ---     |
@@ -32,7 +32,7 @@ This table describes the configuration parameters for Scheduled Finalization Tim
 | utxo_submission_block | The root chain block where the exiting UTXO was created in a child chain block. |
 | youngest_input_block  | The root chain block where the youngest input of the exiting transaction was created. |
 
-We can look to `omg-js` to abstract this behavior and tell us how long we have to wait with some of the information we have from the exit process. Behind the scenes, these functions are calling the `Payment Exit Game` contract as well as retrieving the minimum exit period defined on the `Plasma Framework Contract`. Based on different rules set on exit priority (as explained in the table above), the scheduled finalization time is calculated.
+We can look to `omg-js` to abstract this behavior and tell us how long we have to wait with some of the information we have from the exit process. Behind the scenes, these functions are calling the `Payment Exit Game` contract as well as retrieving the minimum exit period defined on the `Plasma Framework` contract. Based on different rules set on exit priority (as explained in the table above), the scheduled finalization time is calculated.
 
 ```js
 rootChain.getExitTime({
