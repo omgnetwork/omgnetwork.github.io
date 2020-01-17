@@ -22,19 +22,21 @@ The full lifecycle of an in-flight exit occurs in the following steps:
 4. Waiting for the challenge period, challenging and responding to challenges if necessary
 5. Processing the exit
 
-Only steps 1-3 will be covered in this guide as challenges, responses, and processing exits warrant their own section.
+> Only steps 1-3 will be covered in this guide as challenges, responses, and processing exits warrant their own section.
 
 ## Getting Exit Data
-There are a few different scenarios for the type of information the user has when starting an in-flight exit.
+A user can get the necessary exit data for an in-flight excit if the user has access to the signed transaction. If the user has not seen this transaction get included into a block, they will be motivated to start an in-flight exit. Whether this transaction was actually included in a block does not matter at this point. 
 
-The first scenario is when the user has access to the signed transaction, but has not seen this transaction get included into a block. They can call the Watcher to return the necessary information.
+They can call the Watcher to return the necessary information.
 
 ```js
 childChain.inFlightExitGetData(signedTransaction)
 ```
 
 ## Starting the IFE
-With sufficient data about the exit, users can start an in-flight exit and later piggyback their input or output to get their funds out of the OmiseGO Network.
+With sufficient data about the exit, users can start an in-flight exit and later piggyback their input or output to get their funds out of the OmiseGO Network. 
+
+Behind the scenes, the `Payment Exit Game` contract's `startInFlightExit()` method is called while also commiting a bond to the exit. 
 
 ```js
 rootChain.startInFlightExit({
@@ -51,7 +53,9 @@ rootChain.startInFlightExit({
 ```
 
 ## Piggybacking IFE Output
-Piggybacking is when a user will place a bond on a UTXO involved in an in-flight exit. They are claiming that they have rightful ownership of this UTXO and would like to receive these funds when the exit settles.
+Piggybacking is when a user will place a bond on a UTXO involved in an in-flight exit. They are claiming that they have rightful ownership of this UTXO and would like to receive these funds when the exit settles. The `outputIndex` being the position of the UTXO in the transaction's outputs that is being piggybacked. 
+
+Behind the scenes, the `Payment Exit Game` contract's `piggybackInFlightExitOnOutput()` method is called while also commiting a bond to the piggyback. 
 
 ```js
 rootChain.piggybackInFlightExitOnOutput({
@@ -65,4 +69,17 @@ rootChain.piggybackInFlightExitOnOutput({
 ```
 
 ## Piggybacking IFE Input
-Piggybacking an input occurs when....
+Piggybacking an input is also possible with the same motivations as explained with piggybacking an output UTXO. The `inputIndex` being the position of the UTXO in the transaction's inputs that is being piggybacked. 
+
+Behind the scenes, the `Payment Exit Game` contract's `piggybackInFlightExitOnInput()` method is called while also commiting a bond to the piggyback.
+
+```js
+rootChain.piggybackInFlightExitOnInput({
+  inputIndex,
+  inFlightTx: exitData.in_flight_tx,
+  txOptions: {
+    privateKey: aliceAccount.privateKey,
+    from: aliceAccount.address
+  }
+})
+```
