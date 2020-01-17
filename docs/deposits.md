@@ -34,7 +34,10 @@ const transactionReceipt = await rootChain.deposit({
 
 The `deposit()` call creates an RLP-encoded transaction string, which it will use to deposit into the ETH or ERC-20 `Vault` smart contracts.
 
-The `Vault` in question will then emit a deposit creation event to the Plasma Chain, which generates a single UTXO corresponding the deposited amount.
+The `Vault` in question will then:
+
+- Create a Deposit Block and submit it to the `PlasmaFramework` contract
+- Emit a deposit creation event to the child chain server, which generates a single UTXO corresponding to the deposited amount.
 
 After a defined finality period, the UTXO is ready for transacting on the network.
 
