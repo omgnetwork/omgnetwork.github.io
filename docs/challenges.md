@@ -43,3 +43,23 @@ rootChain.getExitTime({
 
 This function will return the scheduled finalization unix time and the milliseconds until that time. 
 Only when this time has passed, can we [process the exit](process-exits) and release the funds.
+
+## Invalid Exit Example
+Alice attempts to steal tokens from the child chain.
+
+**Scenario**
+
+* Alice sends Bob tokens on the child chain.
+* Alice attempts to exit those same tokens.
+
+**Solution**
+
+To prevent the theft of tokens on the child chain, Alice's invalid exit can be challenged:
+
+* When Alice starts an exit she must put up an exit bond and wait for the challenge period for the exit to be finalized.
+
+* Meanwhile, the Watchers report that Alice is attempting to exit tokens that she has already spent.
+
+* Anyone can now challenge Alice’s exit by proving that Alice has already spent the UTXO in a transaction.
+
+* If the challenge is successful, Alice does not exit the tokens and the challenger is awarded the exit bond that Alice put up.
