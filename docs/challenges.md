@@ -4,17 +4,18 @@ title: Challenging Exits
 sidebar_label: Challenging Exits
 ---
 
-The process of challenging exits takes place during a challenge period after an exit has been started. The challenge period exists to provide time for other users to disprove the canonicity of the transaction if the transaction is dishonest. Based on the type of exit, the finalization time may differ.
+The process of challenging exits takes place during a defined challenge period after an exit has started. The challenge period exists to provide time for other users to challenge dishonest exits.
+
+## Lifecycle
+
+1. Standard exit or in-flight exit started.
+2. Challenge period is started, and if a dishonest exit takes place the Watcher will report it.
+3. Users on the network challenge and respond to reported byzantine events.
+4. Challenge period expires and honest exits without any challenges can be processed and released. Users who have successfully responded to byzantine events will be rewarded their bond, and any dishonest exits will be cancelled.
 
 ## Finalization Time
 
-All exits must wait at least the Minimum Finalization Period (MFP), to always have the challenge period. 
-
-Freshly exited UTXOs must wait an additional Required Exit Period (REP), counting from their submission to the root chain contract. 
-
-Example values for these exit waiting periods:  
-MFP - 1 week  
-REP - 1 week
+The scheduled finalization time is the time when the challenge period of an exit expires and the exit can be processed. The calculation of this time will differ depending on a few variables. All exits must wait at least the Minimum Finalization Period (MFP). This is hard coded into the `Plasma Framework` contract. Freshly exited UTXOs must wait an additional Required Exit Period (REP), counting from their submission to the root chain contract.
 
 This table describes the scheduled finalization time calculation for different types of exits: 
 
@@ -32,65 +33,60 @@ This table describes the configuration parameters for the Scheduled Finalization
 | utxo_submission_block | The root chain block where the exiting UTXO was created in a child chain block. |
 | youngest_input_block  | The root chain block where the youngest input of the exiting transaction was created. |
 
-We can look to `omg-js` to abstract this behavior and tell us how long we have to wait with some of the information we have from the exit process. Behind the scenes, these functions are calling the `Payment Exit Game` contract as well as retrieving the minimum exit period defined on the `Plasma Framework` contract. Based on different rules set on exit priority (as explained in the table above), the scheduled finalization time is calculated.
+We can look to `omg-js` to abstract this calculation and tell us how long we have to wait with some of the information we have from the exit process. Behind the scenes, these functions are calling the `Payment Exit Game` contract as well as retrieving the minimum finalization period defined on the `Plasma Framework` contract. Based on different rules set on exit priority (as explained in the table above), the scheduled finalization time is calculated.
 
 ```js
-rootChain.getExitTime({
-  exitRequestBlockNumber: exitTransactionReceipt.blockNumber,
-  submissionBlockNumber: exitingUtxo.blknum
-})
+rootChain.getExitTime({ exitRequestBlockNumber, submissionBlockNumber })
 ```
 
 This function will return the scheduled finalization unix time and the milliseconds until that time. 
 Only when this time has passed, can we [process the exit](process-exits) and release the funds.
 
 ## Byzantine Events
-The Watcher provides a useful utility of alerting byzantine behavior on the OMG Network. Users can use this information to decide whether they should exit or challenge the event.
+The Watcher provides a useful utility of alerting byzantine behavior on the OMG Network. Users can use this information to decide whether they need to challenge any events or exit the Childchain.
 
-These events are reported in the Watcher's `/status.get` endpoint providing an array of byzantine events.
+
+These events are reported in the Watcher's `/status.get` endpoint providing an array of byzantine events. `omg-js` provides a helper function to get this report.
 
 ```js
 childChain.status()
 ```
 
 ## Challengeable Events
-These are byzantine events reported where further action by users of the network are required.
+These are byzantine events reported by the Watcher, where further action by users of the network are required.
 
 #### `invalid_exit`
 Indicates that an invalid exit is occurring. It should be challenged.
 
 ```json
 {
-    "event": "invalid_exit",
-    "details": {
-        "eth_height"  : 3521678,
-        "utxo_pos"  : 10000000010000000,
-        "owner"  : "0xb3256026863eb6ae5b06fa396ab09069784ea8ea",
-        "currency"  : "0x0000000000000000000000000000000000000000",
-        "amount" : 100
-    }
+  "event": "invalid_exit",
+  "details": {
+    "eth_height"  : 3521678,
+    "utxo_pos"  : 10000000010000000,
+    "owner"  : "0xb3256026863eb6ae5b06fa396ab09069784ea8ea",
+    "currency"  : "0x0000000000000000000000000000000000000000",
+    "amount" : 100
+  }
 }
 ```
 
 **Scenario**
 
-Alice attempts to steal tokens from the child chain.
-
-* Alice sends Bob tokens on the child chain.
-* Alice attempts to exit those same tokens.
+* Alice uses a UTXO to send Bob tokens on the child chain.
+* Alice attempts to exit that same UTXO.
 
 **Solution**
 
-To prevent the theft of tokens on the child chain, Alice's invalid exit can be challenged:
-
-* When Alice starts an exit she must put up an exit bond and wait for the challenge period for the exit to be finalized.
-* Meanwhile, the Watchers report that Alice is attempting to exit tokens that she has already spent by reporting the `invalid_exit` event.
-* Anyone can now challenge Alice’s exit by proving that Alice has already spent the UTXO in a transaction.
-* If the challenge is successful, Alice does not exit the tokens and the challenger is awarded the exit bond that Alice put up.
+* The Watcher reports an `invalid_exit`.
+* Anyone can challenge Alice’s exit by proving that Alice has already spent the UTXO in a transaction.
+* If the challenge is successful, Alice does not exit the tokens and the challenger is awarded the exit bond that Alice put up when starting the exit.
 
 **Implementation**
 
-We can use the information reported by the Watcher to retrieve the data required to challenge the exit. We then can make a call to the `Payment Exit Game` contract calling `challengeStandardExit()`.
+We can use the byzantine event information reported by the Watcher to retrieve the data required to challenge the exit. We then can make a call to the `Payment Exit Game` contract calling `challengeStandardExit()`. 
+
+In the example below, Bob has seen the reported `invalid_exit` event and proceeds to challenge the exit. He will receive Alice's posted bond if the challenge is successful.
 
 ```js
 async function challengeInvalidExit () {
@@ -109,61 +105,90 @@ async function challengeInvalidExit () {
 }
 ```
 
-<!-- TODO is this actually implemented? -->
 #### `noncanonical_ife`
 Indicates an in-flight exit of a non-canonical transaction has been started. It should be challenged.
 
 ```json
 {
-    "event": "noncanonical_ife",
-    "details": {
-        "txbytes": "0xf3170101c0940000..."
-    }
+  "event": "noncanonical_ife",
+  "details": {
+    "txbytes": "0xf3170101c0940000..."
+  }
 }
 ```
 
-Event details:
-
-Attribute | Type | Description
---------- | ------- | -----------
-txbytes | Hex encoded string | The in-flight transaction that the event relates to
-
 **Scenario**
+
+* Alice creates a transaction to Bob, but Bob doesn't see the transaction get included in a block. He assumes the operator is withholding, so he attempts to exit his spent UTXO as an in-flight exit.
+* Bob starts his in-flight exit and piggybacks his output.
+* Alice sends a transaction to Carol using the same UTXO (double spend). This transaction is not included in a block.
+
 **Solution**
+
+* Carol sees that Bob is trying to exit a transaction with the same input that Alice has sent her.
+* Carol uses her transaction to challenge Bob's IFE as non-canonical.
+
 **Implementation**
+
+```js
+rootChain.challengeInFlightExitNonCanonical({
+  inputTx,
+  inputUtxoPos,
+  inFlightTx,
+  inFlightTxInputIndex,
+  competingTx,
+  competingTxInputIndex,
+  competingTxPos,
+  competingTxInclusionProof,
+  competingTxWitness,
+  txOptions: {
+    from: Carol,
+    privateKey: CarolPrivateKey,
+  }
+})
+```
 
 #### `invalid_ife_challenge`
 Indicates a canonical in-flight exit has been challenged. The challenge should be responded to.
 
 ```json
 {
-    "event": "invalid_ife_challenge",
-    "details": {
-        "txbytes": "0xf3170101c0940000..."
-    }
+  "event": "invalid_ife_challenge",
+  "details": {
+    "txbytes": "0xf3170101c0940000..."
+  }
 }
 ```
 
-Event details:
-
-Attribute | Type | Description
---------- | ------- | -----------
-txbytes | Hex encoded string | The in-flight transaction that the event relates to
-
 **Scenario**
 
-* Alice creates a transaction to Bob, but Bob doesn't see the transaction get included in a block. He assumes the operator is withholding, so he attemps to exit his spent UTXO as an in-flight exit.
-* Bob starts his in-flight exit and piggybacks his output
+* Alice creates a transaction to Bob, but Bob doesn't see the transaction get included in a block. He assumes the operator is withholding, so he attempts to exit his spent UTXO as an in-flight exit.
+* Bob starts his in-flight exit and piggybacks his output.
 * Alice sends a transaction to Carol using the same UTXO (double spend). This transaction is not included in a block.
 * Alice's original transaction to Bob is eventually included in a block.
 * Carol sees that Bob is trying to exit a transaction with the same input that Alice has sent her.
 * Carol uses her transaction to challenge Bob's IFE as non-canonical.
 
 **Solution**
-* The Watcher reports an `invalid_ife_challenge` on Carol's challenge
-* Bob sees this and retrieves his inclusion proof to respond to the non canonical challenge.
+* The Watcher reports an `invalid_ife_challenge` on Carol's challenge.
+* Bob sees this and retrieves his inclusion proof from the Watcher and responds to the non canonical challenge.
 
 **Implementation**
+
+```js
+async function respondToInvalidIFEChallenge () {
+  const proof = await childChain.inFlightExitProveCanonical(invalidChallenge.details.txbytes)
+  return rootChain.respondToNonCanonicalChallenge({
+    inFlightTx: proof.in_flight_txbytes,
+    inFlightTxPos: proof.in_flight_tx_pos,
+    inFlightTxInclusionProof: proof.in_flight_proof,
+    txOptions: {
+      from: Bob
+      privateKey: BobPrivateKey,
+    }
+  })
+}
+```
 
 
 #### `invalid_piggyback`
@@ -171,12 +196,12 @@ Indicates an invalid piggyback is in process. Should be challenged.
 
 ```json
 {
-    "event": "invalid_piggyback",
-    "details": {
-        "txbytes": "0xf3170101c0940000...",
-        "inputs": [1],
-        "outputs": [0]
-    }
+  "event": "invalid_piggyback",
+  "details": {
+    "txbytes": "0xf3170101c0940000...",
+    "inputs": [1],
+    "outputs": [0]
+  }
 }
 ```
 
@@ -189,8 +214,36 @@ inputs | Integer array | A list of invalid piggybacked inputs
 outputs | Integer array | A list of invalid piggybacked outputs
 
 **Scenario**
+
+* Alice creates a transaction to Bob, but Bob doesn't see the transaction get included in a block. He assumes the operator is withholding, so he attempts to exit his spent UTXO as an in-flight exit.
+* Bob starts his in-flight exit and piggybacks his output.
+* Alice piggybacks her input on the in-flight exit.
+* Alice maliciously sends funds to Carol double spending the UTXO sent to Bob.
+* Carol sees that Bob is trying to exit the same input that Alice has sent to her.
+
 **Solution**
+
+* Watcher reports an `invalid_piggyback` on Alice's input piggyback.
+* Carol uses her transaction to challenge the IFE as non-canonical.
+* Carol also challenges Alice's invalid input piggyback to prevent her from getting her UTXO out.
+
 **Implementation**
+
+```js
+rootChain.challengeInFlightExitInputSpent({
+  inFlightTx,
+  inFlightTxInputIndex,
+  challengingTx,
+  challengingTxInputIndex,
+  challengingTxWitness,
+  inputTx,
+  inputUtxoPos,
+  txOptions: {
+    from: Carol,
+    privateKey: CarolPrivateKey,
+  }
+})
+```
 
 ## Unchallengeable Events
 These are byzantine events that are signals for users to exit the Childchain.
@@ -201,14 +254,14 @@ See docs on [`unchallenged_exit` condition](https://github.com/omisego/elixir-om
 
 ```json
 {
-    "event": "unchallenged_exit",
-    "details": {
-        "eth_height"  : 3521678,
-        "utxo_pos"  : 10000000010000000,
-        "owner"  : "0xb3256026863eb6ae5b06fa396ab09069784ea8ea",
-        "currency"  : "0x0000000000000000000000000000000000000000",
-        "amount" : 100
-    }
+  "event": "unchallenged_exit",
+  "details": {
+    "eth_height"  : 3521678,
+    "utxo_pos"  : 10000000010000000,
+    "owner"  : "0xb3256026863eb6ae5b06fa396ab09069784ea8ea",
+    "currency"  : "0x0000000000000000000000000000000000000000",
+    "amount" : 100
+  }
 }
 ```
 
@@ -217,12 +270,12 @@ Indicates that an invalid block has been added to the chain. User should exit.
 
 ```json
 {
-    "event": "invalid_block",
-    "details": {
-        "blockhash"  : "0x0017372421f9a92bedb7163310918e623557ab5310befc14e67212b660c33bec",
-        "blknum"  : 10000,
-        "error_type": "tx_execution"
-    }
+  "event": "invalid_block",
+  "details": {
+    "blockhash"  : "0x0017372421f9a92bedb7163310918e623557ab5310befc14e67212b660c33bec",
+    "blknum"  : 10000,
+    "error_type": "tx_execution"
+  }
 }
 ```
 
@@ -231,11 +284,11 @@ Indicates that the Childchain is withholding a block whose hash has been publish
 
 ```json
 {
-    "event": "block_withholding",
-    "details": {
-        "hash"  : "0x0017372421f9a92bedb7163310918e623557ab5310befc14e67212b660c33bec",
-        "blknum"  : 10000
-    }
+  "event": "block_withholding",
+  "details": {
+    "hash"  : "0x0017372421f9a92bedb7163310918e623557ab5310befc14e67212b660c33bec",
+    "blknum"  : 10000
+  }
 }
 ```
 
@@ -244,30 +297,23 @@ These are events that do not require any action on the users of the network and 
 
 #### `piggyback_available`
 Indicates an in-flight exit has been started and can be piggybacked. If all inputs are owned by the same address, then `available_inputs` will not be present.
+
 This event is reported only for in-flight exits from transactions that have not been included in a block.
 If input or output of exiting transaction is piggybacked it does not show up as available for piggybacking.
 When in-flight exit is finalized, transaction's inputs and outputs are not available for piggybacking.
 
 ```json
 {
-    "event": "piggyback_available",
-    "details": {
-        "txbytes": "0xf3170101c0940000...",
-        "available_outputs" : [
-            {"index": 0, "address": "0xb3256026863eb6ae5b06fa396ab09069784ea8ea"},
-            {"index": 1, "address": "0x488f85743ef16cfb1f8d4dd1dfc74c51dc496434"},
-        ],
-        "available_inputs" : [
-            {"index": 0, "address": "0xb3256026863eb6ae5b06fa396ab09069784ea8ea"}
-        ],
-    }
+  "event": "piggyback_available",
+  "details": {
+    "txbytes": "0xf3170101c0940000...",
+    "available_outputs" : [
+      {"index": 0, "address": "0xb3256026863eb6ae5b06fa396ab09069784ea8ea"},
+      {"index": 1, "address": "0x488f85743ef16cfb1f8d4dd1dfc74c51dc496434"},
+    ],
+    "available_inputs" : [
+      {"index": 0, "address": "0xb3256026863eb6ae5b06fa396ab09069784ea8ea"}
+    ],
+  }
 }
 ```
-
-Event details:
-
-Attribute | Type | Description
---------- | ------- | -----------
-txbytes | Hex encoded string | The in-flight transaction that the event relates to
-available_outputs | Object array | The outputs (index and address) available to be piggybacked
-available_inputs | Object array | The inputs (index and address) available to be piggybacked
