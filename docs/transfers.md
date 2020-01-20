@@ -64,7 +64,7 @@ const transactionBody = transaction.createTransactionBody({
 });
 
 const typedData = transaction.getTypedData(transactionBody, rootChainPlasmaContractAddress)
-const privateKeys = new Array(createdTxn.transactions[0].inputs.length).fill(alicePrivateKey)
+const privateKeys = new Array(transactionBody.inputs.length).fill(alicePrivateKey)
 const signatures = childChain.signTransaction(typedData, privateKeys)
 const signedTxn = childChain.buildSignedTransaction(typedData, signatures)
 const receipt = await childChain.submitTransaction(signedTxn)
