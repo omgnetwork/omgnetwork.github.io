@@ -4,10 +4,6 @@ title: Transfers
 sidebar_label: Transfers
 ---
 
-## Transfers
-
-## Definition
-
 A transfer involves one wallet sending tokens to another wallet on the OMG Network.
 
 ## Lifecycle
@@ -42,59 +38,54 @@ The transfer flow can be broken down into four steps:
 
 The most "granular" implementation would look like the following:
 
-```
-const payments = [
-  {
-    owner: bobAddress,
-    currency: tokenAddress,
-    amount: transferAmount
-  }
-];
-const fee = {
-  currency: tokenAddress,
-  amount: transferAmount
-};
-
-const transactionBody = transaction.createTransactionBody({
-  fromAddress: aliceAddress,
-  fromUtxos: aliceUtxos,
-  payments,
-  fee,
-  metadata: "data"
-});
-
-const typedData = transaction.getTypedData(transactionBody, rootChainPlasmaContractAddress)
-const privateKeys = new Array(transactionBody.inputs.length).fill(alicePrivateKey)
-const signatures = childChain.signTransaction(typedData, privateKeys)
-const signedTxn = childChain.buildSignedTransaction(typedData, signatures)
-const receipt = await childChain.submitTransaction(signedTxn)
-
+```js
+function transfer () {
+  const transactionBody = OmgUtil.transaction.createTransactionBody({
+    fromAddress: aliceAddress,
+    fromUtxos: aliceUtxos,
+    payments: [
+      {
+        owner: bobAddress,
+        currency: tokenAddress,
+        amount: transferAmount
+      }
+    ],
+    fee: {
+      currency: tokenAddress,
+      amount: transferAmount
+    },
+    metadata: "data"
+  });
+  
+  const typedData = OmgUtil.transaction.getTypedData(transactionBody, rootChainPlasmaContractAddress)
+  const privateKeys = new Array(transactionBody.inputs.length).fill(alicePrivateKey)
+  const signatures = childChain.signTransaction(typedData, privateKeys)
+  const signedTxn = childChain.buildSignedTransaction(typedData, signatures)
+  return childChain.submitTransaction(signedTxn)
+}
 ```
 
 Another method is to call the `Watcher` for a transaction body with inputs and typed data pre-included:
 
-```
-const payments = [
-  {
-    owner: bobAddress,
-    currency: tokenAddress,
-    amount: transferAmount
-  }
-];
-const fee = {
-  currency: tokenAddress,
-  amount: transferAmount
-};
-
-const transactionBody = await childChain.createTransaction({
-  owner: aliceAddress,
-  payments,
-  fee,
-  metadata: "data"
-});
-
-const signedTypedData = childchain.signTypedData(transactionBody, privateKeys)
-
-const receipt = await childChain.submitTyped(signedTypedData)
-
+```js
+async function transfer () {
+  const transactionBody = await childChain.createTransaction({
+    owner: aliceAddress,
+    payments: [
+      {
+        owner: bobAddress,
+        currency: tokenAddress,
+        amount: transferAmount
+      }
+    ],
+    fee: {
+      currency: tokenAddress,
+      amount: transferAmount
+    },
+    metadata: "data"
+  });
+  
+  const signedTypedData = childchain.signTypedData(transactionBody, privateKeys)
+  return childChain.submitTyped(signedTypedData)
+}
 ```
