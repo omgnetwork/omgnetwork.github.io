@@ -1,10 +1,10 @@
 ---
 id: api-reference-introduction
-title: OmiseGO Network APIs
-sidebar_label: OmiseGO Network APIs
+title: OMG Network APIs
+sidebar_label: OMG Network APIs
 ---
 
-This is a guide to working with the OmiseGO Network REST APIs.
+This is a guide to working with the OMG Network REST APIs.
 
 The OmiseGO API documentation describes how you can explore and interact with the OmiseGO APIs. This documentation should help you become familiar with the available resources and how to consume them with HTTP requests.
 
@@ -20,7 +20,7 @@ OmiseGO APIs are completely open. No authentication is required to query and get
 - [Childchain API](https://developer.omisego.co/elixir-omg/docs-ui/?url=master/operator_api_specs.yaml)
 
 
-## OmiseGO Network APIs
+## OMG Network APIs
 
 ### Watcher	
 Everyone needs to run their own watcher. This means you are not bound by a requirement to place complete trust in the network operator (in this case, OmiseGO).
@@ -38,7 +38,7 @@ Everyone needs to run their own watcher. This means you are not bound by a requi
 ### Child chain	
 A public and open Plasma operator API that allows you to get block data for implementing your own watcher.
 
-To use the child chain you'll need to first deposit funds (on Ethereum) into the OmiseGO Network.
+To use the child chain you'll need to first deposit funds (on Ethereum) into the OMG Network.
 
 Funds on the network are protected by your own private key, which is the authorization mechanism used to sign Ethereum and Plasma transactions.
 

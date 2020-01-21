@@ -199,7 +199,7 @@ There are various bonds involved with Exit Games. These values of these bonds ma
 
 In order to exit a UTXO, you need to get the corresponding transaction type. We currently only support Payment transactions, for which the id is 1.
 
-You then need to get the Exit Game contract address from the PlasmaFramework contract:
+You then need to get the `Exit Game` contract address from the PlasmaFramework contract:
 
 ```
 address = PlasmaFramework.exitGames(1)

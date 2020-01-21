@@ -4,8 +4,8 @@ title: Getting Started
 sidebar_label: Getting Started
 ---
 
-## Browse the OmiseGO Network Block Explorer
-This procedure launches the online block explorer for the OmiseGO Network, selects the network (either Mainnet or Testnet), and explains how you can search for data. 
+## Browse the OMG Network Block Explorer
+This procedure launches the online block explorer for the OMG Network, selects the network (either Mainnet or Testnet), and explains how you can search for data. 
 
 **Perform these steps**:
 

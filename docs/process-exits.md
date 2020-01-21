@@ -13,7 +13,7 @@ To better understand this mechanism, consider this example:
 3. To release your funds back to the Rootchain, you would need to process exits 1-4 before you can process your exit in the 5th position.
 
 ## Implementation
-`omg-js` provides a general way to process exits in blocks, with `maxExitsToProcess` defining how many exits in the queue we would like to process. Under the hood, this is a direct call to `processExits()` on the Plasma framework contract.
+`omg-js` provides a general way to process exits in blocks, with `maxExitsToProcess` defining how many exits in the queue we would like to process. Under the hood, this is a direct call to `processExits()` on the `Plasma Framework` contract`.
 
 ```js
 rootChain.processExits({

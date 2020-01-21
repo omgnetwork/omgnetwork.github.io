@@ -1,6 +1,7 @@
 // See https://docusaurus.io/docs/site-config for more options
 
 const siteConfig = {
+  docsSideNavCollapsible: false,
   disableHeaderTitle: true,
   title: 'OmiseGO | Developer Portal',
   tagline: 'Documentation for OmiseGo',
@@ -34,10 +35,6 @@ const siteConfig = {
   // Open Graph and Twitter card images.
   ogImage: 'img/omisego-blue.svg',
   twitterImage: 'img/omisego-blue.svg',
-
-  // For sites with a sizable amount of content, set collapsible to true.
-  // Expand/collapse the links and subcategories under categories.
-  docsSideNavCollapsible: true,
 
   // Show documentation's last contributor's name.
   enableUpdateBy: false,

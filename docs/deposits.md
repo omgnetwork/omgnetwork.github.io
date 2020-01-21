@@ -4,8 +4,6 @@ title: Deposits
 sidebar_label: Deposits
 ---
 
-## Definition
-
 A deposit involves sending ETH or ERC-20 tokens to the `Vault` smart contract on the root chain for subsequent use on the OMG network.
 
 ## Implementation
@@ -14,18 +12,16 @@ Funds can be deposited using the `deposit()` call in the `omg-js` rootchain modu
 
 #### Example:
 
-```
-const transactionReceipt = await rootChain.deposit({
+```js
+rootChain.deposit({
   amount: 1000,
   currency: "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07"
   txOptions: {
-    from: "0xAliceAddress",
-    privateKey: "0xAlicePrivateKey",
-    gas: 10000000000,
-    gasPrice: "1000000000"
+    from: Alice,
+    privateKey: AlicePrivateKey
   }
   callbacks: {
-      onConfirmation: () => sendConfirmation()
+    onConfirmation: () => sendConfirmation()
   }
 })
 ```

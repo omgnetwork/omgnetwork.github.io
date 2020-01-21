@@ -4,11 +4,11 @@ title: Standard Exits
 sidebar_label: Standard Exits
 ---
 
-Exits provide the ability to exit funds from the OmiseGO Network back onto the Rootchain. There are 2 types of exits, standard exits and in-flight exits. This section will only discuss standard exits.
+Exits provide the ability to exit funds from the OMG Network back onto the Rootchain. There are 2 types of exits, standard exits and in-flight exits. This section will only discuss standard exits.
 
 A standard exit can be performed by a user who has access to the contents of a valid block where their transaction has been included.
 
-> The exit protocol forms the crux of the Plasma design. This guide aims to only discuss implementation of these concepts with respect to the OmiseGO Network. If you want a deeper dive of these concepts, further discussion can be found on the [MoreVP Technical Overview](morevp-technical-overview).
+> The exit protocol forms the crux of the Plasma design. This guide aims to only discuss implementation of these concepts with respect to the OMG Network. If you want a deeper dive of these concepts, further discussion can be found on the [MoreVP Technical Overview](morevp-technical-overview).
 
 > The standard exit process is the same for both ETH and ERC20 UTXOs.
 
@@ -20,7 +20,7 @@ Below are the necessary steps to take when performing a standard exit. Each step
 3. Start the standard exit.
 
 ## Checking the Exit Queue
-Exits are processed in queues. Before starting a standard exit, the exit queue for that token must exist. Calls are made directly to the Plasma framework contract to get this information.
+Exits are processed in queues. Before starting a standard exit, the exit queue for that token must exist. Calls are made directly to the `Plasma Framework` contract to get this information.
 
 ```js
 async function checkForExitQueue (tokenAddress) {
@@ -41,13 +41,13 @@ async function checkForExitQueue (tokenAddress) {
 ```
 
 ## Getting UTXO Information
-In order to start a standard exit, you first need to retrieve the UTXO information that you want to exit. This can be accomplished with calls to the Watcher. The Watcher is able to return Alice's UTXO information and provide the exit data necessary to start the standard exit.
+In order to start a standard exit, you first need to retrieve the exit data for the UTXO that you want to exit. This can be accomplished with calls to the Watcher. The Watcher is able to return Alice's UTXO information and provide the exit data necessary to start the standard exit.
 
 ```js
 async function getUTXOInformation () {
   const alicesUtxos = await childChain.getUtxos(Alice)
 
-  // we will naively take Alice's first UTXO for the sake of this example
+  // we will pick Alice's first UTXO for the sake of this example
   const exitData = await childChain.getExitData(alicesUtxos[0])
 }
 ```

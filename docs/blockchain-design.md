@@ -24,7 +24,7 @@ The key features of OmiseGO's blockchain design may be viewed as deviations from
 1. Only supports transactions transferring value between addresses.
 
    Value transfer can take the form of an atomic swap; that is two currencies being exchanged in a single transaction (multiple currencies: Eth + ERC20).
-   See also: [Transactions](blockchain-design#transactions.md)
+   See also: [Transactions](blockchain-design.md)
 
 2. It is a non-p2p, proof-of-authority network. 
 
@@ -65,7 +65,7 @@ The root chain contract secures the child chain:
 * Tracks child chain block hashes submitted that account for the funds being moved on the child chain
 * Manages secure exiting of funds, including exits of in-flight transactions
 
-The child chain, and the root chain contract that secures it, manage funds using the UTXO model. See also, [Transactions](blockchain-design#transactions.md).
+The child chain, and the root chain contract that secures it, manage funds using the UTXO model. See also, [Transactions](blockchain-design.md).
 
 ### Deposits
 Any Ethereum address may deposit ETH or ERC20 tokens into the root chain contract. Deposits increase the pool of funds held by the root chain contract, and also signals to the child chain server that the funds should be accessible on the child chain.
@@ -81,7 +81,7 @@ Exits are the most important part of the root chain contract facilities. Exits p
 Exits must satisfy the following conditions:
 | Condition | Description |
 | ---       |   ---       |
-| E1        | Only funds represented by UTXOs that were provably included in the child chain may be exited. See [Transactions](blockchain-design#transactions.md). This means that only funds that provably existed may be exited. |
+| E1        | Only funds represented by UTXOs that were provably included in the child chain may be exited. See [Transactions](blockchain-design.md). This means that only funds that provably existed may be exited. |
 | E2        | Attempts to exit funds that have been provably spent on the child chain, must be thwarted and punished. |
 | E3        | There must be a priority given to earlier UTXOs, for the event when the attacking child chain operator submits a block creating UTXOs dishonestly and attempts to exit these UTXOs. This allows all UTXOs created before the dishonest UTXOs, to exit first. |
 | E4        | In-flight funds (funds locked up in a transaction), which may or may not have not been included in the child chain, must be able to exit on par with funds whose inclusion is known. |
