@@ -25,9 +25,9 @@ Below are the necessary steps to take when performing a standard exit. Each step
 Exits are processed in queues. Before starting a standard exit, the exit queue for that token must exist. Calls are made directly to the `Plasma Framework` contract to get this information.
 
 ```js
-async function checkForExitQueue(tokenAddress) {
+async function checkForExitQueue (tokenAddress) {
   // called to check for the existence of an exit queue
-  const queueForTokenExists = await rootChain.hasToken(tokenAddress);
+  const queueForTokenExists = await rootChain.hasToken(tokenAddress)
 
   if (!queueForTokenExists) {
     // add the exit queue for this token if it doesn't exist
@@ -37,7 +37,7 @@ async function checkForExitQueue(tokenAddress) {
         from: Alice,
         privateKey: AlicePrivateKey
       }
-    });
+    })
   }
 }
 ```
@@ -47,11 +47,11 @@ async function checkForExitQueue(tokenAddress) {
 In order to start a standard exit, you first need to retrieve the exit data for the UTXO that you want to exit. This can be accomplished with calls to the Watcher. The Watcher is able to return Alice's UTXO information and provide the exit data necessary to start the standard exit.
 
 ```js
-async function getUTXOInformation() {
-  const alicesUtxos = await childChain.getUtxos(Alice);
+async function getUTXOInformation () {
+  const alicesUtxos = await childChain.getUtxos(Alice)
 
   // we will pick Alice's first UTXO for the sake of this example
-  const exitData = await childChain.getExitData(alicesUtxos[0]);
+  const exitData = await childChain.getExitData(alicesUtxos[0])
 }
 ```
 
@@ -70,7 +70,7 @@ rootChain.startStandardExit({
     from: Alice,
     privateKey: AlicePrivateKey
   }
-});
+})
 ```
 
 > **Helpful Tip**

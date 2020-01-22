@@ -41,7 +41,7 @@ A transaction is termed `exitable` if it is correctly formed and properly signed
 To get the necessary exit data, a user must call the `Watcher` with the signed transaction.
 
 ```js
-childChain.inFlightExitGetData(signedTransaction);
+childChain.inFlightExitGetData(signedTransaction)
 ```
 
 ## Starting the IFE
@@ -59,7 +59,7 @@ rootChain.startInFlightExit({
     from: Alice,
     privateKey: AlicePrivateKey
   }
-});
+})
 ```
 
 The above will call the `Payment Exit Game` smart contract and commit a bond to the exit.
@@ -68,12 +68,12 @@ The above will call the `Payment Exit Game` smart contract and commit a bond to 
 
 A user can `piggyback` onto the exit once it is initiated. This requires placing a `piggyback bond` on selected UTXOs in order to claim ownership and receive them on the root chain once the exit is finalized.
 
-To successfully withdraw an output `out` to a transaction `tx`, it must be established that:
+To successfully withdraw an output `out` to a transaction `tx`, it must be proven that:
 
 1. _tx_ is exitable.
 2. _tx_ is canonical.
 
-> A transaction is canonical if its inputs were not spent in another transaction previously. Read more about canonicity in the [Glossary]().
+> A transaction is canonical if its inputs were not spent in another transaction previously. Read more about what makes a transaction canonical or non-canonical in the [Glossary]().
 
 The owner of an output can `piggyback` with the following call:
 
@@ -82,10 +82,10 @@ rootChain.piggybackInFlightExitOnOutput({
   outputIndex,
   inFlightTx: exitData.in_flight_tx,
   txOptions: {
-    privateKey: aliceAccount.privateKey,
-    from: aliceAccount.address
+    from: Alice,
+    privateKey: AlicePrivateKey
   }
-});
+})
 ```
 
 There are specific scenarios whereby a user will want to exit his or her inputs in a **non-canonical** transaction.
@@ -101,7 +101,7 @@ rootChain.piggybackInFlightExitOnInput({
     from: Alice,
     privateKey: AlicePrivateKey
   }
-});
+})
 ```
 
 Both will call the `Payment Exit Game` smart contract and commit a `piggyback bond`.
