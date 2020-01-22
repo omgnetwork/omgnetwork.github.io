@@ -73,7 +73,7 @@ To successfully withdraw an output `out` to a transaction `tx`, it must be estab
 1. _tx_ is exitable.
 2. _tx_ is canonical.
 
-> A transaction is canonical if its inputs were not spent in another transaction previously. Read more about canonicity in the [Appendix]().
+> A transaction is canonical if its inputs were not spent in another transaction previously. Read more about canonicity in the [Glossary]().
 
 The owner of an output can `piggyback` with the following call:
 
