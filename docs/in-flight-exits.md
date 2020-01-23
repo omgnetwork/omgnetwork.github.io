@@ -4,39 +4,49 @@ title: In Flight Exits
 sidebar_label: In Flight Exits
 ---
 
-Exits provide the ability to exit funds from the OMG Network back onto the Rootchain. There are 2 types of exits, standard exits and in-flight exits. This section will only discuss in-flight exits (also referred to as IFE).
+Exits allow a user to withdraw funds from the OMG Network back onto the root chain. There are two types of exit:
+standard exits and in-flight exits (IFEs). This section will cover in-flight-exits.
 
-A transaction is considered in-flight in these scenarios:
+A transaction is considered to be “in-flight” if it has been broadcast but has not yet been included in the Plasma chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block in which the said transaction is included.
 
-* Transaction has been broadcast but has not yet been included in the child chain, or the user does not have access to the block in which the transaction is included; or,
-* User has access to the block, but the block is invalid (due to a dishonest operator).
+A user may consider an in-flight _exit_ in the following scenarios:
+
+- The user has signed and broadcast a transaction, but is unable to verify its inclusion in a block.
+- The user can see that the transaction has been included in a block, but believes that the block is invalid due to a dishonest operator.
+
+For more scenarios elaborated in detail, click [here]().
+
+The user can initiate an IFE regardless of whether the above is factually correct, but must commit an `exit bond`. The purpose of the `exit bond` is to deter users from initating exits dishonestly, as this bond will be awarded to any party who successfully proves that the exit is dishonest.
+
+> For further information on the bond mechanism and the definiton of a "dishonest" exit, please see the [Appendix]().
 
 > The exit protocol forms the crux of the Plasma design. This guide aims to only discuss implementation of these concepts with respect to the OMG Network. If you want a deeper dive of these concepts, further discussion can be found on the [MoreVP Technical Overview](morevp-technical-overview).
 
 ## Implementation
 
 The full lifecycle of an in-flight exit occurs in the following steps:
+
 1. Getting the in-flight exit data
 2. Starting the in-flight exit
-3. Piggybacking the in-flight exit
+3. Piggybacking the selected inputs or outputs.
 4. Waiting for the challenge period, challenging and responding to challenges if necessary
 5. Processing the exit
 
 > Only steps 1-3 will be covered in this guide as challenges, responses, and processing exits warrant their own section.
 
 ## Getting Exit Data
-A user can get the necessary exit data for an in-flight excit if the user has access to the signed transaction. If the user has not seen this transaction get included into a block, they will be motivated to start an in-flight exit. Whether this transaction was actually included in a block does not matter at this point. 
 
-They can call the Watcher to return the necessary information.
+A transaction is termed `exitable` if it is correctly formed and properly signed by the owner(s) of the transaction input(s).
+
+To get the necessary exit data, a user must call the `Watcher` with the signed transaction.
 
 ```js
 childChain.inFlightExitGetData(signedTransaction)
 ```
 
 ## Starting the IFE
-With sufficient data about the exit, users can start an in-flight exit and later piggyback their input or output to get their funds out of the OMG Network. 
 
-Behind the scenes, the `Payment Exit Game` contract's `startInFlightExit()` method is called while also commiting a bond to the exit. 
+With the exit data, the user can start the in-flight exit to withdraw their funds from the OMG Network.
 
 ```js
 rootChain.startInFlightExit({
@@ -52,10 +62,22 @@ rootChain.startInFlightExit({
 })
 ```
 
-## Piggybacking IFE Output
-Piggybacking is when a user will place a bond on a UTXO involved in an in-flight exit. They are claiming that they have rightful ownership of this UTXO and would like to receive these funds when the exit settles. The `outputIndex` being the position of the UTXO in the transaction's outputs that is being piggybacked. 
+> The inclusion proof is a Merkle proof that the transaction(s) creating the input(s) into the in-flight transaction was/were included in a given valid block.
 
-Behind the scenes, the `Payment Exit Game` contract's `piggybackInFlightExitOnOutput()` method is called while also commiting a bond to the piggyback. 
+The above will call the `Payment Exit Game` smart contract and commit a bond to the exit.
+
+## Piggybacking
+
+A user can `piggyback` onto the exit once it is initiated. This requires placing a `piggyback bond` on selected UTXOs in order to claim ownership and receive them on the root chain once the exit is finalized.
+
+To successfully withdraw an output `out` to a transaction `tx`, it must be proven that:
+
+1. _tx_ is exitable.
+2. _tx_ is canonical.
+
+> A transaction is canonical if its inputs were not spent in another transaction previously. Read more about what makes a transaction canonical or non-canonical in the [Glossary]().
+
+The owner of an output can `piggyback` with the following call:
 
 ```js
 rootChain.piggybackInFlightExitOnOutput({
@@ -68,18 +90,22 @@ rootChain.piggybackInFlightExitOnOutput({
 })
 ```
 
-## Piggybacking IFE Input
-Piggybacking an input is also possible with the same motivations as explained with piggybacking an output UTXO. The `inputIndex` being the position of the UTXO in the transaction's inputs that is being piggybacked. 
+There are specific scenarios whereby a user will want to exit his or her inputs in a **non-canonical** transaction.
+It must be established that the transaction is indeed non-canonical for this to be successful.
 
-Behind the scenes, the `Payment Exit Game` contract's `piggybackInFlightExitOnInput()` method is called while also commiting a bond to the piggyback.
+The owner of an input can `piggyback` with the following call:
 
 ```js
 rootChain.piggybackInFlightExitOnInput({
   inputIndex,
   inFlightTx: exitData.in_flight_tx,
   txOptions: {
-    privateKey: aliceAccount.privateKey,
-    from: aliceAccount.address
+    from: Alice,
+    privateKey: AlicePrivateKey
   }
 })
 ```
+
+Both will call the `Payment Exit Game` smart contract and commit a `piggyback bond`.
+
+Note that since a transaction is either canonical or non-canonical, only the transaction's inputs or outputs, and not both, may be withdrawn.

@@ -93,6 +93,21 @@ Also known as DeFi. OmiseGO contributes to and supports DeFi, enabling interoper
 ## Decentralized network
 In a decentralized network, such as a blockchain, data is redundantly stored and monitored by multiple nodes, instead of on a private server. Additionally, data is distributed amongst a web of individual machines with different owners that perform continuous consensus on the validity of changes to its state. In a decentralized network, mechanisms exist to reward nodes that align themselves with network consensus, and penalize those which do not. See Proof of Stake for more information about OmiseGO's enforcement mechanisms. Centralized networks require trust in a central party, are opaque, and gated. Centralized databases are vulnerable to attack because they present a single point of entry for bad actors looking to steal or manipulate data. Decentralized networks are transparent in that every state and every state change (i.e. every balance and every transaction) is stored on a shared ledger, which can be viewed by anyone, or are obscured in a way that makes voluntary provable traceability possible where necessary, so there is no need to trust the word of a central authority.
 
+## Deposit Finality Period
+
+
+
+The deposit finality period refers to the number of Ethereum block confirmations required before a deposit can be used on the network. It is in place to mitigate the risk posed to the OMG Network by Ethereum chain re-organisations.
+
+A chain re-organisation can happen when a node on the Ethereum network realises that what it considered to be the canonical chain turns out not to be. As this node then jumps back to the canonical chain, the transactions in the latter part of its chain are reverted and can end up in subsequent blocks. 
+
+A chain re-organisation can be problematic for the Plasma Chain in the following scenario: 
+
+1. Alice deposits 1 ETH into the Plasma Chain (`Ethereum TX1`)
+2. Alice quickly sends 1 ETH to Bob on the Plasma Chain. This transaction is then added to a block that is submitted to the root chain (`Ethereum TX2`)
+3. Chain re-organisation results in `Ethereum TX2` being placed in an earlier Ethereum block than `Ethereum TX1` - rendering the Plasma Chain spuriously invalid. 
+
+By requiring a number N of Ethereum block confirmations before the deposit can be used, the deposit finality period significantly reduces the probability of the above scenario. 
 
 ## EIP-712
 An Ethereum standard that allows signing of a Plasma transaction with MetaMask. Involves typed message signing and data hashing in a structured and readable format.
