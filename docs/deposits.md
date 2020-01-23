@@ -35,10 +35,12 @@ The `Vault` in question will then:
 - Create a Deposit Block and submit it to the `PlasmaFramework` contract
 - Emit a deposit creation event to the child chain server, which generates a single UTXO corresponding to the deposited amount.
 
-After a defined finality period, the UTXO is ready for transacting on the network.
+After a defined finality period, the UTXO is ready for transacting on the network. Read more about the logic of this finality period in the [Glossary](glossary.md#deposit-finality-period)
 
 > Note that in the case of an ERC-20 token deposit, the ERC-20 `Vault` must be pre-authorized to effect a transfer from the sender. To do this, call the `approveToken()` method with the corresponding token address and authorized amount.
 
 > For detailed function specifications, please refer to the [API documentation](https://developer.omisego.co/omg-js/#deposit).
 
 > For further information on how a deposit transaction is signed, please see the [Appendix]().
+
+> F
