@@ -62,6 +62,8 @@ rootChain.startInFlightExit({
 })
 ```
 
+> The inclusion proof is a Merkle proof that the transaction(s) creating the input(s) into the in-flight transaction was/were included in a given valid block.
+
 The above will call the `Payment Exit Game` smart contract and commit a bond to the exit.
 
 ## Piggybacking
