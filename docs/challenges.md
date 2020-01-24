@@ -106,7 +106,7 @@ Indicates an in-flight exit of a non-canonical transaction has been started. It 
 ```
 
 **Solution**
-* Bob sees that Alice has initiated an in-flight exit a non-canonical transaction.
+* Bob sees that Alice has initiated an in-flight exit on a non-canonical transaction.
 * Bob challenges Alice's in-flight exit and piggyback by showing that `UTXO1` was spent in `TX1`.
 * Alice is unable to exit `UTXO1` and loses her two bonds (`exit` and `piggyback`)
 
