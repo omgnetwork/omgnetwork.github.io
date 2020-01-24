@@ -216,18 +216,18 @@ After period 2, Mallory's exit bond is refunded, no one exits any UTXOs.
 **Implementation**
 
 ```js
-rootChain.challengeInFlightExitInputSpent({
-  inFlightTx,
-  inFlightTxInputIndex,
-  challengingTx,
-  challengingTxInputIndex,
-  challengingTxWitness,
-  inputTx,
-  inputUtxoPos,
-  txOptions: {
-    from: Carol,
-    privateKey: CarolPrivateKey,
-  }
-})
+      const challengeData = await childChain.inFlightExitGetOutputChallengeData(exitData.in_flight_tx, 0)
+      const challengeReceipt = await rootChain.challengeInFlightExitOutputSpent({
+        inFlightTx: challengeData.in_flight_txbytes,
+        inFlightTxInclusionProof: challengeData.in_flight_proof,
+        inFlightTxOutputPos: challengeData.in_flight_output_pos,
+        challengingTx: challengeData.spending_txbytes,
+        challengingTxInputIndex: challengeData.spending_input_index,
+        challengingTxWitness: challengeData.spending_sig,
+        txOptions: {
+          privateKey: CarolPrivateKey,
+          from: Carol
+        }
+      })
 ```
 
