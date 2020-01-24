@@ -1,5 +1,5 @@
 ---
-id: challenges
+id: challenging-exits
 title: Challenging Exits
 sidebar_label: Challenging Exits
 ---
@@ -209,7 +209,9 @@ The Watcher reports an `invalid_piggyback` event:
 
 **Solution**
 
-
+ * Someone reveals TX2 spending UTXO2. This challenger receives Mallory's piggyback bond.
+Alice is honest, so she hasn't spent UTXO1 in any transaction other than TX1.
+After period 2, Mallory's exit bond is refunded, no one exits any UTXOs.
 
 **Implementation**
 

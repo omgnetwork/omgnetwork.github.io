@@ -1,6 +1,10 @@
-## Unchallengeable Events
+---
+id: byzantine-conditions
+title: Byzantine Conditions
+sidebar_label: Byzantine Conditions
+---
 
-These are byzantine events that are signals for users to exit the Childchain.
+These are Byzantine Conditions that are signals for users to exit the Childchain.
 
 #### `unchallenged_exit`
 Indicates that an invalid exit is dangerously close to finalization and hasn't been challenged. User should exit.

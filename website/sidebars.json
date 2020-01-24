@@ -1,19 +1,15 @@
 {
   "docs": {
-    "Introduction": [
-      "welcome"
-    ],
-    "Getting Started": [
-      "quick-start",
-      "send-your-first-transaction"
-    ],
+    "Introduction": ["welcome"],
+    "Getting Started": ["quick-start", "send-your-first-transaction"],
     "Integration": [
       "integration-introduction",
       "deposits",
       "transfers",
       "standard-exits",
       "in-flight-exits",
-      "challenges",
+      "challenge-period",
+      "challenging-exits",
       "process-exits"
     ],
     "Appendix": [
@@ -22,7 +18,8 @@
       "network-connection-details",
       "network-upgrade-guide",
       "morevp-technical-overview",
-      "blockchain-design"
+      "blockchain-design",
+      "byzantine-conditions"
     ]
   }
 }

@@ -1,4 +1,8 @@
-## Finalization Time
+---
+id: challenge-period
+title: Challenge Period
+sidebar_label: Challenge Period
+---
 
 The scheduled finalization time is the time when the challenge period of an exit expires and the exit can be processed. The calculation of this time will differ depending on a few variables. All exits must wait at least the Minimum Finalization Period (MFP). This is hard coded into the `Plasma Framework` contract. Freshly exited UTXOs must wait an additional Required Exit Period (REP), counting from their submission to the root chain contract.
 
