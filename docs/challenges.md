@@ -159,7 +159,7 @@ The Watcher reports an `invalid_ife_challenge`:
 
 **Solution**
 
-* Bob uses `TX1` (along with its inclusion proof)to prove that it is invalid. 
+* Bob uses `TX1` (along with its inclusion proof)to prove that the challenge is invalid. 
 
 **Implementation**
 
