@@ -42,5 +42,3 @@ After a defined finality period, the UTXO is ready for transacting on the networ
 > For detailed function specifications, please refer to the [API documentation](https://developer.omisego.co/omg-js/#deposit).
 
 > For further information on how a deposit transaction is signed, please see the [Appendix]().
-
-> F
