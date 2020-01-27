@@ -128,9 +128,6 @@ The EIP-712 typed data structure is as follows:
 }
 ```
 
-## What is a Merkle Tree
-TODO
-
 ## How is the UTXO position calculated?
 Formula:
 
