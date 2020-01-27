@@ -68,7 +68,27 @@ The above will call the `Payment Exit Game` smart contract and commit a bond to 
 
 ## Piggybacking
 
-A user can `piggyback` onto the exit once it is initiated. This requires placing a `piggyback bond` on selected UTXOs in order to claim ownership and receive them on the root chain once the exit is finalized.
+---- 
+
+Once an in-flight exit is initiated, the Watcher emits a `piggyback_available` event. 
+
+```json
+{
+  "event": "piggyback_available",
+  "details": {
+    "txbytes": "0xf3170101c0940000...",
+    "available_outputs" : [
+      {"index": 0, "address": "0xb3256026863eb6ae5b06fa396ab09069784ea8ea"},
+      {"index": 1, "address": "0x488f85743ef16cfb1f8d4dd1dfc74c51dc496434"},
+    ],
+    "available_inputs" : [
+      {"index": 0, "address": "0xb3256026863eb6ae5b06fa396ab09069784ea8ea"}
+    ],
+  }
+}
+```
+
+This means that a user can `piggyback` onto the in-flight exit. This requires placing a `piggyback bond` on a UTXO from the available set in order to claim ownership and receive it on the root chain once the exit is finalized.
 
 To successfully withdraw an output `out` to a transaction `tx`, it must be proven that:
 
