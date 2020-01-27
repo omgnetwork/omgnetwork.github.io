@@ -185,11 +185,10 @@ Indicates an invalid piggyback is in process. Should be challenged.
 
 **Scenario**
 
-* Alice sends `UTXO1` to Bob in `TX1`. 
-* `TX1` is included in a valid block.
-* Bob sends his output from `TX1` (`UTXO2`) to Carol in `TX2`. 
-* Bob initiates an exit on `TX1` and places an `exit_bond`.
-* Bob piggybacks onto the exit referencing `UTXO2`. 
+* Alice sends `UTXO1` to Bob in `TX1`. `TX1` is included in a block. 
+* Bob initiates an in-flight exit on `TX1` and places an `exit_bond`.
+* Bob piggybacks onto the exit referencing `UTXO1` and commiting a `piggyback bond`.
+* Bob sends `UTXO1` to Carol in `TX2`.
 
 **Event**
 
@@ -209,9 +208,9 @@ The Watcher reports an `invalid_piggyback` event:
 
 **Solution**
 
- * Someone reveals TX2 spending UTXO2. This challenger receives Mallory's piggyback bond.
-Alice is honest, so she hasn't spent UTXO1 in any transaction other than TX1.
-After period 2, Mallory's exit bond is refunded, no one exits any UTXOs.
+ * Carol uses `TX2` to challenge Bob's piggyback. 
+ * Bob does not exit his output, and Carol receives the `piggyback bond` committed by Bob,
+
 
 **Implementation**
 
