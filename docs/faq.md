@@ -143,3 +143,8 @@ For example, if we have a deposit transaction in block 160000 at index 0, and we
 ```
 160000 * 10000 + 0 * 10000 + 0 = 1600000000
 ```
+
+## What is a Block Explorer?
+A block explorer is an online blockchain browser that allows you to explore the entire blockchain of the platform you're using, for example, OMG Network. 
+
+Cryptocurrency miners and users rely on block explorers to track their transactions and to view details for the latest blocks in the blockchain. Block explorers list newly discovered blocks as soon as they're generated, display information for each block and transaction, and allow you to search for transaction IDs and wallet addresses so that you can check on specific transactions.
