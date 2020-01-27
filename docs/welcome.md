@@ -6,7 +6,7 @@ sidebar_label: About OmiseGO
 
 The OMG Network is a decentralized, public network that allows instant, peer-to-peer transactions in real-time, facilitating financial services across geographies, asset classes, and applications.
 
-OMG Network leverages Layer 2 Plasma architecture to provide high throughput and strong safety guarantees for third parties who wish to build scalable, decentralized payment apps on the network. 
+The OMG Network leverages Layer 2 Plasma architecture to provide high throughput and strong safety guarantees for third parties who wish to build scalable, decentralized payment apps on the network. 
 
 The OMG Network allows you to access, manage, and transact with digital assets that are kept securely on the blockchain. 
 

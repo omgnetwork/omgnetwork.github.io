@@ -13,17 +13,26 @@ Funds can be deposited using the `deposit()` call in the `omg-js` rootchain modu
 #### Example:
 
 ```js
-rootChain.deposit({
-  amount: 1000,
-  currency: "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07"
-  txOptions: {
-    from: Alice,
-    privateKey: AlicePrivateKey
-  }
-  callbacks: {
-    onConfirmation: () => sendConfirmation()
-  }
-})
+async function makeDeposit () {
+  // Only in the case of an ERC-20 token deposit, the ERC-20 `Vault` must be pre-authorized to effect a transfer from the sender. 
+  await rootChain.approveToken({
+    erc20Address,
+    amount,
+    txOptions: {
+      from: Alice,
+      privateKey: AlicePrivateKey
+    }
+  })
+  
+  return rootChain.deposit({
+    amount,
+    currency,
+    txOptions: {
+      from: Alice,
+      privateKey: AlicePrivateKey
+    }
+  })
+}
 ```
 
 ## Lifecycle
@@ -36,9 +45,5 @@ The `Vault` in question will then:
 - Emit a deposit creation event to the child chain server, which generates a single UTXO corresponding to the deposited amount.
 
 After a defined finality period, the UTXO is ready for transacting on the network. Read more about the logic of this finality period in the [Glossary](glossary.md#deposit-finality-period)
-
-> Note that in the case of an ERC-20 token deposit, the ERC-20 `Vault` must be pre-authorized to effect a transfer from the sender. To do this, call the `approveToken()` method with the corresponding token address and authorized amount.
-
-> For detailed function specifications, please refer to the [API documentation](https://developer.omisego.co/omg-js/#deposit).
 
 > For further information on how a deposit transaction is signed, please see the [Appendix]().

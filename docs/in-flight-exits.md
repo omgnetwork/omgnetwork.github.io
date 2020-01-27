@@ -68,8 +68,6 @@ The above will call the `Payment Exit Game` smart contract and commit a bond to 
 
 ## Piggybacking
 
----- 
-
 Once an in-flight exit is initiated, the Watcher emits a `piggyback_available` event. 
 
 ```json

@@ -69,7 +69,7 @@ Another method is to call the `Watcher` for a transaction body with inputs and t
 
 ```js
 async function transfer () {
-  const transactionBody = await childChain.createTransaction({
+  const transactions = await childChain.createTransaction({
     owner: aliceAddress,
     payments: [
       {
@@ -85,7 +85,7 @@ async function transfer () {
     metadata: "data"
   });
   
-  const signedTypedData = childchain.signTypedData(transactionBody, privateKeys)
+  const signedTypedData = childchain.signTypedData(transactions[0], privateKeys)
   return childChain.submitTyped(signedTypedData)
 }
 ```

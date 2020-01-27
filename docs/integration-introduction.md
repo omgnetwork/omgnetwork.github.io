@@ -9,7 +9,7 @@ The intergration section aims to give a deeper technical explanation around the 
 ## Code Examples
 You will find numerous code examples in this section. These code examples are using the [omg-js](https://github.com/omisego/omg-js) integration library, as it abstracts a lot of the processes away from the user. 
 
-> Best effort is given to generally explain what is going on `under the hood` but if you want to dive deeper into the implementation, you can check out the relevant code in their respective repositories.
+> Best effort is given to generally explain what is going on under the hood but if you want to dive deeper into the implementation, you can check out the relevant code in their respective repositories.
 >
 > [Plasma Framework contracts](https://github.com/omisego/plasma-contracts)  
 > [Childchain and Watcher](https://github.com/omisego/elixir-omg)  
@@ -20,9 +20,9 @@ For the sake of brevity, library imports are not included in the examples, but y
 import Web3 from "web3"
 import { ChildChain, RootChain, OmgUtil } from "@omisego/omg-js"
 
-const web3 = new Web3(new Web3.providers.HttpProvider("<web3_provider_url>"))
-const rootChain = new RootChain({ web3, plasmaContractAddress: "<plasma_framework_address>" })
-const childChain = new ChildChain({ watcherUrl: "<watcher_url>" })
+const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url))
+const rootChain = new RootChain({ web3, plasmaContractAddress })
+const childChain = new ChildChain({ watcherUrl })
 ```
 
 > Some details have been omitted from the `omg-js` code examples for the sake of brevity (type information, optional arguments, etc.) For more information regarding the library please check out the [API documentation](https://developer.omisego.co/omg-js/).

@@ -18,8 +18,8 @@ To better understand this mechanism, consider this example:
 ```js
 rootChain.processExits({
   token,
-  exitId: 0,
-  maxExitsToProcess: 20,
+  exitId,
+  maxExitsToProcess,
   txOptions: {
     from: Alice,
     privateKey: AlicePrivateKey
