@@ -90,7 +90,6 @@ Indicates an in-flight exit of a non-canonical transaction has been started. It 
 * Alice creates a transaction `TX1` to Bob, using `UTXO1` as an input. `TX1` is included in a block. 
 * Alice then creates a non-canonical transaction `TX2` to Carol with the same input `UTXO1` (double spend). `TX2` is not included in a block. 
 * Alice initiates an in-flight exit on `TX2`.
-* Alice piggybacks on the in-flight exit on `UTXO1`.
 
 **Event**
 
@@ -107,8 +106,8 @@ Indicates an in-flight exit of a non-canonical transaction has been started. It 
 
 **Solution**
 * Bob sees that Alice has initiated an in-flight exit on a non-canonical transaction.
-* Bob challenges Alice's in-flight exit and piggyback by showing that `UTXO1` was spent in `TX1`.
-* Alice is unable to exit `UTXO1` and loses her two bonds (`exit` and `piggyback`)
+* Bob challenges Alice's in-flight exit by showing that `UTXO1` was spent in `TX1`.
+* Alice is unable to exit `UTXO1` and loses her exit bond to Bob.
 
 
 **Implementation**
