@@ -16,10 +16,10 @@
       "glossary",
       "faq",
       "network-connection-details",
-      "network-upgrade-guide",
       "morevp-technical-overview",
       "blockchain-design",
-      "byzantine-conditions"
+      "byzantine-conditions",
+      "exitbonds"
     ]
   }
 }

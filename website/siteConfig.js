@@ -1,7 +1,7 @@
 // See https://docusaurus.io/docs/site-config for more options
 
 const siteConfig = {
-  docsSideNavCollapsible: false,
+  docsSideNavCollapsible: true,
   disableHeaderTitle: true,
   title: 'OmiseGO | Developer Portal',
   tagline: 'Documentation for OmiseGo',
