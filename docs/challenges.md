@@ -187,7 +187,7 @@ Indicates an invalid piggyback is in process. Should be challenged.
 * Alice sends `UTXO1` to Bob in `TX1`. `TX1` is included in a block. 
 * Bob initiates an in-flight exit on `TX1` and places an `exit_bond`.
 * Bob piggybacks onto the exit referencing `UTXO1` and commiting a `piggyback bond`.
-* Bob sends `UTXO1` to Carol in `TX2`.
+* Bob sends `UTXO1` to Carol in `TX2`. `TX2` is included in a block.
 
 **Event**
 
@@ -203,7 +203,9 @@ The Watcher reports an `invalid_piggyback` event:
   }
 }
 ```
-Note that the Watcher does not report a `noncanonical_ife` event as `TX1` is a canonical transaction included in a valid block. 
+Notes: 
+- The Watcher does not report a `noncanonical_ife` event as `TX1` is a canonical transaction included in a valid block.
+- The `invalid_piggyback` event can be reported only once `TX2` has been detected by the Watcher, either as part of a valid block (as in the scenario above) or if referenced by another in-flight exit.
 
 **Solution**
 
