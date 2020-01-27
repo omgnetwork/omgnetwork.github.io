@@ -203,7 +203,7 @@ The Watcher reports an `invalid_piggyback` event:
   }
 }
 ```
-
+Note that the Watcher does not report a `noncanonical_ife` event as `TX1` is a canonical transaction included in a valid block. 
 
 **Solution**
 
