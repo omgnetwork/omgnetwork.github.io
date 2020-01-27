@@ -18,8 +18,8 @@ To add new documentation, follow these steps:
 
 ### To run locally
 - `$ cd website` -> step into `/website` directory
-- `$ yarn` -> install dependencies
-- `$ yarn start` -> start local server serving site on port 3000
+- `$ npm install` -> install dependencies
+- `$ npm run start` -> start local server serving site on port 3000
 
 ### Production
 - Automatically will build and deploy master

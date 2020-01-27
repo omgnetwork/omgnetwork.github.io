@@ -1,4 +1,7 @@
 {
+  "name": "omg-network-docs",
+  "private": true,
+  "description": "OMG Network documentation",
   "scripts": {
     "start": "docusaurus-start",
     "build": "docusaurus-build"
