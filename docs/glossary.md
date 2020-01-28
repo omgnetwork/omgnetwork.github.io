@@ -141,6 +141,9 @@ Hard spoon, a term coined by Jae Kwon (founder, CEO of Tendermint), is a new blo
 ## Hash
 A unique identifier for a block or transaction on the Plasma child chain. The transaction hash identifies a particular transaction. The block hash uses an algorithm that relies on data in the header of the block, which points to the previous block, and indicates the current state of the blockchain.
 
+## Inclusion Proof
+A Merkle Proof that a given transaction was included in a given block. Read more about Merkle Proofs [here](https://medium.com/crypto-0-nite/merkle-proofs-explained-6dd429623dc5).
+
 
 ## Integration libraries
 Integration libraries exist in the layer between web applications and the blockchain, providing the end-to-end infrastructure for integrating an end-user application, from application to library to watcher to child chain.
