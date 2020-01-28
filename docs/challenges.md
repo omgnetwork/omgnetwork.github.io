@@ -12,7 +12,7 @@ The process of challenging exits takes place during a defined challenge period a
 2. Challenge period starts.
 3. If the exit is dishonest, the Watcher will report a byzantine event.
 3. Users on the network challenge and respond to reported byzantine events.
-4. Challenge period expires. Any exit that is unchallenged is finalized, while any exit that is successfully challenged is cancelled. Bonds are rewarded or returned to their respective users.
+4. Challenge period expires. Any exit that is unchallenged is finalized, while any exit that is successfully challenged is cancelled. Bonds are rewarded to successful challengers, or returned to users who committed them.
 
 
 ## Watcher Alerts

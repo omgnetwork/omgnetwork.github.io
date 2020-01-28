@@ -33,16 +33,11 @@ Wikepedia describes a blockchain as "a growing list of records, called blocks, w
 
 
 ### Canonical transaction 
-A transaction is *canonical* if none of its inputs were previously spent in any other transaction; that is, the transaction is the oldest among all its competitors. 
-The definition of *previously spent* depends on whether the transaction in question is included in the Plasma chain.
+A transaction is canonical if none of its inputs were previously spent in another transaction.
+The definition of "previously spent" depends on whether the transaction in question is included in the Plasma chain.
 The position of a transaction in the chain is determined by the tuple (block number, transaction index).
-If the transaction was included in the chain, an input to that transaction would be considered previously spent if another transaction also spending the input was included in the chain *before* the transaction in question, decided by transaction position.
-If the transaction was not included in the chain, an input to that transaction would be considered previously spent if another transaction also spending the input is *known to exist*.
-
-In this second scenario, it is unimportant whether or not the other transaction is included in the chain:
-
-| Transaction included in the chain? | The other transaction is clearly included before the transaction in question. |
-| Other transaction is not included in the chain? | In this case, we can’t tell which transaction *came first*; thus, we simply say that neither is canonical. |
+An input to a transaction is considered previously spent if the "other" transaction spending it is in an earlier block or has a lower index in the same block.
+If the "other" transaction is not included in the chain but known to exist, it is not possible to determine which transaction came first - so neither is considered canonical.
 
 
 ## CEX
@@ -162,7 +157,7 @@ A unique identifier for a block or transaction on the Plasma child chain. The tr
 
 
 ## In-flight transaction
-A transaction is considered in-flight if it has been broadcast but has not yet been included in the Plasma chain. A transaction may be in-flight from the perspective of an individual user if that user does not have access to the block in which the transaction is included.  
+A transaction is considered to be “in-flight” if it has been broadcast but has not yet been included in the Plasma chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block in which the said transaction is included.
 
 
 ## Inclusion Proof
