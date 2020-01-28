@@ -25,7 +25,7 @@ The first step in interacting with the OMG Network is to deposit ETH into the ne
 5. Click **Refresh**. If the deposit was successful, you should see your OMG Network balance update.
 6. A deposit UTXO was created and you now have funds on the OMG Network.
 
-> When you perform a deposit, you are sending funds to the `Plasma Framework` contract and creating a deposit UTXO for your account. With this new UTXO, you will later be able to transfer funds on the OMG Network. For a further discussion on understanding what is a UTXO, you can check out [this documentation]().
+> When you perform a deposit, you are sending funds to the `Plasma Framework` contract and creating a deposit UTXO for your account. With this new UTXO, you will later be able to transfer funds on the OMG Network. For a further discussion on understanding what is a UTXO, you can check out [this documentation](glossary#utxo).
 
 ## Make a Transaction
 
@@ -49,7 +49,7 @@ You've successfully deposited and made a transfer on the OMG Network. If you wan
 3. Click **OK**. Your web3 wallet will pop up and ask you to confirm the transaction.
 4. If the transaction was successful, you have started a standard exit. You will have to wait for the challenge period to pass before being able to process your exit, releasing the funds back to you.
 
-> The challenge period for this browser wallet is approximately 2 days (will vary depending on various factors as explained [here](challenges#finalization-time)). This window of time allows other users on the network to challenge your exit if it is dishonest.
+> The challenge period for this browser wallet is approximately 2 days (will vary depending on various factors as explained [here](challenge-period)). This window of time allows other users on the network to challenge your exit if it is dishonest.
 
 ## Process Exits
 

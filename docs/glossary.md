@@ -32,6 +32,14 @@ The number of blocks in a blockchain, counted between the last block and the fir
 Wikepedia describes a blockchain as "a growing list of records, called blocks, which are linked using cryptography. Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data (generally represented as a Merkle tree)". A blockchain is thus a digital record, or ledger. Transactions on a blockchain are public, and are ordered chronologically. Source: https://en.wikipedia.org/wiki/Blockchain
 
 
+### Canonical transaction 
+A transaction is canonical if none of its inputs were previously spent in another transaction.
+The definition of "previously spent" depends on whether the transaction in question is included in the Plasma chain.
+The position of a transaction in the chain is determined by the tuple (block number, transaction index).
+An input to a transaction is considered previously spent if the "other" transaction spending it is in an earlier block or has a lower index in the same block.
+If the "other" transaction is not included in the chain but known to exist, it is not possible to determine which transaction came first - so neither is considered canonical.
+
+
 ## CEX
 Centralized network, in which users and nodes are all connected to a central server. 
 
@@ -64,6 +72,10 @@ A contract is an agreement involving two or more parties to a mutual obligation.
 An offline wallet provided for storing cryptocurrency.
 
 
+## Competing transaction, competitors
+Two transactions are *competing* if they share at least one input. Competitors to a transaction is the set of all transactions that are competing with the transaction in question, including the transaction itself. 
+
+
 ## Custody
 A custodial service takes care of assets on behalf of clients. For example, a brokerage or other financial institution that holds securities on behalf of clients. In the context of cryptocurrency assets, the custody service stores private keys in a hardware solution to hold cryptocurrency funds on behalf of users who don't want to risk taking care of their own keys. 
 
@@ -94,9 +106,6 @@ Also known as DeFi. OmiseGO contributes to and supports DeFi, enabling interoper
 In a decentralized network, such as a blockchain, data is redundantly stored and monitored by multiple nodes, instead of on a private server. Additionally, data is distributed amongst a web of individual machines with different owners that perform continuous consensus on the validity of changes to its state. In a decentralized network, mechanisms exist to reward nodes that align themselves with network consensus, and penalize those which do not. See Proof of Stake for more information about OmiseGO's enforcement mechanisms. Centralized networks require trust in a central party, are opaque, and gated. Centralized databases are vulnerable to attack because they present a single point of entry for bad actors looking to steal or manipulate data. Decentralized networks are transparent in that every state and every state change (i.e. every balance and every transaction) is stored on a shared ledger, which can be viewed by anyone, or are obscured in a way that makes voluntary provable traceability possible where necessary, so there is no need to trust the word of a central authority.
 
 ## Deposit Finality Period
-
-
-
 The deposit finality period refers to the number of Ethereum block confirmations required before a deposit can be used on the network. It is in place to mitigate the risk posed to the OMG Network by Ethereum chain re-organisations.
 
 A chain re-organisation can happen when a node on the Ethereum network realises that what it considered to be the canonical chain turns out not to be. As this node then jumps back to the canonical chain, the transactions in the latter part of its chain are reverted and can end up in subsequent blocks. 
@@ -126,6 +135,11 @@ See also: https://www.ethereum.org/
 Exit refers to the position at which an investor or institution sells their stake or liquidates their assets to claim a gain or loss.
 
 
+### Exitable transaction
+A spend transaction can be called *exitable* if the transaction is correctly formed (e.g. more input value than output value, inputs older than outputs, proper structure) and is properly signed by the owners of the transaction’s inputs.
+If a transaction is *exitable*, a user may try to start an exit that references the transaction. 
+
+
 ## Front running
 Also known as tailgating. The prohibited practice of entering into an equity (stock) trade, option, futures contract, derivative, or security-based swap, to capitalize on advance, nonpublic knowledge of a large ("block") pending transaction that will influence the price of the underlying security.
 
@@ -140,6 +154,11 @@ Hard spoon, a term coined by Jae Kwon (founder, CEO of Tendermint), is a new blo
 
 ## Hash
 A unique identifier for a block or transaction on the Plasma child chain. The transaction hash identifies a particular transaction. The block hash uses an algorithm that relies on data in the header of the block, which points to the previous block, and indicates the current state of the blockchain.
+
+
+## In-flight transaction
+A transaction is considered to be “in-flight” if it has been broadcast but has not yet been included in the Plasma chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block in which the said transaction is included.
+
 
 ## Inclusion Proof
 A Merkle Proof that a given transaction was included in a given block. Read more about Merkle Proofs [here](https://medium.com/crypto-0-nite/merkle-proofs-explained-6dd429623dc5).
@@ -288,6 +307,8 @@ Settlement is similar to PSP (Payment Service Provider), reconciliation reports,
 ## Shared liquidity
 Shared liquidity implies that there are a large amount (a pool) of orders. OmiseGO does not offer shared liquidity; instead, OmiseGo allows users to move their funds easily between venues. For example, if OmiseGO offered shared liquidity, Binance and GO.Exchange could see and access the orders of both (it is a shared/combined view of orders).
 
+## Spend transaction
+A spend transaction is any transaction that spends a UTXO that is already present on the Plasma chain.  
 
 ## Staking
 Staking refers to holding a cryptocurrency or token in a wallet for a period of time, in return for interest. Staking returns depend on staking (holding) time; the longer the stake duration, the higher the returns.
@@ -319,6 +340,16 @@ While this is not a typical technical glossary term, it's important to clarify w
 
 ## UTXO
 Short for Unspent Transaction Output. See: https://bitcoin.org/en/glossary/unspent-transaction-output
+
+
+### Valid transaction
+A valid transaction is a spend transaction that is valid if it is exitable, canonical, and only stems from valid transactions; that is, all transactions in the history are also valid transactions.
+
+A transaction is thus considered invalid if even a single invalid transaction is present in its history.
+
+An exitable transaction is not necessarily a valid transaction, but all valid transactions are, by definition, exitable.
+
+Our exit mechanism ensures that all outputs created by valid transactions can process before any output created by an invalid transaction. 
 
 
 ## Validator

@@ -12,7 +12,7 @@ The process of challenging exits takes place during a defined challenge period a
 2. Challenge period starts.
 3. If the exit is dishonest, the Watcher will report a byzantine event.
 3. Users on the network challenge and respond to reported byzantine events.
-4. Challenge period expires. Any exit that is unchallenged is finalized, while any exit that is successfully challenged is cancelled. 
+4. Challenge period expires. Any exit that is unchallenged is finalized, while any exit that is successfully challenged is cancelled. Bonds are rewarded to successful challengers, or returned to users who committed them.
 
 
 ## Watcher Alerts
@@ -45,11 +45,11 @@ Watcher reports an `invalid_exit`:
 {
   "event": "invalid_exit",
   "details": {
-    "eth_height"  : 3521678,
-    "utxo_pos"  : 10000000010000000,
-    "owner"  : "0xb3256026863eb6ae5b06fa396ab09069784ea8ea",
-    "currency"  : "0x0000000000000000000000000000000000000000",
-    "amount" : 100
+    "eth_height": 3521678,
+    "utxo_pos": 10000000010000000,
+    "owner": "0xb3256026863eb6ae5b06fa396ab09069784ea8ea",
+    "currency": "0x0000000000000000000000000000000000000000",
+    "amount": 100
   }
 }
 ```
@@ -158,7 +158,7 @@ The Watcher reports an `invalid_ife_challenge`:
 
 **Solution**
 
-* Bob uses `TX1` (along with its inclusion proof)to prove that the challenge is invalid. 
+* Bob uses `TX1` (along with its inclusion proof) to prove that the challenge is invalid. 
 
 **Implementation**
 
@@ -216,18 +216,20 @@ Notes:
 **Implementation**
 
 ```js
-      const challengeData = await childChain.inFlightExitGetOutputChallengeData(exitData.in_flight_tx, 0)
-      const challengeReceipt = await rootChain.challengeInFlightExitOutputSpent({
-        inFlightTx: challengeData.in_flight_txbytes,
-        inFlightTxInclusionProof: challengeData.in_flight_proof,
-        inFlightTxOutputPos: challengeData.in_flight_output_pos,
-        challengingTx: challengeData.spending_txbytes,
-        challengingTxInputIndex: challengeData.spending_input_index,
-        challengingTxWitness: challengeData.spending_sig,
-        txOptions: {
-          privateKey: CarolPrivateKey,
-          from: Carol
-        }
-      })
+async function challengeInvalidPiggyback () {
+  const challengeData = await childChain.inFlightExitGetOutputChallengeData(exitData.in_flight_tx, inputIndex)
+  return rootChain.challengeInFlightExitOutputSpent({
+    inFlightTx: challengeData.in_flight_txbytes,
+    inFlightTxInclusionProof: challengeData.in_flight_proof,
+    inFlightTxOutputPos: challengeData.in_flight_output_pos,
+    challengingTx: challengeData.spending_txbytes,
+    challengingTxInputIndex: challengeData.spending_input_index,
+    challengingTxWitness: challengeData.spending_sig,
+    txOptions: {
+      privateKey: CarolPrivateKey,
+      from: Carol
+    }
+  })
+}
 ```
 

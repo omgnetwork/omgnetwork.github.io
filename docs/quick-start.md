@@ -16,7 +16,7 @@ The only requirement for this quick start is to have a web3 wallet with funds on
 
 * If you don't have a web3 wallet installed yet, head over to https://metamask.io/ and follow their instructions.
 * If you have a wallet but don't have any funds on Rinkeby yet, you can easily send yourself some ETH using [this faucet](https://faucet.rinkeby.io/). Please follow the instructions on their website. 
-* This quick start will use a hosted application running [js-starter-kit](https://github.com/omisego/js-starter-kit). If you would like to run the same application locally, you can find the installation instructions in [the repository](https://github.com/omisego/js-starter-kit).
+* This quick start will use a hosted application running [js-starter-kit](https://github.com/omisego/js-starter-kit). If you would like to run the same application locally, you can find the installation instructions in the repository.
 
 Now open the [browser wallet]() in another tab and follow along with this guide as we make our first transaction on the OMG Network.
 

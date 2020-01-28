@@ -79,6 +79,6 @@ rootChain.startStandardExit({
 
 > **Helpful Tip**
 >
-> You can only exit one UTXO at a time. Therefore, it is recommended that you consolidate your UTXOs to reduce the number of exits you'll need to perform. See the [transfer](transfers) guide for further information on merging UTXOs.
+> You can only exit one UTXO at a time. Therefore, it is recommended that you consolidate your UTXOs to reduce the number of exits you'll need to perform. This can be accomplished by sending a transaction to yourself, selecting 4 UTXO's you want to merge as inputs, and yourself as the only output. Please see the [transfer](transfers) section for more details.
 
-After the exit has started Alice has to wait for the [challenge period](challenges) to pass before being able to [process](process-exits) her exit.
+After the exit has started Alice has to wait for the [challenge period](challenge-period) to pass before being able to [process](process-exits) her exit.
