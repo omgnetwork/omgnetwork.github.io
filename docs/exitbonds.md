@@ -39,22 +39,3 @@ Either party can initate an in-flight exit on `TX1`, but *both* Alice and Bob mu
 There are also cases whereby a piggyback can be invalid in the context of a canonical in-flight exit. Read more in this [scenario](challenges#invalid_piggyback).
 
 Given that the concerns are separate, the bond mechanism is applied separately.
-
-**Can an honest user lose his or her bond?** 
-
-
-### Standard Exit Bond
-- Bond for starting a Standard Exit.
-```
-  PlasmaFramework.startStandardExitBondSize()
-```
-
-### In-flight Exit Bonds
-- Bond for starting an In-flight Exit.
-```
-  PlasmaFramework.startIFEBondSize()
-```
-- Bond for piggybacking on an In-flight Exit's input or output.
-```
-  PlasmaFramework.piggybackBondSize()
-```
