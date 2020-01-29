@@ -14,7 +14,7 @@ There are three types of bonds:
 * The In-Flight Exit Bond (committed to start an In-Flight Exit)
 * The Piggyback Bond (committed to piggyback on an In-Flight Exit and claim an associated UTXO)
 
-** How is the size of a bond calculated? **
+**How is the size of a bond calculated?**
 
 The bond is currently fixed at an amount estimated to cover the gas cost of submitting a challenge. 
 
@@ -25,10 +25,22 @@ This amount can be updated by the operator to stay aligned with changes in gas p
 
 Modeling the "correct" size of the exit bond remains an ongoing area of research. 
 
-** Why do we have separate exit and piggyback bonds? ** 
+**Why do we have separate exit and piggyback bonds in an in-flight exit?** 
 
+Starting an in-flight exit on a transaction and claiming its associated inputs or outputs with a `piggyback` are separate concerns. 
 
-** Can an honest user lose his or her bond? ** 
+Consider a transaction `TX1` whereby Alice sends 0.5 ETH to Bob using an input `UTXO1` worth 1 ETH. The transaction will have two outputs: 
+
+* `UTXO2` owned by Bob (0.5 ETH)
+* `UTXO3` owned by Alice (0.5 ETH)
+
+Either party can initate an in-flight exit on `TX1`, but *both* Alice and Bob must piggyback with a reference to to their respective outputs in order to exit their funds.
+
+There are also cases whereby a piggyback can be invalid in the context of a canonical in-flight exit. Read more in this [scenario](challenges#invalid_piggyback).
+
+Given that the concerns are separate, the bond mechanism is applied separately.
+
+**Can an honest user lose his or her bond?** 
 
 
 ### Standard Exit Bond
