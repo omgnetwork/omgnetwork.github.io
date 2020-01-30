@@ -6,7 +6,7 @@ sidebar_label: Exit Bonds
 
 Bonds form a core element of the Plasma "exit game". 
 
-The various bond(s) committed by an exiting user can be awarded to another user who proves that the given exit is non-canonical. They act  as an incentive mechanism for users of the OMG Network to exit honestly and challenge dishonest exits. 
+The various bond(s) committed by an exiting user can be awarded to another user who proves that the given exit is non-canonical. They act as an incentive mechanism for users of the OMG Network to exit honestly and challenge dishonest exits. 
 
 There are three types of bonds: 
 
@@ -34,7 +34,7 @@ Consider a transaction `TX1` whereby Alice sends 0.5 ETH to Bob using an input `
 * `UTXO2` owned by Bob (0.5 ETH)
 * `UTXO3` owned by Alice (0.5 ETH)
 
-Either party can initate an in-flight exit on `TX1`, but *both* Alice and Bob must piggyback with a reference to to their respective outputs in order to exit their funds.
+Either party can initate an in-flight exit on `TX1`, but *both* Alice and Bob must piggyback with a reference to their respective outputs in order to exit their funds.
 
 There are also cases whereby a piggyback can be invalid in the context of a canonical in-flight exit. Read more in this [scenario](challenges#invalid_piggyback).
 
