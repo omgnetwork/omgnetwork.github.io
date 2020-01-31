@@ -10,7 +10,7 @@ There are two scenarios whereby it would be desirable to merge UTXOs on the OMG 
 
 1. **Exiting your funds as a single UTXO**
 
-Standard exits are initated on a single UTXO — not a specified amount. However, a user may want to exit an amount greater than the value of any UTXO he or she owns. For example: 
+Standard exits are initated on a single UTXO and not a specified amount. However, a user may want to exit an amount greater than the value of any UTXO he or she owns. For example: 
 
 - Alice owns 5 UTXOs worth 1 ETH each. 
 - Alice would like to withdraw all her funds from the network. 
@@ -20,7 +20,7 @@ In the above scenario, it would be more economical for Alice to merge these UTXO
 
 2. **Fitting Inputs into a Transaction**
 
-A transaction can take a maximum of four inputs. However, a user may not own four UTXOs that can cover the amount he or she needs to transact. For example: 
+A transaction can have a maximum of four inputs, but a user may not own four UTXOs that can cover the amount needed for the transaction. For example: 
 
 - Alice owns 5 UTXOs worth 1 ETH each. 
 - Alice would like to send 5 ETH to Bob. 
