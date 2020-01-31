@@ -15,6 +15,7 @@
     "Appendix": [
       "glossary",
       "faq",
+      "merging-utxos",
       "network-connection-details",
       "morevp-technical-overview",
       "blockchain-design",
