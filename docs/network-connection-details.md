@@ -4,17 +4,17 @@ title: Network Connection Details
 sidebar_label: Network Connection Details
 ---
 
-## Pre-lumphini Network
+## Lumphini Network
 
-Plasma-contracts: `1608296`
+Plasma-contracts: `xxx`
 
-Child chain: https://childchain-pre-lumphini.omg.network/
+Child chain: https://childchain-lumphini.omg.network/
 
-Watcher: https://watcher-pre-lumphini.omg.network/
+Watcher: https://watcher-lumphini.omg.network/
 
-Blockexplorer: https://quest-pre-lumphini.omg.network/
+Blockexplorer: https://quest-lumphini.omg.network/
 
-Ethereum Network: Rinkeby
+Ethereum Network: Ropsten
 
 Exit Period: 86400 Seconds (1 day)
 

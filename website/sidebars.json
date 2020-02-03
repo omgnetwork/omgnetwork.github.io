@@ -1,7 +1,15 @@
 {
   "docs": {
-    "Introduction": ["welcome"],
-    "Getting Started": ["quick-start", "send-your-first-transaction"],
+    "Introduction": [
+      "welcome"
+    ],
+    "Getting Started": [
+      "quick-start",
+      "quick-start-deposit",
+      "quick-start-transaction",
+      "quick-start-exit",
+      "quick-start-process-exits"
+    ],
     "Integration": [
       "integration-introduction",
       "deposits",
