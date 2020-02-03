@@ -16,7 +16,7 @@ Now that you have funds on the OMG Network, you can make your first transaction.
 <img src="./assets/quick-start-transfer-create.png" width="500">
 
 3. Click **Transfer**. Your web3 wallet will pop up and ask you to confirm the transaction.
-4. Verify the inputs and outputs of your transactions to ensure they're accurate.
+4. Verify the inputs and outputs of your transactions to ensure they're correct.
 
 ![transfer-sign](./assets/quick-start-transfer-sign.png)
 

@@ -21,12 +21,12 @@ Before we can transact on the OMG Network, we first have to make sure that we ha
 ## Make an ETH Deposit
 
 1. Click **Deposit**.
-2. Define the amount you wish to deposit in WEI. Make sure you have more than this amount in your Rootchain wallet (to cover gas costs).
-3. Click **Deposit**. Your web3 wallet should pop up and ask you to confirm the transaction.
+2. Define the amount you wish to deposit in wei. Make sure you have more than this amount in your Rootchain wallet (to cover gas costs).
+3. Click **Deposit**. Your web3 wallet should pop up and ask you to confirm the transaction. Note that this example application defaults the gas limit to `6000000` wei.
 
 ![sign-deposit](./assets/quick-start-sign-deposit.png)
 
-4. Click **Confirm**. By confirming the transaction, you are signing the transaction with your private key and sending it to the OMG Network.
+4. Click **Confirm**. By confirming the transaction, you are signing the transaction with your private key and sending it to the OMG Network. You may have to wait a little bit for your transaction to be confirmed.
 5. Once your deposit transaction is confirmed, click the `Deposits` tab to see the progress of your deposit. Before your funds are accepted into the OMG Network, you have to wait for the deposit finality period, which is set to 10 blocks. You can click on the transaction to see further details on etherscan.
 
 <img src="./assets/quick-start-deposit-pending.png" width="500">
@@ -39,22 +39,22 @@ Before we can transact on the OMG Network, we first have to make sure that we ha
 
 ## Make an ERC20 Deposit
 
-The process for depositing ERC20 into the OMG Network is very similar. For these examples, we will be depositing the ERC20 token WETH (Wrapped Ether).
+The process for depositing ERC20 into the OMG Network is very similar to an ETH deposit. For these examples, we will be depositing the ERC20 token `WETH`.
 
 1. Click **Deposit**.
-2. Click on the ERC20 tab and define the address of the token you are depositing, as well as the amount.
+2. Click on the ERC20 tab and define the address of the token you are depositing (in this case the address for `WETH`), as well as the amount.
 
 <img src="./assets/quick-start-deposit-erc20.png" width="500">
 
-3. Click **Deposit**. This step will differ from the ETH deposit as web3 will pop up twice. The first popup is asking you to approve the deposit.
+3. Click **Deposit**. This step will differ from the ETH deposit as web3 will pop up twice. The first popup will ask you to approve the deposit.
 
 ![approve-erc20-deposit](./assets/quick-start-deposit-erc20-approve.png)
 
-The second popup is confirmation of the actual deposit transaction.
+The second popup will ask you to confirm the actual deposit transaction.
 
-![approve-erc20-deposit](./assets/quick-start-deposit-erc20-approve.png)
+![approve-erc20-deposit](./assets/quick-start-deposit-erc20-confirm.png)
 
-4. Click **Confirm** for both popups.
+4. Click **Confirm** for both popups. You may have to wait a little bit for your transaction to be confirmed.
 5. Once your deposit transaction is confirmed, click the `Deposits` tab to see the progress of your ERC20 deposit. Before your funds are accepted into the OMG Network, you have to wait for the deposit finality period, which is set to 10 blocks. You can click on the transaction to see further details on etherscan.
 
 <img src="./assets/quick-start-deposit-erc20-pending.png" width="500">

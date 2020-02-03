@@ -11,7 +11,7 @@ sidebar_label: Exit Funds
 You've successfully deposited and made a transfer on the OMG Network. If you want to exit your funds from the OMG Network, you would do this with a standard exit.
 
 1. Click **Exit**.
-2. Select the UTXO that you would like to exit. In this example we will exit the UTXO worth 890 wei.
+2. Select the UTXO that you would like to exit. In this example we will exit the UTXO worth `890 wei`.
 
 <img src="./assets/exit-create.png" width="500">
 
@@ -19,7 +19,7 @@ You've successfully deposited and made a transfer on the OMG Network. If you wan
 
 ![exit-sign](./assets/exit-sign.png)
 
-4. Click **Confirm**.
+4. Click **Confirm**. You may have to wait a little bit for your transaction to be confirmed.
 5. If the transaction was successful, you will see the status of your exit transaction under the `Exits` section. You will be temporarily blocked from making other transactions and exits while this transaction is pending.
 
 <img src="./assets/exit-status.png" width="500">
@@ -28,4 +28,4 @@ You've successfully deposited and made a transfer on the OMG Network. If you wan
 
 <img src="./assets/exit-challenge.png" width="500">
 
-> The challenge period for this browser wallet is approximately 2 days (will vary depending on various factors as explained [here](challenge-period)).
+> The challenge period for this browser wallet is approximately 10 minutes (will vary depending on various factors as explained [here](challenge-period)).
