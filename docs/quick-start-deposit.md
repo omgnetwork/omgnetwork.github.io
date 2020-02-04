@@ -12,7 +12,7 @@ sidebar_label: Make a Deposit
 
 Before we can transact on the OMG Network, we first have to make sure that we have ETH on the Rootchain (Ethereum's Ropsten test network).
 
-1. If you need some Ropsten ETH, send yourself some using a Ropsten faucet.
+1. If you need some Ropsten ETH, send yourself some using a [Ropsten faucet](https://faucet.metamask.io/).
 2. Make sure that your web3 wallet is pointing to the Ropsten network, or else you will not see your balance.
 3. The Ropsten ETH that you own displays in your account. Make sure this exists before continuing.
 
@@ -27,7 +27,7 @@ Before we can transact on the OMG Network, we first have to make sure that we ha
 ![sign-deposit](./assets/quick-start-sign-deposit.png)
 
 4. Click **Confirm**. By confirming the transaction, you are signing the transaction with your private key and sending it to the OMG Network. You may have to wait a little bit for your transaction to be confirmed.
-5. Once your deposit transaction is confirmed, click the `Deposits` tab to see the progress of your deposit. Before your funds are accepted into the OMG Network, you have to wait for the deposit finality period, which is set to 10 blocks. You can click on the transaction to see further details on etherscan.
+5. Once your deposit transaction is confirmed, click the `Deposits` tab to see the progress of your deposit. Before your funds are accepted into the OMG Network, you have to wait for the [deposit finality period]((glossary#deposit-finality-period), which is set to 10 blocks. You can click on the transaction to see further details on etherscan.
 
 <img src="./assets/quick-start-deposit-pending.png" width="500">
 
@@ -55,7 +55,7 @@ The second popup will ask you to confirm the actual deposit transaction.
 ![approve-erc20-deposit](./assets/quick-start-deposit-erc20-confirm.png)
 
 4. Click **Confirm** for both popups. You may have to wait a little bit for your transaction to be confirmed.
-5. Once your deposit transaction is confirmed, click the `Deposits` tab to see the progress of your ERC20 deposit. Before your funds are accepted into the OMG Network, you have to wait for the deposit finality period, which is set to 10 blocks. You can click on the transaction to see further details on etherscan.
+5. Once your deposit transaction is confirmed, click the `Deposits` tab to see the progress of your ERC20 deposit. Before your funds are accepted into the OMG Network, you have to wait for the [deposit finality period](glossary#deposit-finality-period), which is set to 10 blocks. You can click on the transaction to see further details on etherscan.
 
 <img src="./assets/quick-start-deposit-erc20-pending.png" width="500">
 
@@ -66,3 +66,5 @@ The second popup will ask you to confirm the actual deposit transaction.
 7. An ERC20 deposit UTXO was created and you now have some ERC20 on the OMG Network.
 
 > When you perform a deposit, you are sending funds to the `Plasma Framework` contract and creating a deposit UTXO for your account. With this new UTXO, you will later be able to transfer funds on the OMG Network. For a further discussion on understanding what is a UTXO, you can check out [this documentation](glossary#utxo).
+
+> To learn more about deposits, check out the documentation [here](deposits).

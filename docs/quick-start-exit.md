@@ -24,8 +24,10 @@ You've successfully deposited and made a transfer on the OMG Network. If you wan
 
 <img src="./assets/exit-status.png" width="500">
 
-6. You will also find the time posted for when you can process this exit. Before this time, your exit is going through the `Challenge Period`. This is the period of time where other users on the network have the opportunity to challenge your exit if it is dishonest. You will have to wait until this time passes, before being able to process your exit.
+6. You will also find the time posted for when you can process this exit. Before this time, your exit is going through the [`Challenge Period`](challenge-period). This is the period of time where other users on the network have the opportunity to challenge your exit if it is dishonest. You will have to wait until this time passes, before being able to [process your exit](process-exits).
 
 <img src="./assets/exit-challenge.png" width="500">
 
 > The challenge period for this browser wallet is approximately 10 minutes (will vary depending on various factors as explained [here](challenge-period)).
+
+> To learn more about standard exits, check out the documentation [here](standard-exits).

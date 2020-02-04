@@ -13,7 +13,7 @@ This guide will show you how to make transactions directly from a browser. By th
 The only requirement for this quick start is to have a web3 wallet with funds on Ropsten. We recommend using the Metamask chrome browser extension.
 
 * If you don't have a web3 wallet installed yet, head over to https://metamask.io/ and follow their instructions.
-* If you have a wallet but don't have any funds on Ropsten yet, please top up using a Ropsten faucet.
+* If you have a wallet but don't have any funds on Ropsten yet, please top up using a [Ropsten faucet](https://faucet.metamask.io/).
 
 <img src="./assets/metamask-example.png" width="500">
 

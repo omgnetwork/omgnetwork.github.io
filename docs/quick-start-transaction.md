@@ -30,3 +30,5 @@ Now that you have funds on the OMG Network, you can make your first transaction.
 <img src="./assets/quick-start-transfer-success.png" width="500">
 
 8. You've sent your first transaction on the OMG Network!
+
+> To learn more about transactions, check out the documentation [here](transfers).

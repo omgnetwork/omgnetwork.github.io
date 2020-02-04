@@ -27,3 +27,5 @@ You've started a standard exit and the challenge period has passed. Your exit is
 <img src="./assets/process-exits-confirmed.png" width="500">
 
 Congratulations! You've performed an end-to-end process of transacting on the OMG Network. If you would like to learn more, continue on to the `Integration` section.
+
+> To learn more about process exits, check out the documentation [here](process-exits).
