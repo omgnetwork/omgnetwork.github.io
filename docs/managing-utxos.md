@@ -5,11 +5,11 @@ sidebar_label: Managing UTXOs
 ---
 
 
-UTXOs are core to the logic of the OMG Network. Read more about what UTXOs are in the [Glossary](glossary#UTXO).
+UTXOs are core to the logic of the OMG Network. Read more about what UTXOs are in the [Glossary](glossary#utxo).
 
 ## User Considerations
 
-A user may find it desirable to *merge* or *split* UTXOs that her or she owns.
+A user may find it desirable to *merge* or *split* UTXOs that he or she owns.
 
 ### Merging UTXOs
 
@@ -74,14 +74,28 @@ A split transaction is formatted as an ordinary transaction whereby:
 
 - The sender is specified as the recipient. 
 - The input consist of a single UTXO.
-- The transaction amount is set at the amount the user wants to split from said UTXO.
+- The amount set in each payment object corresponds to a desired output value ‒ in other words, the amount the user wants to split from the input UTXO.
+
+> As a transaction can produce a maximum of <u>four</u> outputs, you can generally have up to <u>three</u> payment objects. Each one will produce an output, and the value of the fourth output will correspond to the value remaining after the split(s). You could, however, technically have four payment objects if their amounts add up to the exact value of the input UTXO.
+
 
 ```js
 const payments = [{
-    owner: Bob,
-    currency: <UTXO_CURRENCY>,
-    amount: <AMOUNT_TO_SPLIT>
-}];
+        owner: Bob,
+        currency: <UTXO_CURRENCY>,
+        amount: <AMOUNT_TO_SPLIT_1>
+    }, 
+    {
+        owner: Bob,
+        currency: <UTXO_CURRENCY>,
+        amount: <AMOUNT_TO_SPLIT_2>
+    },
+    {
+        owner: Bob,
+        currency: <UTXO_CURRENCY>,
+        amount: <AMOUNT_TO_SPLIT_3>
+    }
+];
 
 const txBody = OmgUtil.transaction.createTransactionBody({
     fromAddress: Bob,
