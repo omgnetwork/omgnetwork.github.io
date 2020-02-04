@@ -13,7 +13,7 @@ Processing an exit allows a user to release their funds locked in the `Plasma Fr
 4. The `Plasma Framework` contract releases the funds and the exit bond back to the user.
 
 ## Priority Queue
-When a user starts an exit, it is placed in a priority queue. Every token will have it's own priority queue. Thus, when processing exits, you are processing the exits for a particular queue of that token.
+When a user starts an exit, its placed in a priority queue. Every token will have its own priority queue. Thus, when processing exits, you are processing the exits for the particular queue of that token.
 
 Exits are placed in the queue based on priority. The priority is calculated based on a number of [different factors](https://github.com/omisego/plasma-contracts/blob/master/plasma_framework/contracts/src/framework/utils/ExitPriority.sol). Deposit UTXO's also have an elevated priority compared to other UTXO's. Therefore, you can only process your exit if the exits before yours have been processed already.
 
