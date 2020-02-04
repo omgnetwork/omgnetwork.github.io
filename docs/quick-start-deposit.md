@@ -27,7 +27,7 @@ Before we can transact on the OMG Network, we first have to make sure that we ha
 ![sign-deposit](./assets/quick-start-sign-deposit.png)
 
 4. Click **Confirm**. By confirming the transaction, you are signing the transaction with your private key and sending it to the OMG Network. You may have to wait a little bit for your transaction to be confirmed.
-5. Once your deposit transaction is confirmed, click the `Deposits` tab to see the progress of your deposit. Before your funds are accepted into the OMG Network, you have to wait for the [deposit finality period]((glossary#deposit-finality-period), which is set to 10 blocks. You can click on the transaction to see further details on etherscan.
+5. Once your deposit transaction is confirmed, click the `Deposits` tab to see the progress of your deposit. Before your funds are accepted into the OMG Network, you have to wait for the [deposit finality period](glossary#deposit-finality-period), which is set to 10 blocks. You can click on the transaction to see further details on etherscan.
 
 <img src="./assets/quick-start-deposit-pending.png" width="500">
 
