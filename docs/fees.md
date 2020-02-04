@@ -14,8 +14,6 @@ To return the list of currently supported fee tokens and amounts charged, `omg-j
 childChain.getFees()
 ```
 
-// TODO: add link to automatically updated fee spec
-
 > Fees must meet the exact amount defined in the fee spec, or the transaction will be rejected.
 
 > Merge transactions are free and fees are not charged. It is highly encouraged for users to maintain the smallest count of UTXOs possible. This acts as a mitigation for the mass exit vulnerability.
