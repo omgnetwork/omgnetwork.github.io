@@ -145,3 +145,34 @@ For example, if we have a deposit transaction in block 160000 at index 0, and we
 A block explorer is an online blockchain browser that allows you to explore the entire blockchain of the platform you're using, for example, OMG Network. 
 
 Cryptocurrency miners and users rely on block explorers to track their transactions and to view details for the latest blocks in the blockchain. Block explorers list newly discovered blocks as soon as they're generated, display information for each block and transaction, and allow you to search for transaction IDs and wallet addresses so that you can check on specific transactions.
+
+## I made a deposit but don't have access to a running Watcher. How can I exit my deposit?
+
+To exit a deposit from the OMG Network, you would need to start a standard exit. To start the exit, you first need exit data. You would usually get this data by calling the Watcher.
+
+ie.
+```js
+childChain.getExitData(utxo)
+```
+
+In the unlikely situation where you don't have access to a Watcher, constructing the exit data is still possible as the information needed exists with the deposit transaction. This process has been abstracted away in `omg-js`. You only need to pass the transaction hash from the deposit transaction.
+
+```js
+rootChain.getDepositExitData({ transactionHash })
+```
+
+This function will return the same data that the Watcher call would have.
+
+You can then start an exit as you would normally.
+
+```js
+rootChain.startStandardExit({
+  utxoPos: exitData.utxo_pos,
+  outputTx: exitData.txbytes,
+  inclusionProof: exitData.proof,
+  txOptions: {
+    from: Alice,
+    privateKey: AlicePrivateKey
+  }
+})
+```
