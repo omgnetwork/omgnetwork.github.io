@@ -15,7 +15,7 @@ The only requirement for this quick start is to have a web3 wallet with funds on
 * If you don't have a web3 wallet installed yet, head over to https://metamask.io/ and follow their instructions.
 * If you have a wallet but don't have any funds on Ropsten yet, please top up using a [Ropsten faucet](https://faucet.metamask.io/).
 
-<img src="./assets/metamask-example.png" width="500">
+<img src="/img/metamask-example.png" width="500">
 
 * This quick start will use a hosted application running [react-starter-kit](https://github.com/omisego/react-starter-kit). If you would like to run the same application locally, you can find the installation instructions in the repository.
 

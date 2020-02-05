@@ -7,9 +7,9 @@ const siteConfig = {
   tagline: 'Documentation for OmiseGo',
   url: 'https://omisego.github.io',
   baseUrl: '/',
+  docsUrl: '',
   projectName: 'omisego.github.co',
   organizationName: 'omisego',
-  docsUrl: '',
   headerLinks: [
     { doc: 'welcome', label: 'Docs' },
     { doc: 'api-reference-introduction', label: 'API' },
