@@ -24,8 +24,8 @@ The Watcher broadcasts any byzantine event it detects on the OMG Network. Should
 childChain.status()
 ```
 
-## Challengeable Events
-These are byzantine events reported by the Watcher that require action by users. 
+## Challenging Standard Exits
+These are byzantine events on invalid standard exits reported by the Watcher that require action by users.
 
 #### `invalid_exit`
 
@@ -81,6 +81,9 @@ async function challengeInvalidExit () {
   })
 }
 ```
+
+## Challenging In-Flight Exits
+These are byzantine events on invalid in-flight exits reported by the Watcher that require action by users.
 
 #### `noncanonical_ife`
 Indicates an in-flight exit of a non-canonical transaction has been started. It should be challenged.
