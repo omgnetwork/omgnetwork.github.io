@@ -36,8 +36,10 @@ Note that new changes will not be reflected on the base url unless they have bee
 ie. `http://localhost:3000/next/welcome.html`
 Navigating further in the app will stay on the latest changes.
 
-To lock in the current state of docs with the next version run the following from `/website` folder. Please use sem-ver syntax.
+To lock in the current state of docs with the next version run the following from `/website` folder. Please use sem-ver syntax. *This command can only be run on new versions and not on existing versions.
 - `$ npm run version <next version number>`
+
+Note that to make changes to old versions, you can edit the markdowns directly in their relevant folders `/website/versioned_docs/version-<0.0.1etc>`
 
 ### Production
 - Automatically will build and deploy master
