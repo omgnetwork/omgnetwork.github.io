@@ -40,7 +40,7 @@ The table describes the components of the OMG Network architecture:
 | Watcher | A service that monitors the child chain for suspicious activity, such as the operator or any user acting dishonestly. If the watcher discovers suspicious activity, it prompts users to challenge invalid exits, or to exit the child chain. Users can run their own Watcher, but it is also expected that some trusted entity will run Watchers as a service. |
 
 ## What is a Transaction?
-Transactions are composed of inputs and outputs. An input is simply a pointer to the output of another transaction. 
+Transactions are composed of inputs and outputs. An input is simply a pointer to the output of another transaction. In the OMG Network, transactions are limited to 4 possible inputs and 4 possible outputs.
 
 Transactions that have been included in a block have a position which is the number of the block it's in and its index in that block. For example the fourth transaction in block 5000 has a position of `(5000, 3)`.
 
@@ -145,3 +145,34 @@ For example, if we have a deposit transaction in block 160000 at index 0, and we
 A block explorer is an online blockchain browser that allows you to explore the entire blockchain of the platform you're using, for example, OMG Network. 
 
 Cryptocurrency miners and users rely on block explorers to track their transactions and to view details for the latest blocks in the blockchain. Block explorers list newly discovered blocks as soon as they're generated, display information for each block and transaction, and allow you to search for transaction IDs and wallet addresses so that you can check on specific transactions.
+
+## I made a deposit but don't have access to a running Watcher. How can I exit my deposit?
+
+To exit a deposit from the OMG Network, you would need to start a standard exit. To start the exit, you first need exit data. You would usually get this data by calling the Watcher.
+
+ie.
+```js
+childChain.getExitData(utxo)
+```
+
+In the unlikely situation where you don't have access to a Watcher, constructing the exit data is still possible as the information needed exists with the deposit transaction. This process has been abstracted away in `omg-js`. You only need to pass the transaction hash from the deposit transaction.
+
+```js
+rootChain.getDepositExitData({ transactionHash })
+```
+
+This function will return the same data that the Watcher call would have.
+
+You can then start an exit as you would normally.
+
+```js
+rootChain.startStandardExit({
+  utxoPos: exitData.utxo_pos,
+  outputTx: exitData.txbytes,
+  inclusionProof: exitData.proof,
+  txOptions: {
+    from: Alice,
+    privateKey: AlicePrivateKey
+  }
+})
+```

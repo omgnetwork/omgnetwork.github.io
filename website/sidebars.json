@@ -1,13 +1,27 @@
 {
   "docs": {
-    "Introduction": ["welcome"],
-    "Getting Started": ["quick-start", "send-your-first-transaction"],
+    "Introduction": [
+      "welcome"
+    ],
+    "Getting Started": [
+      "quick-start",
+      "quick-start-deposit",
+      "quick-start-transaction",
+      "quick-start-exit",
+      "quick-start-process-exits"
+    ],
     "Integration": [
       "integration-introduction",
       "deposits",
       "transfers",
-      "standard-exits",
-      "in-flight-exits",
+      {
+        "type": "subcategory",
+        "label": "Exits",
+        "ids": [
+          "standard-exits",
+          "in-flight-exits"
+        ]
+      },
       "challenge-period",
       "challenging-exits",
       "process-exits"
