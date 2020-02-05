@@ -32,8 +32,12 @@ The version of Docusaurus we are using does not version assets so image changes 
 - `$ npm run start` -> start local server serving site on port 3000
 
 ### Versioning
-To lock in the current state of docs as a version run the following from `/website` folder
-- `$ npm run version <version number>`
+Note that new changes will not be reflected on the base url unless they have been versioned. To see the latest unversioned changes, append `/next` before the page you are visiting.
+ie. `http://localhost:3000/next/welcome.html`
+Navigating further in the app will stay on the latest changes.
+
+To lock in the current state of docs with the next version run the following from `/website` folder. Please use sem-ver syntax.
+- `$ npm run version <next version number>`
 
 ### Production
 - Automatically will build and deploy master

@@ -32,7 +32,7 @@ function Versions(props) {
                 <th>{latestVersion}</th>
                 <td>
                   <a
-                    href={`/${latestVersion}`}>
+                    href='/'>
                     Documentation
                   </a>
                 </td>
@@ -51,10 +51,8 @@ function Versions(props) {
                         <tr key={version}>
                           <th>{version}</th>
                           <td>
-                            {/* You are supposed to change this href where appropriate
-                            Example: href="<baseUrl>/docs(/:language)/:version/:id" */}
                             <a
-                              href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${version}`}>
+                              href={`/${version}/welcome.html`}>
                               Documentation
                             </a>
                           </td>
