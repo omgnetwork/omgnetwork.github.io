@@ -14,8 +14,14 @@
       "integration-introduction",
       "deposits",
       "transfers",
-      "standard-exits",
-      "in-flight-exits",
+      {
+        "type": "subcategory",
+        "label": "Exits",
+        "ids": [
+          "standard-exits",
+          "in-flight-exits"
+        ]
+      },
       "challenge-period",
       "challenging-exits",
       "process-exits"
