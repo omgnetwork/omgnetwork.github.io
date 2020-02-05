@@ -32,7 +32,7 @@ The number of blocks in a blockchain, counted between the last block and the fir
 Wikepedia describes a blockchain as "a growing list of records, called blocks, which are linked using cryptography. Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data (generally represented as a Merkle tree)". A blockchain is thus a digital record, or ledger. Transactions on a blockchain are public, and are ordered chronologically. Source: https://en.wikipedia.org/wiki/Blockchain
 
 
-### Canonical transaction 
+## Canonical transaction 
 A transaction is canonical if none of its inputs were previously spent in another transaction.
 The definition of "previously spent" depends on whether the transaction in question is included in the Plasma chain.
 The position of a transaction in the chain is determined by the tuple (block number, transaction index).
@@ -135,7 +135,7 @@ See also: https://www.ethereum.org/
 Exit refers to the position at which an investor or institution sells their stake or liquidates their assets to claim a gain or loss.
 
 
-### Exitable transaction
+## Exitable transaction
 A spend transaction can be called *exitable* if the transaction is correctly formed (e.g. more input value than output value, inputs older than outputs, proper structure) and is properly signed by the owners of the transaction’s inputs.
 If a transaction is *exitable*, a user may try to start an exit that references the transaction. 
 
@@ -342,7 +342,7 @@ While this is not a typical technical glossary term, it's important to clarify w
 Short for Unspent Transaction Output. See: https://bitcoin.org/en/glossary/unspent-transaction-output
 
 
-### Valid transaction
+## Valid transaction
 A valid transaction is a spend transaction that is valid if it is exitable, canonical, and only stems from valid transactions; that is, all transactions in the history are also valid transactions.
 
 A transaction is thus considered invalid if even a single invalid transaction is present in its history.
