@@ -32,11 +32,16 @@ The version of Docusaurus we are using does not version assets so image changes 
 - `$ npm run start` -> start local server serving site on port 3000
 
 ### Versioning
-Note that new changes will not be reflected on the base url unless they have been versioned. To see the latest unversioned changes, append `/next` before the page you are visiting.
+The app will render whatever is in the latest versioned folder. This means that new changes will not be reflected on the base url unless they have been versioned. Therefore, to see the latest unversioned changes, append `/next` to the base url.
+
 ie. `http://localhost:3000/next/welcome.html`
+
 Navigating further in the app will stay on the latest changes.
 
-To lock in the current state of docs with the next version run the following from `/website` folder. Please use sem-ver syntax. *This command can only be run on new versions and not on existing versions.
+To lock in the current state of docs with the next version run the following from `/website` folder. Please use sem-ver syntax.
+
+ *This command can only be run on new versions and not on existing versions.
+
 - `$ npm run version <next version number>`
 
 Note that to make changes to old versions, you can edit the markdowns directly in their relevant folders `/website/versioned_docs/version-<0.0.1etc>`
