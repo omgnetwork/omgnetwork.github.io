@@ -343,14 +343,10 @@ Short for Unspent Transaction Output. See: https://bitcoin.org/en/glossary/unspe
 
 
 ## Valid transaction
-A valid transaction is a spend transaction that is valid if it is exitable, canonical, and only stems from valid transactions; that is, all transactions in the history are also valid transactions.
 
-A transaction is thus considered invalid if even a single invalid transaction is present in its history.
+A spend transaction is valid if it is exitable, canonical, and if its inputs only stem from valid transaction. A transaction is thus considered invalid if even a single invalid transaction is present in its history.
 
 An exitable transaction is not necessarily a valid transaction, but all valid transactions are, by definition, exitable.
-
-Our exit mechanism ensures that all outputs created by valid transactions can process before any output created by an invalid transaction. 
-
 
 ## Validator
 The person responsible for verifying transactions in a blockchain.
