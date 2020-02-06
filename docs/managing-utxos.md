@@ -116,14 +116,5 @@ const txBody = OmgUtil.transaction.createTransactionBody({
 
 ## Network Considerations
 
-Users are highly encouraged to merge UTXOs continuously as means of mitigating the vulnerability of funds on the Plasma chain in a mass exit event. 
+Users are highly encouraged to merge UTXOs continuously as a way of mitigating the vulnerability of Plasma Chain funds in a mass exit event. Read more in the [FAQ Section](faq#why-does-a-smaller-utxo-set-on-the-plasma-chain-reinforce-the-safety-of-user-funds-in-a-mass-exit-event).
 
-Consider a scenario whereby a dishonest Plasma Chain operator steals user funds by creating an invalid block, and then initiates a `Standard Exit` on his UTXOs. In such a scenario, users must exit back to the root chain in order to safely retain ownership of their funds. 
-
-As the "mass exit" event unfolds, a larger set of exiting UTXOs means a higher number of exit transactions submitted to the root chain. If this results in network congestion, exiting users could ‒ to begin with ‒ be faced with higher gas fees.
-
-However, users must also exit *before* the dishonest operator does if they are to safely preserve their funds. Failure to do so could mean there is nothing left for them in the `Vault`. If congestion on the root chain reaches a certain level due to the number of exiting UTXOs, users may be prevented from executing an exit on time.
-
-Continuous merging of UTXOs can mitigate the above vulnerabilities by diminshing the size of the UTXO set on the Plasma Chain. 
-
-> Due to the mechanics of the [Scheduled Finalisation Time (SFT)](#challenge-period), users generally have <u>one week</u> to initate an exit that can safely restore ownership of their funds. For UTXOs that are less than one week old, however, this window of safety is reduced to the time between the UTXO's creation and the start of the operator's dishonest exit.
