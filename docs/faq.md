@@ -176,3 +176,15 @@ rootChain.startStandardExit({
   }
 })
 ```
+
+## Why does a smaller UTXO set on the OMG Network reinforce the safety of user funds in a mass exit event? 
+
+Consider a scenario whereby a dishonest child chain operator steals user funds by creating an invalid block, and then initiates a `Standard Exit` on his UTXOs. In such a scenario, users must exit their UTXOs back to the root chain in order to safely retain ownership of their funds. 
+
+Because every UTXO requires its own exit, a larger number of exiting UTXOs means more exit transactions submitted to the root chain. If this results in network congestion, exiting users could ‒ to begin with ‒ be faced with higher gas fees.
+
+However, users must also exit *before* the dishonest operator does if they are to safely preserve their funds. Failure to do so could mean there is nothing left for them in the `Vault`. If congestion on the root chain reaches a certain level due to the number of exiting UTXOs, users may be prevented from executing an exit on time.
+
+A smaller UTXO set on the child chain can mitigate these vulnerabilities, and thereby reinforce the safety of user funds. For this reason, users are encouraged to merge their UTXOs continuously.
+
+> Due to the mechanics of the [Scheduled Finalisation Time (SFT)](#challenge-period), users generally have <u>one week</u> to initate an exit that can safely restore ownership of their funds. For UTXOs that are less than one week old, however, this window of safety is reduced to the time between the UTXO's creation and the start of the operator's dishonest exit.
