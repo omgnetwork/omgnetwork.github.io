@@ -1,7 +1,8 @@
 ---
-id: quick-start-process-exits
+id: version-0.0.1-quick-start-process-exits
 title: Process Exits
 sidebar_label: Process Exits
+original_id: quick-start-process-exits
 ---
 
 > If you haven't already, open the [browser wallet](https://omgnetwork-browser-wallet.netlify.com) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.

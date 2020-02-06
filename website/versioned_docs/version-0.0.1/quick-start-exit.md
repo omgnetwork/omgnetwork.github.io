@@ -1,7 +1,8 @@
 ---
-id: quick-start-exit
+id: version-0.0.1-quick-start-exit
 title: Exit Funds
 sidebar_label: Exit Funds
+original_id: quick-start-exit
 ---
 
 > If you haven't already, open the [browser wallet](https://omgnetwork-browser-wallet.netlify.com) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.

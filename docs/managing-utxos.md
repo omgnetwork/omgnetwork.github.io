@@ -116,5 +116,5 @@ const txBody = OmgUtil.transaction.createTransactionBody({
 
 ## Network Considerations
 
-Users are highly encouraged to merge UTXOs continuously as a way of mitigating the vulnerability of Plasma Chain funds in a mass exit event. Read more in the [FAQ Section](faq#why-does-a-smaller-utxo-set-on-the-plasma-chain-reinforce-the-safety-of-user-funds-in-a-mass-exit-event).
+Users are highly encouraged to merge UTXOs continuously as a way of mitigating the vulnerability of OMG Network funds in a mass exit event. Read more in the [FAQ Section](faq#why-does-a-smaller-utxo-set-on-the-omg-network-reinforce-the-safety-of-user-funds-in-a-mass-exit-event).
 

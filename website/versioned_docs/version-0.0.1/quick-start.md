@@ -1,7 +1,8 @@
 ---
-id: quick-start
+id: version-0.0.1-quick-start
 title: Quick Start
 sidebar_label: Quick Start
+original_id: quick-start
 ---
 
 This guide will show you how to make transactions directly from a browser. By the end you will:
