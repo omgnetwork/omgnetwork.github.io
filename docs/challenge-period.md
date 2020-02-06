@@ -16,7 +16,7 @@ The formal calculation for the SFT is as follows:
 | In-flight exits   | SFT = max(exit_request_block.timestamp + MFP, youngest_input_block.timestamp + MFP + REP) |
 | Deposit * | exit_request_block.timestamp + MFP
 
-**&nbsp;Refers to a deposit transaction or deposit-generated UTXO.*
+**&nbsp;Refers to a standard exit on a deposit-generated UTXO.*
 
 
 *Parameters*:
@@ -32,7 +32,7 @@ Currently both the MFP and REP are hard-coded to <u>one week</u> in the `Plasma 
 
 For a standard exit, this means that the Scheduled Finalisation Time is one week from the exit transaction if the UTXO is one week old or more, or two weeks from the creation of the UTXO if the UTXO is less than a week old. The same logic is applied to in-flight exits, but on the youngest input of the exiting transaction.
 
-For the exit of a deposit transaction or deposit-generated UTXO, the SFT is simply one week from the exit transaction.
+For a standard exit on a deposit-generated UTXO, the SFT is simply one week from the exit transaction.
 
 **Getting the Scheduled Finalisation Time** 
 
