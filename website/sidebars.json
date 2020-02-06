@@ -34,7 +34,8 @@
       "morevp-technical-overview",
       "blockchain-design",
       "byzantine-conditions",
-      "exitbonds"
+      "exitbonds",
+      "fees"
     ]
   }
 }
