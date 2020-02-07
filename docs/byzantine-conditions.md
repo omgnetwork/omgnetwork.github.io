@@ -24,7 +24,7 @@ See docs on [`unchallenged_exit` condition](https://github.com/omisego/elixir-om
 ```
 
 #### `invalid_block`
-Indicates that an invalid block has been added to the chain. User should exit.
+Indicates that an invalid block has been added to the chain. A block is considered to be invalid when there is something wrong with a block received by the child chain. Including a situation where the root hash of the transactions in a block that has been submitted to the root chain does not match with the content of the block found on the child chain's API. User should exit.
 
 ```json
 {
@@ -38,7 +38,7 @@ Indicates that an invalid block has been added to the chain. User should exit.
 ```
 
 #### `block_withholding`
-Indicates that the Childchain is withholding a block whose hash has been published on the Rootchain. User should exit.
+Indicates that the child chain is withholding a block whose hash has been published on the root chain and is not available via the child chain's API. User should exit.
 
 ```json
 {
