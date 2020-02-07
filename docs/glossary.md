@@ -344,7 +344,7 @@ Short for Unspent Transaction Output. See: https://bitcoin.org/en/glossary/unspe
 
 ## Valid transaction
 
-A spend transaction is valid if it is exitable, canonical, and if its inputs only stem from valid transaction. A transaction is thus considered invalid if even a single invalid transaction is present in its history.
+A spend transaction is valid if it is exitable, canonical, and if its inputs only stem from valid transactions. A transaction is thus considered invalid if even a single invalid transaction is present in its history.
 
 An exitable transaction is not necessarily a valid transaction, but all valid transactions are, by definition, exitable.
 
