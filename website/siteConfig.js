@@ -3,7 +3,7 @@
 const siteConfig = {
   docsSideNavCollapsible: true,
   disableHeaderTitle: true,
-  gaTrackingId: 'GTM-TVZS27N'
+  gaTrackingId: 'GTM-TVZS27N',
   title: 'OmiseGO | Developer Portal',
   tagline: 'Documentation for OmiseGo',
   url: 'https://omisego.github.io',
