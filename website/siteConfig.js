@@ -28,7 +28,10 @@ const siteConfig = {
   scripts: [],
   onPageNav: 'separate',
   cleanUrl: true,
-
+  algolia: {
+    apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+    indexName: 'omisego'
+  },
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
     theme: 'default',
