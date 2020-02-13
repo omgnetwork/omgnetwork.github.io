@@ -13,12 +13,11 @@ const siteConfig = {
   organizationName: 'omisego',
   headerLinks: [
     { doc: 'welcome', label: 'Docs' },
+    { href: 'network-connection-details', external: false, label: 'Network Connection' },
     { doc: 'api-reference-introduction', label: 'API' },
-    { href: 'http://quest.samrong.omg.network/', external: true, label: 'Block explorer' },
-    { href: 'https://omisego.co/use-cases', external: true, label: 'Use cases' },
     { href: 'https://omisego.co/', external: true, label: 'Product' },
   ],
-  headerIcon: 'img/omisego-white.svg',
+  headerIcon: 'img/omg-network.svg',
   footerIcon: 'img/favicon.ico',
   favicon: 'img/favicon.ico',
   colors: {

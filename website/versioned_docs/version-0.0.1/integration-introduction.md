@@ -7,7 +7,7 @@ original_id: integration-introduction
 
 The intergration section aims to give a deeper technical explanation around the transaction lifecycle. It serves as a guide for integrators using the OMG Network.
 
-## Code Examples
+### Code Examples
 You will find numerous code examples in this section. These code examples are using the [omg-js](https://github.com/omisego/omg-js) integration library, as it abstracts a lot of the processes away from the user. 
 
 > Best effort is given to generally explain what is going on under the hood but if you want to dive deeper into the implementation, you can check out the relevant code in their respective repositories.

@@ -9,11 +9,14 @@ A transfer involves one wallet sending tokens to another wallet on the OMG Netwo
 
 ## Lifecycle
 
-Once a transaction is created, signed and encoded, it is submitted to the `Watcher`.
+1. The transaction is created, signed and encoded. 
+2. The transaction is submitted to the `Watcher` and – subsequently – to the child chain for validation. 
+3. If the transaction is valid, the child chain creates a transaction hash and adds the transaction to a pending block.
+4. The child chain bundles the transactions in the block into a Merkle tree and submits its root hash to the `Plasma Framework` smart contract.
+5. The `Watcher` receives a list of transactions from the child chain and recomputes the Merkle root to check for any inconsistency.
 
-The `Watcher` will check for various conditions of invalidity before submitting the transaction to the child chain.
 
-> The following conditions would cause the `Watcher` to invalidate the transaction:
+> The following conditions would cause the `Watcher` or the child chain to reject the transaction as invalid:
 >
 > - The transaction is using inputs being used for another transaction in the block.
 > - The transaction is using inputs spent in any prior block.
@@ -21,11 +24,9 @@ The `Watcher` will check for various conditions of invalidity before submitting 
 > - The transaction is using inputs from a non-validated deposit.
 > - The transaction is signed with an invalid signature.
 
-The child chain will subsequently create a transaction hash, mark the transaction inputs as spent and create the transaction inputs - before adding the transaction the currently pending child chain block. This block is then submitted to the root chain for finalization.
-
 ## Implementation
 
-The transfer flow can be broken down into four steps:
+The process of creating a transfer can be broken down into four steps:
 
 1. Create a transaction body with the basic information pertaining to the transaction, including the UTXOs to be spent by the sender.
 
