@@ -7,7 +7,7 @@ sidebar_label: In Flight Exits
 Exits allow a user to withdraw funds from the OMG Network back onto the root chain. There are two types of exit:
 standard exits and in-flight exits (IFEs). This section will cover in-flight-exits.
 
-A transaction is considered to be “in-flight” if it has been broadcast but has not yet been included in the Plasma chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block in which the said transaction is included.
+A transaction is considered to be “in-flight” if it has been broadcast but has not yet been included in the child chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block in which the said transaction is included.
 
 A user may consider an in-flight _exit_ in the following scenarios:
 
