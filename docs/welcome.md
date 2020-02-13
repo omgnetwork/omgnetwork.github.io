@@ -1,7 +1,7 @@
 ---
 id: welcome
 title: Welcome
-sidebar_label: About OmiseGO
+sidebar_label: About OMG Network
 ---
 
 The OMG Network is a decentralized, public network that allows high throughput, low cost peer-to-peer transactions, facilitating financial services across geographies, asset classes, and applications.

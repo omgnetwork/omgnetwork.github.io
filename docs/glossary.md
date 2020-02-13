@@ -4,7 +4,7 @@ title: Glossary
 sidebar_label: Glossary
 ---
 
-This page provides explanations of the core concepts and terminology for OmiseGO.
+This page provides explanations of the core concepts and terminology for the OMG Network.
 
 ## Accountability
 The ability to detect that a trade did not execute as expected.
