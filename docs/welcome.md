@@ -10,7 +10,7 @@ The OMG Network leverages Layer 2 Plasma architecture to provide high throughput
 
 The OMG Network allows you to access, manage, and transact with digital assets that are kept securely on the blockchain. 
 
-## Try it out
+### Try it out
 
 Check out the OMG Network with our [block explorer](https://quest-pre-lumphini.omg.network/) and then send your first transaction in our [quick start guide](quick-start).
 
