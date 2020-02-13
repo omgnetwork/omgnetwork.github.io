@@ -60,8 +60,6 @@ async function getUTXOInformation () {
 
 With a valid UTXO and exit data returned from the Watcher, Alice can now start her standard exit. A standard exit involves the `Payment Exit Game` contract, with the initiator of the standard exit commiting an `exit bond`. The purpose of this bond is simply an economic mechanism to incentivize users to act honestly when starting an exit, since the bond will be awarded to any user that can disprove the canonicity of the transaction.
 
-The user can initiate an IFE regardless of whether the above is factually correct, but must commit an `exit bond`. The purpose of the `exit bond` is to deter users from initating exits dishonestly, as this bond will be awarded to any party who successfully proves that the exit is dishonest.
-
 ```js
 rootChain.startStandardExit({
   utxoPos: exitData.utxo_pos,
@@ -75,8 +73,6 @@ rootChain.startStandardExit({
 ```
 
 > The inclusion proof is a Merkle proof that the transaction creating the UTXO being exited was included in a given valid block.
-
-
 
 > **Helpful Tip**
 >
