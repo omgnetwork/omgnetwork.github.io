@@ -48,7 +48,7 @@ Centralized network, in which users and nodes are all connected to a central ser
 A cash in/cash out solution assumes that everyone everyone has a smartphone with access to e-wallet applications that exist in a 'closed loop' payment infrastructure. OmiseGO aims to open up these wallet siloes to allow wallets to exchange with each other. Cash in and cash out touchpoints aim to create a network of banking, hardware, and retail partners where users can deposit and withdraw their cash. The cash becomes tokenized on any wallet applicatoin the user chooses, and may immediately be exchanged for other tokenized currencies and assets via the OmiseGO blockchain.
 
 
-## Childchain
+## Child chain
 The OMG Network.
 
 
@@ -294,7 +294,7 @@ A safety guarantee that protects user funds on the network.
 OmiseGO's restricted custody is the safety mechanism that protects users funds when they trade at an exchange. If the operator (OmiseGO, in this case) tries to steal funds, users will not lose their money. The only way funds can be lost is if the operator and the exchange collude. OmiseGO's security guarantee is enforced in its protocol, whereby the actual platform prevents the operator from acting dishonestly. Three parties must agree to allow OmiseGO's exchange to trade: user, operator/OmiseGO, and exchange. This mechanism allows OmiseGO to provide protection for the exchange.
 
 
-## Rootchain
+## Root chain
 The Ethereum root chain. Can be differing in environment, ie. Rinkeby, Ropsten, Mainnet, etc.
 
 

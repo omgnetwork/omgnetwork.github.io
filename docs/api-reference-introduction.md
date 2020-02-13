@@ -17,7 +17,7 @@ OmiseGO APIs are completely open. No authentication is required to query and get
 
 - [Watcher Security Critical API](https://developer.omisego.co/elixir-omg/docs-ui/?url=0.1/security_critical_api_specs.yaml)
 
-- [Childchain API](https://developer.omisego.co/elixir-omg/docs-ui/?url=master/operator_api_specs.yaml)
+- [Child Chain API](https://developer.omisego.co/elixir-omg/docs-ui/?url=master/operator_api_specs.yaml)
 
 
 ## OMG Network APIs

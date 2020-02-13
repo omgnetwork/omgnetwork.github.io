@@ -34,7 +34,7 @@ function Footer () {
           </span>
           <span className='footer-item'>
             <a target='_blank' href='https://developer.omisego.co/elixir-omg/docs-ui/?url=0.2/operator_api_specs.yaml'>
-              {`Childchain API`}
+              {`Child Chain API`}
             </a>
           </span>
         </div>

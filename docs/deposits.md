@@ -8,7 +8,7 @@ A deposit involves sending ETH or ERC-20 tokens to the `Vault` smart contract on
 
 ## Implementation
 
-Funds can be deposited using the `deposit()` call in the `omg-js` rootchain module.
+Funds can be deposited using the `deposit()` call in the `omg-js` rootChain module.
 
 #### Example:
 
