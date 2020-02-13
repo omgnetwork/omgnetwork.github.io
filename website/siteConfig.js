@@ -17,7 +17,7 @@ const siteConfig = {
     { doc: 'api-reference-introduction', label: 'API' },
     { href: 'https://omisego.co/', external: true, label: 'Product' },
   ],
-  headerIcon: 'img/omisego-white.svg',
+  headerIcon: 'img/omg-network.svg',
   footerIcon: 'img/favicon.ico',
   favicon: 'img/favicon.ico',
   colors: {
