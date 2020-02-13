@@ -6,7 +6,7 @@ sidebar_label: Send a Transaction
 
 > If you haven't already, open the [browser wallet](https://omgnetwork-browser-wallet.netlify.com) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.
 
-> The browser wallet is deployed against the [Lumphini Network environment](network-connection-details.md).
+> The browser wallet is deployed against the [Lumphini Network environment](/network-connection-details).
 
 Now that you have funds on the OMG Network, you can make your first transaction.
 

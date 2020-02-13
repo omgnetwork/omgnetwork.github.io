@@ -24,12 +24,10 @@ The key features of OmiseGO's blockchain design may be viewed as deviations from
 1. Only supports transactions transferring value between addresses.
 
    Value transfer can take the form of an atomic swap; that is two currencies being exchanged in a single transaction (multiple currencies: Eth + ERC20).
-   See also: [Transactions](blockchain-design.md)
 
 2. It is a non-p2p, proof-of-authority network. 
 
    The child chain is centrally controlled by a designated, fixed Ethereum address (the child chain operator); other participants (that is, users) connect to the child chain server.
-   See also: Child chain server
 
 3. Employs a single-tiered Plasma construction. That is, the child chain doesn't serve as a parent of any chain.
 
@@ -65,7 +63,7 @@ The root chain contract secures the child chain:
 * Tracks child chain block hashes submitted that account for the funds being moved on the child chain
 * Manages secure exiting of funds, including exits of in-flight transactions
 
-The child chain, and the root chain contract that secures it, manage funds using the UTXO model. See also, [Transactions](blockchain-design.md).
+The child chain, and the root chain contract that secures it, manage funds using the UTXO model.
 
 ### Deposits
 Any Ethereum address may deposit ETH or ERC20 tokens into the root chain contract. Deposits increase the pool of funds held by the root chain contract, and also signals to the child chain server that the funds should be accessible on the child chain.
@@ -81,12 +79,10 @@ Exits are the most important part of the root chain contract facilities. Exits p
 Exits must satisfy the following conditions:
 | Condition | Description |
 | ---       |   ---       |
-| E1        | Only funds represented by UTXOs that were provably included in the child chain may be exited. See [Transactions](blockchain-design.md). This means that only funds that provably existed may be exited. |
+| E1        | Only funds represented by UTXOs that were provably included in the child chain may be exited. This means that only funds that provably existed may be exited. |
 | E2        | Attempts to exit funds that have been provably spent on the child chain, must be thwarted and punished. |
 | E3        | There must be a priority given to earlier UTXOs, for the event when the attacking child chain operator submits a block creating UTXOs dishonestly and attempts to exit these UTXOs. This allows all UTXOs created before the dishonest UTXOs, to exit first. |
 | E4        | In-flight funds (funds locked up in a transaction), which may or may not have not been included in the child chain, must be able to exit on par with funds whose inclusion is known. |
-
-
 
 
 #### Submitting exit requests and challenging
@@ -111,13 +107,11 @@ An exit challenge period counts from the exit request submission, until this exi
 A successful and timely exit challenge invalidates the exit.
 
 
-
 ##### In-flight exit
 
 May be used by in-flight funds; that is, where the inclusion of the transaction manipulating such funds is not known, or they're included in an invalid chain.
 
-Assuming that the in-flight transaction has inputs that had been outputs of a transaction included in a valid chain, such funds can be recovered using the [MoreVP protocol](morevp-technical-overview.md).
-
+Assuming that the in-flight transaction has inputs that had been outputs of a transaction included in a valid chain, such funds can be recovered using the MoreVP protocol.
 
 
 #### Finalizing exits at Scheduled Finalization Time (SFT)
@@ -166,10 +160,6 @@ Exit priority has two keys:
 Primary key	The SFT (scheduled finalization time)
 Secondary key	
 The UTXO position
-
-See also: Transaction
-
-
 
 #### Child chain validation frequency
 There are maximum periods of time a user can spend offline without validating a particular aspect of the chain and exposing themselves to risk of fund loss. 
@@ -334,17 +324,6 @@ Child chain will have the following:
 > To create a valid transaction you must have access to the positions of all the UTXOs that you own.
 
 > **Note:** *Detailed documentation for the transaction encoding scheme used is pending. In the meantime, please refer to the implementation details in the  `elixir-omg` GitHub repo, here, https://github.com/omisego/elixir-omg/blob/master/apps/omg/lib/state/transaction/signed.ex#L35) and here: https://github.com/omisego/elixir-omg/blob/master/apps/omg/lib/omg/state/transaction/signed.ex#L41
-
-
-### Fees
-#### Child chain server fees
-A minimum fee is configured for the child chain server. Minimum fee is derived from the average of N different APIs. The central server is pinged so that fees are updated for current pricing. Further details may be found at https://developer.makerdao.com/feeds/
-
-Transactions below the defined minimum fee are rejected. 
-
-#### Tracking and exiting fees
-
-The child chain operator is eligible to exit the fees accumulated from the root chain contract. The Watcher participates to track the correctness of fee exits.
 
 
 ## Watcher

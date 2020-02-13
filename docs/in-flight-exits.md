@@ -14,11 +14,9 @@ A user may consider an in-flight _exit_ in the following scenarios:
 - The user has signed and broadcast a transaction, but is unable to verify its inclusion in a block.
 - The user can see that the transaction has been included in a block, but believes that the block is invalid due to a dishonest operator.
 
-For more scenarios elaborated in detail, click [here]().
-
 The user can initiate an IFE regardless of whether the above is factually correct, but must commit an `exit bond`. The purpose of the `exit bond` is to deter users from initating exits dishonestly, as this bond will be awarded to any party who successfully proves that the exit is dishonest.
 
-> For further information on the bond mechanism and the definiton of a "dishonest" exit, please see the [Appendix]().
+> For further information on the bond mechanism, please see the [Appendix](exitbonds).
 
 > The exit protocol forms the crux of the Plasma design. This guide aims to only discuss implementation of these concepts with respect to the OMG Network. If you want a deeper dive of these concepts, further discussion can be found on the [MoreVP Technical Overview](morevp-technical-overview).
 
@@ -93,7 +91,7 @@ To successfully withdraw an output `out` to a transaction `tx`, it must be prove
 1. _tx_ is exitable.
 2. _tx_ is canonical.
 
-> A transaction is canonical if its inputs were not spent in another transaction previously. Read more about what makes a transaction canonical or non-canonical in the [Glossary]().
+> A transaction is canonical if its inputs were not spent in another transaction previously. Read more about what makes a transaction canonical or non-canonical in the [Glossary](glossary#canonical-transaction).
 
 The owner of an output can `piggyback` with the following call:
 

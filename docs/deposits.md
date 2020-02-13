@@ -44,6 +44,4 @@ The `Vault` in question will then:
 - Create a Deposit Block and submit it to the `PlasmaFramework` contract
 - Emit a deposit creation event to the child chain server, which generates a single UTXO corresponding to the deposited amount.
 
-After a defined finality period, the UTXO is ready for transacting on the network. Read more about the logic of this finality period in the [Glossary](glossary.md#deposit-finality-period)
-
-> For further information on how a deposit transaction is signed, please see the [Appendix]().
+After a defined finality period, the UTXO is ready for transacting on the network. Read more about the logic of this finality period in the [Glossary](glossary#deposit-finality-period)

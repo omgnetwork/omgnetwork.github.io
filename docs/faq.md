@@ -79,7 +79,7 @@ The current implementation only supports `Payment` and `DEX` transaction types.
 We will need to change this when we introduce new transaction types, e.g. ERC721
 
 #### Deposit transactions
-Deposit transactions are special transactions that have no inputs. Note that this should be encoded as an empty array. Deposit transactions are created by the Vault contracts and do not need to be explicitly submitted.
+Deposit transactions are special transactions that have no inputs. Note that this should be encoded as an empty array. Deposit transactions are created by the `Vault` contracts and do not need to be explicitly submitted.
 
 #### EIP-712 signing
 The witness field of a transaction is the data that proves its inputs can be spent. For a normal Payment transaction this data is the signatures of the owners of the inputs. We use [EIP-712](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-712.md) for signing transactions.
@@ -187,4 +187,4 @@ However, users must also exit *before* the dishonest operator does if they are t
 
 A smaller UTXO set on the child chain can mitigate these vulnerabilities, and thereby reinforce the safety of user funds. For this reason, users are encouraged to merge their UTXOs continuously.
 
-> Due to the mechanics of the [Scheduled Finalisation Time (SFT)](#challenge-period), users generally have <u>one week</u> to initate an exit that can safely restore ownership of their funds. For UTXOs that are less than one week old, however, this window of safety is reduced to the time between the UTXO's creation and the start of the operator's dishonest exit.
+> Due to the mechanics of the [Scheduled Finalisation Time (SFT)](challenge-period), users generally have <u>one week</u> to initate an exit that can safely restore ownership of their funds. For UTXOs that are less than one week old, however, this window of safety is reduced to the time between the UTXO's creation and the start of the operator's dishonest exit.

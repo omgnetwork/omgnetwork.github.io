@@ -12,7 +12,7 @@ The OMG Network allows you to access, manage, and transact with digital assets t
 
 ### Try it out
 
-Check out the OMG Network with our [block explorer](https://quest-pre-lumphini.omg.network/) and then send your first transaction in our [quick start guide](quick-start).
+Check out the OMG Network with our [block explorer](/network-connection-details) and then send your first transaction in our [quick start guide](quick-start).
 
 If you are already familiar with the OMG Network and developing an application on the network, head over to the [Integration section](integration-introduction).
 
