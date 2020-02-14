@@ -104,7 +104,7 @@ outputs: [
 
 ## Implementation
 
-When sending a transaction using `omg-js`, fee rates are fetched and calculated internally. The only thing the user has to do is to define with which token they want to pay the fee in.
+When creating a transaction using the helper `childchain.createTransaction` in `omg-js`, fee amounts are fetched internally. The only thing the user has to do is to define with which token they want to pay the fee in.
 
 ```js
 childChain.createTransaction({
