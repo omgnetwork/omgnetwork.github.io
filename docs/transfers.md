@@ -37,10 +37,16 @@ The process of creating a transfer can be broken down into four steps:
 
 #### Examples:
 
-The most "granular" implementation would look like the following:
+The most "granular" implementation includes fetching fees, creating, typing, signing and submitting the transaction. It would look like the following:
 
 ```js
-function transfer () {
+async function transfer () {
+    // We want to pay the fee in ETH, so we have to fetch the ETH fee amount from the Watcher
+  const allFees = await childChain.getFeesInfo()
+  const feesForTransactions = allFees['1']
+  const { amount: ethFeeAmount } = feesForTransactions.find(i => i.currency === OmgUtil.transaction.ETH_CURRENCY)
+
+  // Create the transaction body
   const transactionBody = OmgUtil.transaction.createTransactionBody({
     fromAddress: aliceAddress,
     fromUtxos: aliceUtxos,
@@ -52,12 +58,13 @@ function transfer () {
       }
     ],
     fee: {
-      currency: tokenAddress,
-      amount: transferAmount
+      currency: OmgUtil.transaction.ETH_CURRENCY,
+      amount: ethFeeAmount
     },
     metadata: "data"
   });
   
+  // Type, sign, and submit the transaction to the Watcher
   const typedData = OmgUtil.transaction.getTypedData(transactionBody, rootChainPlasmaContractAddress)
   const privateKeys = new Array(transactionBody.inputs.length).fill(alicePrivateKey)
   const signatures = childChain.signTransaction(typedData, privateKeys)
@@ -66,7 +73,7 @@ function transfer () {
 }
 ```
 
-Another method is to call the `Watcher` for a transaction body with inputs and typed data pre-included:
+Another method is to call the `Watcher` for a transaction body with inputs and typed data pre-included. Note that for this method, only the currency used to pay the fee needs to be specified. The `Watcher` will select the fee amount for you.
 
 ```js
 async function transfer () {
@@ -80,8 +87,7 @@ async function transfer () {
       }
     ],
     fee: {
-      currency: tokenAddress,
-      amount: transferAmount
+      currency: feeToken
     },
     metadata: "data"
   });
