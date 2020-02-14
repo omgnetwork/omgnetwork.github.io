@@ -45,7 +45,7 @@ Centralized network, in which users and nodes are all connected to a central ser
 
 
 ## Cash in/Cash out
-A cash in/cash out solution assumes that everyone everyone has a smartphone with access to e-wallet applications that exist in a 'closed loop' payment infrastructure. OmiseGO aims to open up these wallet siloes to allow wallets to exchange with each other. Cash in and cash out touchpoints aim to create a network of banking, hardware, and retail partners where users can deposit and withdraw their cash. The cash becomes tokenized on any wallet applicatoin the user chooses, and may immediately be exchanged for other tokenized currencies and assets via the OmiseGO blockchain.
+A cash in/cash out solution assumes that everyone everyone has a smartphone with access to e-wallet applications that exist in a 'closed loop' payment infrastructure. OmiseGO aims to open up these wallet siloes to allow wallets to exchange with each other. Cash in and cash out touchpoints aim to create a network of banking, hardware, and retail partners where users can deposit and withdraw their cash. The cash becomes tokenized on any wallet applicatoin the user chooses, and may immediately be exchanged for other tokenized currencies and assets via the OMG Network.
 
 
 ## Child chain
@@ -243,7 +243,7 @@ Plasma is the scaling solution of OmiseGO. It is a framework for incentivized an
 
 
 ## Plasma block verifier
-The entity that verifies blocks in a child chain. In OmiseGO’s case, an entity that runs the watcher software.
+The entity that verifies blocks in a child chain. In the OMG Network's case, an entity that runs the watcher software.
 
 
 ## Plasma cash
@@ -291,7 +291,7 @@ The entity that generates proofs for trades.
 ## Restricted custody
 A safety guarantee that protects user funds on the network. 
 
-OmiseGO's restricted custody is the safety mechanism that protects users funds when they trade at an exchange. If the operator (OmiseGO, in this case) tries to steal funds, users will not lose their money. The only way funds can be lost is if the operator and the exchange collude. OmiseGO's security guarantee is enforced in its protocol, whereby the actual platform prevents the operator from acting dishonestly. Three parties must agree to allow OmiseGO's exchange to trade: user, operator/OmiseGO, and exchange. This mechanism allows OmiseGO to provide protection for the exchange.
+OMG Network's restricted custody is the safety mechanism that protects users funds when they trade at an exchange. If the operator (OMG Network, in this case) tries to steal funds, users will not lose their money. The only way funds can be lost is if the operator and the exchange collude. OMG Network's security guarantee is enforced in its protocol, whereby the actual platform prevents the operator from acting dishonestly. Three parties must agree to allow OMG Network's exchange to trade: user, operator/OMG Network, and exchange. This mechanism allows OMG Network to provide protection for the exchange.
 
 
 ## Root chain
