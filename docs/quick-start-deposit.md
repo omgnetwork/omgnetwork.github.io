@@ -6,11 +6,11 @@ sidebar_label: Make a Deposit
 
 > If you haven't already, open the [browser wallet](https://omgnetwork-browser-wallet.netlify.com) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.
 
-> The browser wallet is deployed against the [Lumphini Network environment](network-connection-details.md).
+> The browser wallet is deployed against the [Lumphini Network environment](/network-connection-details).
 
-## Fund Rootchain Wallet
+## Fund Root Chain Wallet
 
-Before we can transact on the OMG Network, we first have to make sure that we have ETH on the Rootchain (Ethereum's Ropsten test network).
+Before we can transact on the OMG Network, we first have to make sure that we have ETH on the root chain (Ethereum's Ropsten test network).
 
 1. If you need some Ropsten ETH, send yourself some using a [Ropsten faucet](https://faucet.metamask.io/).
 2. Make sure that your web3 wallet is pointing to the Ropsten network, or else you will not see your balance.
@@ -21,7 +21,7 @@ Before we can transact on the OMG Network, we first have to make sure that we ha
 ## Make an ETH Deposit
 
 1. Click **Deposit**.
-2. Define the amount you wish to deposit in wei. Make sure you have more than this amount in your Rootchain wallet (to cover gas costs).
+2. Define the amount you wish to deposit in wei. Make sure you have more than this amount in your root chain wallet (to cover gas costs).
 3. Click **Deposit**. Your web3 wallet should pop up and ask you to confirm the transaction. Note that this example application defaults the gas limit to `6000000` wei.
 
 ![sign-deposit](/img/quick-start-sign-deposit.png)
@@ -31,7 +31,7 @@ Before we can transact on the OMG Network, we first have to make sure that we ha
 
 <img src="/img/quick-start-deposit-pending.png" width="500">
 
-6. If the deposit was successful, you should see your Childchain balance update.
+6. If the deposit was successful, you should see your child chain balance update.
 
 <img src="/img/quick-start-deposit-confirmed.png" width="500">
 
@@ -59,7 +59,7 @@ The second popup will ask you to confirm the actual deposit transaction.
 
 <img src="/img/quick-start-deposit-erc20-pending.png" width="500">
 
-6. If the deposit was successful, you should see your Childchain balance update.
+6. If the deposit was successful, you should see your child chain balance update.
 
 <img src="/img/quick-start-deposit-erc20-confirmed.png" width="500">
 

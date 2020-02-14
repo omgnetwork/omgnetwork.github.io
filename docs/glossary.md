@@ -4,7 +4,7 @@ title: Glossary
 sidebar_label: Glossary
 ---
 
-This page provides explanations of the core concepts and terminology for OmiseGO.
+This page provides explanations of the core concepts and terminology for the OMG Network.
 
 ## Accountability
 The ability to detect that a trade did not execute as expected.
@@ -34,7 +34,7 @@ Wikepedia describes a blockchain as "a growing list of records, called blocks, w
 
 ## Canonical transaction 
 A transaction is canonical if none of its inputs were previously spent in another transaction.
-The definition of "previously spent" depends on whether the transaction in question is included in the Plasma chain.
+The definition of "previously spent" depends on whether the transaction in question is included in the child chain.
 The position of a transaction in the chain is determined by the tuple (block number, transaction index).
 An input to a transaction is considered previously spent if the "other" transaction spending it is in an earlier block or has a lower index in the same block.
 If the "other" transaction is not included in the chain but known to exist, it is not possible to determine which transaction came first - so neither is considered canonical.
@@ -45,10 +45,10 @@ Centralized network, in which users and nodes are all connected to a central ser
 
 
 ## Cash in/Cash out
-A cash in/cash out solution assumes that everyone everyone has a smartphone with access to e-wallet applications that exist in a 'closed loop' payment infrastructure. OmiseGO aims to open up these wallet siloes to allow wallets to exchange with each other. Cash in and cash out touchpoints aim to create a network of banking, hardware, and retail partners where users can deposit and withdraw their cash. The cash becomes tokenized on any wallet applicatoin the user chooses, and may immediately be exchanged for other tokenized currencies and assets via the OmiseGO blockchain.
+A cash in/cash out solution assumes that everyone everyone has a smartphone with access to e-wallet applications that exist in a 'closed loop' payment infrastructure. OmiseGO aims to open up these wallet siloes to allow wallets to exchange with each other. Cash in and cash out touchpoints aim to create a network of banking, hardware, and retail partners where users can deposit and withdraw their cash. The cash becomes tokenized on any wallet applicatoin the user chooses, and may immediately be exchanged for other tokenized currencies and assets via the OMG Network.
 
 
-## Childchain
+## Child chain
 The OMG Network.
 
 
@@ -110,11 +110,11 @@ The deposit finality period refers to the number of Ethereum block confirmations
 
 A chain re-organisation can happen when a node on the Ethereum network realises that what it considered to be the canonical chain turns out not to be. As this node then jumps back to the canonical chain, the transactions in the latter part of its chain are reverted and can end up in subsequent blocks. 
 
-A chain re-organisation can be problematic for the Plasma Chain in the following scenario: 
+A chain re-organisation can be problematic for the child chain in the following scenario: 
 
-1. Alice deposits 1 ETH into the Plasma Chain (`Ethereum TX1`)
-2. Alice quickly sends 1 ETH to Bob on the Plasma Chain. This transaction is then added to a block that is submitted to the root chain (`Ethereum TX2`)
-3. Chain re-organisation results in `Ethereum TX2` being placed in an earlier Ethereum block than `Ethereum TX1` - rendering the Plasma Chain spuriously invalid. 
+1. Alice deposits 1 ETH into the child chain (`Ethereum TX1`)
+2. Alice quickly sends 1 ETH to Bob on the child chain. This transaction is then added to a block that is submitted to the root chain (`Ethereum TX2`)
+3. Chain re-organisation results in `Ethereum TX2` being placed in an earlier Ethereum block than `Ethereum TX1` - rendering the child chain spuriously invalid. 
 
 By requiring a number N of Ethereum block confirmations before the deposit can be used, the deposit finality period significantly reduces the probability of the above scenario. 
 
@@ -157,7 +157,7 @@ A unique identifier for a block or transaction on the Plasma child chain. The tr
 
 
 ## In-flight transaction
-A transaction is considered to be “in-flight” if it has been broadcast but has not yet been included in the Plasma chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block in which the said transaction is included.
+A transaction is considered to be “in-flight” if it has been broadcast but has not yet been included in the child chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block in which the said transaction is included.
 
 
 ## Inclusion Proof
@@ -243,7 +243,7 @@ Plasma is the scaling solution of OmiseGO. It is a framework for incentivized an
 
 
 ## Plasma block verifier
-The entity that verifies blocks in a Plasma chain. In OmiseGO’s case, an entity that runs the watcher software.
+The entity that verifies blocks in a child chain. In the OMG Network's case, an entity that runs the watcher software.
 
 
 ## Plasma cash
@@ -251,7 +251,7 @@ Assets deposited into a Plasma cash chain are represented as non-fungible tokens
 
 
 ## Plasma XT
-Introduces checkpointing from the Plasma chain to the root chain, which allows for periodic finalization of a coin’s ownership in order to reduce the amount of data taht must be stored and verified by each user to limit the storage and computation requirements per coin.
+Introduces checkpointing from the child chain to the root chain, which allows for periodic finalization of a coin’s ownership in order to reduce the amount of data taht must be stored and verified by each user to limit the storage and computation requirements per coin.
 
 
 ## Plasma debit
@@ -291,10 +291,10 @@ The entity that generates proofs for trades.
 ## Restricted custody
 A safety guarantee that protects user funds on the network. 
 
-OmiseGO's restricted custody is the safety mechanism that protects users funds when they trade at an exchange. If the operator (OmiseGO, in this case) tries to steal funds, users will not lose their money. The only way funds can be lost is if the operator and the exchange collude. OmiseGO's security guarantee is enforced in its protocol, whereby the actual platform prevents the operator from acting dishonestly. Three parties must agree to allow OmiseGO's exchange to trade: user, operator/OmiseGO, and exchange. This mechanism allows OmiseGO to provide protection for the exchange.
+OMG Network's restricted custody is the safety mechanism that protects users funds when they trade at an exchange. If the operator (OMG Network, in this case) tries to steal funds, users will not lose their money. The only way funds can be lost is if the operator and the exchange collude. OMG Network's security guarantee is enforced in its protocol, whereby the actual platform prevents the operator from acting dishonestly. Three parties must agree to allow OMG Network's exchange to trade: user, operator/OMG Network, and exchange. This mechanism allows OMG Network to provide protection for the exchange.
 
 
-## Rootchain
+## Root chain
 The Ethereum root chain. Can be differing in environment, ie. Rinkeby, Ropsten, Mainnet, etc.
 
 
@@ -308,7 +308,7 @@ Settlement is similar to PSP (Payment Service Provider), reconciliation reports,
 Shared liquidity implies that there are a large amount (a pool) of orders. OmiseGO does not offer shared liquidity; instead, OmiseGo allows users to move their funds easily between venues. For example, if OmiseGO offered shared liquidity, Binance and GO.Exchange could see and access the orders of both (it is a shared/combined view of orders).
 
 ## Spend transaction
-A spend transaction is any transaction that spends a UTXO that is already present on the Plasma chain.  
+A spend transaction is any transaction that spends a UTXO that is already present on the child chain.  
 
 ## Staking
 Staking refers to holding a cryptocurrency or token in a wallet for a period of time, in return for interest. Staking returns depend on staking (holding) time; the longer the stake duration, the higher the returns.
