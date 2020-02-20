@@ -77,8 +77,7 @@ rootChain.startStandardExit({
 
 > * Tip**
 >
-> You can only exit one UTXO at a time. 
-It is therefore recommended to merge your UTXOs if you would like to exit multiple ones. Learn more about how to merge UTXOs [here](#managing-utxos)
+> You can only exit one UTXO at a time. It is therefore recommended to merge your UTXOs if you would like to exit multiple ones. Learn more about how to merge UTXOs [here](#managing-utxos)
 
 
 After the exit has started Alice has to wait for the [challenge period](challenge-period) to pass before being able to [process](process-exits) her exit.
