@@ -1,7 +1,8 @@
 ---
-id: managing-utxos
+id: version-0.0.1-managing-utxos
 title: Managing UTXOs
 sidebar_label: Managing UTXOs
+original_id: managing-utxos
 ---
 
 
@@ -58,8 +59,6 @@ const txBody = OmgUtil.transaction.createTransactionBody({
 });
 ```
 
-<u>No fee is charged</u> for merge transactions on the OMG Network, since these are transactions that benefit the network.
-
 ### Splitting UTXOs
 
 For the same reason that a user may want to *merge* UTXOs prior to a Standard Exit, a user may also want to *split* UTXOs if he or she would like to exit an amount smaller than the value of any UTXO he or she owns. For example: 
@@ -104,11 +103,17 @@ const txBody = OmgUtil.transaction.createTransactionBody({
     fromUtxos: [BobUTXO],
     payments,
     fee: {
-        amount: feeAmount,
-        currency: feeToken
+        amount: 0,
+        currency: transaction.ETH_CURRENCY
     }
 });
 ```
+
+### Cost
+
+<u>No fee is charged</u> for merge or split transactions on the OMG Network. 
+
+> For this purpose, a transaction is determined to be fee-exempt if all its inputs and outputs belong to the same address.
 
 ## Network Considerations
 

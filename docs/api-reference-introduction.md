@@ -6,10 +6,10 @@ sidebar_label: OMG Network APIs
 
 This is a guide to working with the OMG Network REST APIs.
 
-The OmiseGO API documentation describes how you can explore and interact with the OmiseGO APIs. This documentation should help you become familiar with the available resources and how to consume them with HTTP requests.
+The OMG Network API documentation describes how you can explore and interact with the OMG Network APIs. This documentation should help you become familiar with the available resources and how to consume them with HTTP requests.
 
 ## Authentication
-OmiseGO APIs are completely open. No authentication is required to query and get data
+OMG Network APIs are completely open. No authentication is required to query and get data
 
 
 ## Documentation
@@ -17,7 +17,7 @@ OmiseGO APIs are completely open. No authentication is required to query and get
 
 - [Watcher Security Critical API](https://developer.omisego.co/elixir-omg/docs-ui/?url=0.1/security_critical_api_specs.yaml)
 
-- [Childchain API](https://developer.omisego.co/elixir-omg/docs-ui/?url=master/operator_api_specs.yaml)
+- [Child Chain API](https://developer.omisego.co/elixir-omg/docs-ui/?url=master/operator_api_specs.yaml)
 
 
 ## OMG Network APIs

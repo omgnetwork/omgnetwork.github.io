@@ -1,17 +1,18 @@
 ---
-id: fees
+id: version-0.0.1-fees
 title: Fees
 sidebar_label: Fees
+original_id: fees
 ---
 
 Users are charged a fee to transact on the OMG Network. The OMG Network supports a variety of different tokens that the fee can be paid with. The fees charged are currently pegged to some factor of the gas price of ETH. This can be updated as transaction volume on the network grows.
 
 ## Supported Tokens
 
-To return the list of currently supported fee tokens and amounts charged, `omg-js` includes a helper method to call the `fees.all` endpoint on the Watcher. Note that the returned response will be indexed by the transaction type.
+To return the list of currently supported fee tokens and amounts charged, `omg-js` includes a helper method to call the `fees.all` endpoint on the Watcher. 
 
 ```js
-childChain.getFeesInfo()
+childChain.getFees()
 ```
 
 > Fees must meet the exact amount defined in the fee spec, or the transaction will be rejected.
@@ -104,21 +105,19 @@ outputs: [
 
 ## Implementation
 
-When creating a transaction using the helper `childchain.createTransaction` in `omg-js`, fee amounts are fetched internally. The only thing the user has to do is to define with which token they want to pay the fee in.
+When sending a transaction using `omg-js`, fee rates are fetched and calculated internally. The only thing the user has to do is to define with which token they want to pay the fee in.
 
 ```js
-childChain.createTransaction({
-  owner: aliceAddress,
+OmgUtil.transaction.createTransactionBody({
+  fromAddress: Alice,
+  fromUtxos: AliceUtxos,
   payments: [
     {
-      owner: bobAddress,
-      currency: tokenAddress,
-      amount: transferAmount
+      owner: Bob,
+      currency: OMG,
+      amount: 100
     }
   ],
-  fee: {
-    currency: feeToken
-  },
-  metadata: "data"
+  feeToken: ETH
 });
 ```

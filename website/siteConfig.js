@@ -3,8 +3,9 @@
 const siteConfig = {
   docsSideNavCollapsible: true,
   disableHeaderTitle: true,
-  title: 'OmiseGO | Developer Portal',
-  tagline: 'Documentation for OmiseGo',
+  gaTrackingId: 'GTM-TVZS27N',
+  title: 'OMG Network',
+  tagline: 'Documentation for the OMG Network',
   url: 'https://omisego.github.io',
   baseUrl: '/',
   docsUrl: '',
@@ -12,12 +13,11 @@ const siteConfig = {
   organizationName: 'omisego',
   headerLinks: [
     { doc: 'welcome', label: 'Docs' },
+    { href: 'network-connection-details', external: false, label: 'Network Connection' },
     { doc: 'api-reference-introduction', label: 'API' },
-    { href: 'http://quest.samrong.omg.network/', external: true, label: 'Block explorer' },
-    { href: 'https://omisego.co/use-cases', external: true, label: 'Use cases' },
     { href: 'https://omisego.co/', external: true, label: 'Product' },
   ],
-  headerIcon: 'img/omisego-white.svg',
+  headerIcon: 'img/omg-network.svg',
   footerIcon: 'img/favicon.ico',
   favicon: 'img/favicon.ico',
   colors: {
@@ -27,7 +27,10 @@ const siteConfig = {
   scripts: [],
   onPageNav: 'separate',
   cleanUrl: true,
-
+  algolia: {
+    apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+    indexName: 'omisego'
+  },
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
     theme: 'default',

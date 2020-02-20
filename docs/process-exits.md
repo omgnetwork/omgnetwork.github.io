@@ -21,7 +21,7 @@ To better understand this mechanism, consider the following example:
 1. Alice starts an honest standard exit and her exit is placed 5th in the ETH exit priority queue.
 2. Alice waits for the required challenge period. Since her exit is honest, nobody challenges her exit.
 3. Alice's exit is still 5th in the priority queue. Nobody has processed exits 1-4 yet.
-4. To release her funds back to the Rootchain, Alice has a few options:
+4. To release her funds back to the root chain, Alice has a few options:
   - The recommended approach is for her to processes exits 1-4 so she can process her exit in the 5th position immediately. You are allowed to process other user's exits, although it will cost you more gas.
   - She can wait for exits 1-4 to be processed by other users, so that when her exit reaches the top of the queue, she only has to process her exit.
   -  She can wait for somebody else with a lower priority to process her exit as they want to release their funds immediately.

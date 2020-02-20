@@ -19,6 +19,9 @@ The only requirement for this quick start is to have a web3 wallet with funds on
 
 * This quick start will use a hosted application running [react-starter-kit](https://github.com/omisego/react-starter-kit). If you would like to run the same application locally, you can find the installation instructions in the repository.
 
+> **Browser Compatibility**  
+It is recommended to use the Chrome web browser. Users have reported issues with the wallet not working on the Brave browser due to a web3 conflict with Metamask. 
+
 Now open the [browser wallet](https://omgnetwork-browser-wallet.netlify.com) in another tab and follow along with this guide as we make a deposit into the OMG Network.
 
 > **Important**  

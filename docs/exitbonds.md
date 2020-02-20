@@ -36,6 +36,6 @@ Consider a transaction `TX1` whereby Alice sends 0.5 ETH to Bob using an input `
 
 Either party can initate an in-flight exit on `TX1`, but *both* Alice and Bob must piggyback with a reference to their respective outputs in order to exit their funds.
 
-There are also cases whereby a piggyback can be invalid in the context of a canonical in-flight exit. Read more in this [scenario](challenges#invalid_piggyback).
+There are also cases whereby a piggyback can be invalid in the context of a canonical in-flight exit.
 
 Given that the concerns are separate, the bond mechanism is applied separately.

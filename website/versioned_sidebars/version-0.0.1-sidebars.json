@@ -14,8 +14,14 @@
       "version-0.0.1-integration-introduction",
       "version-0.0.1-deposits",
       "version-0.0.1-transfers",
-      "version-0.0.1-standard-exits",
-      "version-0.0.1-in-flight-exits",
+      {
+        "type": "subcategory",
+        "label": "Exits",
+        "ids": [
+          "version-0.0.1-standard-exits",
+          "version-0.0.1-in-flight-exits"
+        ]
+      },
       "version-0.0.1-challenge-period",
       "version-0.0.1-challenging-exits",
       "version-0.0.1-process-exits"
@@ -23,12 +29,12 @@
     "Appendix": [
       "version-0.0.1-glossary",
       "version-0.0.1-faq",
-      "version-0.0.1-merging-utxos",
-      "version-0.0.1-network-connection-details",
+      "version-0.0.1-managing-utxos",
       "version-0.0.1-morevp-technical-overview",
       "version-0.0.1-blockchain-design",
       "version-0.0.1-byzantine-conditions",
-      "version-0.0.1-exitbonds"
+      "version-0.0.1-exitbonds",
+      "version-0.0.1-fees"
     ]
   }
 }

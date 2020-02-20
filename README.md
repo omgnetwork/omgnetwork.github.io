@@ -9,8 +9,8 @@ To add new documentation, follow these steps:
   ```
   ---
   id: welcome
-  title: About OmiseGO
-  sidebar_label: About OmiseGO
+  title: About OMG Network
+  sidebar_label: About OMG Network
   ---
   ```
 3. Find `/website/sidebars.json` and add the `id` as you defined above to the relevant section you want the page to show up in.

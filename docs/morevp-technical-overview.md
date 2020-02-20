@@ -25,10 +25,10 @@ The MoreVP exit protocol ensures the security of assets for clients correctly fo
 This guide:
 
 * Presents the most basic form of the MoreVP protocol and provides insights towards its correctness.
-* Formalizes certain [requirements for Plasma MVP exit protocols](doc:requirements-and-proof-for-plasma-mvp-exit-protocols), and provides proof that this protocol satisfies these requirements.
+* Formalizes certain requirements for Plasma MVP exit protocols, and provides proof that this protocol satisfies these requirements.
 * Presents an optimized version of the protocol to account for restrictions of the Ethereum Virtual Machine.
 * Explains how the MoreVP exit protocol is only necessary for transactions that are in-flight when a Plasma chain becomes byzantine.
-* Describes the [attack vectors](doc:attack-vectors-and-mitigation) that exist in the protocol, and how these vectors can be mitigated and isolated to a relatively small attack surface.
+* Describes the attack vectors that exist in the protocol, and how these vectors can be mitigated and isolated to a relatively small attack surface.
 * Concludes that the design is safe under certain reasonable assumptions about user behavior. However, some points are highlighted for future consideration.
 
 It has been found that the MoreVP exit protocol is a significant improvement over the original Plasma MVP exit protocol. Additionally, it is possible to combine several optimizations to enhance user experience and to reduce costs for users.
@@ -38,7 +38,7 @@ Future development work will focus on decreasing the implementation complexity o
 ## Basic Exit Mechanism
 This section describes the basic MoreVP exit mechanism and provides insights toward its correctness.
 
-> *Further technical details for the protocol can be found in [Protocol Terminology](doc:protocol-terminology).*
+> *Further technical details for the protocol can be found in Protocol Terminology.*
 
 ### Requirements for the Exit Mechanism
 
@@ -162,7 +162,7 @@ Determining canonicity involves a challenge-response game:
 * If any transactions are presented during the first period, any other user can respond to the challenge by proving that the exiting transaction is actually included in the chain before the oldest presented competing transaction.
 * If the response is sent before the second period ends, the exiting transaction is considered canonical, and the responder receives the `exit bond` that was placed by the user who started the exit. Otherwise, the exiting transaction is considered non-canonical, and the challenger receives `exit bond`.
 
-> This challenge means it’s possible for an honest user to lose the `exit bond` if they're not aware their transaction is non-canonical. See also: Attack vectors and mitigation. If an in-flight exit is opened where some inputs were referenced in a standard exit, and these standard exits were finalized, the in-flight exit is flagged as non-canonical and further canonicity games can't change its status.
+> This challenge means it’s possible for an honest user to lose the `exit bond` if they're not aware their transaction is non-canonical. If an in-flight exit is opened where some inputs were referenced in a standard exit, and these standard exits were finalized, the in-flight exit is flagged as non-canonical and further canonicity games can't change its status.
 
 
 ### Piggyback an exit
