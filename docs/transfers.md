@@ -11,7 +11,7 @@ A transfer involves one wallet sending tokens to another wallet on the OMG Netwo
 1. The transaction is created, signed and encoded. 
 2. The transaction is submitted to the Watcher and – subsequently – to the child chain for validation. 
 3. If the transaction is valid, the child chain creates a transaction hash and adds the transaction to a pending block.
-4. The child chain bundles the transactions in the block into a Merkle tree and submits its root hash to the `Plasma Framework` smart contract.
+4. The child chain bundles the transactions in the block into a Merkle tree and submits its root hash to the `Plasma Framework` contract.
 5. The Watcher receives a list of transactions from the child chain and recomputes the Merkle root to check for any inconsistency.
 
 
