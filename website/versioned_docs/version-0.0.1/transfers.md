@@ -9,11 +9,11 @@ A transfer involves one wallet sending tokens to another wallet on the OMG Netwo
 
 ## Lifecycle
 
-Once a transaction is created, signed and encoded, it is submitted to the `Watcher`.
+Once a transaction is created, signed and encoded, it is submitted to the Watcher.
 
-The `Watcher` will check for various conditions of invalidity before submitting the transaction to the child chain.
+The Watcher will check for various conditions of invalidity before submitting the transaction to the child chain.
 
-> The following conditions would cause the `Watcher` to invalidate the transaction:
+> The following conditions would cause the Watcher to invalidate the transaction:
 >
 > - The transaction is using inputs being used for another transaction in the block.
 > - The transaction is using inputs spent in any prior block.
@@ -33,7 +33,7 @@ The transfer flow can be broken down into four steps:
 
 3. Sign and encode the typed data into a signed transaction.
 
-4. Submit the signed transaction to the `Watcher`.
+4. Submit the signed transaction to the Watcher.
 
 #### Examples:
 
@@ -66,7 +66,7 @@ function transfer () {
 }
 ```
 
-Another method is to call the `Watcher` for a transaction body with inputs and typed data pre-included:
+Another method is to call the Watcher for a transaction body with inputs and typed data pre-included:
 
 ```js
 async function transfer () {

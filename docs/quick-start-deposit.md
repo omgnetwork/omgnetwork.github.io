@@ -14,14 +14,14 @@ Before we can transact on the OMG Network, we first have to make sure that we ha
 
 1. If you need some Ropsten ETH, send yourself some using a [Ropsten faucet](https://faucet.metamask.io/).
 2. Make sure that your web3 wallet is pointing to the Ropsten network, or else you will not see your balance.
-3. The Ropsten ETH that you own displays in your account. Make sure this exists before continuing.
+3. The Ropsten ETH that you own is displayed in your account. Make sure this is the case before continuing.
 
 ![account-balance](/img/quick-start-account-balance.png)
 
 ## Make an ETH Deposit
 
 1. Click **Deposit**.
-2. Define the amount you wish to deposit in wei. Make sure you have more than this amount in your Rootchain wallet (to cover gas costs).
+2. Define the amount you wish to deposit in wei. Make sure you have more than this amount in your Rootchain wallet to cover gas costs.
 3. Click **Deposit**. Your web3 wallet should pop up and ask you to confirm the transaction. Note that this example application defaults the gas limit to `6000000` wei.
 
 ![sign-deposit](/img/quick-start-sign-deposit.png)
@@ -46,7 +46,7 @@ The process for depositing ERC20 into the OMG Network is very similar to an ETH 
 
 <img src="/img/quick-start-deposit-erc20.png" width="500">
 
-3. Click **Deposit**. This step will differ from the ETH deposit as web3 will pop up twice. The first popup will ask you to approve the deposit.
+3. Click **Deposit**. This step will differ from the ETH deposit as your web3 wallet will pop up twice. The first popup will ask you to approve the deposit.
 
 ![approve-erc20-deposit](/img/quick-start-deposit-erc20-approve.png)
 
