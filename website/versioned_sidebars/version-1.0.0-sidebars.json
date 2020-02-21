@@ -35,8 +35,11 @@
       "version-1.0.0-blockchain-design",
       "version-1.0.0-byzantine-conditions",
       "version-1.0.0-exitbonds",
-      "version-1.0.0-fees",
-      "version-1.0.0-migration-guide"
+      "version-1.0.0-fees"
+    ],
+    "Migration Guides": [
+      "version-1.0.0-migration-0.2-0.3",
+      "version-1.0.0-migration-0.3-0.4"
     ]
   }
 }
