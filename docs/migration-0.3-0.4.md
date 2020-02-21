@@ -1,10 +1,11 @@
 ---
-id: migration-guide
-title: Migration Guide 
-sidebar_label: Migration Guide
+id: migration-0.3-0.4
+title: v0.4
+sidebar_label: 0.3 to 0.4
 ---
 
-*OMG-JS Migration Guide from 3.0.0-alpha.6 to 3.0.0-0.4.1*
+## omg-js
+*from 3.0.0-alpha.6 to 3.0.0-0.4.1*
 
 ### General changes
 - Library has been updated to work with the updated contracts and latest APIs from `elixir-omg`.
