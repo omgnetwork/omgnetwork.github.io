@@ -20,7 +20,7 @@ The only requirement for this quick start is to have a web3 wallet with funds on
 
 * This quick start will use a hosted application running [react-starter-kit](https://github.com/omisego/react-starter-kit). If you would like to run the same application locally, you can find the installation instructions in the repository.
 
-Now open the [browser wallet](https://omgnetwork-browser-wallet.netlify.com) in another tab and follow along with this guide as we make a deposit into the OMG Network.
+Now open the [webwallet](https://webwallet.ropsten.v1.omg.network) in another tab and follow along with this guide as we make a deposit into the OMG Network.
 
 > **Important**  
 Only you can keep your tokens safe. Please ensure you understand how to safely store and send tokens before making any transactions, always double check that you are sending to the correct address, and never send your private keys to anyone. Anyone who has your private keys can, and probably will, take your money.

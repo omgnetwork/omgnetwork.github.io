@@ -9,7 +9,7 @@ const siteConfig = {
   url: 'https://omisego.github.io',
   baseUrl: '/',
   docsUrl: '',
-  projectName: 'omisego.github.io',
+  projectName: 'omisego.github.co',
   organizationName: 'omisego',
   headerLinks: [
     { doc: 'welcome', label: 'Docs' },

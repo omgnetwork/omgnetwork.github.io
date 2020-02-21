@@ -46,15 +46,5 @@ To lock in the current state of docs with the next version run the following fro
 
 Note that to make changes to old versions, you can edit the markdowns directly in their relevant folders `/website/versioned_docs/version-<0.0.1etc>`
 
-### To Deploy to Production
-Deployment is using github pages. Since this is an organization repo, the deploy script below will deploy to the `master` branch. Therefore we have to keep all doc infrastructure on `docsdocsdocs` and use `master` strictly for deployment. More information can be found here:
-https://github.com/facebook/docusaurus/blob/master/docs/getting-started-publishing.md#using-github-pages
-
-From the `website` directory, using bash run:
-```
-GIT_USER=<GIT_USER> \ 
-  USE_SSH=true \
-  CURRENT_BRANCH=docsdocsdocs \
-  npm run publish-gh-pages
-```
-`GIT_USER` being a github account with push access to this repository.
+### Production
+- Automatically will build and deploy master

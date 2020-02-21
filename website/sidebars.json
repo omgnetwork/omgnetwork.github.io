@@ -30,7 +30,8 @@
       "blockchain-design",
       "byzantine-conditions",
       "exitbonds",
-      "fees"
+      "fees",
+      "migration-guide"
     ]
   }
 }

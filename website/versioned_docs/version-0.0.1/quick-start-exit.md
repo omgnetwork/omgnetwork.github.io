@@ -5,9 +5,9 @@ sidebar_label: Exit Funds
 original_id: quick-start-exit
 ---
 
-> If you haven't already, open the [browser wallet](https://omgnetwork-browser-wallet.netlify.com) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.
+> If you haven't already, open the [webwallet](https://webwallet.ropsten.v1.omg.network) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.
 
-> The browser wallet is deployed against the [Lumphini Network environment](network-connection-details.md).
+> The webwallet is deployed against the [OMG Network v1 Testnet](network-connection-details.md).
 
 You've successfully deposited and made a transfer on the OMG Network. If you want to exit your funds from the OMG Network, you would do this with a standard exit.
 
@@ -29,6 +29,6 @@ You've successfully deposited and made a transfer on the OMG Network. If you wan
 
 <img src="/img/exit-challenge.png" width="500">
 
-> The challenge period for this browser wallet is approximately 10 minutes (will vary depending on various factors as explained [here](challenge-period)).
+> The challenge period for this webwallet is approximately 10 minutes (will vary depending on various factors as explained [here](challenge-period)).
 
 > To learn more about standard exits, check out the documentation [here](standard-exits).
