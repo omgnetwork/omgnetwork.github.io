@@ -37,5 +37,5 @@ In most functions, arguments are now passed as objects in this module for easier
 - `getInFlightExitData` - new function that retrieves in-flight exit data from an array of exit ids.
 - `deleteNonPiggybackedInFlightExit` - new function that deletes an in-flight exit if the first phase has passed and nobody has piggybacked the exit.
 
-## Util Module
+### Util Module
 - `createTransactionBody` has been improved and made smarter to help users form transaction bodies more easily.
