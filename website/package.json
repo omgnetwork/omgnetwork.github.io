@@ -6,7 +6,8 @@
     "start": "docusaurus-start",
     "build": "docusaurus-build",
     "version": "docusaurus-version",
-    "rename-version": "docusaurus-rename-version"
+    "rename-version": "docusaurus-rename-version",
+    "publish-gh-pages": "docusaurus-publish"
   },
   "devDependencies": {
     "docusaurus": "^1.14.4"
