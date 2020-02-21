@@ -1,5 +1,5 @@
 ---
-id: version-0.0.1-quick-start
+id: version-1.0.0-quick-start
 title: Quick Start
 sidebar_label: Quick Start
 original_id: quick-start
@@ -9,7 +9,7 @@ This guide will show you how to make transactions directly from a browser. By th
 
 * Learn about the OMG Network interface
 * Interact with the OMG Network from end to end
-* Make a deposit, transfer, standard exit and process exits
+* Make a deposit, transfer your tokens and exit the network.
 
 The only requirement for this quick start is to have a web3 wallet with funds on Ropsten. We recommend using the Metamask chrome browser extension.
 
@@ -19,6 +19,9 @@ The only requirement for this quick start is to have a web3 wallet with funds on
 <img src="/img/metamask-example.png" width="500">
 
 * This quick start will use a hosted application running [react-starter-kit](https://github.com/omisego/react-starter-kit). If you would like to run the same application locally, you can find the installation instructions in the repository.
+
+> **Browser Compatibility**  
+It is recommended to use the Chrome web browser. Users have reported issues with the wallet not working on the Brave browser due to a web3 conflict with Metamask. 
 
 Now open the [webwallet](https://webwallet.ropsten.v1.omg.network) in another tab and follow along with this guide as we make a deposit into the OMG Network.
 

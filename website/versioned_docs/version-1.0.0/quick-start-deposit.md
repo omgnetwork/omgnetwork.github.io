@@ -1,5 +1,5 @@
 ---
-id: version-0.0.1-quick-start-deposit
+id: version-1.0.0-quick-start-deposit
 title: Make a Deposit
 sidebar_label: Make a Deposit
 original_id: quick-start-deposit
@@ -7,22 +7,22 @@ original_id: quick-start-deposit
 
 > If you haven't already, open the [webwallet](https://webwallet.ropsten.v1.omg.network) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.
 
-> The webwallet is deployed against the [OMG Network v1 Testnet](network-connection-details.md).
+> The webwallet is deployed against the [OMG Network v1 Testnet](/network-connection-details).
 
-## Fund Rootchain Wallet
+## Fund Root Chain Wallet
 
-Before we can transact on the OMG Network, we first have to make sure that we have ETH on the Rootchain (Ethereum's Ropsten test network).
+Before we can transact on the OMG Network, we first have to make sure that we have ETH on the root chain (Ethereum's Ropsten test network).
 
 1. If you need some Ropsten ETH, send yourself some using a [Ropsten faucet](https://faucet.metamask.io/).
 2. Make sure that your web3 wallet is pointing to the Ropsten network, or else you will not see your balance.
-3. The Ropsten ETH that you own displays in your account. Make sure this exists before continuing.
+3. The Ropsten ETH that you own is displayed in your account. Make sure this is the case before continuing.
 
 ![account-balance](/img/quick-start-account-balance.png)
 
 ## Make an ETH Deposit
 
 1. Click **Deposit**.
-2. Define the amount you wish to deposit in wei. Make sure you have more than this amount in your Rootchain wallet (to cover gas costs).
+2. Define the amount you wish to deposit in ETH. Make sure you have more than this amount in your root chain wallet to cover gas costs.
 3. Click **Deposit**. Your web3 wallet should pop up and ask you to confirm the transaction. Note that this example application defaults the gas limit to `6000000` wei.
 
 ![sign-deposit](/img/quick-start-sign-deposit.png)
@@ -32,7 +32,7 @@ Before we can transact on the OMG Network, we first have to make sure that we ha
 
 <img src="/img/quick-start-deposit-pending.png" width="500">
 
-6. If the deposit was successful, you should see your Childchain balance update.
+6. If the deposit was successful, you should see your child chain balance update.
 
 <img src="/img/quick-start-deposit-confirmed.png" width="500">
 
@@ -47,9 +47,7 @@ The process for depositing ERC20 into the OMG Network is very similar to an ETH 
 
 <img src="/img/quick-start-deposit-erc20.png" width="500">
 
-3. Click **Deposit**. This step will differ from the ETH deposit as web3 will pop up twice. The first popup will ask you to approve the deposit.
-
-![approve-erc20-deposit](/img/quick-start-deposit-erc20-approve.png)
+3. Click **Deposit**. This step will differ from the ETH deposit as your web3 wallet will pop up twice. The first popup will ask you to approve the deposit.
 
 The second popup will ask you to confirm the actual deposit transaction.
 
@@ -60,7 +58,7 @@ The second popup will ask you to confirm the actual deposit transaction.
 
 <img src="/img/quick-start-deposit-erc20-pending.png" width="500">
 
-6. If the deposit was successful, you should see your Childchain balance update.
+6. If the deposit was successful, you should see your child chain balance update.
 
 <img src="/img/quick-start-deposit-erc20-confirmed.png" width="500">
 

@@ -1,5 +1,5 @@
 ---
-id: version-0.0.1-faq
+id: version-1.0.0-faq
 title: FAQ
 sidebar_label: FAQ
 original_id: faq
@@ -31,14 +31,6 @@ The PlasmaFramework contract can be seen as the top-level contract that contains
 It provides access to the various components in the system. For example, to get the Payment ExitGame you should call `PlasmaFramework.exitGames(PaymentType)`.
 
 The PlasmaFramework also provides the means for the `maintainer` to upgrade the components in the system. This has important security considerations and the PlasmaFramework will emit events whenever a component is added. Watcher must monitor these events and inform users.
-
-## What is the OMG Network architecture?
-The table describes the components of the OMG Network architecture:
-| Component | Description |
-| ---       | ---         |
-| Ethereum  | The root chain. |
-| Child chain | Currently, in Proof of Authority mode, there is only one child chain service that implements the child blockchain. It is anticipated that this will change when OMG Network transitions to Proof of Stake. |
-| Watcher | A service that monitors the child chain for suspicious activity, such as the operator or any user acting dishonestly. If the watcher discovers suspicious activity, it prompts users to challenge invalid exits, or to exit the child chain. Users can run their own Watcher, but it is also expected that some trusted entity will run Watchers as a service. |
 
 ## What is a Transaction?
 Transactions are composed of inputs and outputs. An input is simply a pointer to the output of another transaction. In the OMG Network, transactions are limited to 4 possible inputs and 4 possible outputs.
@@ -80,7 +72,7 @@ The current implementation only supports `Payment` and `DEX` transaction types.
 We will need to change this when we introduce new transaction types, e.g. ERC721
 
 #### Deposit transactions
-Deposit transactions are special transactions that have no inputs. Note that this should be encoded as an empty array. Deposit transactions are created by the Vault contracts and do not need to be explicitly submitted.
+Deposit transactions are special transactions that have no inputs. Note that this should be encoded as an empty array. Deposit transactions are created by the `Vault` contracts and do not need to be explicitly submitted.
 
 #### EIP-712 signing
 The witness field of a transaction is the data that proves its inputs can be spent. For a normal Payment transaction this data is the signatures of the owners of the inputs. We use [EIP-712](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-712.md) for signing transactions.
@@ -188,4 +180,4 @@ However, users must also exit *before* the dishonest operator does if they are t
 
 A smaller UTXO set on the child chain can mitigate these vulnerabilities, and thereby reinforce the safety of user funds. For this reason, users are encouraged to merge their UTXOs continuously.
 
-> Due to the mechanics of the [Scheduled Finalisation Time (SFT)](#challenge-period), users generally have <u>one week</u> to initate an exit that can safely restore ownership of their funds. For UTXOs that are less than one week old, however, this window of safety is reduced to the time between the UTXO's creation and the start of the operator's dishonest exit.
+> Due to the mechanics of the [Scheduled Finalisation Time (SFT)](challenge-period), users generally have <u>one week</u> to initate an exit that can safely restore ownership of their funds. For UTXOs that are less than one week old, however, this window of safety is reduced to the time between the UTXO's creation and the start of the operator's dishonest exit.

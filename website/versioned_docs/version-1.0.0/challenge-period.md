@@ -1,5 +1,5 @@
 ---
-id: version-0.0.1-challenge-period
+id: version-1.0.0-challenge-period
 title: Challenge Period
 sidebar_label: Challenge Period
 original_id: challenge-period
@@ -43,4 +43,4 @@ We can look to `omg-js` to abstract this calculation and give us the Scheduled F
 rootChain.getExitTime({ exitRequestBlockNumber, submissionBlockNumber })
 ```
 
-Under the hood, this function is calling the `Payment Exit Game` and `Plasma Framework` smart contracts to apply the logic explained above. It will return the Scheduled Finalisation Time (in unix) and the milliseconds until that time.
+Under the hood, this function is calling the `Payment Exit Game` and `Plasma Framework` contracts to apply the logic explained above. It will return the Scheduled Finalisation Time (in unix) and the milliseconds until that time.

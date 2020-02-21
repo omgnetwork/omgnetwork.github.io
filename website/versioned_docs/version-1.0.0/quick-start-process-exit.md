@@ -1,5 +1,5 @@
 ---
-id: version-0.0.1-quick-start-process-exits
+id: version-1.0.0-quick-start-process-exits
 title: Process Exits
 sidebar_label: Process Exits
 original_id: quick-start-process-exits
@@ -7,7 +7,7 @@ original_id: quick-start-process-exits
 
 > If you haven't already, open the [webwallet](https://webwallet.ropsten.v1.omg.network) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.
 
-> The webwallet is deployed against the [OMG Network v1 Testnet](network-connection-details.md).
+> The webwallet is deployed against the [OMG Network v1 Testnet](/network-connection-details).
 
 You've started a standard exit and the challenge period has passed. Your exit is honest and so nobody had to challenge your exit. You can now process your exit to release your funds back to you.
 
@@ -27,6 +27,6 @@ You've started a standard exit and the challenge period has passed. Your exit is
 
 <img src="/img/process-exits-confirmed.png" width="500">
 
-Congratulations! You've performed an end-to-end process of transacting on the OMG Network. If you would like to learn more, continue on to the `Integration` section.
+Congratulations! You've performed an end-to-end process of transacting on the OMG Network. If you would like to learn more, continue on to the [`Integration`](integration-introduction) section.
 
 > To learn more about process exits, check out the documentation [here](process-exits).

@@ -1,5 +1,5 @@
 ---
-id: version-0.0.1-quick-start-transaction
+id: version-1.0.0-quick-start-transaction
 title: Send a Transaction
 sidebar_label: Send a Transaction
 original_id: quick-start-transaction
@@ -7,7 +7,7 @@ original_id: quick-start-transaction
 
 > If you haven't already, open the [webwallet](https://webwallet.ropsten.v1.omg.network) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.
 
-> The webwallet is deployed against the [OMG Network v1 Testnet](network-connection-details.md).
+> The webwallet is deployed against the [OMG Network v1 Testnet](/network-connection-details).
 
 Now that you have funds on the OMG Network, you can make your first transaction.
 
@@ -26,7 +26,7 @@ Now that you have funds on the OMG Network, you can make your first transaction.
 
 <img src="/img/quick-start-transfer-pending.png" width="500">
 
-7. Once the transaction is confirmed, you can click on it to view the transaction in the block explorer. You should also see your Childchain balance update.
+7. Once the transaction is confirmed, you can click on it to view the transaction in the block explorer. You should also see your child chain balance update.
 
 <img src="/img/quick-start-transfer-success.png" width="500">
 

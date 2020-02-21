@@ -1,11 +1,11 @@
 ---
-id: version-0.0.1-byzantine-conditions
+id: version-1.0.0-byzantine-conditions
 title: Byzantine Conditions
 sidebar_label: Byzantine Conditions
 original_id: byzantine-conditions
 ---
 
-These are Byzantine Conditions that are signals for users to exit the Childchain.
+These are Byzantine Conditions that are signals for users to exit the child chain.
 
 #### `unchallenged_exit`
 Indicates that an invalid exit is dangerously close to finalization and hasn't been challenged. User should exit.

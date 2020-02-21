@@ -1,5 +1,5 @@
 ---
-id: version-0.0.1-challenging-exits
+id: version-1.0.0-challenging-exits
 title: Challenging Exits
 sidebar_label: Challenging Exits
 original_id: challenging-exits
@@ -17,7 +17,7 @@ The process of challenging exits takes place during a defined challenge period a
 
 
 ## Watcher Alerts
-The Watcher broadcasts any byzantine event it detects on the OMG Network. Should the event be [challengeable](#challengeable-events), a user can decide whether or not to "challenge" based on this information. 
+The Watcher broadcasts any byzantine event it detects on the OMG Network. Should the event be challengeable, a user can decide whether or not to "challenge" based on this information. 
 
 > These events are reported in the Watcher's `/status.get` endpoint providing an array of byzantine events. `omg-js` provides a helper function to get this report.
 
