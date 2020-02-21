@@ -5,7 +5,7 @@ sidebar_label: Send a Transaction
 original_id: quick-start-transaction
 ---
 
-> If you haven't already, open the [webwallet](https://omgnetwork-browser-wallet.netlify.com) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.
+> If you haven't already, open the [webwallet](https://webwallet.ropsten.v1.omg.network) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.
 
 > The webwallet is deployed against the [OMG Network v1 Testnet](network-connection-details.md).
 
