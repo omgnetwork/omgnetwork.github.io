@@ -4,9 +4,9 @@ title: Process Exits
 sidebar_label: Process Exits
 ---
 
-> If you haven't already, open the [browser wallet](https://omgnetwork-browser-wallet.netlify.com) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.
+> If you haven't already, open the [webwallet](https://omgnetwork-browser-wallet.netlify.com) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.
 
-> The browser wallet is deployed against the [Lumphini Network environment](/network-connection-details).
+> The webwallet is deployed against the [OMG Network v1 Testnet](/network-connection-details).
 
 You've started a standard exit and the challenge period has passed. Your exit is honest and so nobody had to challenge your exit. You can now process your exit to release your funds back to you.
 
