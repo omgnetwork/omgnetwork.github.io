@@ -13,10 +13,10 @@ A transfer involves one wallet sending tokens to another wallet on the OMG Netwo
 2. The transaction is submitted to the `Watcher` and – subsequently – to the child chain for validation. 
 3. If the transaction is valid, the child chain creates a transaction hash and adds the transaction to a pending block.
 4. The child chain bundles the transactions in the block into a Merkle tree and submits its root hash to the `Plasma Framework` smart contract.
-5. The `Watcher` receives a list of transactions from the child chain and recomputes the Merkle root to check for any inconsistency.
+5. The Watcher receives a list of transactions from the child chain and recomputes the Merkle root to check for any inconsistency.
 
 
-> The following conditions would cause the `Watcher` or the child chain to reject the transaction as invalid:
+> The following conditions would cause the Watcher or the child chain to reject the transaction as invalid:
 >
 > - The transaction is using inputs being used for another transaction in the block.
 > - The transaction is using inputs spent in any prior block.
@@ -34,7 +34,7 @@ The process of creating a transfer can be broken down into four steps:
 
 3. Sign and encode the typed data into a signed transaction.
 
-4. Submit the signed transaction to the `Watcher`.
+4. Submit the signed transaction to the Watcher.
 
 #### Examples:
 
@@ -67,7 +67,7 @@ function transfer () {
 }
 ```
 
-Another method is to call the `Watcher` for a transaction body with inputs and typed data pre-included:
+Another method is to call the Watcher for a transaction body with inputs and typed data pre-included:
 
 ```js
 async function transfer () {

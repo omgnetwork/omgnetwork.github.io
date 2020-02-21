@@ -8,7 +8,7 @@ This guide will show you how to make transactions directly from a browser. By th
 
 * Learn about the OMG Network interface
 * Interact with the OMG Network from end to end
-* Make a deposit, transfer, standard exit and process exits
+* Make a deposit, transfer your tokens and exit the network.
 
 The only requirement for this quick start is to have a web3 wallet with funds on Ropsten. We recommend using the Metamask chrome browser extension.
 

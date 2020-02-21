@@ -39,7 +39,7 @@ The full lifecycle of an in-flight exit occurs in the following steps:
 
 A transaction is termed `exitable` if it is correctly formed and properly signed by the owner(s) of the transaction input(s).
 
-To get the necessary exit data, a user must call the `Watcher` with the signed transaction.
+To get the necessary exit data, a user must call the Watcher with the signed transaction.
 
 ```js
 childChain.inFlightExitGetData(signedTransaction)

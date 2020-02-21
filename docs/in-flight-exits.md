@@ -4,8 +4,7 @@ title: In Flight Exits
 sidebar_label: In Flight Exits
 ---
 
-Exits allow a user to withdraw funds from the OMG Network back onto the root chain. There are two types of exit:
-standard exits and in-flight exits (IFEs). This section will cover in-flight-exits.
+Exits allow a user to withdraw funds from the OMG Network back onto the root chain. There are two types of exit: standard exits and in-flight exits (IFEs). This section will cover in-flight-exits.
 
 A transaction is considered to be “in-flight” if it has been broadcast but has not yet been included in the child chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block in which the said transaction is included.
 
@@ -16,7 +15,7 @@ A user may consider an in-flight _exit_ in the following scenarios:
 
 The user can initiate an IFE regardless of whether the above is factually correct, but must commit an `exit bond`. The purpose of the `exit bond` is to deter users from initating exits dishonestly, as this bond will be awarded to any party who successfully proves that the exit is dishonest.
 
-> For further information on the bond mechanism, please see the [Appendix](exitbonds).
+> Read more about exit bonds [here](exitbonds).
 
 > The exit protocol forms the crux of the Plasma design. This guide aims to only discuss implementation of these concepts with respect to the OMG Network. If you want a deeper dive of these concepts, further discussion can be found on the [MoreVP Technical Overview](morevp-technical-overview).
 
@@ -36,7 +35,7 @@ The full lifecycle of an in-flight exit occurs in the following steps:
 
 A transaction is termed `exitable` if it is correctly formed and properly signed by the owner(s) of the transaction input(s).
 
-To get the necessary exit data, a user must call the `Watcher` with the signed transaction.
+To get the necessary exit data, a user must call the Watcher with the signed transaction.
 
 ```js
 childChain.inFlightExitGetData(signedTransaction)
@@ -106,8 +105,7 @@ rootChain.piggybackInFlightExitOnOutput({
 })
 ```
 
-There are specific scenarios whereby a user will want to exit his or her inputs in a **non-canonical** transaction.
-It must be established that the transaction is indeed non-canonical for this to be successful.
+There are specific scenarios whereby a user will want to exit his or her inputs in a **non-canonical** transaction. It must be established that the transaction is indeed non-canonical for this to be successful.
 
 The owner of an input can `piggyback` with the following call:
 
