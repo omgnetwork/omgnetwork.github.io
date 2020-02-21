@@ -21,7 +21,7 @@ Before we can transact on the OMG Network, we first have to make sure that we ha
 ## Make an ETH Deposit
 
 1. Click **Deposit**.
-2. Define the amount you wish to deposit in wei. Make sure you have more than this amount in your root chain wallet to cover gas costs.
+2. Define the amount you wish to deposit in ETH. Make sure you have more than this amount in your root chain wallet to cover gas costs.
 3. Click **Deposit**. Your web3 wallet should pop up and ask you to confirm the transaction. Note that this example application defaults the gas limit to `6000000` wei.
 
 ![sign-deposit](/img/quick-start-sign-deposit.png)
