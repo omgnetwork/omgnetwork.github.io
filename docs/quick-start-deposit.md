@@ -48,8 +48,6 @@ The process for depositing ERC20 into the OMG Network is very similar to an ETH 
 
 3. Click **Deposit**. This step will differ from the ETH deposit as your web3 wallet will pop up twice. The first popup will ask you to approve the deposit.
 
-![approve-erc20-deposit](/img/quick-start-deposit-erc20-approve.png)
-
 The second popup will ask you to confirm the actual deposit transaction.
 
 ![approve-erc20-deposit](/img/quick-start-deposit-erc20-confirm.png)
