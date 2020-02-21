@@ -31,14 +31,6 @@ It provides access to the various components in the system. For example, to get 
 
 The PlasmaFramework also provides the means for the `maintainer` to upgrade the components in the system. This has important security considerations and the PlasmaFramework will emit events whenever a component is added. Watcher must monitor these events and inform users.
 
-## What is the OMG Network architecture?
-The table describes the components of the OMG Network architecture:
-| Component | Description |
-| ---       | ---         |
-| Ethereum  | The root chain. |
-| Child chain | Currently, in Proof of Authority mode, there is only one child chain service that implements the child blockchain. It is anticipated that this will change when OMG Network transitions to Proof of Stake. |
-| Watcher | A service that monitors the child chain for suspicious activity, such as the operator or any user acting dishonestly. If the watcher discovers suspicious activity, it prompts users to challenge invalid exits, or to exit the child chain. Users can run their own Watcher, but it is also expected that some trusted entity will run Watchers as a service. |
-
 ## What is a Transaction?
 Transactions are composed of inputs and outputs. An input is simply a pointer to the output of another transaction. In the OMG Network, transactions are limited to 4 possible inputs and 4 possible outputs.
 
