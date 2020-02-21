@@ -10,13 +10,13 @@ The OMG Network consists of three components interacting together:
 * The Child Chain
 * The Watcher
 
-## OMG Smart Contracts
+## PlasmaFramework Smart Contract
 
-Deployed to the Ethereum network, the OMG Smart Contracts provide the decentralised interface through which users can deposit funds into the network and withdraw them at any point. 
+Deployed to the Ethereum network, the `PlasmaFramework` contract can be seen as a top-level contract containing other smart contract level functionalities, namely deposits, exits and the receipt of blocks from the child chain.
 
 ## Child Chain
 
-Run by OMG Network, the child chain application maintains the network state. It receives users' transactions and bundles them into blocks that are submitted to the OMG Smart Contracts.
+Run by OMG Network, the child chain application maintains the network state. It receives users' transactions and bundles them into blocks that are submitted to the `PlasmaFramework` contract.
 
 ## Watcher
 
