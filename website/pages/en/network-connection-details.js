@@ -29,6 +29,15 @@ function NetworkConnectionDetails(props) {
           </a>
         </p>
         <p>
+          Watcher Info:{" "}
+          <a
+            target="_blank"
+            href="https://watcher-info.ropsten.v1.omg.network"
+          >
+            https://watcher-info.ropsten.v1.omg.network
+          </a>
+        </p>
+        <p>
           Blockexplorer:{" "}
           <a
             target="_blank"
