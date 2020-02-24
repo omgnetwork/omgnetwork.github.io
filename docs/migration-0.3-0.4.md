@@ -32,7 +32,6 @@ In general, run and/or integrate with the WatcherInfo to utilize the full set of
 - Watcher and WatcherInfo no longer serve websocket events for new transactions and exits.
 
 ### Strict transaction decoding and checks
-(done in a range of PRs: #1196, #1214, #1164, #1261, #1306)
 
 NOTE: This is handled by `/transaction.create` and `/transaction.submit_typed`, so it is unlikely to affect integrators.
 
