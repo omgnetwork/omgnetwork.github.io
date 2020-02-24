@@ -42,7 +42,7 @@ The most "granular" implementation includes fetching fees, creating, typing, sig
 ```js
 async function transfer () {
     // We want to pay the fee in ETH, so we have to fetch the ETH fee amount from the Watcher
-  const allFees = await childChain.getFeesInfo()
+  const allFees = await childChain.getFees()
   const feesForTransactions = allFees['1']
   const { amount: ethFeeAmount } = feesForTransactions.find(i => i.currency === OmgUtil.transaction.ETH_CURRENCY)
 
