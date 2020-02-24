@@ -14,33 +14,33 @@ function NetworkConnectionDetails(props) {
           Child chain:{" "}
           <a
             target="_blank"
-            href="https://prod-7c3f796-childchain-ropsten-01.omg.network"
+            href="https://childchain.ropsten.v1.omg.network"
           >
-            https://prod-7c3f796-childchain-ropsten-01.omg.network
+            https://childchain.ropsten.v1.omg.network
           </a>
         </p>
         <p>
           Watcher:{" "}
           <a
             target="_blank"
-            href="https://prod-7c3f796-watcher-ropsten-01.omg.network"
+            href="https://watcher.ropsten.v1.omg.network"
           >
-            https://prod-7c3f796-watcher-ropsten-01.omg.network
+            https://watcher.ropsten.v1.omg.network
           </a>
         </p>
         <p>
           Blockexplorer:{" "}
           <a
             target="_blank"
-            href="https://prod-7c3f796-blockexplorer-ropsten-01.omg.network"
+            href="https://blockexplorer.ropsten.v1.omg.network"
           >
-            https://prod-7c3f796-blockexplorer-ropsten-01.omg.network
+            https://blockexplorer.ropsten.v1.omg.network
           </a>
         </p>
         <p>Ethereum Network: Ropsten</p>
         <p>Exit Period: 86400 Seconds (1 day)</p>
         <p>
-          Plasma Framework Address: 0xc7c671ee646a6da78c341d18c4734c80dd818599
+          Plasma Framework Address: 0xa72c9dceeef26c9d103d55c53d411c36f5cdf7ec
         </p>
       </Container>
     </div>

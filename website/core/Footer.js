@@ -60,7 +60,7 @@ function Footer () {
             Links
           </span>
           <span className='footer-item'>
-            <a target='_blank' href='https://prod-7c3f796-blockexplorer-ropsten-01.omg.network'>
+            <a target='_blank' href='https://blockexplorer.ropsten.v1.omg.network'>
               {`Block Explorer`}
             </a>
           </span>
