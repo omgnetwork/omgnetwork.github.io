@@ -14,9 +14,9 @@ OMG Network APIs are completely open. No authentication is required to query and
 
 
 ## Documentation
-- [Watcher Informational API](https://developer.omisego.co/elixir-omg/docs-ui/?url=0.1/informational_api_specs.yaml)
+- [Watcher Informational API](https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Fsecurity_critical_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs)
 
-- [Watcher Security Critical API](https://developer.omisego.co/elixir-omg/docs-ui/?url=0.1/security_critical_api_specs.yaml)
+- [Watcher Security Critical API](https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Fsecurity_critical_api_specs.yaml&urls.primaryName=master%2Fsecurity_critical_api_specs)
 
 - [Child Chain API](https://developer.omisego.co/elixir-omg/docs-ui/?url=master/operator_api_specs.yaml)
 
