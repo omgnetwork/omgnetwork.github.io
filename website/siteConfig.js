@@ -3,7 +3,8 @@
 const siteConfig = {
   docsSideNavCollapsible: true,
   disableHeaderTitle: true,
-  gaTrackingId: 'GTM-TVZS27N',
+  gaTrackingId: 'UA-154130721-1',
+  gaGtag: true,
   title: 'OMG Network',
   tagline: 'Documentation for the OMG Network',
   url: 'https://nicholasmueller.github.io',
