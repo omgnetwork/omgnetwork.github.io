@@ -24,7 +24,7 @@ OMG Network APIs are completely open. No authentication is required to query and
 ## OMG Network APIs
 
 ### Watcher	
-Everyone needs to run their own watcher. This means you are not bound by a requirement to place complete trust in the network operator (in this case, OmiseGO).
+Everyone needs to run their own watcher. This means you are not bound by a requirement to place complete trust in the network operator (in this case, OMG Network).
 
 * Watcher’s informational API
     

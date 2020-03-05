@@ -16,4 +16,4 @@ Check out the OMG Network with our [block explorer](/network-connection-details)
 
 If you are already familiar with the OMG Network and developing an application on the network, head over to the [Integration section](integration-introduction).
 
-> For more information about the benefits of the OMG Network, see the [OmiseGO website](https://omisego.co/network).
+> For more information about the benefits of the OMG Network, see the [OMG Network website](https://omg.network).

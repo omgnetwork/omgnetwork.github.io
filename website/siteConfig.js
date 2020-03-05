@@ -16,7 +16,7 @@ const siteConfig = {
     { doc: 'welcome', label: 'Docs' },
     { href: 'network-connection-details', external: false, label: 'Network Connection' },
     { doc: 'api-reference-introduction', label: 'API' },
-    { href: 'https://omisego.co/', external: true, label: 'Product' },
+    { href: 'https://omg.network/', external: true, label: 'Product' },
   ],
   headerIcon: 'img/omg-network.svg',
   footerIcon: 'img/favicon.ico',

@@ -9,8 +9,8 @@ Below are a list of frequently asked questions regarding the OMG Network and the
 ## What is Plasma?
 Plasma is a Layer 2 (i.e. off-chain) scaling solution for Ethereum. Compared to other Layer 2 solutions, Plasma's advantage is that every block on the Plasma (or child) chain is committed to the root chain. This means that if anything goes wrong on the child chain, honest users will always be able to exit the child chain and recover their funds on the root chain.
 
-There are several versions of Plasma, including MoreVP, which is OmiseGO's chosen solution. 
-Different versions of Plasma are suited to specific use cases and the operator (OmiseGO in this case) typically chooses the most suitable version for their scenario. From a users perspective, all versions of Plasma behave more or less the same.
+There are several versions of Plasma, including MoreVP, which is OMG Network's chosen solution. 
+Different versions of Plasma are suited to specific use cases and the operator (OMG Network in this case) typically chooses the most suitable version for their scenario. From a users perspective, all versions of Plasma behave more or less the same.
 
 Plasma is typically used for the following:
 
