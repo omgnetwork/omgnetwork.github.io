@@ -65,8 +65,8 @@ function Footer () {
             </a>
           </span>
           <span className='footer-item'>
-            <a target='_blank' href='https://omisego.co/'>
-              {`OmiseGO`}
+            <a target='_blank' href='https://omg.network/'>
+              {`OMG Network`}
             </a>
           </span>
           <span className='footer-item'>
@@ -85,22 +85,16 @@ function Footer () {
             <a target='_blank' href='https://twitter.com/omise_go'>
               <img src='/img/twitter.svg' alt='twitter' className='footer-social' />
             </a>
-            <a target='_blank' href='https://www.linkedin.com/company/omisego/'>
+            <a target='_blank' href='https://www.linkedin.com/company/omgnetwork/'>
               <img src='/img/linkedin.svg' alt='linkedin' className='footer-social' />
             </a>
             <a target='_blank' href='https://github.com/omisego'>
               <img src='/img/github.svg' alt='github' className='footer-social' />
             </a>
-            <a target='_blank' href='https://reddit.com/r/omise_go/'>
-              <img src='/img/reddit.svg' alt='reddit' className='footer-social' />
-            </a>
-            <a target='_blank' href='https://www.youtube.com/channel/UC-NfGRxTkJfVbFgyJoOxzCQ'>
-              <img src='/img/youtube.svg' alt='youtube' className='footer-social' />
-            </a>
           </span>
 
           <span className='footer-copyright'>
-            {`© 2019-present OmiseGO.\nAll rights reserved`}
+            {`© 2019-present OMG Network.\nAll rights reserved`}
           </span>
         </div>
       </div>
