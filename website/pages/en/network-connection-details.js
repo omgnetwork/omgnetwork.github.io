@@ -9,7 +9,7 @@ function NetworkConnectionDetails(props) {
     <div className="docMainWrapper wrapper">
       <Container className="mainContainer documentContainer postContainer">
         <h1>OMG Network v1 Testnet</h1>
-        <p>Plasma-Contracts: 7c3f796</p>
+        <p>Plasma-Contracts: a69c763</p>
         <p>
           Child chain:{" "}
           <a
@@ -48,12 +48,12 @@ function NetworkConnectionDetails(props) {
         </p>
         <p>Ethereum Network: Ropsten</p>
         <p>Exit Period: 86400 Seconds (1 day)</p>
-        <p>authority_address: 0x7c2d896dad820fe0f38d0aab057164c87101f973</p>
-        <p>eth_vault: 0x2c7533f76567241341d1c27f0f239a20b6115714</p>
-        <p>erc20_vault: 0x2bed2ff4ee93a208edbf4185c7813103d8c4ab7f</p>
-        <p>payment_exit_game: 0x960ca6b9faa85118ba6badbe0097b1afd8827fac</p>
-        <p>plasma_framework_tx_hash: 0x25e445594f425a7a94141a20b8831580953b92ddd0d12e9c775c571e4f3da08c</p>
-        <p>plasma_framework: 0xa72c9dceeef26c9d103d55c53d411c36f5cdf7ec</p>
+        <p>authority_address: 0xecec123f5cdbc0046a3e4d94223bb120dd3cb7b9</p>
+        <p>eth_vault: 0x895cc6f20d386f5c0deae08b08ccfec9f821e7d9</p>
+        <p>erc20_vault: 0x18e15c2cdc003b845b056f8d6b6a91ab33d3f182</p>
+        <p>payment_exit_game: 0x08c569c5774110eb84a80b292e6d6f039e18915a</p>
+        <p>plasma_framework_tx_hash: 0x16eaebcf186bda5a662998475ea333d1c063fa27c051d0d0e4e33194f145b543</p>
+        <p>plasma_framework: 0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9</p>
       </Container>
     </div>
   );
