@@ -2,6 +2,7 @@
 id: version-1.0.0-plasma-proposition
 title: The Plasma Proposition
 sidebar_label: The Plasma Proposition
+original_id: plasma-proposition
 ---
 
 ## What is Plasma?
