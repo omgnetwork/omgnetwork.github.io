@@ -9,7 +9,7 @@ Exits allow a user to withdraw funds from the OMG Network back onto the root cha
 
 A transaction is considered to be “in-flight” if it has been broadcast but has not yet been included in the child chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block in which the said transaction is included.
 
-A user may consider an in-flight _exit_ in the following scenarios:
+A user may consider an exit _in-flight_ in the following scenarios:
 
 - The user has signed and broadcast a transaction, but is unable to verify its inclusion in a block.
 - The user can see that the transaction has been included in a block, but believes that the block is invalid due to a dishonest operator.

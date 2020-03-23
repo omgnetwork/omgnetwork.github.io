@@ -28,6 +28,4 @@ You've successfully deposited and made a transfer on the OMG Network. If you wan
 
 <img src="/img/exit-challenge.png" width="500">
 
-> The challenge period for this webwallet is approximately 10 minutes (will vary depending on various factors as explained [here](challenge-period)).
-
 > To learn more about standard exits, check out the documentation [here](standard-exits).

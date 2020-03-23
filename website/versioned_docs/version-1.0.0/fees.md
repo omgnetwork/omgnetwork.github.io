@@ -12,7 +12,7 @@ Users are charged a fee to transact on the OMG Network. The OMG Network supports
 To return the list of currently supported fee tokens and amounts charged, `omg-js` includes a helper method to call the `fees.all` endpoint on the Watcher. Note that the returned response will be indexed by the transaction type.
 
 ```js
-childChain.getFeesInfo()
+childChain.getFees()
 ```
 
 > Fees must meet the exact amount defined in the fee spec, or the transaction will be rejected.

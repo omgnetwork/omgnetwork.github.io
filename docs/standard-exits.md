@@ -75,8 +75,6 @@ rootChain.startStandardExit({
 
 > The inclusion proof is a Merkle proof that the transaction creating the UTXO being exited was included in a given valid block.
 
-> * Tip**
->
 > You can only exit one UTXO at a time. It is therefore recommended to merge your UTXOs if you would like to exit multiple ones. Learn more about how to merge UTXOs [here](#managing-utxos)
 
 

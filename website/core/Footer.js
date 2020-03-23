@@ -23,12 +23,12 @@ function Footer () {
         <div className='footer-column'>
           <span className='footer-title'>APIs</span>
           <span className='footer-item'>
-            <a target='_blank' href='https://developer.omisego.co/elixir-omg/docs-ui/?url=0.2/informational_api_specs.yaml'>
+            <a target='_blank' href='https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs'>
               {`Watcher\nInformational API`}
             </a>
           </span>
           <span className='footer-item'>
-            <a target='_blank' href='https://developer.omisego.co/elixir-omg/docs-ui/?url=0.2/security_critical_api_specs.yaml'>
+            <a target='_blank' href='https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Fsecurity_critical_api_specs'>
               {`Watcher\nSecurity Critical API`}
             </a>
           </span>
@@ -60,7 +60,7 @@ function Footer () {
             Links
           </span>
           <span className='footer-item'>
-            <a target='_blank' href='http://quest.samrong.omg.network'>
+            <a target='_blank' href='https://blockexplorer.ropsten.v1.omg.network'>
               {`Block Explorer`}
             </a>
           </span>

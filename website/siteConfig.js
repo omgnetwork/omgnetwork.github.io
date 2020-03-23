@@ -3,7 +3,8 @@
 const siteConfig = {
   docsSideNavCollapsible: true,
   disableHeaderTitle: true,
-  gaTrackingId: 'GTM-TVZS27N',
+  gaTrackingId: 'UA-154130721-1',
+  gaGtag: true,
   title: 'OMG Network',
   tagline: 'Documentation for the OMG Network',
   url: 'https://nicholasmueller.github.io',
@@ -17,7 +18,7 @@ const siteConfig = {
     { doc: 'api-reference-introduction', label: 'API' },
     { href: 'https://omisego.co/', external: true, label: 'Product' },
   ],
-  headerIcon: 'img/omg-network.svg',
+  headerIcon: 'img/omisego-white.svg',
   footerIcon: 'img/favicon.ico',
   favicon: 'img/favicon.ico',
   colors: {

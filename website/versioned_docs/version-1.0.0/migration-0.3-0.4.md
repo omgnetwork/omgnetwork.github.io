@@ -5,6 +5,62 @@ sidebar_label: 0.3 to 0.4
 original_id: migration-0.3-0.4
 ---
 
+## Child chain and Watcher
+
+### Fees
+- Child chain now accepts fee in a transaction submitted to it via `/transaction.submit` 
+- List of accepted fee tokens and corresponding amount can be retrieved via query to `/fees.all` end point
+- The fee amount in a transaction is implicitly determined by the amount of token difference between outputs and inputs. 
+- The fee amount must be correct as specified in `/fees.all`. Underpaying or Overpaying of fee in a transaction will result in a returned error.
+- Integrator can create a transaction with a valid fee amount via `/transaction.create` API endpoint by specifying fee tokens. Alternatively, a client can build the transaction with valid fee from scratch via a call to fees.all prior to transaction build process.
+- Currently, the fees are statically set per each environment. This is expected to change once a more dynamic fee model has been applied, however, consuming fee API is expected to stay the same from integration’s point of view.
+- Refer to our guide to transaction fee for more example: https://docs.omg.network/fees
+
+### Watcher vs. WatcherInfo
+Two flavors of the watcher are now available: Watcher and WatcherInfo.
+
+1. *The Watcher (watcher)* contains the security-critical features for monitoring and interacting with the childchain. It contains a limited set of APIs that allow you to securely transact with the OMG Network, such as transaction submission, retrieval of UTXOs, challenge data, in-flight exits, etc.
+2. *The WatcherInfo (watcher_info)*, like the Watcher, contains the security-critical features for monitoring and interacting with the childchain. Additionally, the WatcherInfo contains an additional set of informational API endpoints that allow convenient retrieval of data related to the network and transactions, namely accounts, blocks, transactions, fees, network statistics, etc.
+
+In general, run and/or integrate with the WatcherInfo to utilize the full set of watcher functionalities. Integrate with the Watcher when you have specific requirements to utilize only the security-critical components.
+
+### Watcher API changes
+- The Watcher or WatcherInfo may return an “operation:service_unavailable” error when a potential issue within itself or the network is detected. The issue ranges from Ethereum disconnectivity, slow Ethereum sync to potential byzantine events. Once the issue is resolved, endpoints are served again. The list of current events can be retrieved from /alarm.get.
+- Add `/fees.all` that lists all supported fee tokens and their rates. Available only on the ChildChain and WatcherInfo.
+- Add `/block.all`, `/block.get`, `/stats.get` endpoints for informational purposes. Available only on the WatcherInfo.
+- Update `/transaction.get` and `/transaction.all` to return each transaction output’s creating_txhash and spending_txhash. Available only on the WatcherInfo.
+- Update `/account.get_transactions`, `/transaction.all` and `/transaction.get` to return transaction type (txtype) and transaction output type (otype). The currently possible types are Payment V1 and Fee Token Claim.
+- Watcher and WatcherInfo no longer serve websocket events for new transactions and exits.
+
+### Strict transaction decoding and checks
+
+NOTE: This is handled by `/transaction.create` and `/transaction.submit_typed`, so it is unlikely to affect integrators.
+
+The transaction decoding and checks are documented in plasma-contracts [here](https://github.com/omisego/plasma-contracts/blob/master/plasma_framework/docs/integration-docs/integration-doc.md#transactions).
+
+### Obsoleted configurations
+The environment variables with prefixes RINKEBY_, ROPSTEN_ and MAINNET_ have been replaced with ETHEREUM_NETWORK and their non-prefixed names. To upgrade from previous versions, migrate the old configurations to the following new ones:
+
+- ETHEREUM_NETWORK
+- AUTHORITY_ADDRESS
+- CONTRACT_ADDRESS_PLASMA_FRAMEWORK
+- CONTRACT_ADDRESS_ETH_VAULT
+- CONTRACT_ADDRESS_ERC20_VAULT
+- CONTRACT_ADDRESS_PAYMENT_EXIT_GAME
+
+For more information, see [Deployment Configurations](https://github.com/omisego/elixir-omg/blob/master/docs/deployment_configuration.md).
+
+### New configurations
+The following new environment variables can be configured to modify the behaviour of your self-hosted Watcher and WatcherInfo.
+
+- ETHEREUM_EVENTS_CHECK_INTERVAL_MS
+- ETHEREUM_STALLED_SYNC_THRESHOLD_MS
+- EXIT_PROCESSOR_SLA_MARGIN
+- EXIT_PROCESSOR_SLA_MARGIN_FORCED
+- ETHEREUM_BLOCK_TIME_SECONDS
+
+For more information, see [Deployment Configurations](https://github.com/omisego/elixir-omg/blob/master/docs/deployment_configuration.md).
+
 ## omg-js
 *from 3.0.0-alpha.6 to 3.0.0-0.4.1*
 
