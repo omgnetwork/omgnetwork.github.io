@@ -3,12 +3,8 @@
     "Introduction": [
       "welcome"
     ],
-    "Getting Started": [
-      "quick-start",
-      "quick-start-deposit",
-      "quick-start-transaction",
-      "quick-start-exit",
-      "quick-start-process-exits"
+    "Guides": [
+      "quick-start-webwallet"
     ],
     "Integration": [
       "integration-introduction",
