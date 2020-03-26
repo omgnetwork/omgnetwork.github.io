@@ -1,12 +1,10 @@
 {
   "docs": {
-    "Introduction": ["welcome"],
-    "Getting Started": [
-      "quick-start",
-      "quick-start-deposit",
-      "quick-start-transaction",
-      "quick-start-exit",
-      "quick-start-process-exits"
+    "Introduction": [
+      "welcome"
+    ],
+    "Guides": [
+      "quick-start-webwallet"
     ],
     "Integration": [
       "integration-introduction",
@@ -15,13 +13,17 @@
       {
         "type": "subcategory",
         "label": "Exits",
-        "ids": ["standard-exits", "in-flight-exits"]
+        "ids": [
+          "standard-exits",
+          "in-flight-exits"
+        ]
       },
       "challenge-period",
       "challenging-exits",
       "process-exits"
     ],
     "Appendix": [
+      "plasma-proposition",
       "network-architecture",
       "glossary",
       "faq",
