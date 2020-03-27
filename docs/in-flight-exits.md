@@ -6,30 +6,30 @@ sidebar_label: In Flight Exits
 
 Exits allow a user to withdraw funds from the OMG Network back onto the root chain. There are two types of exit: standard exits and in-flight exits (IFEs). This section will cover in-flight-exits.
 
-A transaction is considered to be “in-flight” if it has been broadcast but has not yet been included in the child chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block in which the said transaction is included.
+A transaction is considered to be “in-flight” if it has been broadcasted but has not yet been included in the child chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block where the said transaction is included.
 
 A user may consider an exit _in-flight_ in the following scenarios:
 
 - The user has signed and broadcast a transaction, but is unable to verify its inclusion in a block.
 - The user can see that the transaction has been included in a block, but believes that the block is invalid due to a dishonest operator.
 
-The user can initiate an IFE regardless of whether the above is factually correct, but must commit an `exit bond`. The purpose of the `exit bond` is to deter users from initating exits dishonestly, as this bond will be awarded to any party who successfully proves that the exit is dishonest.
+The user can initiate an IFE regardless of whether the above is factually correct, but must commit an `exit bond`. The purpose of the `exit bond` is to deter users from initiating exits dishonestly, as this bond will be awarded to any party who successfully proves that the exit is dishonest.
 
 > Read more about exit bonds [here](exitbonds).
 
-> The exit protocol forms the crux of the Plasma design. This guide aims to only discuss implementation of these concepts with respect to the OMG Network. If you want a deeper dive of these concepts, further discussion can be found on the [MoreVP Technical Overview](morevp-technical-overview).
+> The exit protocol forms the crux of the Plasma design. This guide aims to only discuss the implementation of these concepts with respect to the OMG Network. If you want a deeper dive into these concepts, further discussion can be found on the [MoreVP Technical Overview](morevp-technical-overview).
 
 ## Implementation
 
 The full lifecycle of an in-flight exit occurs in the following steps:
 
-1. Getting the in-flight exit data
-2. Starting the in-flight exit
+1. Getting the in-flight exit data.
+2. Starting the in-flight exit.
 3. Piggybacking the selected inputs or outputs.
-4. Waiting for the challenge period, challenging and responding to challenges if necessary
-5. Processing the exit
+4. Waiting for the challenge period, challenging and responding to challenges if necessary.
+5. Processing the exit.
 
-> Only steps 1-3 will be covered in this guide as challenges, responses, and processing exits warrant their own section.
+> Only steps 1-3 will be covered in this guide as challenges, responses, and processing exits warrant their section.
 
 ## Getting Exit Data
 

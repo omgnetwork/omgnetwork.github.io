@@ -15,7 +15,6 @@ A transfer involves one wallet sending tokens to another wallet on the OMG Netwo
 4. The child chain bundles the transactions in the block into a Merkle tree and submits its root hash to the `Plasma Framework` contract.
 5. The Watcher receives a list of transactions from the child chain and recomputes the Merkle root to check for any inconsistency.
 
-
 > The following conditions would cause the Watcher or the child chain to reject the transaction as invalid:
 >
 > - The transaction is using inputs being used for another transaction in the block.
@@ -28,9 +27,9 @@ A transfer involves one wallet sending tokens to another wallet on the OMG Netwo
 
 The process of creating a transfer can be broken down into four steps:
 
-1. Create a transaction body with the basic information pertaining to the transaction, including the UTXOs to be spent by the sender.
+1. Create a transaction body with the basic information about the transaction, including the UTXOs to be spent by the sender.
 
-2. Convert the transaction body into typed data - a sanitized version of the transaction body intended for transaction signing and encoding.
+2. Convert the transaction body into typed data, a sanitized version of the transaction body intended for transaction signing and encoding.
 
 3. Sign and encode the typed data into a signed transaction.
 

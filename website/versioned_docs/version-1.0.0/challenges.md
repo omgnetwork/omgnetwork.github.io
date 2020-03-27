@@ -9,12 +9,13 @@ The process of challenging exits takes place during a defined challenge period a
 
 ## Lifecycle
 
+A challenge lifecycle includes the following:
+
 1. Standard exit or in-flight exit is initiated.
-2. Challenge period starts.
+2. The challenge period starts.
 3. If the exit is dishonest, the Watcher will report a byzantine event.
 3. Users on the network challenge and respond to reported byzantine events.
-4. Challenge period expires. Any exit that is unchallenged is finalized, while any exit that is successfully challenged is cancelled. Bonds are rewarded to successful challengers, or returned to users who committed them.
-
+4. The challenge period expires. Any exit that is unchallenged is finalized, while any exit that is successfully challenged is canceled. Bonds are rewarded to successful challengers or returned to users who committed them.
 
 ## Watcher Alerts
 The Watcher broadcasts any byzantine event it detects on the OMG Network. Should the event be challengeable, a user can decide whether or not to "challenge" based on this information. 
@@ -31,7 +32,6 @@ The following is a byzantine event reported by the Watcher on invalid standard e
 #### `invalid_exit`
 
 Indicates that an invalid standard exit is occurring. It should be challenged.
-
 
 **Scenario**
 
@@ -113,7 +113,6 @@ Indicates an in-flight exit of a non-canonical transaction has been started. It 
 * Bob challenges Alice's in-flight exit by showing that `UTXO1` was spent in `TX1`.
 * Alice is unable to exit `UTXO1` and loses her exit bond to Bob.
 
-
 **Implementation**
 
 ```js
@@ -139,7 +138,7 @@ Indicates a canonical in-flight exit has been challenged. The challenge should b
 
 **Scenario**
 
-* Alice sends `UTXO1` to Bob, but Bob does not see the transaction `TX1` get included in a block. He assumes the operator is withholding, so he attempts to exit his output via an in-flight exit.
+* Alice sends `UTXO1` to Bob but Bob does not see the transaction `TX1` get included in a block. He assumes the operator is withholding so he attempts to exit his output via an in-flight exit.
 * Bob starts his in-flight exit on `TX1`.
 * Alice sends a transaction `TX2` to Carol using the same `UTXO1` (double spend). This transaction is not included in a block.
 * `TX1` is eventually included in a block.
@@ -149,7 +148,6 @@ Indicates a canonical in-flight exit has been challenged. The challenge should b
 **Event** 
 
 The Watcher reports an `invalid_ife_challenge`: 
-
 
 ```json
 {
@@ -181,10 +179,8 @@ async function respondToInvalidIFEChallenge () {
 }
 ```
 
-
 #### `invalid_piggyback`
 Indicates an invalid piggyback is in process. Should be challenged.
-
 
 **Scenario**
 
@@ -214,8 +210,7 @@ Notes:
 **Solution**
 
  * Carol uses `TX2` to challenge Bob's piggyback. 
- * Bob does not exit his output, and Carol receives the `piggyback bond` committed by Bob,
-
+ * Bob does not exit his output, Carol receives the `piggyback bond` committed by Bob.
 
 **Implementation**
 
