@@ -46,6 +46,15 @@ function NetworkConnectionDetails(props) {
             https://blockexplorer.ropsten.v1.omg.network
           </a>
         </p>
+        <p>
+          Webwallet:{" "}
+          <a
+            target="_blank"
+            href="https://webwallet.ropsten.v1.omg.network"
+          >
+          https://webwallet.ropsten.v1.omg.network
+          </a>
+        </p>
         <p>Ethereum Network: Ropsten</p>
         <p>Exit Period: 86400 Seconds (1 day)</p>
         <p>authority_address: 0xecec123f5cdbc0046a3e4d94223bb120dd3cb7b9</p>
