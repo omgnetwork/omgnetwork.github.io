@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Managing UTXOs · OMG Network</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="UTXOs are core to the logic of the OMG Network. Read more about what UTXOs are in the [Glossary](glossary#utxo)."/><meta name="docsearch:version" content="1.0.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Managing UTXOs · OMG Network"/><meta property="og:type" content="website"/><meta property="og:url" content="https://omisego.github.io/"/><meta property="og:description" content="UTXOs are core to the logic of the OMG Network. Read more about what UTXOs are in the [Glossary](glossary#utxo)."/><meta property="og:image" content="https://omisego.github.io/img/omisego-blue.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://omisego.github.io/img/omisego-blue.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-154130721-1"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-154130721-1');
+            </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/omisego-white.svg" alt="OMG Network"/></a><a href="/versions"><h3>1.0.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/welcome" target="_self">Docs</a></li><li class=""><a href="network-connection-details" target="_self">Network Connection</a></li><li class=""><a href="/api-reference-introduction" target="_self">API</a></li><li class=""><a href="https://omisego.co/" target="_blank">Product</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Appendix</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Introduction<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/welcome">About OMG Network</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Guides<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/quick-start-webwallet">Getting Started</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Integration<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/integration-introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/deposits">Deposits</a></li><li class="navListItem"><a class="navItem" href="/transfers">Transfers</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Exits</h4><ul><li class="navListItem"><a class="navItem" href="/standard-exits">Standard Exits</a></li><li class="navListItem"><a class="navItem" href="/in-flight-exits">In Flight Exits</a></li></ul></div><li class="navListItem"><a class="navItem" href="/challenge-period">Challenge Period</a></li><li class="navListItem"><a class="navItem" href="/challenging-exits">Challenging Exits</a></li><li class="navListItem"><a class="navItem" href="/process-exits">Process Exits</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Appendix<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/plasma-proposition">The Plasma Proposition</a></li><li class="navListItem"><a class="navItem" href="/network-architecture">Network Architecture</a></li><li class="navListItem"><a class="navItem" href="/glossary">Glossary</a></li><li class="navListItem"><a class="navItem" href="/faq">FAQ</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/managing-utxos">Managing UTXOs</a></li><li class="navListItem"><a class="navItem" href="/morevp-technical-overview">MoreVP Technical Overview</a></li><li class="navListItem"><a class="navItem" href="/blockchain-design">Blockchain Design</a></li><li class="navListItem"><a class="navItem" href="/byzantine-conditions">Byzantine Conditions</a></li><li class="navListItem"><a class="navItem" href="/exitbonds">Exit Bonds</a></li><li class="navListItem"><a class="navItem" href="/fees">Fees</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Migration Guides<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/migration-0.2-0.3">0.2 to 0.3</a></li><li class="navListItem"><a class="navItem" href="/migration-0.3-0.4">0.3 to 0.4</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Managing UTXOs</h1></header><article><div><span><p>UTXOs are core to the logic of the OMG Network. Read more about what UTXOs are in the <a href="glossary#utxo">Glossary</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="user-considerations"></a><a href="#user-considerations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Considerations</h2>
+<p>A user may find it desirable to <em>merge</em> or <em>split</em> UTXOs that one owns.</p>
+<h3><a class="anchor" aria-hidden="true" id="merging-utxos"></a><a href="#merging-utxos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Merging UTXOs</h3>
+<p>Merging UTXOs is desirable in the following scenarios.</p>
+<ol>
+<li><strong>Exiting your funds as a single UTXO</strong></li>
+</ol>
+<p>Standard Exits are initiated on a single UTXO and not a specified amount. However, a user may want to exit an amount greater than the value of any UTXO one owns. For example:</p>
+<ul>
+<li>Alice owns 4 UTXOs worth 1 ETH each.</li>
+<li>Alice would like to withdraw all her funds from the network.</li>
+<li>To exit her funds, Alice would need to initiate a <code>Standard Exit</code> (with an <code>exit bond</code>) on each UTXO.</li>
+</ul>
+<blockquote>
+<p>In the above scenario, it would be more economical for Alice to merge these UTXOs and exit a single one.</p>
+</blockquote>
+<ol start="2">
+<li><strong>Fitting Inputs into a Transaction</strong></li>
+</ol>
+<p>A transaction can have a maximum of <u>four inputs</u> but a user may not own four UTXOs that can cover the amount needed for a given transaction. For example:</p>
+<ul>
+<li>Alice owns 5 UTXOs worth 1 ETH each.</li>
+<li>Alice would like to send 5 ETH to Bob.</li>
+<li>Alice cannot send 5 ETH to Bob in a single transaction as a transaction can take four inputs only.</li>
+</ul>
+<blockquote>
+<p>In the above scenario, Alice can merge her UTXOs to send the desired amount to Bob in a single transaction.</p>
+</blockquote>
+<p><strong>Implementation</strong></p>
+<p>A merge transaction is formatted as an ordinary transaction whereby the sender is specified as the recipient.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> payments = [{
+    <span class="hljs-attr">owner</span>: Bob,
+    <span class="hljs-attr">currency</span>: &lt;UTXO_CURRENCY&gt;,
+    amount: &lt;UTXO_TOTAL_AMOUNT&gt;
+}];
+
+const txBody = OmgUtil.transaction.createTransactionBody({
+    fromAddress: Bob,
+    fromUtxos: [BobsUTXO1, BobsUTXO2],
+    payments,
+    fee: {
+        amount: 0,
+        currency: transaction.ETH_CURRENCY
+    }
+});
+</code></pre>
+<p><u>No fee is charged</u> for merge transactions on the OMG Network since these are transactions that benefit the network.</p>
+<h3><a class="anchor" aria-hidden="true" id="splitting-utxos"></a><a href="#splitting-utxos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Splitting UTXOs</h3>
+<p>For the same reason that a user may want to <em>merge</em> UTXOs before a Standard Exit, a user may also want to <em>split</em> UTXOs if he or she would like to exit an amount smaller than the value of any UTXO he or she owns. For example:</p>
+<ul>
+<li>Alice owns 1 UTXO worth 5 ETH.</li>
+<li>Alice would withdraw 2 ETH back onto the root chain.</li>
+<li>Alice cannot exit 2 ETH unless she splits her UTXO.</li>
+</ul>
+<blockquote>
+<p>In the above scenario, Alice can split her UTXO to withdraw 2 ETH.</p>
+</blockquote>
+<p><strong>Implementation</strong></p>
+<p>A split transaction is formatted as an ordinary transaction whereby:</p>
+<ul>
+<li>The sender is specified as the recipient.</li>
+<li>The input consists of a single UTXO.</li>
+<li>The amount set in each payment object corresponds to the desired output value. In other words, the amount the user wants to split from the input UTXO.</li>
+</ul>
+<blockquote>
+<p>As a transaction can produce a maximum of <u>four</u> outputs, you can generally have up to <u>three</u> payment objects. Each one will produce an output, and the value of the fourth output will correspond to the value remaining after the split(s). You could, however, technically have four payment objects if their amounts add up to the exact value of the input UTXO.</p>
+</blockquote>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> payments = [{
+        <span class="hljs-attr">owner</span>: Bob,
+        <span class="hljs-attr">currency</span>: &lt;UTXO_CURRENCY&gt;,
+        amount: &lt;AMOUNT_TO_SPLIT_1&gt;
+    }, 
+    {
+        owner: Bob,
+        currency: &lt;UTXO_CURRENCY&gt;,
+        amount: &lt;AMOUNT_TO_SPLIT_2&gt;
+    },
+    {
+        owner: Bob,
+        currency: &lt;UTXO_CURRENCY&gt;,
+        amount: &lt;AMOUNT_TO_SPLIT_3&gt;
+    }
+];
+
+const txBody = OmgUtil.transaction.createTransactionBody({
+    fromAddress: Bob,
+    fromUtxos: [BobUTXO],
+    payments,
+    fee: {
+        amount: feeAmount,
+        currency: feeToken
+    }
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="network-considerations"></a><a href="#network-considerations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Network Considerations</h2>
+<p>Users are highly encouraged to merge UTXOs continuously as a way of mitigating the vulnerability of OMG Network funds in a mass exit event. Read more in the <a href="faq#why-does-a-smaller-utxo-set-on-the-omg-network-reinforce-the-safety-of-user-funds-in-a-mass-exit-event">FAQ Section</a>.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/faq"><span class="arrow-prev">← </span><span>FAQ</span></a><a class="docs-next button" href="/morevp-technical-overview"><span class="function-name-prevnext">MoreVP Technical Overview</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#user-considerations">User Considerations</a><ul class="toc-headings"><li><a href="#merging-utxos">Merging UTXOs</a></li><li><a href="#splitting-utxos">Splitting UTXOs</a></li></ul></li><li><a href="#network-considerations">Network Considerations</a></li></ul></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/dev-portal/blob/master/guides/morevp_eli5.md">Learn MoreVP
+Architecture</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/dev-portal/blob/master/guides/plasma_interface_from_browser.md">Get to know
+the Plasma Interface</a></span></div><div class="footer-column"><span class="footer-title">APIs</span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Finfo_api_specs">Watcher
+Informational API</a></span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
+Security Critical API</a></span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=0.2/operator_api_specs.yaml">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Documentation</span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/elixir-omg/blob/master/README.md">OMG Network</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/omg-js/blob/master/README.md">omg-js</a></span></div><div class="footer-column"><span class="footer-title">Links</span><span class="footer-item"><a target="_blank" href="https://blockexplorer.ropsten.v1.omg.network">Block Explorer</a></span><span class="footer-item"><a target="_blank" href="https://omisego.co/">OmiseGO</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego">GitHub</a></span></div><div class="footer-column" style="position:relative"><span class="footer-title">Follow us</span><span class="footer-item"><a target="_blank" href="https://twitter.com/omise_go"><img src="/img/twitter.svg" alt="twitter" class="footer-social"/></a><a target="_blank" href="https://www.linkedin.com/company/omisego/"><img src="/img/linkedin.svg" alt="linkedin" class="footer-social"/></a><a target="_blank" href="https://github.com/omisego"><img src="/img/github.svg" alt="github" class="footer-social"/></a><a target="_blank" href="https://reddit.com/r/omise_go/"><img src="/img/reddit.svg" alt="reddit" class="footer-social"/></a><a target="_blank" href="https://www.youtube.com/channel/UC-NfGRxTkJfVbFgyJoOxzCQ"><img src="/img/youtube.svg" alt="youtube" class="footer-social"/></a></span><span class="footer-copyright">© 2019-present OmiseGO.
+All rights reserved</span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+                indexName: 'omisego',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

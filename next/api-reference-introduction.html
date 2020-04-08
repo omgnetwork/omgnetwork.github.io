@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>OMG Network APIs · OMG Network</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This is a guide to working with the OMG Network REST APIs."/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="OMG Network APIs · OMG Network"/><meta property="og:type" content="website"/><meta property="og:url" content="https://omisego.github.io/"/><meta property="og:description" content="This is a guide to working with the OMG Network REST APIs."/><meta property="og:image" content="https://omisego.github.io/img/omisego-blue.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://omisego.github.io/img/omisego-blue.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-154130721-1"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-154130721-1');
+            </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/omisego-white.svg" alt="OMG Network"/></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/next/welcome" target="_self">Docs</a></li><li class=""><a href="network-connection-details" target="_self">Network Connection</a></li><li class="siteNavItemActive"><a href="/next/api-reference-introduction" target="_self">API</a></li><li class=""><a href="https://omisego.co/" target="_blank">Product</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">OMG Network APIs</h1></header><article><div><span><p>This is a guide to working with the OMG Network REST APIs.</p>
+<p>The OMG Network API documentation describes how you can explore and interact with the OMG Network APIs. This documentation should help you become familiar with the available resources and how to consume them with HTTP requests.</p>
+<h2><a class="anchor" aria-hidden="true" id="authentication"></a><a href="#authentication" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authentication</h2>
+<p>OMG Network APIs are completely open. No authentication is required to query and get data</p>
+<h2><a class="anchor" aria-hidden="true" id="documentation"></a><a href="#documentation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Documentation</h2>
+<ul>
+<li><p><a href="https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Finfo_api_specs">Watcher Informational API</a></p></li>
+<li><p><a href="https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher Security Critical API</a></p></li>
+<li><p><a href="https://developer.omisego.co/elixir-omg/docs-ui/?url=master/operator_api_specs.yaml">Child Chain API</a></p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="omg-network-apis"></a><a href="#omg-network-apis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OMG Network APIs</h2>
+<h3><a class="anchor" aria-hidden="true" id="watcher"></a><a href="#watcher" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Watcher</h3>
+<p>Everyone needs to run their own watcher. This means you are not bound by a requirement to place complete trust in the network operator (in this case, OmiseGO).</p>
+<ul>
+<li><p>Watcher’s informational API</p>
+<p>API for common interactions, such as balance query, or making transactions.</p></li>
+</ul>
+<ul>
+<li><p>Watcher security-critical API</p>
+<p>Plasma exit operations API.</p></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="child-chain"></a><a href="#child-chain" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Child chain</h3>
+<p>A public and open Plasma operator API that allows you to get block data for implementing your own watcher.</p>
+<p>To use the child chain you'll need to first deposit funds (on Ethereum) into the OMG Network.</p>
+<p>Funds on the network are protected by your own private key, which is the authorization mechanism used to sign Ethereum and Plasma transactions.</p>
+<p>When sending properly signed transactions, you authorize yourself as a valid owner of the funds. Additionally, Plasma guarantees the safety of your funds against dishonest attempts by other users or the operator. A Plasma operator API that allows you to get block data for implementing your own watcher.</p>
+<!-- Review comment was: Authentication: I can see no point to list ch-ch endpoints in the table. Also this is safer to submit txs through a Watcher -->
+<!-- | Endpoint  | Description   |
+| ---       |   ---         |
+| transaction.submit    | Submits a signed transaction to the child chain. |
+| block.get | Retrieves a specific block from the child chain by its hash, which was published on the root chain. | -->
+<h2><a class="anchor" aria-hidden="true" id="json-schema"></a><a href="#json-schema" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JSON Schema</h2>
+<p>All resources support JSON Schema. Responses are in JSON format. View the API documentation to view details of a resource.</p>
+<p>For the child chain server and Watcher, all calls use HTTP POST and pass options in the request body in JSON format.</p>
+<p>Errors
+Errors usually return with HTTP response code 200, even if the result is an error, with error details in the response body. One exception to this is if an internal server error occurs - in this case it will return 500</p>
+<p>When an error occurs, success is set to false and data will contain more information about the error.</p>
+<pre><code class="hljs">{
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1"</span>,
+  <span class="hljs-attr">"success"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"code"</span>: <span class="hljs-string">"account:not_found"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Account not found"</span>
+  }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="error-codes"></a><a href="#error-codes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error Codes</h2>
+<table>
+<thead>
+<tr><th>Code</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>server:internal_server_error</td><td>Something went wrong on the server. You'll need to try again.</td></tr>
+<tr><td>operation:bad_request</td><td>Parameters required by this operation are missing or incorrect. More information about error in response object data/messages property.</td></tr>
+<tr><td>operation:not_found</td><td>Operation cannot be found. Check request URL.</td></tr>
+<tr><td>challenge:exit_not_found</td><td>The challenge of particular exit is impossible because exit is inactive or missing</td></tr>
+<tr><td>challenge:utxo_not_spent</td><td>The challenge of particular exit is impossible because provided UTXO is not spent</td></tr>
+<tr><td>exit:invalid</td><td>UTXO was spent or does not exist.</td></tr>
+<tr><td>get_status:econnrefused</td><td>Cannot connect to the Ethereum node.</td></tr>
+<tr><td>in_flight_exit:tx_for_input_not_found</td><td>No transaction that created input.</td></tr>
+<tr><td>transaction:not_found</td><td>Transaction doesn't exist for provided search criteria.</td></tr>
+<tr><td>transaction.create:insufficient_funds</td><td>Account balance is too low to satisfy the payment.</td></tr>
+<tr><td>transaction.create:too_many_outputs</td><td>Total number of payments + change + fees exceed maximum allowed outputs in transaction. We need to reserve one output per payment and one output per change for each currency used in the transaction.</td></tr>
+<tr><td>transaction.create:empty_transaction</td><td>Requested payment resulted in an empty transaction, which transfers no funds.</td></tr>
+<tr><td>submit_typed:missing_signature</td><td>Signatures should correspond to inputs owner. When all non-empty inputs has the same owner, signatures should be duplicated.</td></tr>
+<tr><td>submit_typed:superfluous_signature</td><td>Number of non-empty inputs should match signatures count. Remove redundant signatures.</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#authentication">Authentication</a></li><li><a href="#documentation">Documentation</a></li><li><a href="#omg-network-apis">OMG Network APIs</a><ul class="toc-headings"><li><a href="#watcher">Watcher</a></li><li><a href="#child-chain">Child chain</a></li></ul></li><li><a href="#json-schema">JSON Schema</a></li><li><a href="#error-codes">Error Codes</a></li></ul></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/dev-portal/blob/master/guides/morevp_eli5.md">Learn MoreVP
+Architecture</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/dev-portal/blob/master/guides/plasma_interface_from_browser.md">Get to know
+the Plasma Interface</a></span></div><div class="footer-column"><span class="footer-title">APIs</span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Finfo_api_specs">Watcher
+Informational API</a></span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
+Security Critical API</a></span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=0.2/operator_api_specs.yaml">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Documentation</span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/elixir-omg/blob/master/README.md">OMG Network</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/omg-js/blob/master/README.md">omg-js</a></span></div><div class="footer-column"><span class="footer-title">Links</span><span class="footer-item"><a target="_blank" href="https://blockexplorer.ropsten.v1.omg.network">Block Explorer</a></span><span class="footer-item"><a target="_blank" href="https://omisego.co/">OmiseGO</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego">GitHub</a></span></div><div class="footer-column" style="position:relative"><span class="footer-title">Follow us</span><span class="footer-item"><a target="_blank" href="https://twitter.com/omise_go"><img src="/img/twitter.svg" alt="twitter" class="footer-social"/></a><a target="_blank" href="https://www.linkedin.com/company/omisego/"><img src="/img/linkedin.svg" alt="linkedin" class="footer-social"/></a><a target="_blank" href="https://github.com/omisego"><img src="/img/github.svg" alt="github" class="footer-social"/></a><a target="_blank" href="https://reddit.com/r/omise_go/"><img src="/img/reddit.svg" alt="reddit" class="footer-social"/></a><a target="_blank" href="https://www.youtube.com/channel/UC-NfGRxTkJfVbFgyJoOxzCQ"><img src="/img/youtube.svg" alt="youtube" class="footer-social"/></a></span><span class="footer-copyright">© 2019-present OmiseGO.
+All rights reserved</span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+                indexName: 'omisego',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

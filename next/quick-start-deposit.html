@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Make a Deposit · OMG Network</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&gt; If you haven&#x27;t already, open the [webwallet](https://webwallet.ropsten.v1.omg.network) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven&#x27;t done so already."/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Make a Deposit · OMG Network"/><meta property="og:type" content="website"/><meta property="og:url" content="https://omisego.github.io/"/><meta property="og:description" content="&gt; If you haven&#x27;t already, open the [webwallet](https://webwallet.ropsten.v1.omg.network) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven&#x27;t done so already."/><meta property="og:image" content="https://omisego.github.io/img/omisego-blue.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://omisego.github.io/img/omisego-blue.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-154130721-1"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-154130721-1');
+            </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/omisego-white.svg" alt="OMG Network"/></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/next/welcome" target="_self">Docs</a></li><li class=""><a href="network-connection-details" target="_self">Network Connection</a></li><li class=""><a href="/next/api-reference-introduction" target="_self">API</a></li><li class=""><a href="https://omisego.co/" target="_blank">Product</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Make a Deposit</h1></header><article><div><span><blockquote>
+<p>If you haven't already, open the <a href="https://webwallet.ropsten.v1.omg.network">webwallet</a> in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.</p>
+</blockquote>
+<blockquote>
+<p>The webwallet is deployed against the <a href="/network-connection-details">OMG Network v1 Testnet</a>.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="fund-root-chain-wallet"></a><a href="#fund-root-chain-wallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fund Root Chain Wallet</h2>
+<p>Before we can transact on the OMG Network, we first have to make sure that we have ETH on the root chain (Ethereum's Ropsten test network).</p>
+<ol>
+<li>If you need some Ropsten ETH, send yourself some using a <a href="https://faucet.metamask.io/">Ropsten faucet</a>.</li>
+<li>Make sure that your web3 wallet is pointing to the Ropsten network, or else you will not see your balance.</li>
+<li>The Ropsten ETH that you own is displayed in your account. Make sure this is the case before continuing.</li>
+</ol>
+<p><img src="/img/quick-start-account-balance.png" alt="account-balance"></p>
+<h2><a class="anchor" aria-hidden="true" id="make-an-eth-deposit"></a><a href="#make-an-eth-deposit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Make an ETH Deposit</h2>
+<ol>
+<li>Click <strong>Deposit</strong>.</li>
+<li>Define the amount you wish to deposit in ETH. Make sure you have more than this amount in your root chain wallet to cover gas costs.</li>
+<li>Click <strong>Deposit</strong>. Your web3 wallet should pop up and ask you to confirm the transaction. Note that this example application defaults the gas limit to <code>6000000</code> wei.</li>
+</ol>
+<p><img src="/img/quick-start-sign-deposit.png" alt="sign-deposit"></p>
+<ol start="4">
+<li>Click <strong>Confirm</strong>. By confirming the transaction, you are signing the transaction with your private key and sending it to the OMG Network. You may have to wait a little bit for your transaction to be confirmed.</li>
+<li>Once your deposit transaction is confirmed, click the <code>Deposits</code> tab to see the progress of your deposit. Before your funds are accepted into the OMG Network, you have to wait for the <a href="glossary#deposit-finality-period">deposit finality period</a>, which is set to 10 blocks. You can click on the transaction to see further details on etherscan.</li>
+</ol>
+<p><img src="/img/quick-start-deposit-pending.png" width="500"></p>
+<ol start="6">
+<li>If the deposit was successful, you should see your child chain balance update.</li>
+</ol>
+<p><img src="/img/quick-start-deposit-confirmed.png" width="500"></p>
+<ol start="7">
+<li>A deposit UTXO was created and you now have ETH on the OMG Network.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="make-an-erc20-deposit"></a><a href="#make-an-erc20-deposit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Make an ERC20 Deposit</h2>
+<p>The process for depositing ERC20 into the OMG Network is very similar to an ETH deposit. For these examples, we will be depositing the ERC20 token <code>WETH</code>.</p>
+<ol>
+<li>Click <strong>Deposit</strong>.</li>
+<li>Click on the ERC20 tab and define the address of the token you are depositing (in this case the address for <code>WETH</code>), as well as the amount.</li>
+</ol>
+<p><img src="/img/quick-start-deposit-erc20.png" width="500"></p>
+<ol start="3">
+<li>Click <strong>Deposit</strong>. This step will differ from the ETH deposit as your web3 wallet will pop up twice. The first popup will ask you to approve the deposit.</li>
+</ol>
+<p>The second popup will ask you to confirm the actual deposit transaction.</p>
+<p><img src="/img/quick-start-deposit-erc20-confirm.png" alt="approve-erc20-deposit"></p>
+<ol start="4">
+<li>Click <strong>Confirm</strong> for both popups. You may have to wait a little bit for your transaction to be confirmed.</li>
+<li>Once your deposit transaction is confirmed, click the <code>Deposits</code> tab to see the progress of your ERC20 deposit. Before your funds are accepted into the OMG Network, you have to wait for the <a href="glossary#deposit-finality-period">deposit finality period</a>, which is set to 10 blocks. You can click on the transaction to see further details on etherscan.</li>
+</ol>
+<p><img src="/img/quick-start-deposit-erc20-pending.png" width="500"></p>
+<ol start="6">
+<li>If the deposit was successful, you should see your child chain balance update.</li>
+</ol>
+<p><img src="/img/quick-start-deposit-erc20-confirmed.png" width="500"></p>
+<ol start="7">
+<li>An ERC20 deposit UTXO was created and you now have some ERC20 on the OMG Network.</li>
+</ol>
+<blockquote>
+<p>When you perform a deposit, you are sending funds to the <code>Plasma Framework</code> contract and creating a deposit UTXO for your account. With this new UTXO, you will later be able to transfer funds on the OMG Network. For a further discussion on understanding what is a UTXO, you can check out <a href="glossary#utxo">this documentation</a>.</p>
+</blockquote>
+<blockquote>
+<p>To learn more about deposits, check out the documentation <a href="deposits">here</a>.</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#fund-root-chain-wallet">Fund Root Chain Wallet</a></li><li><a href="#make-an-eth-deposit">Make an ETH Deposit</a></li><li><a href="#make-an-erc20-deposit">Make an ERC20 Deposit</a></li></ul></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/dev-portal/blob/master/guides/morevp_eli5.md">Learn MoreVP
+Architecture</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/dev-portal/blob/master/guides/plasma_interface_from_browser.md">Get to know
+the Plasma Interface</a></span></div><div class="footer-column"><span class="footer-title">APIs</span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Finfo_api_specs">Watcher
+Informational API</a></span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
+Security Critical API</a></span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=0.2/operator_api_specs.yaml">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Documentation</span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/elixir-omg/blob/master/README.md">OMG Network</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/omg-js/blob/master/README.md">omg-js</a></span></div><div class="footer-column"><span class="footer-title">Links</span><span class="footer-item"><a target="_blank" href="https://blockexplorer.ropsten.v1.omg.network">Block Explorer</a></span><span class="footer-item"><a target="_blank" href="https://omisego.co/">OmiseGO</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego">GitHub</a></span></div><div class="footer-column" style="position:relative"><span class="footer-title">Follow us</span><span class="footer-item"><a target="_blank" href="https://twitter.com/omise_go"><img src="/img/twitter.svg" alt="twitter" class="footer-social"/></a><a target="_blank" href="https://www.linkedin.com/company/omisego/"><img src="/img/linkedin.svg" alt="linkedin" class="footer-social"/></a><a target="_blank" href="https://github.com/omisego"><img src="/img/github.svg" alt="github" class="footer-social"/></a><a target="_blank" href="https://reddit.com/r/omise_go/"><img src="/img/reddit.svg" alt="reddit" class="footer-social"/></a><a target="_blank" href="https://www.youtube.com/channel/UC-NfGRxTkJfVbFgyJoOxzCQ"><img src="/img/youtube.svg" alt="youtube" class="footer-social"/></a></span><span class="footer-copyright">© 2019-present OmiseGO.
+All rights reserved</span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+                indexName: 'omisego',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Challenge Period · OMG Network</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="The *Scheduled Finalisation Time (SFT)* is the time when an exit can be processed after its challenge period has passed. "/><meta name="docsearch:version" content="1.0.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Challenge Period · OMG Network"/><meta property="og:type" content="website"/><meta property="og:url" content="https://omisego.github.io/"/><meta property="og:description" content="The *Scheduled Finalisation Time (SFT)* is the time when an exit can be processed after its challenge period has passed. "/><meta property="og:image" content="https://omisego.github.io/img/omisego-blue.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://omisego.github.io/img/omisego-blue.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-154130721-1"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-154130721-1');
+            </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/omisego-white.svg" alt="OMG Network"/></a><a href="/versions"><h3>1.0.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/welcome" target="_self">Docs</a></li><li class=""><a href="network-connection-details" target="_self">Network Connection</a></li><li class=""><a href="/api-reference-introduction" target="_self">API</a></li><li class=""><a href="https://omisego.co/" target="_blank">Product</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Integration</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Introduction<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/welcome">About OMG Network</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Guides<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/quick-start-webwallet">Getting Started</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Integration<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/integration-introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/deposits">Deposits</a></li><li class="navListItem"><a class="navItem" href="/transfers">Transfers</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Exits</h4><ul><li class="navListItem"><a class="navItem" href="/standard-exits">Standard Exits</a></li><li class="navListItem"><a class="navItem" href="/in-flight-exits">In Flight Exits</a></li></ul></div><li class="navListItem navListItemActive"><a class="navItem" href="/challenge-period">Challenge Period</a></li><li class="navListItem"><a class="navItem" href="/challenging-exits">Challenging Exits</a></li><li class="navListItem"><a class="navItem" href="/process-exits">Process Exits</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Appendix<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/plasma-proposition">The Plasma Proposition</a></li><li class="navListItem"><a class="navItem" href="/network-architecture">Network Architecture</a></li><li class="navListItem"><a class="navItem" href="/glossary">Glossary</a></li><li class="navListItem"><a class="navItem" href="/faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/managing-utxos">Managing UTXOs</a></li><li class="navListItem"><a class="navItem" href="/morevp-technical-overview">MoreVP Technical Overview</a></li><li class="navListItem"><a class="navItem" href="/blockchain-design">Blockchain Design</a></li><li class="navListItem"><a class="navItem" href="/byzantine-conditions">Byzantine Conditions</a></li><li class="navListItem"><a class="navItem" href="/exitbonds">Exit Bonds</a></li><li class="navListItem"><a class="navItem" href="/fees">Fees</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Migration Guides<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/migration-0.2-0.3">0.2 to 0.3</a></li><li class="navListItem"><a class="navItem" href="/migration-0.3-0.4">0.3 to 0.4</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Challenge Period</h1></header><article><div><span><p>The <em>Scheduled Finalisation Time (SFT)</em> is the time when an exit can be processed after its challenge period has passed.</p>
+<p>Any exit must await a <em>Minimum Finalisation Period (MFP)</em> from the moment it is initiated. Exits involving fresh UTXOs are additionally subject to a <em>Required Exit Period (REP)</em>. Both are set in the <code>Plasma Framework</code> contract.</p>
+<p>The formal calculation for the SFT is as follows:</p>
+<table>
+<thead>
+<tr><th>Exit type</th><th>Scheduled finalisation time (SFT)</th></tr>
+</thead>
+<tbody>
+<tr><td>Standard exits</td><td><code>SFT = max(exit_request_block.timestamp + MFP, utxo_submission_block.timestamp + MFP + REP)</code></td></tr>
+<tr><td>In-flight exits</td><td><code>SFT = max(exit_request_block.timestamp + MFP, youngest_input_block.timestamp + MFP + REP)</code></td></tr>
+<tr><td>Deposit *</td><td><code>exit_request_block.timestamp + MFP's</code></td></tr>
+</tbody>
+</table>
+<p>*<em> Refers to a standard exit on a deposit-generated UTXO.</em></p>
+<p><em>Parameters</em>:</p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>exit_request_block</td><td>The root chain block where the exit request is mined.</td></tr>
+<tr><td>utxo_submission_block</td><td>The root chain block where the exiting UTXO was created in a child chain block.</td></tr>
+<tr><td>youngest_input_block</td><td>The root chain block where the youngest input of the exiting transaction was created.</td></tr>
+</tbody>
+</table>
+<p>Consider an example whereby the MFP and RFP are set to <u>one week</u> each.</p>
+<p>For a standard exit, this would mean that the Scheduled Finalisation Time is one week from the exit transaction if the UTXO is one week old or more, or two weeks from the creation of the UTXO if the UTXO is less than one week old. The same logic would apply to in-flight exits but on the youngest input of the exiting transaction.</p>
+<p>For a standard exit on a deposit-generated UTXO, the SFT would be simply one week from the exit transaction.</p>
+<p><strong>Getting the Scheduled Finalisation Time</strong></p>
+<p>We can look to <code>omg-js</code> to abstract this calculation and give us the Scheduled Finalisation Time of an exit.</p>
+<pre><code class="hljs css language-js">rootChain.getExitTime({ exitRequestBlockNumber, submissionBlockNumber })
+</code></pre>
+<p>Under the hood, this function is calling the <code>Payment Exit Game</code> and <code>Plasma Framework</code> contracts to apply the logic explained above. It will return the Scheduled Finalisation Time (in Unix) and the milliseconds until that time.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/in-flight-exits"><span class="arrow-prev">← </span><span>In Flight Exits</span></a><a class="docs-next button" href="/challenging-exits"><span>Challenging Exits</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/dev-portal/blob/master/guides/morevp_eli5.md">Learn MoreVP
+Architecture</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/dev-portal/blob/master/guides/plasma_interface_from_browser.md">Get to know
+the Plasma Interface</a></span></div><div class="footer-column"><span class="footer-title">APIs</span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Finfo_api_specs">Watcher
+Informational API</a></span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
+Security Critical API</a></span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=0.2/operator_api_specs.yaml">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Documentation</span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/elixir-omg/blob/master/README.md">OMG Network</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/omg-js/blob/master/README.md">omg-js</a></span></div><div class="footer-column"><span class="footer-title">Links</span><span class="footer-item"><a target="_blank" href="https://blockexplorer.ropsten.v1.omg.network">Block Explorer</a></span><span class="footer-item"><a target="_blank" href="https://omisego.co/">OmiseGO</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego">GitHub</a></span></div><div class="footer-column" style="position:relative"><span class="footer-title">Follow us</span><span class="footer-item"><a target="_blank" href="https://twitter.com/omise_go"><img src="/img/twitter.svg" alt="twitter" class="footer-social"/></a><a target="_blank" href="https://www.linkedin.com/company/omisego/"><img src="/img/linkedin.svg" alt="linkedin" class="footer-social"/></a><a target="_blank" href="https://github.com/omisego"><img src="/img/github.svg" alt="github" class="footer-social"/></a><a target="_blank" href="https://reddit.com/r/omise_go/"><img src="/img/reddit.svg" alt="reddit" class="footer-social"/></a><a target="_blank" href="https://www.youtube.com/channel/UC-NfGRxTkJfVbFgyJoOxzCQ"><img src="/img/youtube.svg" alt="youtube" class="footer-social"/></a></span><span class="footer-copyright">© 2019-present OmiseGO.
+All rights reserved</span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+                indexName: 'omisego',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

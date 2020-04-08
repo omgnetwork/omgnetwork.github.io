@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Process Exits · OMG Network</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&gt; If you haven&#x27;t already, open the [webwallet](https://webwallet.ropsten.v1.omg.network) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven&#x27;t done so already."/><meta name="docsearch:version" content="1.0.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Process Exits · OMG Network"/><meta property="og:type" content="website"/><meta property="og:url" content="https://omisego.github.io/"/><meta property="og:description" content="&gt; If you haven&#x27;t already, open the [webwallet](https://webwallet.ropsten.v1.omg.network) in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven&#x27;t done so already."/><meta property="og:image" content="https://omisego.github.io/img/omisego-blue.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://omisego.github.io/img/omisego-blue.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-154130721-1"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-154130721-1');
+            </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/omisego-white.svg" alt="OMG Network"/></a><a href="/versions"><h3>1.0.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/welcome" target="_self">Docs</a></li><li class=""><a href="network-connection-details" target="_self">Network Connection</a></li><li class=""><a href="/api-reference-introduction" target="_self">API</a></li><li class=""><a href="https://omisego.co/" target="_blank">Product</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Process Exits</h1></header><article><div><span><blockquote>
+<p>If you haven't already, open the <a href="https://webwallet.ropsten.v1.omg.network">webwallet</a> in another tab and follow along with this guide. You will be prompted to enable your web3 wallet if you haven't done so already.</p>
+</blockquote>
+<blockquote>
+<p>The webwallet is deployed against the <a href="/network-connection-details">OMG Network v1 Testnet</a>.</p>
+</blockquote>
+<p>You've started a standard exit and the challenge period has passed. Your exit is honest and so nobody had to challenge your exit. You can now process your exit to release your funds back to you.</p>
+<ol>
+<li>Next to the UTXO you want to process, click <strong>Process Exit</strong>.</li>
+</ol>
+<p><img src="/img/process-exits-start.png" width="500"></p>
+<ol start="2">
+<li>Fill out the number of exits you want to process based on the information provided in the modal. In this example, our exit was placed 7th in the ETH exit queue. We will need to process the 6 exits in front of ours, plus our exit to release our funds immediately. If you process a number less than your position in the queue, your exit will not be processed.</li>
+</ol>
+<p><img src="/img/process-exits-create.png" width="500"></p>
+<ol start="3">
+<li>Click <strong>Process</strong>. Your web3 wallet will pop up and ask you to confirm the transaction.</li>
+</ol>
+<p><img src="/img/process-exits-confirm.png" alt="exit-sign"></p>
+<ol start="4">
+<li>If the transaction was successful, your exit was processed, along with the other 6 exits, and you should have received your funds back.</li>
+</ol>
+<p><img src="/img/process-exits-confirmed.png" width="500"></p>
+<p>Congratulations! You've performed an end-to-end process of transacting on the OMG Network. If you would like to learn more, continue on to the <a href="integration-introduction"><code>Integration</code></a> section.</p>
+<blockquote>
+<p>To learn more about process exits, check out the documentation <a href="process-exits">here</a>.</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/dev-portal/blob/master/guides/morevp_eli5.md">Learn MoreVP
+Architecture</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/dev-portal/blob/master/guides/plasma_interface_from_browser.md">Get to know
+the Plasma Interface</a></span></div><div class="footer-column"><span class="footer-title">APIs</span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Finfo_api_specs">Watcher
+Informational API</a></span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
+Security Critical API</a></span><span class="footer-item"><a target="_blank" href="https://developer.omisego.co/elixir-omg/docs-ui/?url=0.2/operator_api_specs.yaml">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Documentation</span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/elixir-omg/blob/master/README.md">OMG Network</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/omg-js/blob/master/README.md">omg-js</a></span></div><div class="footer-column"><span class="footer-title">Links</span><span class="footer-item"><a target="_blank" href="https://blockexplorer.ropsten.v1.omg.network">Block Explorer</a></span><span class="footer-item"><a target="_blank" href="https://omisego.co/">OmiseGO</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego">GitHub</a></span></div><div class="footer-column" style="position:relative"><span class="footer-title">Follow us</span><span class="footer-item"><a target="_blank" href="https://twitter.com/omise_go"><img src="/img/twitter.svg" alt="twitter" class="footer-social"/></a><a target="_blank" href="https://www.linkedin.com/company/omisego/"><img src="/img/linkedin.svg" alt="linkedin" class="footer-social"/></a><a target="_blank" href="https://github.com/omisego"><img src="/img/github.svg" alt="github" class="footer-social"/></a><a target="_blank" href="https://reddit.com/r/omise_go/"><img src="/img/reddit.svg" alt="reddit" class="footer-social"/></a><a target="_blank" href="https://www.youtube.com/channel/UC-NfGRxTkJfVbFgyJoOxzCQ"><img src="/img/youtube.svg" alt="youtube" class="footer-social"/></a></span><span class="footer-copyright">© 2019-present OmiseGO.
+All rights reserved</span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+                indexName: 'omisego',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
