@@ -10,6 +10,7 @@ const siteConfig = {
   url: 'https://omisego.github.io',
   baseUrl: '/',
   docsUrl: '',
+  cname: 'docs.omg.network',
   projectName: 'omisego.github.io',
   organizationName: 'omisego',
   headerLinks: [
