@@ -26,7 +26,7 @@ const rootChain = new RootChain({ web3, plasmaContractAddress })
 const childChain = new ChildChain({ watcherUrl })
 ```
 
-> Some details have been omitted from the `omg-js` code examples for the sake of brevity (type information, optional arguments, etc.) For more information regarding the library please check out the [API documentation](https://developer.omisego.co/omg-js/).
+> Some details have been omitted from the `omg-js` code examples for the sake of brevity (type information, optional arguments, etc.) For more information regarding the library please check out the [API documentation](https://docs.omg.network/omg-js/).
 
 You will also see references to characters throughout the documentation. These are fictional characters used to represent the interaction between different parties on the OMG Network. Example values for what they reference in the documentation are shown below.
 
