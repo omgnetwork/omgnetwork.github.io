@@ -41,7 +41,7 @@ class Header extends React.Component {
     );
 
     const Button = (props) => (
-      <div className="pluginWrapper buttonWrapper">
+      <div>
         <a className={props.style} href={props.href} target={props.target}>
           {props.children}
         </a>
@@ -55,12 +55,16 @@ class Header extends React.Component {
           <Logo img_src={`${baseUrl}img/dev/dev01.svg`} />
         </div>
         <CTASection>
-          <Button style="button button-primary" href={"quick-start-webwallet"}>
+          <Button
+            style="button button-primary"
+            target="_blank"
+            href={"quick-start-webwallet"}
+          >
             Get Started
           </Button>
-          <Button style="button button-dark" href="">
-            Subscribe
-          </Button>
+          {/* <Button style="button button-dark" onClick={this.joinODP}>
+            Join ODP
+          </Button> */}
         </CTASection>
       </HeaderContainer>
     );
@@ -88,7 +92,8 @@ class Index extends React.Component {
         },
         {
           title: "Blockchain Design",
-          content: "Learn about technical implementation of the OMG Network.",
+          content:
+            "Learn about the technical implementation of the OMG Network.",
           url: "blockchain-design",
           imageLink: `${baseUrl}img/dev/dev04.svg`,
         },
@@ -103,7 +108,7 @@ class Index extends React.Component {
         {
           title: "Watcher Informational API",
           content:
-            "Access general information the Watcher collects about the OMG Network.",
+            "Retrieve and submit informational data regardless of the OMG Network.",
           url:
             "https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs",
           imageLink: `${baseUrl}img/dev/dev06.svg`,
@@ -118,7 +123,7 @@ class Index extends React.Component {
         },
         {
           title: "Child Chain API",
-          content: "Perform basic operations on the OMG Network.",
+          content: "Access the data you need to run your own Watcher.",
           url: "https://docs.omg.network/elixir-omg/docs-ui",
           imageLink: `${baseUrl}img/dev/dev08.svg`,
         },
@@ -170,10 +175,9 @@ class Index extends React.Component {
     const Announcement = () => (
       <div className="announcement">
         <div className="announcement-inner">
-          <h1>OMG Network V1 Private Beta</h1>
+          <h1>OMG Network V1 Public Beta</h1>
           <p>
-            We have deployed the newest version of the OMG Network on Ethereum
-            Mainnet.
+            We have deployed the newest version of the OMG Network on Ropsten.
           </p>
           <Button style="button button-primary" href={"quick-start-webwallet"}>
             Get Started
