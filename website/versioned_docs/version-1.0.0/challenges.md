@@ -46,11 +46,13 @@ Watcher reports an `invalid_exit`:
 {
   "event": "invalid_exit",
   "details": {
-    "eth_height": 3521678,
-    "utxo_pos": 10000000010000000,
-    "owner": "0xb3256026863eb6ae5b06fa396ab09069784ea8ea",
+    "amount": 12000000000000000000,
     "currency": "0x0000000000000000000000000000000000000000",
-    "amount": 100
+    "eth_height": 899,
+    "name": "invalid_exit",
+    "owner": "0x37d5c1fbfa32b6582b425d5ea8d724478dac0aee",
+    "root_chain_txhash": "0x5ebfbd6caff8d53e74590a646ffa5018e8776445c78ed735e29bdb52e55edd9c",
+    "utxo_pos": 2001000000000
   }
 }
 ```
