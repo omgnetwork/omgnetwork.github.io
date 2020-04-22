@@ -5,7 +5,7 @@ const Container = CompLibrary.Container;
 class Header extends React.Component {
   render() {
     const { siteConfig } = this.props;
-    const { baseUrl } = siteConfig;
+    const { baseUrl, gettingStartedUrl } = siteConfig;
 
     const HeaderContainer = (props) => (
       <div className="promoSection homeContainer">
@@ -57,8 +57,7 @@ class Header extends React.Component {
         <CTASection>
           <Button
             style="button button-primary"
-            target="_blank"
-            href={"quick-start-webwallet"}
+            href={gettingStartedUrl}
           >
             Get Started
           </Button>
@@ -74,7 +73,13 @@ class Header extends React.Component {
 class Index extends React.Component {
   render() {
     const { config: siteConfig, language = "" } = this.props;
-    const { baseUrl } = siteConfig;
+    const {
+      baseUrl,
+      blockExplorerUrl,
+      watcherInfoAPIUrl,
+      watcherSecurityAPIUrl,
+      childChainAPIUrl,
+    } = siteConfig;
 
     const state = {
       coreDocs: [
@@ -100,7 +105,7 @@ class Index extends React.Component {
         {
           title: "Block Explorer",
           content: "Watch the latest blocks and transactions on the network.",
-          url: "https://blockexplorer.ropsten.v1.omg.network",
+          url: `${blockExplorerUrl}`,
           imageLink: `${baseUrl}img/dev/dev05.svg`,
         },
       ],
@@ -109,22 +114,20 @@ class Index extends React.Component {
           title: "Watcher Informational API",
           content:
             "Retrieve and submit informational data regardless of the OMG Network.",
-          url:
-            "https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs",
+          url: `${watcherInfoAPIUrl}`,
           imageLink: `${baseUrl}img/dev/dev06.svg`,
         },
         {
           title: "Watcher Security Critical API",
           content:
             "Work with security-critical functions provided by the Watcher.",
-          url:
-            "https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Fsecurity_critical_api_specs",
+          url: `${watcherSecurityAPIUrl}`,
           imageLink: `${baseUrl}img/dev/dev07.svg`,
         },
         {
           title: "Child Chain API",
           content: "Access the data you need to run your own Watcher.",
-          url: "https://docs.omg.network/elixir-omg/docs-ui",
+          url: `${childChainAPIUrl}`,
           imageLink: `${baseUrl}img/dev/dev08.svg`,
         },
       ],
