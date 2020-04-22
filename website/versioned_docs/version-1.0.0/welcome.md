@@ -13,7 +13,7 @@ The OMG Network allows you to access, manage, and transact with digital assets t
  
 ### Try it out
 Depending on your needs, feel free to check one of the following sections:
-- [Getting Started Guide](quick-start) — create your first transaction on the network.
+- [Getting Started Guide](quick-start-webwallet) — create your first transaction on the network.
 - [Integration Section](integration-introduction) — browse code samples for integration purposes.
 - [Network Connection](/network-connection-details) — verify the up-to-date network configurations.
 - [Block Explorer](/network-connection-details) — watch the latest blocks and transactions on the network.
