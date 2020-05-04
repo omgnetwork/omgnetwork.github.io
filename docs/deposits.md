@@ -8,40 +8,99 @@ A deposit involves sending ETH or ERC-20 tokens to the `Vault` smart contract on
 
 ## Implementation
 
-Funds can be deposited using the `deposit()` call in the `omg-js` rootChain module.
+Funds can be deposited using the `deposit` function of the `RootChain` module. Notice, ERC20 deposits require the approval of the token first.
 
-#### Example:
+### ETH Example:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- JavaScript -->
 
 ```js
 async function makeDeposit () {
-  // Only in the case of an ERC-20 token deposit, the ERC-20 `Vault` must be pre-authorized to effect a transfer from the sender. 
-  await rootChain.approveToken({
-    erc20Address,
-    amount,
-    txOptions: {
-      from: Alice,
-      privateKey: AlicePrivateKey
-    }
-  })
-  
   return rootChain.deposit({
-    amount,
-    currency,
+    <ALICE_ETH_DEPOSIT_AMOUNT>,
+    <CURRENCY>,
     txOptions: {
-      from: Alice,
-      privateKey: AlicePrivateKey
+      from: <ALICE_ETH_ADDRESS>,
+      privateKey: <ALICE_ETH_ADDRESS_PRIVATE_KEY>
     }
   })
 }
 ```
 
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+### ERC20 Example:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- JavaScript -->
+
+```js
+async function makeDeposit () {
+  await rootChain.approveToken({
+    <ERC20_CONTRACT_ADDRESS>,
+    <ALICE_ERC20_DEPOSIT_AMOUNT>,
+    txOptions: {
+      from: <ALICE_ETH_ADDRESS>,
+      privateKey: <ALICE_ETH_ADDRESS_PRIVATE_KEY>
+    }
+  })
+  
+  return rootChain.deposit({
+    <ALICE_ERC20_DEPOSIT_AMOUNT>,
+    <CURRENCY>,
+    txOptions: {
+      from: <ALICE_ETH_ADDRESS>,
+      privateKey: <ALICE_ETH_ADDRESS_PRIVATE_KEY>
+    }
+  })
+}
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ## Lifecycle
 
-The `deposit()` call creates an RLP-encoded transaction string, which it will use to deposit into the ETH or ERC-20 `Vault` smart contracts.
+1. The `deposit` function creates an [RLP-encoded](https://github.com/ethereum/wiki/wiki/RLP) transaction that will be used to deposit into the ETH or ERC-20 `Vault` smart contracts (`ETHVault` for ETH and `ERC20Vault` for ERC20 tokens).
+2. The `Vault` in question creates a deposit block and submits it to the `PlasmaFramework` contract.
+3. The `Vault` in question emits a `DepositCreated` event.
+4. The child chain receives the `DepositCreated` and creates the corresponding UTXO.
+5. After a defined [finality period](glossary#deposit-finality-period) the UTXO is ready for transacting on the network.
 
-The `Vault` in question will then:
+## Code Sample
 
-- Create a Deposit Block and submit it to the `PlasmaFramework` contract
-- Emit a deposit creation event to the child chain server, which generates a single UTXO corresponding to the deposited amount.
+### JavaScript
 
-After a defined finality period, the UTXO is ready for transacting on the network. Read more about the logic of this finality period in the [Glossary](glossary#deposit-finality-period)
+For running a full `omg-js` code sample for the tutorial, please use the following steps:
+
+1. Clone [OMG Samples](https://github.com/omisego/omg-samples) repository:
+
+```
+git clone https://github.com/omisego/omg-samples.git
+```
+
+2. Enter the root of `omg-js` folder:
+
+```
+cd omg-js
+```
+
+3. Install dependencies:
+
+```
+npm install
+```
+
+4. Create `.env` file and provide the [required configuration values](https://github.com/omisego/omg-samples/tree/master/omg-js#setup).
+
+5. Run the app:
+
+```
+npm run start
+```
+
+6. Open your browser at [http://localhost:3000](http://localhost:3000). 
+
+7. Select `Make an ETH Deposit` or `Make an ERC20 Deposit` on the left side, observe the logs on the right.
+
+> Code samples for all tutorials use the same repository — `omg-samples`, thus skip steps 1-4 if you've set up the project already.
