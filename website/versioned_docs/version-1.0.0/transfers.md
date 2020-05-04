@@ -1,7 +1,7 @@
 ---
 id: version-1.0.0-transfers
-title: Transfers
-sidebar_label: Transfers
+title: Make a Transfer
+sidebar_label: Make a Transfer
 original_id: transfers
 ---
 

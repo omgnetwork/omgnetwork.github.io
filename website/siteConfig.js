@@ -41,7 +41,7 @@ const siteConfig = {
     // Highlight.js theme to use for syntax highlighting in code blocks.
     theme: "default",
   },
-  docsSideNavCollapsible: false,
+  docsSideNavCollapsible: true,
   // Open Graph and Twitter card images.
   ogImage: "img/omisego-blue.svg",
   twitterImage: "img/omisego-blue.svg",
@@ -49,7 +49,7 @@ const siteConfig = {
   enableUpdateBy: false,
   enableUpdateTime: false,
   // omg urls
-  gettingStartedUrl: "quick-start-webwallet",
+  gettingStartedUrl: "welcome",
   blockExplorerUrl: "https://blockexplorer.ropsten.v1.omg.network",
   watcherInfoAPIUrl:
     "https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs",

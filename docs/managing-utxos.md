@@ -1,7 +1,7 @@
 ---
 id: managing-utxos
-title: Managing UTXOs
-sidebar_label: Managing UTXOs
+title: Merge or Split UTXO
+sidebar_label: Merge or Split UTXO
 ---
 
 UTXOs are core to the logic of the OMG Network. Read more about what UTXOs are in the [Glossary](glossary#utxo).

@@ -1,7 +1,7 @@
 ---
 id: version-1.0.0-in-flight-exits
-title: In Flight Exits
-sidebar_label: In Flight Exits
+title: Start an In-flight Exit
+sidebar_label: Start an In-flight Exit
 original_id: in-flight-exits
 ---
 

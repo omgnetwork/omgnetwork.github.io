@@ -1,7 +1,7 @@
 ---
 id: version-1.0.0-welcome
 title: Welcome
-sidebar_label: About OMG Network
+sidebar_label: About the OMG Network
 original_id: welcome
 ---
 

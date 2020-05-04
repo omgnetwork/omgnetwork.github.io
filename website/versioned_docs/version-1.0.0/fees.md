@@ -1,7 +1,7 @@
 ---
 id: version-1.0.0-fees
-title: Fees
-sidebar_label: Fees
+title: Define Fees in a Transaction
+sidebar_label: Define Fees
 original_id: fees
 ---
 

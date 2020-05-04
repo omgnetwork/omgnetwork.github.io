@@ -1,7 +1,7 @@
 ---
 id: process-exits
-title: Process Exits
-sidebar_label: Process Exits
+title: Process an Exit
+sidebar_label: Process an Exit
 ---
 
 Processing an exit allows a user to release their funds locked in the `Plasma Framework` contract. Any exit bonds from the exit game are also paid out at this time.

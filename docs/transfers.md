@@ -1,7 +1,7 @@
 ---
 id: transfers
-title: Transfers
-sidebar_label: Transfers
+title: Make a Transfer
+sidebar_label: Make a Transfer
 ---
 
 A transfer involves one wallet sending tokens to another wallet on the OMG Network.

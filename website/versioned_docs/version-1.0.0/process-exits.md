@@ -1,7 +1,7 @@
 ---
 id: version-1.0.0-process-exits
-title: Process Exits
-sidebar_label: Process Exits
+title: Process an Exit
+sidebar_label: Process an Exit
 original_id: process-exits
 ---
 

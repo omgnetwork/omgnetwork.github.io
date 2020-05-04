@@ -1,7 +1,7 @@
 ---
 id: quick-start-webwallet
-title: Getting Started
-sidebar_label: Getting Started
+title: Web Wallet Quick Start
+sidebar_label: Web Wallet Quick Start
 ---
 
 This guide shows how to perform OMG transactions using a Web Wallet in your browser. 

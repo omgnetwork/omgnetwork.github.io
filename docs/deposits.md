@@ -1,7 +1,7 @@
 ---
 id: deposits
-title: Deposits
-sidebar_label: Deposits
+title: Deposit Funds
+sidebar_label: Deposit Funds
 ---
 
 A deposit involves sending ETH or ERC-20 tokens to the `Vault` smart contract on the root chain for subsequent use on the OMG network.

@@ -1,7 +1,7 @@
 ---
 id: version-1.0.0-challenging-exits
-title: Challenging Exits
-sidebar_label: Challenging Exits
+title: Challenge an Exit
+sidebar_label: Challenge an Exit
 original_id: challenging-exits
 ---
 

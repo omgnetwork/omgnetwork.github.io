@@ -1,7 +1,7 @@
 ---
 id: in-flight-exits
-title: In Flight Exits
-sidebar_label: In Flight Exits
+title: Start an In-flight Exit
+sidebar_label: Start an In-flight Exit
 ---
 
 Exits allow a user to withdraw funds from the OMG Network back onto the root chain. There are two types of exit: standard exits and in-flight exits (IFEs). This section will cover in-flight-exits.

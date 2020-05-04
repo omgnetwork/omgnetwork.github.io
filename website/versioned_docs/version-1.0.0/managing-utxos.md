@@ -1,7 +1,7 @@
 ---
 id: version-1.0.0-managing-utxos
-title: Managing UTXOs
-sidebar_label: Managing UTXOs
+title: Merge or Split UTXO
+sidebar_label: Merge or Split UTXO
 original_id: managing-utxos
 ---
 

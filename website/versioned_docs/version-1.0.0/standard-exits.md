@@ -1,7 +1,7 @@
 ---
 id: version-1.0.0-standard-exits
-title: Standard Exits
-sidebar_label: Standard Exits
+title: Start a Standard Exit
+sidebar_label: Start a Standard Exit
 original_id: standard-exits
 ---
 

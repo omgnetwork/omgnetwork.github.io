@@ -182,7 +182,7 @@ class Index extends React.Component {
           <p>
             We have deployed the newest version of the OMG Network on Ropsten.
           </p>
-          <Button style="button button-primary" href={"quick-start-webwallet"}>
+          <Button style="button button-primary" href={"welcome"}>
             Get Started
           </Button>
         </div>

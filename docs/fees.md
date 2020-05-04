@@ -1,7 +1,7 @@
 ---
 id: fees
-title: Fees
-sidebar_label: Fees
+title: Define Fees in a Transaction
+sidebar_label: Define Fees
 ---
 
 Users are charged a fee to transact on the OMG Network. The OMG Network supports a variety of different tokens that the fee can be paid with. The fees charged are currently pegged to some factor of the gas price of ETH. This can be updated as transaction volume on the network grows.

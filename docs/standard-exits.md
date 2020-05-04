@@ -1,7 +1,7 @@
 ---
 id: standard-exits
-title: Standard Exits
-sidebar_label: Standard Exits
+title: Start a Standard Exit
+sidebar_label: Start a Standard Exit
 ---
 
 Exits allow a user to withdraw funds from the OMG Network back onto the root chain. There are two types of exit: standard exits and in-flight exits. This section will cover standard exits.

@@ -1,7 +1,7 @@
 ---
 id: challenging-exits
-title: Challenging Exits
-sidebar_label: Challenging Exits
+title: Challenge an Exit
+sidebar_label: Challenge an Exit
 ---
 
 The process of challenging exits takes place during a defined challenge period after an exit has started. The challenge period exists to provide time for other users to challenge dishonest exits.
