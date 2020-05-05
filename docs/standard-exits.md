@@ -17,7 +17,7 @@ For starting a standard exit, the following steps are needed:
 
 > The standard exit process is the same for both ETH and ERC20 UTXOs.
 
-## Example
+### Example
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript -->

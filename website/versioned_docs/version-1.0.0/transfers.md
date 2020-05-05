@@ -9,11 +9,11 @@ A transfer involves one wallet sending tokens to another wallet on the OMG Netwo
 
 ## Implementation
 
-The process of creating a transfer can be broken down into four steps:
+For creating a transfer, the following steps are needed:
 1. Create a transaction body with the basic information about the transaction, including the UTXOs to be spent by the sender.
 2. Convert the transaction body into typed data, a sanitized version of the transaction body intended for transaction signing and encoding.
 3. Sign and encode the typed data into a signed transaction.
-4. Submit the signed transaction to the child chain.
+4. Submit the signed transaction to the Watcher.
 
 There are several ways to send a transaction on the OMG Network. It's recommended to use the first method but you may want to choose another approach for your specific use case.
 
@@ -132,7 +132,9 @@ async function transfer () {
 > - The transaction is using inputs from a non-validated deposit.
 > - The transaction is signed with an invalid signature.
 
-## Code Sample
+## Real-World Code Sample
+
+This section provides a demo project that contains a detailed implementation of the tutorial. If you consider integrating with the OMG Network, you can use this sample to significantly reduce the time of development. It also provides step-by-step instructions and sufficient code guidance that is not covered on this page.
 
 ### JavaScript
 
@@ -166,6 +168,6 @@ npm run start
 
 6. Open your browser at [http://localhost:3000](http://localhost:3000). 
 
-7. Select `Make an ETH Transaction` or `Make an ERC20 Transaction` on the left side, observe the logs on the right.
+7. Select [`Make an ETH Transaction`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/03-transaction-eth) or [`Make an ERC20 Transaction`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/03-transaction-erc20) on the left side, observe the logs on the right.
 
 > Code samples for all tutorials use the same repository — `omg-samples`, thus skip steps 1-4 if you've set up the project already.

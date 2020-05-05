@@ -11,7 +11,7 @@ Retrieving balances involves converting an [RLP encoded](https://github.com/ethe
 
 Balances can be retrieved using the `getBalance` function of the `ChildChain` module for child chain balances, and `getErc20Balance` function of the `OmgUtil` module for root chain balances.
 
-### ETH Example:
+### ETH Example
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript -->
@@ -37,7 +37,7 @@ async function retrieveChildChainBalance () {
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### ERC20 Example:
+### ERC20 Example
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript -->
@@ -69,9 +69,11 @@ async function retrieveChildChainBalance () {
 
 1. The `getBalance` or `getErc20Balance` function creates a RLP encoded array of balances that contain [BigNum](https://github.com/indutny/bn.js) objects.
 2. A user finds and returns balances that match a given currency (`ETH_CURRENCY` for ETH or `ERC20_CONTRACT_ADDRESS` for ERC20 tokens).
-3. Additionally, a user may convert the amount of each balance from Wei into a decimal number using `fromWei` function of the `Web3` module.
+3. Additionally, a user may want to convert the amount of each balance from Wei into a decimal number using `fromWei` function of the `Web3` module.
 
-## Code Sample
+## Real-World Code Sample
+
+This section provides a demo project that contains a detailed implementation of the tutorial. If you consider integrating with the OMG Network, you can use this sample to significantly reduce the time of development. It also provides step-by-step instructions and sufficient code guidance that is not covered on this page.
 
 ### JavaScript
 
@@ -105,6 +107,6 @@ npm run start
 
 6. Open your browser at [http://localhost:3000](http://localhost:3000). 
 
-7. Select `Retrieve Balances` on the left side, observe the logs on the right.
+7. Select [`Retrieve Balances`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/01-balances) on the left side, observe the logs on the right.
 
 > Code samples for all tutorials use the same repository — `omg-samples`, thus skip steps 1-4 if you've set up the project already.

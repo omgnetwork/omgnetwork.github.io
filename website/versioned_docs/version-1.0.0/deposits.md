@@ -11,7 +11,7 @@ A deposit involves sending ETH or ERC-20 tokens to the `Vault` smart contract on
 
 Funds can be deposited using the `deposit` function of the `RootChain` module. Notice, ERC20 deposits require the approval of the token first.
 
-### ETH Example:
+### ETH Example
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript -->
@@ -31,7 +31,7 @@ async function makeDeposit () {
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### ERC20 Example:
+### ERC20 Example
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript -->
@@ -68,7 +68,9 @@ async function makeDeposit () {
 4. The child chain receives the `DepositCreated` and creates the corresponding UTXO.
 5. After a defined [finality period](glossary#deposit-finality-period) the UTXO is ready for transacting on the network.
 
-## Code Sample
+## Real-World Code Sample
+
+This section provides a demo project that contains a detailed implementation of the tutorial. If you consider integrating with the OMG Network, you can use this sample to significantly reduce the time of development. It also provides step-by-step instructions and sufficient code guidance that is not covered on this page.
 
 ### JavaScript
 
@@ -102,6 +104,6 @@ npm run start
 
 6. Open your browser at [http://localhost:3000](http://localhost:3000). 
 
-7. Select `Make an ETH Deposit` or `Make an ERC20 Deposit` on the left side, observe the logs on the right.
+7. Select [`Make an ETH Deposit`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/02-deposit-eth) or [`Make an ERC20 Deposit`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/02-deposit-erc20) on the left side, observe the logs on the right.
 
 > Code samples for all tutorials use the same repository — `omg-samples`, thus skip steps 1-4 if you've set up the project already.
