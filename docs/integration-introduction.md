@@ -33,25 +33,24 @@ const childChain = new ChildChain({ watcherUrl })
 
 ## Reference Values
 
-You will find references to values of different objects across the documentation. This allows to abstract names, types and descriptions for a given object used in a short code snippet. Here's a complete list of referenced values used:
+You will find references to the values of different objects across the documentation. This allows to abstract names, types, and descriptions for a given object used in code snippets. Here's a complete list of referenced values used:
 
-| Value Name                         | Type   | Description             |
-|:---------------------------------- | ------ | ----------------------- |
-| `ALICE_ETH_ADDRESS`                |        |                         |
-| `ALICE_ETH_ADDRESS_PRIVATE_KEY`    |        |                         |
-| `ALICE_ETH_DEPOSIT_AMOUNT`         |        |                         |
-| `ALICE_ERC20_DEPOSIT_AMOUNT`       |        |                         |
-| `ALICE_ETH_TRANSFER_AMOUNT`        |        |                         |
-| `ALICE_ERC20_TRANSFER_AMOUNT`      |        |                         |
-| `BOB_ETH_ADDRESS`                  |        |                         |
-| `BOB_ETH_ADDRESS_PRIVATE_KEY`      |        |                         |
-| `ETH_NODE`                         |        |                         |
-| `WATCHER_URL`                      |        |                         |
-| `WATCHER_PROXY_URL`                |        |                         |
-| `PLASMAFRAMEWORK_CONTRACT_ADDRESS` |        |                         |
-| `ERC20_CONTRACT_ADDRESS`           |        |                         |
-| `MILLIS_TO_WAIT_FOR_NEXT_BLOCK`    |        |                         |
-| `BLOCKS_TO_WAIT_FOR_TXN`           |        |                         |
-| `CURRENCY`                         |        |                         |
+| Value Name                         | Type                        | Description                                                               |
+|:---------------------------------- |:--------------------------- | ------------------------------------------------------------------------- |
+| `ALICE_ETH_ADDRESS`                | string                      | Address (public key) of Alice's ETH account                               |
+| `ALICE_ETH_ADDRESS_PRIVATE_KEY`    | string                      | Private key of Alice's ETH account                                        |
+| `ALICE_ETH_DEPOSIT_AMOUNT`         | string                      | ETH amount Alice will deposit into the child chain                        |
+| `ALICE_ERC20_DEPOSIT_AMOUNT`       | string                      | ERC20 amount Alice will deposit into the child chain                      |
+| `ALICE_ETH_TRANSFER_AMOUNT`        | string                      | ETH amount Alice will transfer to Bob                                     |
+| `ALICE_ERC20_TRANSFER_AMOUNT`      | string                      | ERC20 amount Alice will transfer to Bob                                   |
+| `BOB_ETH_ADDRESS`                  | string                      | Address (public key) of Bob's ETH account                                 |
+| `BOB_ETH_ADDRESS_PRIVATE_KEY`      | string                      | Private key of Bob's ETH account                                          |
+| `PLASMAFRAMEWORK_CONTRACT_ADDRESS` | string                      | Address of the `PlasmaFramework` contract                                 |
+| `ERC20_CONTRACT_ADDRESS`           | string                      | Address of the ERC20 contract that Alice will deposit and transfer to Bob |
+| `CURRENCY`                         | number, string or BigNumber | Token's type (ETH or ERC20) used for making transactions, deposits, etc.  |
+| `MAX_EXITS_TO_PROCESS`             | number                      | The maximum number of exits to process during the exit processing.        |
+| `AMOUNT_TO_SPLIT`                  | number, string or BigNumber | ETH or ERC20 amount that defines new UTXOs during the split procedure     |
 
-> The names of the values used in the `.env` file match with the values above.
+> The names of the values used in the [`.env`](https://github.com/omisego/omg-samples/tree/master/omg-js#setup) file match with the values above.
+>
+> CURRENCY can take `OmgUtil.transaction.ETH_CURRENCY` for ETH or `ERC20_CONTRACT_ADDRESS` for ERC20 tokens.

@@ -21,9 +21,12 @@ The Watcher broadcasts any byzantine event it detects on the OMG Network. Should
 
 > These events are reported in the Watcher's `/status.get` endpoint providing an array of byzantine events. `omg-js` provides a helper function to get this report.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- JavaScript -->
 ```js
 childChain.status()
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Challenging Standard Exits
 The following is a byzantine event reported by the Watcher on invalid standard exits and requires action by users.
@@ -67,6 +70,8 @@ We can use the byzantine event information reported by the Watcher to retrieve t
 
 In the example below, Bob has seen the reported `invalid_exit` event and proceeds to challenge the exit. He will receive Alice's posted bond if the challenge is successful.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- JavaScript -->
 ```js
 async function challengeInvalidExit () {
   const challengeData = await childChain.getChallengeData(invalidExit.details.utxo_pos)
@@ -83,6 +88,7 @@ async function challengeInvalidExit () {
   })
 }
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Challenging In-Flight Exits
 The following are byzantine events reported by the Watcher on invalid in-flight exits and require action by users.
@@ -116,6 +122,8 @@ Indicates an in-flight exit of a non-canonical transaction has been started. It 
 
 **Implementation**
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- JavaScript -->
 ```js
 rootChain.challengeInFlightExitNonCanonical({
   inputTx,
@@ -133,6 +141,7 @@ rootChain.challengeInFlightExitNonCanonical({
   }
 })
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### `invalid_ife_challenge`
 Indicates a canonical in-flight exit has been challenged. The challenge should be responded to.
@@ -165,6 +174,8 @@ The Watcher reports an `invalid_ife_challenge`:
 
 **Implementation**
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- JavaScript -->
 ```js
 async function respondToInvalidIFEChallenge () {
   const proof = await childChain.inFlightExitProveCanonical(invalidChallenge.details.txbytes)
@@ -179,6 +190,7 @@ async function respondToInvalidIFEChallenge () {
   })
 }
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### `invalid_piggyback`
 Indicates an invalid piggyback is in process. Should be challenged.
@@ -215,6 +227,8 @@ Notes:
 
 **Implementation**
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- JavaScript -->
 ```js
 async function challengeInvalidPiggyback () {
   const challengeData = await childChain.inFlightExitGetOutputChallengeData(exitData.in_flight_tx, inputIndex)
@@ -232,3 +246,4 @@ async function challengeInvalidPiggyback () {
   })
 }
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
