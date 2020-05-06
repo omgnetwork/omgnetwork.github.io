@@ -118,8 +118,8 @@ async function transfer () {
 
 ## Lifecycle
 
-1. The transaction is created, signed, and encoded. 
-2. The transaction is submitted to the child chain and the Watcher for validation.
+1. A user calls the `createTransaction` function to create a transaction.
+2. A user signs, encodes, and submits the transaction's data to the child chain and the Watcher for validation.
 3. If the transaction is valid, the child chain server creates a transaction hash and adds the transaction to a pending block.
 4. The child chain bundles the transactions in the block into a Merkle tree and submits its root hash to the `Plasma Framework` contract.
 5. The Watcher receives a list of transactions from the child chain and recomputes the Merkle root to check for any inconsistency.

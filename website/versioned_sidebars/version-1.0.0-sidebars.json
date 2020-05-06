@@ -11,7 +11,6 @@
         "ids": [
           "version-1.0.0-retrieve-balances",
           "version-1.0.0-deposits",
-          "version-1.0.0-fees",
           "version-1.0.0-transfers",
           "version-1.0.0-standard-exits",
           "version-1.0.0-in-flight-exits",
@@ -37,7 +36,8 @@
           "version-1.0.0-byzantine-conditions",
           "version-1.0.0-network-architecture",
           "version-1.0.0-challenge-period",
-          "version-1.0.0-exitbonds"
+          "version-1.0.0-exitbonds",
+          "version-1.0.0-fees"
         ]
       },
       {

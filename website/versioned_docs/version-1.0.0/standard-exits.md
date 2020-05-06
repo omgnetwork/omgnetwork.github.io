@@ -57,9 +57,9 @@ async function startStandardExit () {
 
 ## Lifecycle
 
-1. The `hasToken` function calls `PlasmaFramework` to check if there's an exit queue for the token in question. If no exit queue is registered, a user needs to register it using the `addToken` function. The corresponding `PlasmaFramework` contract functions used in this step are `hasExitQueue` and `addExitQueue`.
-2. The `getExitData` function calls a Watcher to get the necessary exit data to start a standard exit. A transaction is termed exitable if it is correctly formed and properly signed by the owner(s) of the transaction input(s).
-3. The `startStandardExit` function calls a `PaymentExitGame` smart contract and commits an [exit bond](exitbonds) to the exit.
+1. A user calls the `hasToken` function on the `PlasmaFramework` contract to check if there's an exit queue for the token in question. If no exit queue is registered, a user needs to register it using the `addToken` function. The corresponding `PlasmaFramework` contract functions used in this step are `hasExitQueue` and `addExitQueue`.
+2. A user calls the `getExitData` function on the Watcher to get the necessary exit data to start a standard exit. A transaction is termed exitable if it is correctly formed and properly signed by the owner(s) of the transaction input(s).
+3. A user calls the `startStandardExit` function on the `PaymentExitGame` contract and commits an [exit bond](exitbonds) to the exit.
 4. After a [challenge period](challenge-period) a user can [process](process-exits) this exit.
 
 > You can only exit one UTXO at a time. It is therefore recommended to [merge your UTXOs](managing-utxos) if you would like to exit multiple ones.

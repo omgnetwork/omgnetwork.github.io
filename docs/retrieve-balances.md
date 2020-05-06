@@ -8,7 +8,9 @@ Retrieving balances involves converting an [RLP encoded](https://github.com/ethe
 
 ## Implementation
 
-Balances can be retrieved using the `getBalance` function of the `ChildChain` module for child chain balances, and `getErc20Balance` function of the `OmgUtil` module for root chain balances.
+1. Retrieve root chain balances.
+2. Retrieve an encoded child chain array of balances.
+3. Map child chain array to a human-readable array of balances.
 
 ### ETH Example
 
@@ -66,9 +68,9 @@ async function retrieveChildChainBalance () {
 
 ## Lifecycle
 
-1. The `getBalance` or `getErc20Balance` function creates a RLP encoded array of balances that contain [BigNum](https://github.com/indutny/bn.js) objects.
-2. A user finds and returns balances that match a given currency (`ETH_CURRENCY` for ETH or `ERC20_CONTRACT_ADDRESS` for ERC20 tokens).
-3. Additionally, a user may want to convert the amount of each balance from Wei into a decimal number using `fromWei` function of the `Web3` module.
+1. A user calls the `getBalance` or `getErc20Balance` function to create a RLP encoded array of balances that contain [BigNum](https://github.com/indutny/bn.js) objects.
+2. A user filters an array of balances and returns an array for desired currency (`ETH_CURRENCY` for ETH or `ERC20_CONTRACT_ADDRESS` for ERC20 tokens).
+3. A user converts the amount of each balance from Wei into a decimal number.
 
 ## Real-World Code Sample
 

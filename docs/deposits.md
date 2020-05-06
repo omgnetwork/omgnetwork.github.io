@@ -8,7 +8,8 @@ A deposit involves sending ETH or ERC-20 tokens to the `Vault` smart contract on
 
 ## Implementation
 
-Funds can be deposited using the `deposit` function of the `RootChain` module. Notice, ERC20 deposits require the approval of the token first.
+1. For ERC20 tokens only: approve a token. 
+2. Make a deposit.
 
 ### ETH Example
 
@@ -61,7 +62,7 @@ async function makeDeposit () {
 
 ## Lifecycle
 
-1. The `deposit` function creates an [RLP-encoded](https://github.com/ethereum/wiki/wiki/RLP) transaction that will be used to deposit into the ETH or ERC-20 `Vault` smart contracts (`ETHVault` for ETH and `ERC20Vault` for ERC20 tokens).
+1. A user calls the `deposit` function that creates an [RLP-encoded](https://github.com/ethereum/wiki/wiki/RLP) transaction that will be used to deposit into the ETH or ERC-20 `Vault` smart contracts (`ETHVault` for ETH and `ERC20Vault` for ERC20 tokens).
 2. The `Vault` in question creates a deposit block and submits it to the `PlasmaFramework` contract.
 3. The `Vault` in question emits a `DepositCreated` event.
 4. The child chain receives the `DepositCreated` and creates the corresponding UTXO.

@@ -81,10 +81,10 @@ async function startInflightExit () {
 
 ## Lifecycle
 
-1. The `hasToken` function calls `PlasmaFramework` to check if there's an exit queue for the token in question. If no exit queue is registered, a user needs to register it using the `addToken` function. The corresponding `PlasmaFramework` contract functions used in this step are `hasExitQueue` and `addExitQueue`. This step is optional but it was included because it prevents from any potential issues a user may encounter during an exit.
-2. The `inFlightExitGetData` function calls a Watcher to get the necessary exit data to start a standard exit. A transaction is termed exitable if it is correctly formed and properly signed by the owner(s) of the transaction input(s).
-3. The `startInFlightExit` function calls a `PaymentExitGame` smart contract and commits an [exit bond](exitbonds) to the exit.
-4. The `piggybackInFlightExitOnInput` or `piggybackInFlightExitOnOutput` function calls a `PaymentExitGame` smart contract to piggyback on in-flight exit input or output call. Such a process is required for every in-flight exit before proceeding to the processing stage.
+1. A user calls the `hasToken` function on the `PlasmaFramework` contract to check if there's an exit queue for the token in question. If no exit queue is registered, a user needs to register it using the `addToken` function. The corresponding `PlasmaFramework` contract functions used in this step are `hasExitQueue` and `addExitQueue`. This step is optional but it was included because it prevents from any potential issues a user may encounter during an exit.
+2. A user calls the `inFlightExitGetData` function on the Watcher to get the necessary exit data to start a standard exit. A transaction is termed exitable if it is correctly formed and properly signed by the owner(s) of the transaction input(s).
+3. A user calls the `startInFlightExit` function on the `PaymentExitGame` contract and commits an [exit bond](exitbonds) to the exit.
+4. A user calls the `piggybackInFlightExitOnInput` or `piggybackInFlightExitOnOutput` function on the `PaymentExitGame` contract to piggyback on in-flight exit input or output call. Such a process is required for every in-flight exit before proceeding to the processing stage.
 5. After a [challenge period](challenge-period) a user can [process](process-exits) this exit.
 
 > You can only exit one UTXO at a time. It is therefore recommended to [merge your UTXOs](managing-utxos) if you would like to exit multiple ones.
