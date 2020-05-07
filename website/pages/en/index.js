@@ -42,7 +42,12 @@ class Header extends React.Component {
 
     const Button = (props) => (
       <div>
-        <a className={props.style} href={props.href} target={props.target}>
+        <a
+          className={props.style}
+          href={props.href}
+          target={props.target}
+          data-mode={props.dataMode}
+        >
           {props.children}
         </a>
       </div>
@@ -55,15 +60,17 @@ class Header extends React.Component {
           <Logo img_src={`${baseUrl}img/dev/dev01.svg`} />
         </div>
         <CTASection>
-          <Button
-            style="button button-primary"
-            href={gettingStartedUrl}
-          >
+          <Button style="button button-primary" href={gettingStartedUrl}>
             Get Started
           </Button>
-          {/* <Button style="button button-dark" onClick={this.joinODP}>
+          <Button
+            style="button button-dark typeform-share"
+            href="https://omisego-dp.typeform.com/to/T8dDjF"
+            target="_blank"
+            dataMode="popup"
+          >
             Join ODP
-          </Button> */}
+          </Button>
         </CTASection>
       </HeaderContainer>
     );

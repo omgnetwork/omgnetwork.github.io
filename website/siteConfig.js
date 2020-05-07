@@ -30,7 +30,9 @@ const siteConfig = {
     primaryColor: "#215cec",
     secondaryColor: "#2e374c",
   },
-  scripts: [],
+  scripts: [
+    'js/typeform.js'
+  ],
   onPageNav: "separate",
   cleanUrl: true,
   algolia: {
