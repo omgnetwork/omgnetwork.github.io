@@ -33,6 +33,7 @@ const siteConfig = {
   scripts: [
     'js/typeform.js'
   ],
+  wrapPagesHTML: true,
   onPageNav: "separate",
   cleanUrl: true,
   algolia: {
