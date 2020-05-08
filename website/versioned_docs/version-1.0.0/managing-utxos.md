@@ -37,28 +37,30 @@ In the above scenario, Alice can merge her UTXOs to send the desired amount to B
 2. Filter UTXOs based on the desired token.
 3. Merge UTXOs.
 
+> The merging UTXOs process is the same for both ETH and ERC20. This method demonstrates merging for ETH UTXOs. If you want to merge ERC20 tokens, change the `currency` value to a corresponding smart contract address.
+
 #### Example 
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript -->
+<!-- JavaScript (ESNext) -->
 ```js
 async function mergeUtxo() {
   // retrieve all utxos
-  const aliceUtxosAll = await childChain.getUtxos(<ALICE_ETH_ADDRESS>);
+  const aliceUtxosAll = await childChain.getUtxos("0x0dC8e240d90F3B0d511b6447543b28Ea2471401a");
   
   // filter utxos based on the token
   const aliceEthUtxos = aliceUtxosAll.filter(
-    (u) => u.currency === <CURRENCY>
+    (u) => u.currency === OmgUtil.transaction.ETH_CURRENCY
   );
 
-  // slice the array to only utxos
+  // slice the array to only 4 utxos
   const utxosToMerge = aliceEthUtxos.slice(0, 4);
 
   // merge utxos
   const utxo = await childChain.mergeUtxos({
     utxos: utxosToMerge,
-    privateKey: <ALICE_ETH_ADDRESS_PRIVATE_KEY>,
-    verifyingContract: <PLASMAFRAMEWORK_CONTRACT_ADDRESS>,
+    privateKey: "0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7",
+    verifyingContract: "0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9",
   });
 
   return utxo;
@@ -92,39 +94,60 @@ For splitting UTXO, a user needs to follow the same steps as [making a transacti
 
 As a transaction can produce a maximum of <u>four</u> outputs, you can generally have up to <u>three</u> payment objects. Each one will produce an output, the value of the fourth output will correspond to the value remaining after the split(s). It is possible to have four payment objects only if their amounts add up to the exact value of the input UTXO.
 
+> The splitting of UTXO process is the same for both ETH and ERC20. This method demonstrates splitting for ERC20 UTXO. If you want to split ETH UTXO, change the `currency` value to `OmgUtil.transaction.ETH_CURRENCY`.
+
 #### Example
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript -->
+<!-- JavaScript (ESNext) -->
 ```js
 async function splitUtxo() {
   // define payments objects that will represent new utxos
   const payments = [
     {
-      owner: <ALICE_ETH_ADDRESS>,
-      currency: <CURRENCY>,
-      amount: <AMOUNT_TO_SPLIT>,
+      owner: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+      currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+      amount: "120000000000000",
     },
     {
-      owner: <ALICE_ETH_ADDRESS>,
-      currency: <CURRENCY>,
-      amount: <AMOUNT_TO_SPLIT>,
+      owner: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+      currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+      amount: "250000000000000",
     },
     {
-      owner: <ALICE_ETH_ADDRESS>,
-      currency: <CURRENCY>,
-      amount: <AMOUNT_TO_SPLIT>,
+      owner: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+      currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+      amount: "250000000000000",
     },
   ];
 
-  // create a transaction
+  // create a transaction body
   const transactionBody = await childChain.createTransaction({
-    owner: <ALICE_ETH_ADDRESS>,
+    owner: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
     payments,
     fee: {
-      currency: <CURRENCY>,
+      currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
     },
   });
+
+  // sanitize transaction into the correct typedData format
+  // the second parameter is the address of the RootChain contract
+  const typedData = OmgUtil.transaction.getTypedData(
+    transactionBody.transactions[0],
+    "0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9"
+  );
+
+  // define private keys to use for transaction signing
+  const privateKeys = new Array(transactionBody.transactions[0].inputs.length).fill("0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7");
+  
+  // locally sign typedData with passed private keys, useful for multiple different signatures
+  const signatures = childChain.signTransaction(typedData, privateKeys);
+  
+  // return encoded and signed transaction ready to be submitted
+  const signedTxn = childChain.buildSignedTransaction(typedData, signatures);
+  
+  // submit to the child chain
+  return childChain.submitTransaction(signedTxn);
 }
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -142,7 +165,7 @@ async function splitUtxo() {
 
 Users are highly encouraged to merge UTXOs continuously as a way of mitigating the vulnerability of OMG Network funds in a mass exit event. Read more in the [FAQ Section](faq#why-does-a-smaller-utxo-set-on-the-omg-network-reinforce-the-safety-of-user-funds-in-a-mass-exit-event).
 
-## Real-World Code Sample
+## Demo Project
 
 This section provides a demo project that contains a detailed implementation of the tutorial. If you consider integrating with the OMG Network, you can use this sample to significantly reduce the time of development. It also provides step-by-step instructions and sufficient code guidance that is not covered on this page.
 
@@ -156,23 +179,13 @@ For running a full `omg-js` code sample for the tutorial, please use the followi
 git clone https://github.com/omisego/omg-samples.git
 ```
 
-2. Enter the root of `omg-js` folder:
+2. Create `.env` file and provide the [required configuration values](https://github.com/omisego/omg-samples/tree/master/omg-js#setup).
+
+3. Run these commands:
 
 ```
 cd omg-js
-```
-
-3. Install dependencies:
-
-```
 npm install
-```
-
-4. Create `.env` file and provide the [required configuration values](https://github.com/omisego/omg-samples/tree/master/omg-js#setup).
-
-5. Run the app:
-
-```
 npm run start
 ```
 
@@ -180,4 +193,4 @@ npm run start
 
 7. Select [`Show UTXOs`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/04-utxo-show), [`Merge UTXOs`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/04-utxo-merge) or [`Split UTXOs`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/04-utxo-split) on the left side, observe the logs on the right.
 
-> Code samples for all tutorials use the same repository — `omg-samples`, thus skip steps 1-4 if you've set up the project already.
+> Code samples for all tutorials use the same repository — `omg-samples`, thus you have to set up the project and install dependencies only one time.

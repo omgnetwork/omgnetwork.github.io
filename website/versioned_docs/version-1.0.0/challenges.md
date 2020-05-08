@@ -23,7 +23,7 @@ The Watcher broadcasts any byzantine event it detects on the OMG Network. Should
 > These events are reported in the Watcher's `/status.get` endpoint providing an array of byzantine events. `omg-js` provides a helper function to get this report.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript -->
+<!-- JavaScript (ESNext) -->
 ```js
 childChain.status()
 ```
@@ -72,7 +72,7 @@ We can use the byzantine event information reported by the Watcher to retrieve t
 In the example below, Bob has seen the reported `invalid_exit` event and proceeds to challenge the exit. He will receive Alice's posted bond if the challenge is successful.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript -->
+<!-- JavaScript (ESNext) -->
 ```js
 async function challengeInvalidExit () {
   const challengeData = await childChain.getChallengeData(invalidExit.details.utxo_pos)
@@ -83,8 +83,8 @@ async function challengeInvalidExit () {
     inputIndex: challengeData.input_index,
     challengeTxSig: challengeData.sig,
     txOptions: {
-      from: Bob,
-      privateKey: BobPrivateKey
+      from: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+      privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
     }
   })
 }
@@ -124,7 +124,7 @@ Indicates an in-flight exit of a non-canonical transaction has been started. It 
 **Implementation**
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript -->
+<!-- JavaScript (ESNext) -->
 ```js
 rootChain.challengeInFlightExitNonCanonical({
   inputTx,
@@ -137,8 +137,8 @@ rootChain.challengeInFlightExitNonCanonical({
   competingTxInclusionProof,
   competingTxWitness,
   txOptions: {
-    from: Bob,
-    privateKey: BobPrivateKey,
+    from: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+    privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
   }
 })
 ```
@@ -176,7 +176,7 @@ The Watcher reports an `invalid_ife_challenge`:
 **Implementation**
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript -->
+<!-- JavaScript (ESNext) -->
 ```js
 async function respondToInvalidIFEChallenge () {
   const proof = await childChain.inFlightExitProveCanonical(invalidChallenge.details.txbytes)
@@ -185,8 +185,8 @@ async function respondToInvalidIFEChallenge () {
     inFlightTxPos: proof.in_flight_tx_pos,
     inFlightTxInclusionProof: proof.in_flight_proof,
     txOptions: {
-      from: Bob
-      privateKey: BobPrivateKey,
+      from: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+      privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
     }
   })
 }
@@ -229,7 +229,7 @@ Notes:
 **Implementation**
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript -->
+<!-- JavaScript (ESNext) -->
 ```js
 async function challengeInvalidPiggyback () {
   const challengeData = await childChain.inFlightExitGetOutputChallengeData(exitData.in_flight_tx, inputIndex)
@@ -241,8 +241,8 @@ async function challengeInvalidPiggyback () {
     challengingTxInputIndex: challengeData.spending_input_index,
     challengingTxWitness: challengeData.spending_sig,
     txOptions: {
-      privateKey: CarolPrivateKey,
-      from: Carol
+      from: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+      privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
     }
   })
 }

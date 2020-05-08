@@ -15,30 +15,35 @@ For starting a standard exit, the following steps are needed:
 2. Get the exiting UTXO's information.
 3. Start a standard exit.
 
-> The standard exit process is the same for both ETH and ERC20 UTXOs.
+> The standard exit process is the same for both ETH and ERC20 UTXOs. The tutorial shows how to work with ERC20 tokens. For working with ETH, change `0xd74ef52053204c9887df4a0e921b1ae024f6fe31` value (ERC20 contract) into `OmgUtil.transaction.ETH_CURRENCY`.
 
 ### Example
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript -->
+<!-- JavaScript (ESNext) -->
 ```js
-async function startStandardExit () {
-  // check for the existence of an exit queue for a given token
-  const queueForTokenExists = await rootChain.hasToken(<CURRENCY>)
+async function startStandardExit() {
+  // check if the exit queue exists for a given token
+  const queueForTokenExists = await rootChain.hasToken(
+    "0xd74ef52053204c9887df4a0e921b1ae024f6fe31"
+  );
   if (!queueForTokenExists) {
     // add the exit queue for this token if it doesn't exist
     return rootChain.addToken({
-      token: <CURRENCY>,
+      token: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
       txOptions: {
-        from: <ALICE_ETH_ADDRESS>,
-        privateKey: <ALICE_ETH_ADDRESS_PRIVATE_KEY>
-      }
-    })
+        from: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+        privateKey:
+          "0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7",
+      },
+    });
   }
 
   // get utxo information
-  const alicesUtxos = await childChain.getUtxos(<ALICE_ETH_ADDRESS>)
-  const exitData = await childChain.getExitData(alicesUtxos)
+  const alicesUtxos = await childChain.getUtxos(
+    "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a"
+  );
+  const exitData = await childChain.getExitData(alicesUtxos);
 
   // start a standard exit
   rootChain.startStandardExit({
@@ -46,10 +51,11 @@ async function startStandardExit () {
     outputTx: exitData.txbytes,
     inclusionProof: exitData.proof,
     txOptions: {
-      from: <ALICE_ETH_ADDRESS>,
-      privateKey: <ALICE_ETH_ADDRESS_PRIVATE_KEY>
-    }
-  })
+      from: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+      privateKey:
+        "0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7",
+    },
+  });
 }
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -63,7 +69,7 @@ async function startStandardExit () {
 
 > You can only exit one UTXO at a time. It is therefore recommended to [merge your UTXOs](managing-utxos) if you would like to exit multiple ones.
 
-## Real-World Code Sample
+## Demo Project
 
 This section provides a demo project that contains a detailed implementation of the tutorial. If you consider integrating with the OMG Network, you can use this sample to significantly reduce the time of development. It also provides step-by-step instructions and sufficient code guidance that is not covered on this page.
 
@@ -77,28 +83,18 @@ For running a full `omg-js` code sample for the tutorial, please use the followi
 git clone https://github.com/omisego/omg-samples.git
 ```
 
-2. Enter the root of `omg-js` folder:
+2. Create `.env` file and provide the [required configuration values](https://github.com/omisego/omg-samples/tree/master/omg-js#setup).
+
+3. Run these commands:
 
 ```
 cd omg-js
-```
-
-3. Install dependencies:
-
-```
 npm install
-```
-
-4. Create `.env` file and provide the [required configuration values](https://github.com/omisego/omg-samples/tree/master/omg-js#setup).
-
-5. Run the app:
-
-```
 npm run start
 ```
 
-6. Open your browser at [http://localhost:3000](http://localhost:3000). 
+4. Open your browser at [http://localhost:3000](http://localhost:3000). 
 
-7. Select [`Start a Standard ETH Exit`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/05-exit-standard-eth) or [`Start a Standard ERC20 Exit`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/05-exit-standard-erc20) on the left side, observe the logs on the right.
+5. Select [`Start a Standard ETH Exit`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/05-exit-standard-eth) or [`Start a Standard ERC20 Exit`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/05-exit-standard-erc20) on the left side, observe the logs on the right.
 
-> Code samples for all tutorials use the same repository — `omg-samples`, thus skip steps 1-4 if you've set up the project already.
+> Code samples for all tutorials use the same repository — `omg-samples`, thus you have to set up the project and install dependencies only one time.

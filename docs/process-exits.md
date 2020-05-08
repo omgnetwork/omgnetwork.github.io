@@ -10,31 +10,24 @@ Processing an exit allows a user to release their funds locked in the `Plasma Fr
 1. Get the current exit queue.
 2. Process defined exit(s).
 
+
+> Exit processing is the same for both ETH and ERC20 UTXOs. This method demonstrates exit processing for ETH funds. If you want to process an ERC20 exit, change the `token` value to a corresponding smart contract address.
+
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript -->
+<!-- JavaScript (ESNext) -->
 ```js
 async function processExit() {
   // get exit queue
   const ethQueue = await rootChain.getExitQueue();
 
-  // show date in a human-readable format 
-  const ethQueueHuman = ethQueue.map((e) => {
-    return {
-      priority: e.priority,
-      exitableAt: new Date(parseInt(e.exitableAt * 1000)).toLocaleString(),
-      exitId: e.exitId
-    };
-  });
-
   // process exits
   const exitReceipt = await rootChain.processExits({
-    token: <CURRENCY>,
+    token: OmgUtil.transaction.ETH_CURRENCY,
     exitId: 0,
-    maxExitsToProcess: <MAX_EXITS_TO_PROCESS>,
+    maxExitsToProcess: 5,
     txOptions: {
-      privateKey: <ALICE_ETH_ADDRESS_PRIVATE_KEY>,
-      from: <ALICE_ETH_ADDRESS>,
-      gas: 6000000
+      privateKey: "0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7",
+      from: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a"
     };
   });
 
@@ -64,7 +57,7 @@ To better understand this mechanism, consider the following example:
   - She can wait for exits 1-4 to be processed by other users so that when her exit reaches the top of the queue, she only has to process her exit.
   -  She can wait for somebody else with a lower priority to process her exit as they want to release their funds immediately.
 
-## Real-World Code Sample
+## Demo Project
 
 This section provides a demo project that contains a detailed implementation of the tutorial. If you consider integrating with the OMG Network, you can use this sample to significantly reduce the time of development. It also provides step-by-step instructions and sufficient code guidance that is not covered on this page.
 
@@ -78,28 +71,18 @@ For running a full `omg-js` code sample for the tutorial, please use the followi
 git clone https://github.com/omisego/omg-samples.git
 ```
 
-2. Enter the root of `omg-js` folder:
+2. Create `.env` file and provide the [required configuration values](https://github.com/omisego/omg-samples/tree/master/omg-js#setup).
+
+3. Run these commands:
 
 ```
 cd omg-js
-```
-
-3. Install dependencies:
-
-```
 npm install
-```
-
-4. Create `.env` file and provide the [required configuration values](https://github.com/omisego/omg-samples/tree/master/omg-js#setup).
-
-5. Run the app:
-
-```
 npm run start
 ```
 
-6. Open your browser at [http://localhost:3000](http://localhost:3000). 
+4. Open your browser at [http://localhost:3000](http://localhost:3000). 
 
-7. Select [`Process an ETH Exit`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/05-exit-process-eth) or [`Process an ERC20 Exit`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/05-exit-standard-erc20) on the left side, observe the logs on the right.
+5. Select [`Process an ETH Exit`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/05-exit-process-eth) or [`Process an ERC20 Exit`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/05-exit-standard-erc20) on the left side, observe the logs on the right.
 
-> Code samples for all tutorials use the same repository — `omg-samples`, thus skip steps 1-4 if you've set up the project already.
+> Code samples for all tutorials use the same repository — `omg-samples`, thus you have to set up the project and install dependencies only one time.

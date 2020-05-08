@@ -10,23 +10,21 @@ Retrieving balances involves converting an [RLP encoded](https://github.com/ethe
 
 1. Retrieve root chain balances.
 2. Retrieve an encoded child chain array of balances.
-3. Map child chain array to a human-readable array of balances.
+3. Map child chain array to a human-readable array of balances (optional).
 
 ### ETH Example
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript -->
+<!-- JavaScript (ESNext) -->
 
 ```js
 async function retrieveRootChainBalance () {
-  return web3.eth.getBalance({
-    <ALICE_ETH_ADDRESS>
-  })
+  return web3.eth.getBalance("0x0dC8e240d90F3B0d511b6447543b28Ea2471401a")
 }
 
 async function retrieveChildChainBalance () {
-  const childchainBalanceArray = await childChain.getBalance(<ALICE_ETH_ADDRESS>);
-  const aliceChildchainBalance = alicesBalanceArray.map((i) => {
+  const childchainBalanceArray = await childChain.getBalance("0x0dC8e240d90F3B0d511b6447543b28Ea2471401a");
+  const aliceChildchainBalance = childchainBalanceArray.map((i) => {
     return {
       currency:
         i.currency === OmgUtil.transaction.ETH_CURRENCY ? "ETH" : i.currency,
@@ -41,23 +39,23 @@ async function retrieveChildChainBalance () {
 ### ERC20 Example
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript -->
+<!-- JavaScript (ESNext) -->
 
 ```js
 async function retrieveRootChainBalance () {
   await OmgUtil.getErc20Balance({
     web3,
-    address: <ALICE_ETH_ADDRESS>,
-    erc20Address: <ERC20_CONTRACT_ADDRESS>
+    address: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+    erc20Address: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31"
   });
 }
 
 async function retrieveChildChainBalance () {
-  const childchainBalanceArray = await childChain.getBalance(<ALICE_ETH_ADDRESS>);
+  const childchainBalanceArray = await childChain.getBalance("0x0dC8e240d90F3B0d511b6447543b28Ea2471401a");
   const aliceChildchainBalance = alicesBalanceArray.map((i) => {
     return {
       currency:
-        i.currency === <ERC20_CONTRACT_ADDRESS> ? "ERC20" : i.currency,
+        i.currency === "0xd74ef52053204c9887df4a0e921b1ae024f6fe31" ? "ERC20" : i.currency,
       amount: web3.utils.fromWei(String(i.amount)),
     };
   });
@@ -70,9 +68,9 @@ async function retrieveChildChainBalance () {
 
 1. A user calls the `getBalance` or `getErc20Balance` function to create a RLP encoded array of balances that contain [BigNum](https://github.com/indutny/bn.js) objects.
 2. A user filters an array of balances and returns an array for desired currency (`ETH_CURRENCY` for ETH or `ERC20_CONTRACT_ADDRESS` for ERC20 tokens).
-3. A user converts the amount of each balance from Wei into a decimal number.
+3. A user converts the amount of each balance from WEI into a decimal number (optional).
 
-## Real-World Code Sample
+## Demo Project
 
 This section provides a demo project that contains a detailed implementation of the tutorial. If you consider integrating with the OMG Network, you can use this sample to significantly reduce the time of development. It also provides step-by-step instructions and sufficient code guidance that is not covered on this page.
 
@@ -86,28 +84,18 @@ For running a full `omg-js` code sample for the tutorial, please use the followi
 git clone https://github.com/omisego/omg-samples.git
 ```
 
-2. Enter the root of `omg-js` folder:
+2. Create `.env` file and provide the [required configuration values](https://github.com/omisego/omg-samples/tree/master/omg-js#setup).
+
+3. Run these commands:
 
 ```
 cd omg-js
-```
-
-3. Install dependencies:
-
-```
 npm install
-```
-
-4. Create `.env` file and provide the [required configuration values](https://github.com/omisego/omg-samples/tree/master/omg-js#setup).
-
-5. Run the app:
-
-```
 npm run start
 ```
 
-6. Open your browser at [http://localhost:3000](http://localhost:3000). 
+4. Open your browser at [http://localhost:3000](http://localhost:3000). 
 
-7. Select [`Retrieve Balances`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/01-balances) on the left side, observe the logs on the right.
+5. Select [`Retrieve Balances`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/01-balances) on the left side, observe the logs on the right.
 
-> Code samples for all tutorials use the same repository — `omg-samples`, thus skip steps 1-4 if you've set up the project already.
+> Code samples for all tutorials use the same repository — `omg-samples`, thus you have to set up the project and install dependencies only one time.

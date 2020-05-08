@@ -17,6 +17,14 @@ The tutorials section explains how things work under the hood and show a general
 - [Plasma Framework Contracts](https://github.com/omisego/plasma-contracts)  
 - [Child Chain and Watcher](https://github.com/omisego/elixir-omg) 
 
+### Alice and Bob
+
+In most of the code samples, Alice refers to the account of a sender (Wallet A), Bob refers to the account that receives funds (Wallet B). Notice, all of the samples use Alice as the primary wallet. 
+
+All of the tutorials use predefined public and private keys for Alice and Bob. They contain only Ropsten test tokens, thus don't spend all of them, share responsibly with others. If the wallets are empty, feel free to send [Ropsten faucets](https://faucet.metamask.io) there. 
+
+It is always recommended to use personal public and private keys to avoid unexpected movements of the funds on the testnet environment. You should never share your private keys to anyone if they contain funds on the Ethereum mainnet.
+
 ### Omg-js Code Samples
 
 `omg-js` library has 3 main objects that are used during all of the code samples. Here's an example of how to instantiate them:
@@ -29,29 +37,6 @@ const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url))
 const rootChain = new RootChain({ web3, plasmaContractAddress })
 const childChain = new ChildChain({ watcherUrl })
 ```
+### Omg-js API documentation
 
-> Some details might be omitted from the `omg-js` code examples for the sake of brevity (type information, optional arguments, etc.) For more information regarding the library, please check the [API documentation](https://docs.omg.network/omg-js).
-
-## Reference Values
-
-You will find references to the values of different objects across the documentation. This allows to abstract names, types, and descriptions for a given object used in code snippets. Here's a complete list of referenced values used:
-
-| Value Name                         | Type                        | Description                                                               |
-|:---------------------------------- |:--------------------------- | ------------------------------------------------------------------------- |
-| `ALICE_ETH_ADDRESS`                | string                      | Address (public key) of Alice's ETH account                               |
-| `ALICE_ETH_ADDRESS_PRIVATE_KEY`    | string                      | Private key of Alice's ETH account                                        |
-| `ALICE_ETH_DEPOSIT_AMOUNT`         | string                      | ETH amount Alice will deposit into the child chain                        |
-| `ALICE_ERC20_DEPOSIT_AMOUNT`       | string                      | ERC20 amount Alice will deposit into the child chain                      |
-| `ALICE_ETH_TRANSFER_AMOUNT`        | string                      | ETH amount Alice will transfer to Bob                                     |
-| `ALICE_ERC20_TRANSFER_AMOUNT`      | string                      | ERC20 amount Alice will transfer to Bob                                   |
-| `BOB_ETH_ADDRESS`                  | string                      | Address (public key) of Bob's ETH account                                 |
-| `BOB_ETH_ADDRESS_PRIVATE_KEY`      | string                      | Private key of Bob's ETH account                                          |
-| `PLASMAFRAMEWORK_CONTRACT_ADDRESS` | string                      | Address of the `PlasmaFramework` contract                                 |
-| `ERC20_CONTRACT_ADDRESS`           | string                      | Address of the ERC20 contract that Alice will deposit and transfer to Bob |
-| `CURRENCY`                         | number, string or BigNumber | Token's type (ETH or ERC20) used for making transactions, deposits, etc.  |
-| `MAX_EXITS_TO_PROCESS`             | number                      | The maximum number of exits to process during the exit processing.        |
-| `AMOUNT_TO_SPLIT`                  | number, string or BigNumber | ETH or ERC20 amount that defines new UTXOs during the split procedure     |
-
-> The names of the values used in the [`.env`](https://github.com/omisego/omg-samples/tree/master/omg-js#setup) file match with the values above.
->
-> CURRENCY can take `OmgUtil.transaction.ETH_CURRENCY` for ETH or `ERC20_CONTRACT_ADDRESS` for ERC20 tokens.
+Some details might be omitted from the `omg-js` code examples for the sake of brevity (type information, optional arguments, etc.) For more information regarding the library, please check the [API documentation](https://docs.omg.network/omg-js).

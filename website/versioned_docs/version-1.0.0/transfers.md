@@ -21,47 +21,45 @@ There are several ways to send a transaction on the OMG Network. It's recommende
 
 The most "granular" implementation includes fetching fees, creating, typing, signing and submitting the transaction. Such an approach will have the following structure of the code:
 
+> This method demonstrates a transfer made in ETH. If you want to make an ERC20 transfer, change the `currency` value to a corresponding smart contract address. 
+
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript -->
+<!-- JavaScript (ESNext) -->
 ```js
 async function transfer() {
   // fetch ETH fee amount from the Watcher
   const allFees = await childChain.getFees();
   const feesForTransactions = allFees["1"];
   const { amount: feeAmount } = feesForTransactions.find(
-    (i) => i.currency === <CURRENCY>
-  );
-
-  // convert transfer amount to wei
-  const transferAmount = new BigNumber(
-    web3.utils.toWei(<ALICE_ETH_TRANSFER_AMOUNT>, "ether")
+    (i) => i.currency === OmgUtil.transaction.ETH_CURRENCY
   );
 
   // construct a transaction body
   const transactionBody = await childChain.createTransaction({
-    owner: <ALICE_ETH_ADDRESS>,
+    owner: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
     payments: [
       {
-        owner: <BOB_ETH_ADDRESS>,
-        currency: <CURRENCY>,
-        amount: Number(transferAmount),
+        owner: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+        currency: OmgUtil.transaction.ETH_CURRENCY,
+        amount: "350000000000000",
       },
     ],
     fee: {
-      currency: <CURRENCY>,
+      currency: OmgUtil.transaction.ETH_CURRENCY,
       amount: feeAmount,
     },
     metadata: "data",
   });
 
   // sanitize transaction into the correct typedData format
+  // the second parameter is the address of the RootChain contract
   const typedData = OmgUtil.transaction.getTypedData(
     transactionBody.transactions[0],
-    rootChainPlasmaContractAddress
+    "0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9"
   );
 
   // define private keys to use for transaction signing
-  const privateKeys = new Array(transactionBody.transactions[0].inputs.length).fill(<ALICE_ETH_ADDRESS_PRIVATE_KEY>);
+  const privateKeys = new Array(transactionBody.transactions[0].inputs.length).fill("0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7");
   
   // locally sign typedData with passed private keys, useful for multiple different signatures
   const signatures = childChain.signTransaction(typedData, privateKeys);
@@ -78,35 +76,32 @@ async function transfer() {
 
 ### Method B
 
-Another option relies on the child chain completely to create and send the transaction. Note that this method will choose the UTXO for you by using the largest UTXO of that specific currency. Also, you won't able to do 2 transactions in the same block using this method.
+Another option relies on the child chain completely to create and send the transaction. Note that this method will choose the UTXO for you by using the largest UTXO of that specific currency. Also, you won't able to do 2 transactions in the same block using this method. 
+
+> This method demonstrates a transfer made in ERC20. If you want to make an ETH transfer, change the `currency` value to `OmgUtil.transaction.ETH_CURRENCY`. Notice, the fee is paid in ETH. If you want to know the list of supported tokens you can pay your fee, refer to [Fees documentation](/fees).
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript -->
+<!-- JavaScript (ESNext) -->
 ```js
 async function transfer () {
-  // convert transfer amount to wei
-  const transferAmount = new BigNumber(
-    web3.utils.toWei(<ALICE_ETH_TRANSFER_AMOUNT>, "ether")
-  );
-
   // construct a transaction body
   const transactions = await childChain.createTransaction({
-    owner: <ALICE_ETH_ADDRESS>,
+    owner: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
     payments: [
       {
-        owner: <BOB_ETH_ADDRESS>,
-        currency: <CURRENCY>,
-        amount: Number(transferAmount),
+        owner: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+        currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+        amount: "350000000000000",
       },
     ],
     fee: {
-      currency: <CURRENCY>
+      currency: OmgUtil.transaction.ETH_CURRENCY
     },
     metadata: "data"
   });
 
   // define private keys to use for transaction signing
-  const privateKeys = new Array(transactions[0].inputs.length).fill(<ALICE_ETH_ADDRESS_PRIVATE_KEY>);
+  const privateKeys = new Array(transactions[0].inputs.length).fill("0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7");
   
   // locally sign a transaction
   const signedTypedData = childchain.signTypedData(transactions[0], privateKeys);
@@ -132,7 +127,7 @@ async function transfer () {
 > - The transaction is using inputs from a non-validated deposit.
 > - The transaction is signed with an invalid signature.
 
-## Real-World Code Sample
+## Demo Project
 
 This section provides a demo project that contains a detailed implementation of the tutorial. If you consider integrating with the OMG Network, you can use this sample to significantly reduce the time of development. It also provides step-by-step instructions and sufficient code guidance that is not covered on this page.
 
@@ -146,28 +141,18 @@ For running a full `omg-js` code sample for the tutorial, please use the followi
 git clone https://github.com/omisego/omg-samples.git
 ```
 
-2. Enter the root of `omg-js` folder:
+2. Create `.env` file and provide the [required configuration values](https://github.com/omisego/omg-samples/tree/master/omg-js#setup).
+
+3. Run these commands:
 
 ```
 cd omg-js
-```
-
-3. Install dependencies:
-
-```
 npm install
-```
-
-4. Create `.env` file and provide the [required configuration values](https://github.com/omisego/omg-samples/tree/master/omg-js#setup).
-
-5. Run the app:
-
-```
 npm run start
 ```
 
-6. Open your browser at [http://localhost:3000](http://localhost:3000). 
+4. Open your browser at [http://localhost:3000](http://localhost:3000). 
 
-7. Select [`Make an ETH Transaction`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/03-transaction-eth) or [`Make an ERC20 Transaction`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/03-transaction-erc20) on the left side, observe the logs on the right.
+5. Select [`Make an ETH Transaction`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/03-transaction-eth) or [`Make an ERC20 Transaction`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/03-transaction-erc20) on the left side, observe the logs on the right.
 
-> Code samples for all tutorials use the same repository — `omg-samples`, thus skip steps 1-4 if you've set up the project already.
+> Code samples for all tutorials use the same repository — `omg-samples`, thus you have to set up the project and install dependencies only one time.
