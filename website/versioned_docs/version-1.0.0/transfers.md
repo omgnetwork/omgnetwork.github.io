@@ -59,18 +59,19 @@ async function transfer() {
   );
 
   // define private keys to use for transaction signing
-  const privateKeys = new Array(transactionBody.transactions[0].inputs.length).fill("0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7");
-  
+  const privateKeys = new Array(
+    transactionBody.transactions[0].inputs.length
+  ).fill("0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7");
+
   // locally sign typedData with passed private keys, useful for multiple different signatures
   const signatures = childChain.signTransaction(typedData, privateKeys);
-  
+
   // return encoded and signed transaction ready to be submitted
   const signedTxn = childChain.buildSignedTransaction(typedData, signatures);
-  
+
   // submit to the child chain
   return childChain.submitTransaction(signedTxn);
 }
-
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -83,7 +84,7 @@ Another option relies on the child chain completely to create and send the trans
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
 ```js
-async function transfer () {
+async function transfer() {
   // construct a transaction body
   const transactions = await childChain.createTransaction({
     owner: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
@@ -95,17 +96,22 @@ async function transfer () {
       },
     ],
     fee: {
-      currency: OmgUtil.transaction.ETH_CURRENCY
+      currency: OmgUtil.transaction.ETH_CURRENCY,
     },
-    metadata: "data"
+    metadata: "data",
   });
 
   // define private keys to use for transaction signing
-  const privateKeys = new Array(transactions[0].inputs.length).fill("0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7");
-  
+  const privateKeys = new Array(transactions[0].inputs.length).fill(
+    "0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7"
+  );
+
   // locally sign a transaction
-  const signedTypedData = childchain.signTypedData(transactions[0], privateKeys);
-  
+  const signedTypedData = childchain.signTypedData(
+    transactions[0],
+    privateKeys
+  );
+
   // submit the result of signTypedData
   return childChain.submitTyped(signedTypedData);
 }

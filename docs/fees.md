@@ -128,3 +128,5 @@ outputs: [
 
 - Bob receives `UTXO3` of 10 wei as his payment, and Alice receives `UTXO4` and `UTXO5` as a change from the transaction.
 - As you can see, the difference between the sum of the inputs (100 wei & 100 OMG) to the sum of the outputs (100 wei && 90 OMG) is the implicit fee (10 OMG).
+
+> The most common use cases for defining custom fees are during merging or splitting UTXOs. You can find more details and demo project [here](managing-utxos).

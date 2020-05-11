@@ -19,12 +19,14 @@ Retrieving balances involves converting an [RLP encoded](https://github.com/ethe
 <!-- JavaScript (ESNext) -->
 
 ```js
-async function retrieveRootChainBalance () {
-  return web3.eth.getBalance("0x0dC8e240d90F3B0d511b6447543b28Ea2471401a")
+async function retrieveRootChainBalance() {
+  return web3.eth.getBalance("0x0dC8e240d90F3B0d511b6447543b28Ea2471401a");
 }
 
-async function retrieveChildChainBalance () {
-  const childchainBalanceArray = await childChain.getBalance("0x0dC8e240d90F3B0d511b6447543b28Ea2471401a");
+async function retrieveChildChainBalance() {
+  const childchainBalanceArray = await childChain.getBalance(
+    "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a"
+  );
   const aliceChildchainBalance = childchainBalanceArray.map((i) => {
     return {
       currency:
@@ -43,20 +45,24 @@ async function retrieveChildChainBalance () {
 <!-- JavaScript (ESNext) -->
 
 ```js
-async function retrieveRootChainBalance () {
+async function retrieveRootChainBalance() {
   await OmgUtil.getErc20Balance({
     web3,
     address: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
-    erc20Address: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31"
+    erc20Address: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
   });
 }
 
-async function retrieveChildChainBalance () {
-  const childchainBalanceArray = await childChain.getBalance("0x0dC8e240d90F3B0d511b6447543b28Ea2471401a");
+async function retrieveChildChainBalance() {
+  const childchainBalanceArray = await childChain.getBalance(
+    "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a"
+  );
   const aliceChildchainBalance = alicesBalanceArray.map((i) => {
     return {
       currency:
-        i.currency === "0xd74ef52053204c9887df4a0e921b1ae024f6fe31" ? "ERC20" : i.currency,
+        i.currency === "0xd74ef52053204c9887df4a0e921b1ae024f6fe31"
+          ? "ERC20"
+          : i.currency,
       amount: web3.utils.fromWei(String(i.amount)),
     };
   });
