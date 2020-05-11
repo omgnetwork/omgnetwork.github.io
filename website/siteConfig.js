@@ -8,7 +8,7 @@ const siteConfig = {
   title: "OMG Network",
   tagline: "Documentation for the OMG Network",
   url: "https://omisego.github.io",
-  baseUrl: "/",
+  baseUrl: "/welcome",
   docsUrl: "",
   cname: "docs.omg.network",
   projectName: "omisego.github.io",
