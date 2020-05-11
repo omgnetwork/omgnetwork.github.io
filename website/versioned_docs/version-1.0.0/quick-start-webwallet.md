@@ -1,7 +1,7 @@
 ---
 id: version-1.0.0-quick-start-webwallet
-title: Getting Started
-sidebar_label: Getting Started
+title: Web Wallet Quick Start
+sidebar_label: Web Wallet Quick Start
 original_id: quick-start-webwallet
 ---
 

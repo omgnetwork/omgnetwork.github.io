@@ -5,17 +5,29 @@ sidebar_label: Introduction
 original_id: integration-introduction
 ---
 
-The intergration section aims to give a deeper technical explanation around the transaction lifecycle. It serves as a guide for integrators using the OMG Network.
+The tutorials section aims to give a deeper technical explanation and code implementation around specific features of the OMG Network's products and services. It serves as a guide for integrators using the OMG Network.
 
-### Code Examples
-You will find numerous code examples in this section. These code examples are using the [omg-js](https://github.com/omisego/omg-js) integration library, as it abstracts a lot of the processes away from the user. 
+## Code Samples
 
-> Best effort is given to generally explain what is going on under the hood but if you want to dive deeper into the implementation, you can check out the relevant code in their respective repositories.
->
-> [Plasma Framework contracts](https://github.com/omisego/plasma-contracts)  
-> [Child chain and Watcher](https://github.com/omisego/elixir-omg)  
+The majority of tutorials have sufficient code as a part of a larger [OMG Samples](https://github.com/omisego/omg-samples) project. This project contains code samples in multiple programming languages. You may find a full implementation of a chosen tutorial for your preferred language in the respective folder (e.g. `omg-js` for Javascript).
+ 
+> Currently, all code samples are implemented in Javascript as a part of [omg-js](https://github.com/omisego/omg-js) library.
 
-For the sake of brevity, library imports are not included in the examples, but you will see references to the `rootChain`, `childChain` and `OmgUtil` objects from `omg-js`. For your understanding on where these objects come from, the way these objects are instantiated are shown below.
+The tutorials section explains how things work under the hood and show a general integration approach for each of the network's features or services. If you want to learn the core network implementation, please check the following references:
+- [Plasma Framework Contracts](https://github.com/omisego/plasma-contracts)  
+- [Child Chain and Watcher](https://github.com/omisego/elixir-omg) 
+
+### Alice and Bob
+
+In most of the code samples, Alice refers to the account of a sender (Wallet A), Bob refers to the account that receives funds (Wallet B). Notice, all of the samples use Alice as the primary wallet. 
+
+All of the tutorials use predefined public and private keys for Alice and Bob. They contain only Ropsten test tokens, thus don't spend all of them, share responsibly with others. If the wallets are empty, feel free to send [Ropsten faucets](https://faucet.metamask.io) there. 
+
+It is always recommended to use personal public and private keys to avoid unexpected movements of the funds on the testnet environment. You should never share your private keys to anyone if they contain funds on the Ethereum mainnet.
+
+### Omg-js Code Samples
+
+`omg-js` library has 3 main objects that are used during all of the code samples. Here's an example of how to instantiate them:
 
 ```js
 import Web3 from "web3"
@@ -25,12 +37,6 @@ const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url))
 const rootChain = new RootChain({ web3, plasmaContractAddress })
 const childChain = new ChildChain({ watcherUrl })
 ```
+### Omg-js API documentation
 
-> Some details have been omitted from the `omg-js` code examples for the sake of brevity (type information, optional arguments, etc.) For more information regarding the library please check out the [API documentation](https://docs.omg.network/omg-js/).
-
-You will also see references to characters throughout the documentation. These are fictional characters used to represent the interaction between different parties on the OMG Network. Example values for what they reference in the documentation are shown below.
-
-```text
-Alice = Alices root chain address ie. '0xA013DEBD703B28AF58C2gfA0264ef70F978C5465'
-AlicePrivateKey = Alices private key ie. '0x3C1FEC09834B23FFBC9A773D2GC3F03E259F5163E1FEDC0EDFE3FED325B47A62'
-```
+Some details might be omitted from the `omg-js` code examples for the sake of brevity (type information, optional arguments, etc.) For more information regarding the library, please check the [API documentation](https://docs.omg.network/omg-js).

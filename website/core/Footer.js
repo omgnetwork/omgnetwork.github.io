@@ -27,7 +27,7 @@ class Footer extends React.Component {
             <span className="footer-item">
               <a
                 target="_blank"
-                href={gettingStartedUrl}
+                href="/quick-start-webwallet"
               >
                 {`Get to know\nthe Plasma Interface`}
               </a>

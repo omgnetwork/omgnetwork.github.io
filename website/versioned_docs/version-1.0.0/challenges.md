@@ -1,7 +1,7 @@
 ---
 id: version-1.0.0-challenging-exits
-title: Challenging Exits
-sidebar_label: Challenging Exits
+title: Challenge an Exit
+sidebar_label: Challenge an Exit
 original_id: challenging-exits
 ---
 
@@ -22,9 +22,12 @@ The Watcher broadcasts any byzantine event it detects on the OMG Network. Should
 
 > These events are reported in the Watcher's `/status.get` endpoint providing an array of byzantine events. `omg-js` provides a helper function to get this report.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- JavaScript (ESNext) -->
 ```js
 childChain.status()
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Challenging Standard Exits
 The following is a byzantine event reported by the Watcher on invalid standard exits and requires action by users.
@@ -68,6 +71,8 @@ We can use the byzantine event information reported by the Watcher to retrieve t
 
 In the example below, Bob has seen the reported `invalid_exit` event and proceeds to challenge the exit. He will receive Alice's posted bond if the challenge is successful.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- JavaScript (ESNext) -->
 ```js
 async function challengeInvalidExit () {
   const challengeData = await childChain.getChallengeData(invalidExit.details.utxo_pos)
@@ -78,12 +83,13 @@ async function challengeInvalidExit () {
     inputIndex: challengeData.input_index,
     challengeTxSig: challengeData.sig,
     txOptions: {
-      from: Bob,
-      privateKey: BobPrivateKey
+      from: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+      privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
     }
   })
 }
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Challenging In-Flight Exits
 The following are byzantine events reported by the Watcher on invalid in-flight exits and require action by users.
@@ -117,6 +123,8 @@ Indicates an in-flight exit of a non-canonical transaction has been started. It 
 
 **Implementation**
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- JavaScript (ESNext) -->
 ```js
 rootChain.challengeInFlightExitNonCanonical({
   inputTx,
@@ -129,11 +137,12 @@ rootChain.challengeInFlightExitNonCanonical({
   competingTxInclusionProof,
   competingTxWitness,
   txOptions: {
-    from: Bob,
-    privateKey: BobPrivateKey,
+    from: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+    privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
   }
 })
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### `invalid_ife_challenge`
 Indicates a canonical in-flight exit has been challenged. The challenge should be responded to.
@@ -166,6 +175,8 @@ The Watcher reports an `invalid_ife_challenge`:
 
 **Implementation**
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- JavaScript (ESNext) -->
 ```js
 async function respondToInvalidIFEChallenge () {
   const proof = await childChain.inFlightExitProveCanonical(invalidChallenge.details.txbytes)
@@ -174,12 +185,13 @@ async function respondToInvalidIFEChallenge () {
     inFlightTxPos: proof.in_flight_tx_pos,
     inFlightTxInclusionProof: proof.in_flight_proof,
     txOptions: {
-      from: Bob
-      privateKey: BobPrivateKey,
+      from: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+      privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
     }
   })
 }
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### `invalid_piggyback`
 Indicates an invalid piggyback is in process. Should be challenged.
@@ -216,6 +228,8 @@ Notes:
 
 **Implementation**
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- JavaScript (ESNext) -->
 ```js
 async function challengeInvalidPiggyback () {
   const challengeData = await childChain.inFlightExitGetOutputChallengeData(exitData.in_flight_tx, inputIndex)
@@ -227,10 +241,10 @@ async function challengeInvalidPiggyback () {
     challengingTxInputIndex: challengeData.spending_input_index,
     challengingTxWitness: challengeData.spending_sig,
     txOptions: {
-      privateKey: CarolPrivateKey,
-      from: Carol
+      from: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+      privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
     }
   })
 }
 ```
-
+<!--END_DOCUSAURUS_CODE_TABS-->

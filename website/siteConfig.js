@@ -30,7 +30,14 @@ const siteConfig = {
     primaryColor: "#215cec",
     secondaryColor: "#2e374c",
   },
-  scripts: [],
+  scripts: [
+    'js/typeform.js',
+    'https://buttons.github.io/buttons.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js',
+    '/js/code-block-buttons.js',
+  ],
+  stylesheets: ['/css/code-block-buttons.css'],
+  wrapPagesHTML: true,
   onPageNav: "separate",
   cleanUrl: true,
   algolia: {
@@ -39,9 +46,9 @@ const siteConfig = {
   },
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
-    theme: "default",
+    theme: "dracula",
   },
-  docsSideNavCollapsible: false,
+  docsSideNavCollapsible: true,
   // Open Graph and Twitter card images.
   ogImage: "img/omisego-blue.svg",
   twitterImage: "img/omisego-blue.svg",
@@ -49,7 +56,7 @@ const siteConfig = {
   enableUpdateBy: false,
   enableUpdateTime: false,
   // omg urls
-  gettingStartedUrl: "quick-start-webwallet",
+  gettingStartedUrl: "welcome",
   blockExplorerUrl: "https://blockexplorer.ropsten.v1.omg.network",
   watcherInfoAPIUrl:
     "https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs",

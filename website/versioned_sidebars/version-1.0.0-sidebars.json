@@ -3,36 +3,55 @@
     "Introduction": [
       "version-1.0.0-welcome"
     ],
-    "Guides": [
-      "version-1.0.0-quick-start-webwallet"
-    ],
-    "Integration": [
+    "Tutorials": [
       "version-1.0.0-integration-introduction",
-      "version-1.0.0-deposits",
-      "version-1.0.0-transfers",
       {
         "type": "subcategory",
-        "label": "Exits",
+        "label": "OMG Network",
         "ids": [
+          "version-1.0.0-retrieve-balances",
+          "version-1.0.0-deposits",
+          "version-1.0.0-transfers",
           "version-1.0.0-standard-exits",
-          "version-1.0.0-in-flight-exits"
+          "version-1.0.0-in-flight-exits",
+          "version-1.0.0-process-exits",
+          "version-1.0.0-managing-utxos",
+          "version-1.0.0-challenging-exits"
         ]
       },
-      "version-1.0.0-challenge-period",
-      "version-1.0.0-challenging-exits",
-      "version-1.0.0-process-exits"
+      {
+        "type": "subcategory",
+        "label": "OMG Wallet",
+        "ids": [
+          "version-1.0.0-quick-start-webwallet"
+        ]
+      }
+    ],
+    "Concepts": [
+      {
+        "type": "subcategory",
+        "label": "OMG Network",
+        "ids": [
+          "version-1.0.0-blockchain-design",
+          "version-1.0.0-byzantine-conditions",
+          "version-1.0.0-network-architecture",
+          "version-1.0.0-challenge-period",
+          "version-1.0.0-exitbonds",
+          "version-1.0.0-fees"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "Plasma",
+        "ids": [
+          "version-1.0.0-morevp-technical-overview",
+          "version-1.0.0-plasma-proposition"
+        ]
+      }
     ],
     "Appendix": [
-      "version-1.0.0-plasma-proposition",
-      "version-1.0.0-network-architecture",
       "version-1.0.0-glossary",
-      "version-1.0.0-faq",
-      "version-1.0.0-managing-utxos",
-      "version-1.0.0-morevp-technical-overview",
-      "version-1.0.0-blockchain-design",
-      "version-1.0.0-byzantine-conditions",
-      "version-1.0.0-exitbonds",
-      "version-1.0.0-fees"
+      "version-1.0.0-faq"
     ],
     "Migration Guides": [
       "version-1.0.0-migration-0.2-0.3",

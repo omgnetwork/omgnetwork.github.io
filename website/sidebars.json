@@ -3,36 +3,55 @@
     "Introduction": [
       "welcome"
     ],
-    "Guides": [
-      "quick-start-webwallet"
-    ],
-    "Integration": [
+    "Tutorials": [
       "integration-introduction",
-      "deposits",
-      "transfers",
       {
         "type": "subcategory",
-        "label": "Exits",
+        "label": "OMG Network",
         "ids": [
+          "retrieve-balances",
+          "deposits",
+          "transfers",
           "standard-exits",
-          "in-flight-exits"
+          "in-flight-exits",
+          "process-exits",
+          "managing-utxos",
+          "challenging-exits"
         ]
       },
-      "challenge-period",
-      "challenging-exits",
-      "process-exits"
+      {
+        "type": "subcategory",
+        "label": "OMG Wallet",
+        "ids": [
+          "quick-start-webwallet"
+        ]
+      }
+    ],
+    "Concepts": [
+      {
+        "type": "subcategory",
+        "label": "OMG Network",
+        "ids": [
+          "blockchain-design",
+          "byzantine-conditions",
+          "network-architecture",
+          "challenge-period",
+          "exitbonds",
+          "fees"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "Plasma",
+        "ids": [
+          "morevp-technical-overview",
+          "plasma-proposition"
+        ]
+      }
     ],
     "Appendix": [
-      "plasma-proposition",
-      "network-architecture",
       "glossary",
-      "faq",
-      "managing-utxos",
-      "morevp-technical-overview",
-      "blockchain-design",
-      "byzantine-conditions",
-      "exitbonds",
-      "fees"
+      "faq"
     ],
     "Migration Guides": [
       "migration-0.2-0.3",
