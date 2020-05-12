@@ -73,6 +73,7 @@
   border-radius: 0;
   margin-right: 10px;
   margin-top: 20px;
+  min-width: 160px;
 }
 .button-primary {
   background-color: #215cec;
