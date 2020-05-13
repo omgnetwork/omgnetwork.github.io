@@ -179,8 +179,8 @@ class Index extends React.Component {
         <div className="col-12 col-md-4 mb-3">
           <a href={props.url} target="_blank">
             <div className="row box">
-              <div className="col-3 d-none d-lg-block">
-                <img alt="image" className="fdb-icon" src={props.imageLink} />
+              <div className="col-3 d-none d-lg-block align-self-center">
+                <img alt="image" className="fdb-icon mx-auto" src={props.imageLink} />
               </div>
               <div className="col-sm-12 col-md-12 col-lg-9">
                 <h3>{props.title}</h3>
