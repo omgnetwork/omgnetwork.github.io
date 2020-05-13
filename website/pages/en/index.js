@@ -164,7 +164,7 @@ class Index extends React.Component {
     );
 
     const CardsContainer = (props) => (
-      <div>
+      <div className="mb-3">
         <div className="row">
           <div className="col-12 pl-sm-0">
             <h2>{props.blockTitle}</h2>
