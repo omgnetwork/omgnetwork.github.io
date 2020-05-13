@@ -16,11 +16,12 @@ See docs on [`unchallenged_exit` condition](https://github.com/omisego/elixir-om
   "details": {
     "amount": 12000000000000000000,
     "currency": "0x0000000000000000000000000000000000000000",
-    "eth_height": 899,
+    "eth_height": 325,
     "name": "unchallenged_exit",
-    "owner": "0x37d5c1fbfa32b6582b425d5ea8d724478dac0aee",
-    "root_chain_txhash": "0x5ebfbd6caff8d53e74590a646ffa5018e8776445c78ed735e29bdb52e55edd9c",
-    "utxo_pos": 2001000000000
+    "owner": "0xc29320f6a614edd1ffc8c7f8a7c8dd703761a68a",
+    "root_chain_txhash": "0xee0d9e06dedf792d25c3d168fe1073c42039b49ddeffd76fc57e31201df8887b",
+    "scheduled_finalization_time": 1588144725,
+    "utxo_pos": 1000000000
   }
 }
 ```
