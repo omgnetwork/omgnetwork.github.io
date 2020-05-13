@@ -36,8 +36,8 @@ const siteConfig = {
     'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js',
     '/js/code-block-buttons.js',
   ],
-  stylesheets: ['/css/code-block-buttons.css'],
-  wrapPagesHTML: true,
+  stylesheets: ['/css/code-block-buttons.css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'],
+  // wrapPagesHTML: true,
   onPageNav: "separate",
   cleanUrl: true,
   algolia: {
@@ -58,11 +58,13 @@ const siteConfig = {
   // omg urls
   gettingStartedUrl: "welcome",
   blockExplorerUrl: "https://blockexplorer.ropsten.v1.omg.network",
+  webWalletUrl: "https://webwallet.ropsten.v1.omg.network",
   watcherInfoAPIUrl:
     "https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs",
   watcherSecurityAPIUrl:
     "https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Fsecurity_critical_api_specs",
   childChainAPIUrl: "https://docs.omg.network/elixir-omg/docs-ui",
+  omgJsAPIUrl: "https://docs.omg.network/omg-js"
 };
 
 module.exports = siteConfig;

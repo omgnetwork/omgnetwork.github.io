@@ -1629,8 +1629,7 @@ h6,
 }
 .fdb-block img.fdb-icon {
   width: auto;
-  width: 2.75rem;
-  margin-top: 0.6rem;
+  /* width: 3.1rem; */
 }
 .fdb-block img.fdb-icon-round {
   width: auto;
@@ -1671,9 +1670,9 @@ h6,
   transition: all 0.2s ease-in-out;
 }
 .box:hover {
+  -webkit-box-shadow: 0.1rem 0.3rem 0.8rem #e6e6e6;
   box-shadow: 0.1rem 0.3rem 0.8rem #e6e6e6;
 }
-
 @media only screen and (max-width: 580px) {
   .box {
     margin-left: 3px;
@@ -1686,7 +1685,10 @@ h6,
   border-left-width: 5px;
   border-radius: 3px;
 }
-
 .callout-primary {
   border-left-color: #007bff;
+}
+.callout-primary:hover {
+  border: 1px solid #007bff;
+  border-left-width: 5px;
 }
