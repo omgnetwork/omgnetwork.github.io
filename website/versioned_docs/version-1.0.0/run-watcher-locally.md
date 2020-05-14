@@ -35,7 +35,7 @@ The number of calls required to maintain synchronization with the Ethereum RPC n
 Watcher currently supports the following operating systems:
 - Ubuntu 16.04
 - Ubuntu 18.04
-- macOS ?
+- MacOS ?
 
 ## Minimum Hardware Requirements
 
@@ -47,7 +47,9 @@ The following hardware is required to run a Watcher:
 
 ## Estimated Costs
 
-...
+The estimated monthly costs for running a Watcher locally can be calculated as follows:
+- Ethereum infrastructure provider: $50-$100
+- Cable internet: $10-$70
 
 ## Installation Process
 
@@ -55,9 +57,16 @@ The following hardware is required to run a Watcher:
 
 It's advised to create a local directory to hold the Watcher data.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- Linux -->
 ```
 mkdir ~/.omg-watcher
 ```
+<!-- MacOS -->
+```
+mkdir ~/.omg-watcher
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Step 2 - Clone elixir-omg
 
@@ -102,7 +111,18 @@ sudo kill <PID>
 
 ### Step 4 - Mofidy configurations
 
-...
+Most of the configurations required to run a Watcher are filled with default values. You do need to set up `ETHEREUM_RPC_URL` that corresponds with a full Ethereum node you will be using. To change the values, use the following command from the root of repository:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- Linux -->
+```
+nano docker-compose-watcher.yml
+```
+<!-- MacOS -->
+```
+nano docker-compose-watcher.yml
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Step 5 - Run a Watcher instance
 
@@ -112,23 +132,24 @@ To run a Watcher instance, you need to start the required Docker containers. The
 docker-compose -f docker-compose-watcher.yml up -d
 ```
 
-To see logs, use the following command:
+Example output:
+```
+Starting elixir-omg_watcher_1 ... 
+elixir-omg_postgres_1 is up-to-date
+Starting elixir-omg_watcher_1 ... done
+```
 
+To see logs, use the following command:
 ```
 docker-compose -f docker-compose-watcher.yml logs -f
 ```
-
 Example output:
 ```
-Creating network "elixir-omg_default" with the default driver
-Pulling postgres (postgres:9.6.13-alpine)...
-9.6.13-alpine: Pulling from library/postgres
-e7c96db7181b: Pulling fs layer
-e7c96db7181b: Downloading [>                                                  ]   27.8kB/2.757MB60ba9: Download complete
-e7c96db7181b: Downloading [==================>                                ]  997.8kB/e7c96db7181b: Downloading [=========================================>         ]  2.309MB/e7c96db7181b: Extracting [>                                                  ]  32.77kB/2e7c96db7181b: Extracting [=>                                                 ]   98.3kB/2e7c96db7181b: Extracting [====================================>              ]  2.032MB/2e7c96db7181b: Extracting [==================================================>]  2.757MB/2e7c96db7181b: Pull complete
-ddab92d60ba9: Extracting [==================================================>]     147B/1ddab92d60ba9: Extracting [==================================================>]     147B/1ddab92d60ba9: Pull complete
-8c4b0e7b82b8: Extracting [==================================================>]     115B/18c4b0e7b82b8: Extracting [==================================================>]     115B/18c4b0e7b82b8: Pull complete
-
+watcher_1       | 2020-05-14 07:59:40.641 [info] module=OMG.State.Core function=deposit/2 ⋅Recognized deposits [%{amount: 5000000000000, blknum: 333003, currency: <<0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0>>, eth_height: 7464574, event_signature: "DepositCreated(address,uint256,address,uint256)", log_index: 7, owner: <<98, 115, 6, 9, 10, 186, 179, 166, 225, 64, 14, 147, 69, 188, 96, 199, 138, 139, 239, 87>>, root_chain_txhash: <<128, 120, 21, 126, 118, 101, 96, 193, 170, 204, 177, 112, 194, 16, 248, 28, 158, 146, 251, 122, 39, 28, 155, 124, 226, 159, 242, 254, 175, 44, 240, 100>>}]⋅
+watcher_1       | 2020-05-14 07:59:40.649 [info] module=OMG.Watcher.BlockGetter.Core function=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [1000]⋅
+watcher_1       | 2020-05-14 07:59:40.693 [info] module=OMG.Watcher.BlockGetter.Core function=validate_download_response/5 ⋅Potential block withholding {:error, {:client_error, %{"code" => "get_block:not_found", "description" => nil, "object" => "error"}}}, number: #2000⋅
+watcher_1       | 2020-05-14 07:59:41.199 [info] module=OMG.Watcher.BlockGetter.Core function=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [4000]⋅
+watcher_1       | 2020-05-14 07:59:41.525 [info] module=OMG.Watcher.BlockGetter.Core function=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [3000]⋅
 ```
 
 After the Watcher is fully synced up with the Ethereum network, you can see the following output:
