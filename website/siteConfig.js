@@ -48,7 +48,7 @@ const siteConfig = {
     // Highlight.js theme to use for syntax highlighting in code blocks.
     theme: "dracula",
   },
-  docsSideNavCollapsible: true,
+  docsSideNavCollapsible: false,
   // Open Graph and Twitter card images.
   ogImage: "img/omisego-blue.svg",
   twitterImage: "img/omisego-blue.svg",
