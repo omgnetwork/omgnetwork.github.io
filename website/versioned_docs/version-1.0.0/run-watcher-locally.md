@@ -35,7 +35,7 @@ The number of calls required to maintain synchronization with the Ethereum RPC n
 Watcher currently supports the following operating systems:
 - Ubuntu 16.04
 - Ubuntu 18.04
-- MacOS ?
+- macOS ?
 
 ## Minimum Hardware Requirements
 
@@ -48,7 +48,7 @@ The following hardware is required to run a Watcher:
 ## Estimated Costs
 
 The estimated monthly costs for running a Watcher locally can be calculated as follows:
-- Ethereum infrastructure provider: $50-$100
+- Ethereum full node: $50-$100
 - Cable internet: $10-$70
 
 ## Installation Process
@@ -62,7 +62,7 @@ It's advised to create a local directory to hold the Watcher data.
 ```
 mkdir ~/.omg-watcher
 ```
-<!-- MacOS -->
+<!-- macOS -->
 ```
 mkdir ~/.omg-watcher
 ```
@@ -87,7 +87,7 @@ sudo lsof -i -n -P | grep LISTEN
 sudo ss -tulpn
 sudo netstat -tulpn
 ```
-<!-- MacOS -->
+<!-- macOS -->
 ```
 sudo lsof -i -n -P | grep TCP
 sudo netstat -anp tcp | grep LISTEN
@@ -102,7 +102,7 @@ If you found one of the ports is already in use, consider closing them with the 
 sudo lsof -t -i:<PORT>
 sudo kill -9 <PID>
 ```
-<!-- MacOS -->
+<!-- macOS -->
 ```
 sudo lsof -i :<PORT>
 sudo kill <PID>
@@ -118,7 +118,7 @@ Most of the configurations required to run a Watcher are filled with default val
 ```
 nano docker-compose-watcher.yml
 ```
-<!-- MacOS -->
+<!-- macOS -->
 ```
 nano docker-compose-watcher.yml
 ```
