@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Run Watcher Locally · OMG Network</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="*At the end of this guide you should know how to run your own Watcher locally.*"/><meta name="docsearch:version" content="1.0.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Run Watcher Locally · OMG Network"/><meta property="og:type" content="website"/><meta property="og:url" content="https://omisego.github.io/"/><meta property="og:description" content="*At the end of this guide you should know how to run your own Watcher locally.*"/><meta property="og:image" content="https://omisego.github.io/img/omisego-blue.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://omisego.github.io/img/omisego-blue.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-154130721-1"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-154130721-1');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/><script type="text/javascript" src="js/typeform.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/omisego-white.svg" alt="OMG Network"/></a><a href="/versions"><h3>1.0.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/welcome" target="_self">Docs</a></li><li class=""><a href="network-connection-details" target="_self">Network Connection</a></li><li class=""><a href="/api-reference-introduction" target="_self">API</a></li><li class=""><a href="https://omisego.co/" target="_blank">Product</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>OMG Network</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/welcome">About the OMG Network</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorials</h3><ul class=""><li class="navListItem"><a class="navItem" href="/integration-introduction">Introduction</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">OMG Network</h4><ul><li class="navListItem"><a class="navItem" href="/retrieve-balances">Retrieve Balances</a></li><li class="navListItem"><a class="navItem" href="/deposits">Deposit Funds</a></li><li class="navListItem"><a class="navItem" href="/transfers">Make a Transfer</a></li><li class="navListItem"><a class="navItem" href="/standard-exits">Start a Standard Exit</a></li><li class="navListItem"><a class="navItem" href="/in-flight-exits">Start an In-flight Exit</a></li><li class="navListItem"><a class="navItem" href="/process-exits">Process an Exit</a></li><li class="navListItem"><a class="navItem" href="/managing-utxos">Merge or Split UTXO</a></li><li class="navListItem"><a class="navItem" href="/challenging-exits">Challenge an Exit</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">OMG Wallet</h4><ul><li class="navListItem"><a class="navItem" href="/quick-start-webwallet">Web Wallet Quick Start</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">How-to Guides</h3><ul class=""><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">OMG Network</h4><ul><li class="navListItem navListItemActive"><a class="navItem" href="/run-watcher-locally">Run Watcher Locally</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Concepts</h3><ul class=""><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">OMG Network</h4><ul><li class="navListItem"><a class="navItem" href="/blockchain-design">Blockchain Design</a></li><li class="navListItem"><a class="navItem" href="/byzantine-conditions">Byzantine Conditions</a></li><li class="navListItem"><a class="navItem" href="/network-architecture">Network Architecture</a></li><li class="navListItem"><a class="navItem" href="/challenge-period">Challenge Period</a></li><li class="navListItem"><a class="navItem" href="/exitbonds">Exit Bonds</a></li><li class="navListItem"><a class="navItem" href="/fees">Fees</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Plasma</h4><ul><li class="navListItem"><a class="navItem" href="/morevp-technical-overview">MoreVP Technical Overview</a></li><li class="navListItem"><a class="navItem" href="/plasma-proposition">The Plasma Proposition</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Appendix</h3><ul class=""><li class="navListItem"><a class="navItem" href="/glossary">Glossary</a></li><li class="navListItem"><a class="navItem" href="/faq">FAQ</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Migration Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/migration-0.2-0.3">0.2 to 0.3</a></li><li class="navListItem"><a class="navItem" href="/migration-0.3-0.4">0.3 to 0.4</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Run Watcher Locally</h1></header><article><div><span><p><em>At the end of this guide you should know how to run your own Watcher locally.</em></p>
+<h2><a class="anchor" aria-hidden="true" id="requirements"></a><a href="#requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirements</h2>
+<ol>
+<li><a href="https://docs.docker.com/compose/install">Docker Compose</a>. This is the recommended method of starting the blockchain services, with the auxiliary services automatically provisioned through Docker.</li>
+</ol>
+<p>To check if you have Docker Compose installed, run the following command in your terminal:</p>
+<pre><code class="hljs">docker-compose <span class="hljs-comment">--version</span>
+</code></pre>
+<p>Example output:</p>
+<pre><code class="hljs">docker-compose version <span class="hljs-number">1.25</span><span class="hljs-number">.5</span>, build <span class="hljs-number">8</span>a1c60f6
+</code></pre>
+<ol start="2">
+<li>A fully synced Ethereum client. There are several options to choose from:</li>
+</ol>
+<ul>
+<li>Run <a href="https://geth.ethereum.org/docs">Geth</a> client.</li>
+<li>Run <a href="https://openethereum.github.io/wiki/Parity-Ethereum">Parity</a> client.</li>
+<li>Use one of external services: <a href="https://infura.io">Infura</a>, <a href="https://www.quiknode.io/">QuickNode</a>, <a href="https://rivet.cloud/">Rivet</a>, etc.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="supported-platforms"></a><a href="#supported-platforms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Supported Platforms</h2>
+<p>Watcher currently supports the following operating systems:</p>
+<ul>
+<li>Ubuntu 16.04</li>
+<li>Ubuntu 18.04</li>
+<li>MacOS ?</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="step-1---clone-repository"></a><a href="#step-1---clone-repository" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 1 - Clone repository</h2>
+<p>Clone <code>elixir-omg</code>:</p>
+<pre><code class="hljs">git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/omisego/elixir-omg.git
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="step-2---check-tcp-ports"></a><a href="#step-2---check-tcp-ports" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 2 - Check TCP ports</h2>
+<p>Before attempting the start up please ensure that you are not running any services that are listening on the following TCP ports: 9656, 7434, 7534, 5000, 8545, 5432, 5433. All commands should be run from the root of the repo.</p>
+<p>You can use lsof, netstat, nmap or other alternatives to accomplish that.</p>
+<p><strong>Linux</strong>:</p>
+<pre><code class="hljs"><span class="hljs-attr">sudo</span> <span class="hljs-string">lsof -i -P -n | grep LISTEN</span>
+<span class="hljs-attr">sudo</span> <span class="hljs-string">netstat -tulpn | grep LISTEN</span>
+<span class="hljs-attr">sudo</span> <span class="hljs-string">nmap -sTU -O IP-address-Here</span>
+</code></pre>
+<p>The netstat command has been deprecated for some time on Linux. Therefore, you can use the ss command as follows:</p>
+<pre><code class="hljs"><span class="hljs-attr">sudo</span> <span class="hljs-string">ss -tulw</span>
+<span class="hljs-attr">sudo</span> <span class="hljs-string">ss -tulwn</span>
+</code></pre>
+<p><strong>MacOS</strong>:</p>
+<pre><code class="hljs">netstat -anp tcp <span class="hljs-string">| grep LISTEN</span>
+</code></pre>
+<p>Example output netstat:</p>
+<pre><code class="hljs">tcp        <span class="hljs-number">0</span>      <span class="hljs-number">0</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">45501</span>         <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:*               LISTEN      <span class="hljs-number">19209</span>/C:\users\dmit 
+tcp        <span class="hljs-number">0</span>      <span class="hljs-number">0</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">40765</span>         <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:*               LISTEN      <span class="hljs-number">19209</span>/C:\users\dmit 
+tcp        <span class="hljs-number">0</span>      <span class="hljs-number">0</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">24433</span>           <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:*               LISTEN      <span class="hljs-number">19133</span>/Z:\home\dmitr 
+tcp        <span class="hljs-number">0</span>      <span class="hljs-number">0</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">38676</span>         <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:*               LISTEN      <span class="hljs-number">29122</span>/wineserver    
+tcp        <span class="hljs-number">0</span>      <span class="hljs-number">0</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.53</span>:<span class="hljs-number">53</span>           <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:*               LISTEN      <span class="hljs-number">1413</span>/systemd-resolv 
+tcp        <span class="hljs-number">0</span>      <span class="hljs-number">0</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">631</span>           <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:*               LISTEN      <span class="hljs-number">25607</span>/cupsd         
+tcp6       <span class="hljs-number">0</span>      <span class="hljs-number">0</span> :::<span class="hljs-number">4000</span>                 :::*                    LISTEN      <span class="hljs-number">2146</span>/docker-proxy   
+tcp6       <span class="hljs-number">0</span>      <span class="hljs-number">0</span> :::<span class="hljs-number">24433</span>                :::*                    LISTEN      <span class="hljs-number">29122</span>/wineserver    
+tcp6       <span class="hljs-number">0</span>      <span class="hljs-number">0</span> ::<span class="hljs-number">1</span>:<span class="hljs-number">631</span>                 :::*                    LISTEN      <span class="hljs-number">25607</span>/cupsd         
+tcp6       <span class="hljs-number">0</span>      <span class="hljs-number">0</span> :::<span class="hljs-number">8025</span>                 :::*                    LISTEN      <span class="hljs-number">2115</span>/docker-proxy   
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="step-3---mofidy-configurations"></a><a href="#step-3---mofidy-configurations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 3 - Mofidy configurations</h2>
+<p>Change <code>ETHEREUM_RPC_URL</code>..</p>
+<h2><a class="anchor" aria-hidden="true" id="step-4---run-a-watcher-instance"></a><a href="#step-4---run-a-watcher-instance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 4 - Run a Watcher instance</h2>
+<p>To run a Watcher instance, you need to start the required docker containers. The parameter <code>-d</code> allows running containers in the background.</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">docker-compose</span> <span class="hljs-selector-tag">-f</span> <span class="hljs-selector-tag">docker-compose-watcher</span><span class="hljs-selector-class">.yml</span> <span class="hljs-selector-tag">up</span> <span class="hljs-selector-tag">-d</span>
+</code></pre>
+<p>To see logs, use the following command:</p>
+<pre><code class="hljs"><span class="hljs-attribute">docker-compose logs -f</span>
+</code></pre>
+<p>Example output:</p>
+<pre><code class="hljs">Creating network <span class="hljs-string">"elixir-omg_default"</span> with the <span class="hljs-keyword">default</span> driver
+Pulling postgres (postgres:<span class="hljs-number">9.6</span><span class="hljs-number">.13</span>-alpine)...
+<span class="hljs-number">9.6</span><span class="hljs-number">.13</span>-alpine: Pulling <span class="hljs-keyword">from</span> library/postgres
+e7c96db7181b: Pulling fs layer
+e7c96db7181b: Downloading [&gt;                                                  ]   <span class="hljs-number">27.8</span>kB/<span class="hljs-number">2.757</span>MB60ba9: Download complete
+e7c96db7181b: Downloading [==================&gt;                                ]  <span class="hljs-number">997.8</span>kB/e7c96db7181b: Downloading [=========================================&gt;         ]  <span class="hljs-number">2.309</span>MB/e7c96db7181b: Extracting [&gt;                                                  ]  <span class="hljs-number">32.77</span>kB/<span class="hljs-number">2e7</span>c96db7181b: Extracting [=&gt;                                                 ]   <span class="hljs-number">98.3</span>kB/<span class="hljs-number">2e7</span>c96db7181b: Extracting [====================================&gt;              ]  <span class="hljs-number">2.032</span>MB/<span class="hljs-number">2e7</span>c96db7181b: Extracting [==================================================&gt;]  <span class="hljs-number">2.757</span>MB/<span class="hljs-number">2e7</span>c96db7181b: Pull complete
+ddab92d60ba9: Extracting [==================================================&gt;]     <span class="hljs-number">147</span>B/<span class="hljs-number">1</span>ddab92d60ba9: Extracting [==================================================&gt;]     <span class="hljs-number">147</span>B/<span class="hljs-number">1</span>ddab92d60ba9: Pull complete
+<span class="hljs-number">8</span>c4b0e7b82b8: Extracting [==================================================&gt;]     <span class="hljs-number">115</span>B/<span class="hljs-number">18</span>c4b0e7b82b8: Extracting [==================================================&gt;]     <span class="hljs-number">115</span>B/<span class="hljs-number">18</span>c4b0e7b82b8: Pull complete
+
+</code></pre>
+<pre><code class="hljs"><span class="hljs-attribute">ction</span>=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [2000]⋅
+watcher_1       | 2020-05-13 17:04:20.618 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [1000]⋅
+watcher_info_1  | 2020-05-13 17:04:20.630 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=validate_download_response/5 ⋅Potential block withholding {<span class="hljs-keyword">:error</span>, {:client_error, %{<span class="hljs-string">"code"</span> =&gt; <span class="hljs-string">"get_block:not_found"</span>, <span class="hljs-string">"description"</span> =&gt; <span class="hljs-literal">nil</span>, <span class="hljs-string">"object"</span> =&gt; <span class="hljs-string">"error"</span>}}}, number: #3000⋅
+watcher_info_1  | 2020-05-13 17:04:20.637 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [4000]⋅
+watcher_1       | 2020-05-13 17:04:20.779 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [2000]⋅
+watcher_1       | 2020-05-13 17:04:20.789 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=validate_download_response/5 ⋅Potential block withholding {<span class="hljs-keyword">:error</span>, {:client_error, %{<span class="hljs-string">"code"</span> =&gt; <span class="hljs-string">"get_block:not_found"</span>, <span class="hljs-string">"description"</span> =&gt; <span class="hljs-literal">nil</span>, <span class="hljs-string">"object"</span> =&gt; <span class="hljs-string">"error"</span>}}}, number: #4000⋅
+watcher_info_1  | 2020-05-13 17:04:20.983 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=validate_download_response/5 ⋅Potential block withholding {<span class="hljs-keyword">:error</span>, {:client_error, %{<span class="hljs-string">"code"</span> =&gt; <span class="hljs-string">"get_block:not_found"</span>, <span class="hljs-string">"description"</span> =&gt; <span class="hljs-literal">nil</span>, <span class="hljs-string">"object"</span> =&gt; <span class="hljs-string">"error"</span>}}}, number: #2000⋅
+watcher_info_1  | 2020-05-13 17:04:20.996 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [1000]⋅
+watcher_1       | 2020-05-13 17:04:21.124 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=validate_download_response/5 ⋅Potential block withholding {<span class="hljs-keyword">:error</span>, {:client_error, %{<span class="hljs-string">"code"</span> =&gt; <span class="hljs-string">"get_block:not_found"</span>, <span class="hljs-string">"description"</span> =&gt; <span class="hljs-literal">nil</span>, <span class="hljs-string">"object"</span> =&gt; <span class="hljs-string">"error"</span>}}}, number: #1000⋅
+watcher_info_1  | 2020-05-13 17:04:21.173 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [3000]⋅
+watcher_info_1  | 2020-05-13 17:04:21.186 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=validate_download_response/5 ⋅Potential block withholding {<span class="hljs-keyword">:error</span>, {:client_error, %{<span class="hljs-string">"code"</span> =&gt; <span class="hljs-string">"get_block:not_found"</span>, <span class="hljs-string">"description"</span> =&gt; <span class="hljs-literal">nil</span>, <span class="hljs-string">"object"</span> =&gt; <span class="hljs-string">"error"</span>}}}, number: #4000⋅
+watcher_1       | 2020-05-13 17:04:21.214 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=validate_download_response/5 ⋅Potential block withholding {<span class="hljs-keyword">:error</span>, {:client_error, %{<span class="hljs-string">"code"</span> =&gt; <span class="hljs-string">"get_block:not_found"</span>, <span class="hljs-string">"description"</span> =&gt; <span class="hljs-literal">nil</span>, <span class="hljs-string">"object"</span> =&gt; <span class="hljs-string">"error"</span>}}}, number: #3000⋅
+watcher_1       | 2020-05-13 17:04:21.297 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=validate_download_response/5 ⋅Potential block withholding {<span class="hljs-keyword">:error</span>, {:client_error, %{<span class="hljs-string">"code"</span> =&gt; <span class="hljs-string">"get_block:not_found"</span>, <span class="hljs-string">"description"</span> =&gt; <span class="hljs-literal">nil</span>, <span class="hljs-string">"object"</span> =&gt; <span class="hljs-string">"error"</span>}}}, number: #2000⋅
+watcher_1       | 2020-05-13 17:04:21.335 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [4000]⋅
+watcher_info_1  | 2020-05-13 17:04:21.514 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=validate_download_response/5 ⋅Potential block withholding {<span class="hljs-keyword">:error</span>, {:client_error, %{<span class="hljs-string">"code"</span> =&gt; <span class="hljs-string">"get_block:not_found"</span>, <span class="hljs-string">"description"</span> =&gt; <span class="hljs-literal">nil</span>, <span class="hljs-string">"object"</span> =&gt; <span class="hljs-string">"error"</span>}}}, number: #1000⋅
+watcher_1       | 2020-05-13 17:04:21.526 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [1000]⋅
+watcher_info_1  | 2020-05-13 17:04:21.574 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [2000]⋅
+watcher_1       | 2020-05-13 17:04:21.690 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [3000]⋅
+watcher_info_1  | 2020-05-13 17:04:21.712 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=validate_download_response/5 ⋅Potential block withholding {<span class="hljs-keyword">:error</span>, {:client_error, %{<span class="hljs-string">"code"</span> =&gt; <span class="hljs-string">"get_block:not_found"</span>, <span class="hljs-string">"description"</span> =&gt; <span class="hljs-literal">nil</span>, <span class="hljs-string">"object"</span> =&gt; <span class="hljs-string">"error"</span>}}}, number: #3000⋅
+watcher_info_1  | 2020-05-13 17:04:21.746 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [4000]⋅
+watcher_1       | 2020-05-13 17:04:21.858 [<span class="hljs-builtin-name">info</span>] <span class="hljs-attribute">module</span>=OMG.Watcher.BlockGetter.Core <span class="hljs-attribute">function</span>=log_downloading_blocks/2 ⋅Child chain seen at block #359000. Downloading blocks [2000]⋅
+watcher_1       | 2020-05-13 17:04:21.8
+</code></pre>
+<p>Once the Ethereum client is running, you can use <code>Ctrl + P</code>, <code>Ctrl + Q</code> to detach from the container without stopping it. You will need to leave the container running for the Watcher node to connect to it.</p>
+<p>If the container was stopped and you need to run it again, you can simply use the following command:</p>
+<pre><code class="hljs">docker <span class="hljs-literal">start</span> -i eth
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/how-to-guides"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/blockchain-design"><span>Blockchain Design</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#requirements">Requirements</a></li><li><a href="#supported-platforms">Supported Platforms</a></li><li><a href="#step-1---clone-repository">Step 1 - Clone repository</a></li><li><a href="#step-2---check-tcp-ports">Step 2 - Check TCP ports</a></li><li><a href="#step-3---mofidy-configurations">Step 3 - Mofidy configurations</a></li><li><a href="#step-4---run-a-watcher-instance">Step 4 - Run a Watcher instance</a></li></ul></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a target="_blank" href="morevp-technical-overview">Learn MoreVP
+Architecture</a></span><span class="footer-item"><a target="_blank" href="/quick-start-webwallet">Get to know
+the Plasma Interface</a></span></div><div class="footer-column"><span class="footer-title">APIs</span><span class="footer-item"><a target="_blank" href="https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Finfo_api_specs">Watcher
+Informational API</a></span><span class="footer-item"><a target="_blank" href="https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&amp;urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
+Security Critical API</a></span><span class="footer-item"><a target="_blank" href="https://docs.omg.network/elixir-omg/docs-ui">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Documentation</span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/elixir-omg/blob/master/README.md">OMG Network</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego/omg-js/blob/master/README.md">omg-js</a></span></div><div class="footer-column"><span class="footer-title">Links</span><span class="footer-item"><a target="_blank" href="https://blockexplorer.ropsten.v1.omg.network">Block Explorer</a></span><span class="footer-item"><a target="_blank" href="https://omisego.co/">OmiseGO</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omisego">GitHub</a></span></div><div class="footer-column" style="position:relative"><span class="footer-title">Follow us</span><span class="footer-item"><a target="_blank" href="https://twitter.com/omise_go"><img src="/img/twitter.svg" alt="twitter" class="footer-social"/></a><a target="_blank" href="https://www.linkedin.com/company/omisego/"><img src="/img/linkedin.svg" alt="linkedin" class="footer-social"/></a><a target="_blank" href="https://github.com/omisego"><img src="/img/github.svg" alt="github" class="footer-social"/></a><a target="_blank" href="https://reddit.com/r/omise_go/"><img src="/img/reddit.svg" alt="reddit" class="footer-social"/></a><a target="_blank" href="https://www.youtube.com/channel/UC-NfGRxTkJfVbFgyJoOxzCQ"><img src="/img/youtube.svg" alt="youtube" class="footer-social"/></a></span><span class="footer-copyright">© 2019-present OmiseGO.
+All rights reserved</span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+                indexName: 'omisego',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
