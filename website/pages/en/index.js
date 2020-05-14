@@ -86,23 +86,25 @@ class Index extends React.Component {
     const state = {
       integrationTools: [
         {
-          title: "Tutorials",
-          content:
-            "Learn technical implementation of the OMG Network features.",
-          url: "integration-introduction",
-          imageLink: `${baseUrl}img/icons/01.svg`,
-        },
-        {
-          title: "Block Explorer",
+          title: "Block Explorer (Ropsten)",
           content: "Watch the latest blocks and transactions on the network.",
           url: `${blockExplorerUrl}`,
           imageLink: `${baseUrl}img/icons/02.svg`,
         },
         {
-          title: "Web Wallet",
+          title: "Web Wallet App (Ropsten)",
           content: "Deposit funds and transact on the OMG Network.",
           url: `${webWalletUrl}`,
           imageLink: `${baseUrl}img/icons/03.svg`,
+        },
+      ],
+      integrationDocs: [
+        {
+          title: "Tutorials",
+          content:
+            "Learn technical implementation of the OMG Network features.",
+          url: "integration-introduction",
+          imageLink: `${baseUrl}img/icons/01.svg`,
         },
         {
           title: "Plasma Contracts",
@@ -120,9 +122,9 @@ class Index extends React.Component {
       ],
       codeSamples: [
         {
-          title: "React Starter Kit",
-          content: "Interact with the OMG network from your browser.",
-          url: "https://github.com/omisego/react-starter-kit",
+          title: "Web Wallet Code",
+          content: "Interact with the OMG Network from your browser.",
+          url: "https://github.com/omisego/web-wallet",
           imageLink: `${baseUrl}img/icons/06.svg`,
         },
         {
@@ -170,7 +172,7 @@ class Index extends React.Component {
             <h2>{props.blockTitle}</h2>
           </div>
         </div>
-        <div className="row text-left mt-3">{props.children}</div>
+        <div className="row text-left mt-0">{props.children}</div>
       </div>
     );
 
@@ -211,7 +213,19 @@ class Index extends React.Component {
       <div>
         <Header siteConfig={siteConfig} language={language} />
         <Block>
-          <CardsContainer blockTitle="Integration Docs & Tools">
+          <CardsContainer blockTitle="Integration Docs">
+            {state.integrationDocs.map((item, key) => {
+              return (
+                <ImagedCard
+                  title={item.title}
+                  content={item.content}
+                  imageLink={item.imageLink}
+                  url={item.url}
+                ></ImagedCard>
+              );
+            })}
+          </CardsContainer>
+          <CardsContainer blockTitle="Integration Tools">
             {state.integrationTools.map((item, key) => {
               return (
                 <ImagedCard
