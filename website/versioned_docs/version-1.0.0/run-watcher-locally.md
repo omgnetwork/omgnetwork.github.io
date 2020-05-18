@@ -1,15 +1,23 @@
 ---
 id: version-1.0.0-run-watcher-locally
-title: Run Watcher Locally
-sidebar_label: Run Watcher Locally
+title: Run a Watcher Locally
+sidebar_label: Run a Watcher Locally
 original_id: run-watcher-locally
 ---
 
-*By the end of this guide you should know how to run a Watcher locally.*
+*By the end of this guide you should know how to run a Watcher locally. The guide is useful for individual developers and clients who want to integrate with the OMG Network.*
+
+## Goals
+
+You should use this guide if you need to accomplish one of the following goals:
+- Test the Watcher locally under certain conditions
+- Run a local Watcher during Dapp development or software integration  
+- Host a redundant Watcher node to secure the network
+- Have an ability to challenge UTXOs
 
 ## Prerequisites
 
-1. [Docker Compose](https://docs.docker.com/compose/install). It's recommended to run a Watcher with Docker. We continuously build and deploy the code from our [Github repository](https://github.com/omisego/elixir-omg) to allow developers running the latest code on different environments.
+1. [Docker Compose](https://docs.docker.com/compose/install) > `1.17`. It's recommended to run a Watcher with Docker. We continuously build and deploy the code from our [Github repository](https://github.com/omisego/elixir-omg) to allow developers running the latest code on different environments.
 
 To check if you have Docker Compose installed, run the following command in your terminal:
 ```
@@ -31,22 +39,23 @@ Watcher currently supports the following operating systems:
 - Ubuntu 18.04
 - macOS
 
+> Note, it might be possible to run a Watcher on other OS that supports the Docker daemon and tooling. 
+
 ## Minimum Hardware Requirements
 
 The following hardware is required to run a Watcher:
 - Storage: 128GB SSD
 - CPU: Intel i5
 - RAM: 8GB
-- 20 Mbps cable internet
+- Bandwidth: 20 Mbps
 
 > The requirements are based on the network's load in Q2 2020. It is recommended to use hardware with higher performance to avoid a potential increase in the volume of transactions.
 
 ## Estimated Costs
 
-The estimated monthly costs for running a Watcher locally can be calculated as follows:
-- Ethereum full node: ~$10-50
-- Cable internet: ~$10-$50
-- Total: ~$20-$100
+The costs of running a Watcher locally can vary and are defined as follows:
+- Internet bill
+- Ethereum full node costs
 
 ## Installation Process
 
@@ -111,18 +120,18 @@ Make sure you're on a `master` branch.
 git checkout master
 ```
 
-### STEP 4 - Mofidy Configurations
+### STEP 4 - Modify Configurations
 
 Most of the configurations required to run a Watcher are filled with default values. If you encounter any issues (e.g. `get_block:not_found`), check the latest [network connections](network-connection-details) for chosen environment (testnet or mainnet). Also, you need to set up `ETHEREUM_RPC_URL` that corresponds with a full Ethereum node URL. To change the values, use the following command from the root of `elixir-omg` repository:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Linux -->
 ```
-nano docker-compose-watcher.yml
+vi docker-compose-watcher.yml
 ```
 <!-- macOS -->
 ```
-nano docker-compose-watcher.yml
+vim docker-compose-watcher.yml
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -242,9 +251,17 @@ Example output:
 ### Leave Watcher Logs
 
 If you're running Watcher logs, you can exit them without stopping containers with the following command:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- Linux -->
 ```
 Ctrl+C
 ```
+<!-- macOS -->
+```
+Cmd+C
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Stop/Start/Restart/Update Docker Containers
 > All of the functions should be called from the root of the `elixir-omg` repository.
