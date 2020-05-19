@@ -17,7 +17,7 @@ You should use this guide if you need to accomplish one of the following goals:
 
 ## Prerequisites
 
-1. [Docker Compose](https://docs.docker.com/compose/install) > `1.17`. It's recommended to run a Watcher with Docker. We continuously build and deploy the code from our [Github repository](https://github.com/omisego/elixir-omg) to allow developers running the latest code on different environments.
+1. [Docker Compose](https://docs.docker.com/compose/install) > `1.17`. It's recommended to run a Watcher with Docker. We continuously build and deploy the code from our [Github repository](https://github.com/omisego/elixir-omg/releases) to allow developers running the latest code on different environments.
 
 To check if you have Docker Compose installed, run the following command in your terminal:
 ```
@@ -115,9 +115,9 @@ Currently, child chain and Watcher exist in a single repository [`elixir-omg`](h
 git clone https://github.com/omisego/elixir-omg.git
 ```
 
-Make sure you're on a `master` branch.
+Make sure you're on the [`latest release`](https://github.com/omisego/elixir-omg/releases) branch (e.g. `v0.4.7`). It's not recommended to use pre-releases, they may not be stable.
 ```
-git checkout master
+git checkout <LATEST_RELEASE_BRANCH>
 ```
 
 ### STEP 4 - Modify Configurations
@@ -198,7 +198,7 @@ Starting elixir-omg_watcher_info_1 ... done
 
 To see logs, use the following command:
 ```
-docker-compose -f docker-compose-watcher.yml logs -f
+docker-compose -f docker-compose-watcher.yml logs -ft
 ```
 
 Example output:
@@ -286,10 +286,10 @@ docker-compose -f docker-compose-watcher.yml restart
 ```
 <!-- Update -->
 
-To update docker containers, pull the latest updates from the `master` branch of the [`elixir-omg`](https://github.com/omisego/elixir-omg) repository:
+To update docker containers, pull the latest updates from the [`latest release`](https://github.com/omisego/elixir-omg/releases) branch of the `elixir-omg` repository:
 
 ```
-git checkout master
+git checkout <LATEST_RELEASE_BRANCH>
 git pull
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
