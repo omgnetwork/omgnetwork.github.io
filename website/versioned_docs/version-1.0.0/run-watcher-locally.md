@@ -107,6 +107,21 @@ sudo kill <PID>
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+Additionally, you can check services that Docker is already using with the following command:
+
+```
+docker ps
+```
+
+Example output:
+
+```
+CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS                 PORTS                                             NAMES
+29641165a1be        omisego/ewallet:stable   "/init /entrypoint f…"   4 months ago        Up 7 hours             4369/tcp, 0.0.0.0:4000->4000/tcp, 6900-6909/tcp   omisego_ewallet_1
+0359fe678eb0        postgres:9.6.9-alpine    "docker-entrypoint.s…"   4 months ago        Up 7 hours (healthy)   5432/tcp                                          omisego_postgres_1
+63fdaf2a783e        mailhog/mailhog:v1.0.0   "MailHog"                4 months ago        Up 7 hours             1025/tcp, 0.0.0.0:8025->8025/tcp                  omisego_mail_1
+```
+
 ### STEP 3 - Clone elixir-omg
 
 Currently, child chain and Watcher exist in a single repository [`elixir-omg`](https://github.com/omisego/elixir-omg). Thus, you need to clone it to start working with the Watcher.
@@ -180,6 +195,8 @@ https://cl-main.fiews.io/v1/{KEY}
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 > Note, the URL paths may change by providers in the future.
+
+
 
 ### STEP 5 - Run a Watcher Instance
 
@@ -263,7 +280,7 @@ Cmd+C
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Stop/Start/Restart/Update Docker Containers
+### Start/Stop/Restart/Update Docker Containers
 > All of the functions should be called from the root of the `elixir-omg` repository.
 
 <!--DOCUSAURUS_CODE_TABS-->
