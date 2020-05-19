@@ -44,7 +44,7 @@ Watcher currently supports the following operating systems:
 ## Minimum Hardware Requirements
 
 The following hardware is required to run a Watcher:
-- Storage: 128GB SSD
+- Storage: 64GB SSD
 - CPU: Intel i5
 - RAM: 8GB
 - Bandwidth: 20 Mbps
@@ -195,8 +195,6 @@ https://cl-main.fiews.io/v1/{KEY}
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 > Note, the URL paths may change by providers in the future.
-
-
 
 ### STEP 5 - Run a Watcher Instance
 
