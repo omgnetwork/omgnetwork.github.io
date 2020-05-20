@@ -44,9 +44,9 @@ Watcher currently supports the following operating systems:
 ## Minimum Hardware Requirements
 
 The following hardware is required to run a Watcher:
-- Storage: 64GB SSD
+- Storage: 16GB SSD
 - CPU: Intel i5
-- RAM: 8GB
+- RAM: 6GB
 - Bandwidth: 20 Mbps
 
 > The requirements are based on the network's load in Q2 2020. It is recommended to use hardware with higher performance to avoid a potential increase in the volume of transactions.
@@ -76,7 +76,7 @@ mkdir omg-watcher
 
 ### STEP 2 - Check TCP ports
 
-Before attempting the start up, please ensure that you are not running any services that are listening on the following TCP ports: 7434, 7534, 4000, 8025, 5432. You can use one of the following commands to accomplish that:
+Before attempting the start up, please ensure that you are not running any services that are listening on the following TCP ports: 7434, 7534, 5432. You can use one of the following commands to accomplish that:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Linux -->
@@ -118,9 +118,12 @@ Example output:
 ```
 CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS                 PORTS                                             NAMES
 29641165a1be        omisego/ewallet:stable   "/init /entrypoint f…"   4 months ago        Up 7 hours             4369/tcp, 0.0.0.0:4000->4000/tcp, 6900-6909/tcp   omisego_ewallet_1
-0359fe678eb0        postgres:9.6.9-alpine    "docker-entrypoint.s…"   4 months ago        Up 7 hours (healthy)   5432/tcp                                          omisego_postgres_1
-63fdaf2a783e        mailhog/mailhog:v1.0.0   "MailHog"                4 months ago        Up 7 hours             1025/tcp, 0.0.0.0:8025->8025/tcp                  omisego_mail_1
 ```
+
+Each of the ports are used for running one of the following containers:
+- 7434: `elixir-omg_watcher_1`, a light-weight Watcher to ensure security of funds deposited into the child chain.
+- 7534: `elixir-omg_watcher_info_1`, a convenient and performant API to the child chain data.
+- 5432: `elixir-omg_postgres_1`, a PostgreSQL database that stores transactions and contains data needed for challenges and exits.
 
 ### STEP 3 - Clone elixir-omg
 
