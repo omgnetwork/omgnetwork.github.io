@@ -17,7 +17,7 @@ You should use this guide if you need to accomplish one of the following goals:
 
 ## Prerequisites
 
-1. [Docker Compose](https://docs.docker.com/compose/install) > `1.17`. It's recommended to run a Watcher with Docker. We continuously build and deploy the code from our [Github repository](https://github.com/omisego/elixir-omg/releases) to allow developers running the latest code on different environments.
+1. [Docker Compose](https://docs.docker.com/compose/install) > `1.17`. The docker-compose tooling allows users to run their own instance of the Watcher to connect to the OMG Network and validate transactions.
 
 To check if you have Docker Compose installed, run the following command in your terminal:
 ```
@@ -29,7 +29,7 @@ docker-compose version 1.25.5, build 8a1c60f6
 ```
 
 2. A fully synced Ethereum client. You can choose one of the following options:
-- Run [Geth](https://geth.ethereum.org/docs), [Parity](https://openethereum.github.io/wiki/Parity-Ethereum) or other [officially supported clients](https://ethereum.org/developers/#clients) by Ethereum.
+- Run [Geth](https://geth.ethereum.org/docs), [Parity](https://openethereum.github.io/wiki/Parity-Ethereum) or another [officially supported client](https://ethereum.org/developers/#clients) by Ethereum.
 - Use one of Ethereum infrastructure providers: [Infura](https://infura.io), [QuickNode](https://www.quiknode.io/), [Fiews](https://fiews.io/), [Rivet](https://rivet.cloud/), etc.
 
 ## Supported Platforms
@@ -237,7 +237,35 @@ curl -X POST "http://localhost:7434/status.get"
 
 Example output:
 ```
-{"data":{"byzantine_events":[{"details":{"available_inputs":[{"address":"0x0dc8e240d90f3b0d511b6447543b28ea2471401a","index":0}],"available_outputs":[{"address":"0x0dc8e240d90f3b0d511b6447543b28ea2471401a","index":1}],"name":"piggyback_available","txbytes":"0xf8b201e1a00000000000000000000000000000000000000000000000000000bc43f177f002f86bf401f2948b63bb2b829813ece5c2f378d47b2862be271c6c9400000000000000000000000000000000000000008711c37937e08000f501f3940dc8e240d90f3b0d511b6447543b28ea2471401a940000000000000000000000000000000000000000880150c300b642600080a00000000000000000000000000000000000000000000000000000000000000000"},"event":"piggyback_available"},{"details":{"available_inputs":[{"address":"0x0dc8e240d90f3b0d511b6447543b28ea2471401a","index":0}],"available_outputs":[{"address":"0x0dc8e240d90f3b0d511b6447543b28ea2471401a","index":1}],"name":"piggyback_available","txbytes":"0xf8b101e1a00000000000000000000000000000000000000000000000000000bc44dfe31800f86af401f2948b63bb2b829813ece5c2f378d47b2862be271c6c9400000000000000000000000000000000000000008711c37937e08000f401f2940dc8e240d90f3b0d511b6447543b28ea2471401a9400000000000000000000000000000000000000008711a8304c88a00080a00000000000000000000000000000000000000000000000000000000000000000"},"event":"piggyback_available"}],"contract_addr":{"erc20_vault":"0x18e15c2cdc003b845b056f8d6b6a91ab33d3f182","eth_vault":"0x895cc6f20d386f5c0deae08b08ccfec9f821e7d9","payment_exit_game":"0x08c569c5774110eb84a80b292e6d6f039e18915a","plasma_framework":"0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9"},"eth_syncing":false,"in_flight_exits":[{"eth_height":7816644,"piggybacked_inputs":[],"piggybacked_outputs":[0],"txbytes":"0xf8b201e1a00000000000000000000000000000000000000000000000000000bc43f177f002f86bf401f2948b63bb2b829813ece5c2f378d47b2862be271c6c9400000000000000000000000000000000000000008711c37937e08000f501f3940dc8e240d90f3b0d511b6447543b28ea2471401a940000000000000000000000000000000000000000880150c300b642600080a00000000000000000000000000000000000000000000000000000000000000000","txhash":"0x160ec605a609be3cc6ffd5fea5aefcedabfe00d929d1b5be169e2e20253059ad"},{"eth_height":7907328,"piggybacked_inputs":[],"piggybacked_outputs":[0],"txbytes":"0xf8b101e1a00000000000000000000000000000000000000000000000000000bc44dfe31800f86af401f2948b63bb2b829813ece5c2f378d47b2862be271c6c9400000000000000000000000000000000000000008711c37937e08000f401f2940dc8e240d90f3b0d511b6447543b28ea2471401a9400000000000000000000000000000000000000008711a8304c88a00080a00000000000000000000000000000000000000000000000000000000000000000","txhash":"0xb4e8d1b7a04bf49753a0bf757e4f2b9f3c06b5ef628f99e30892a209da6455ec"}],"last_mined_child_block_number":232000,"last_mined_child_block_timestamp":1589538254,"last_seen_eth_block_number":7908163,"last_seen_eth_block_timestamp":1589549882,"last_validated_child_block_number":232000,"last_validated_child_block_timestamp":1589538254,"services_synced_heights":[{"height":7908162,"service":"block_getter"},{"height":7908149,"service":"challenges_responds_processor"},{"height":7908149,"service":"competitor_processor"},{"height":7908152,"service":"depositor"},{"height":7908149,"service":"exit_challenger"},{"height":7908149,"service":"exit_finalizer"},{"height":7908149,"service":"exit_processor"},{"height":7908150,"service":"ife_exit_finalizer"},{"height":7908150,"service":"in_flight_exit_processor"},{"height":7908150,"service":"piggyback_challenges_processor"},{"height":7908150,"service":"piggyback_processor"},{"height":7908163,"service":"root_chain_height"}]},"service_name":"watcher","success":true,"version":"0.4.3+4445aee"}
+{
+   "data":{
+      "byzantine_events":[
+         ...
+      ],
+      "contract_addr":{
+         "erc20_vault":"0x18e15c2cdc003b845b056f8d6b6a91ab33d3f182",
+         "eth_vault":"0x895cc6f20d386f5c0deae08b08ccfec9f821e7d9",
+         "payment_exit_game":"0x08c569c5774110eb84a80b292e6d6f039e18915a",
+         "plasma_framework":"0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9"
+      },
+      "eth_syncing":false,
+      "in_flight_exits":[
+         ...
+      ],
+      "last_mined_child_block_number":232000,
+      "last_mined_child_block_timestamp":1589538254,
+      "last_seen_eth_block_number":7908163,
+      "last_seen_eth_block_timestamp":1589549882,
+      "last_validated_child_block_number":232000,
+      "last_validated_child_block_timestamp":1589538254,
+      "services_synced_heights":[
+         ...
+      ]
+   },
+   "service_name":"watcher",
+   "success":true,
+   "version":"0.4.3+4445aee"
+}
 ```
 
 The `last_validated_child_block_number` value should correspond with the latest validated block on the network.
@@ -260,7 +288,25 @@ curl -X POST "http://localhost:7534/stats.get"
 
 Example output:
 ```
-{"data":{"average_block_interval_seconds":{"all_time":23916.056277056276,"last_24_hours":750.5294117647059},"block_count":{"all_time":232,"last_24_hours":18},"transaction_count":{"all_time":36965,"last_24_hours":7873}},"service_name":"watcher_info","success":true,"version":"0.4.3+4445aee"}
+{
+   "data":{
+      "average_block_interval_seconds":{
+         "all_time":23916.056277056276,
+         "last_24_hours":750.5294117647059
+      },
+      "block_count":{
+         "all_time":232,
+         "last_24_hours":18
+      },
+      "transaction_count":{
+         "all_time":36965,
+         "last_24_hours":7873
+      }
+   },
+   "service_name":"watcher_info",
+   "success":true,
+   "version":"0.4.3+4445aee"
+}
 ```
 
 ### Leave Watcher Logs
@@ -319,5 +365,16 @@ curl -X GET "http://localhost:7534/alarm.get"
 
 Example output:
 ```
-{"data":[{"system_memory_high_watermark":[]}],"service_name":"watcher_info","success":true,"version":"0.4.3+4445aee"}
+{
+   "data":[
+      {
+         "system_memory_high_watermark":[
+
+         ]
+      }
+   ],
+   "service_name":"watcher_info",
+   "success":true,
+   "version":"0.4.3+4445aee"
+}
 ```
