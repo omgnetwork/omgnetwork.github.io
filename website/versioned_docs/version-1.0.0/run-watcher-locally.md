@@ -37,7 +37,7 @@ docker-compose version 1.25.5, build 8a1c60f6
 Watcher currently supports the following operating systems:
 - Ubuntu 16.04
 - Ubuntu 18.04
-- macOS
+- macOS 11.0.0
 
 > Note, it might be possible to run a Watcher on other OS that supports the Docker daemon and tooling. 
 
