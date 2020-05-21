@@ -4,18 +4,19 @@ title: How to Run Watcher Locally
 sidebar_label: Run Watcher Locally
 ---
 
----
-id: version-1.0.0-run-watcher-locally
-title: Run Watcher Locally
-sidebar_label: Run Watcher Locally
-original_id: run-watcher-locally
----
+*By the end of this guide you should know how to run a Watcher locally. The guide is useful for individual developers and clients who want to integrate with the OMG Network.*
 
-*By the end of this guide you should know how to run a Watcher locally.*
+## Goals
+
+You should use this guide if you need to accomplish one of the following goals:
+- Test the Watcher locally under certain conditions
+- Run a local Watcher during Dapp development or software integration  
+- Host a redundant Watcher node to secure the network
+- Have an ability to challenge UTXOs
 
 ## Prerequisites
 
-1. [Docker Compose](https://docs.docker.com/compose/install). It's recommended to run a Watcher with Docker. We continuously build and deploy the code from our [Github repository](https://github.com/omisego/elixir-omg) to allow developers running the latest code on different environments.
+1. [Docker Compose](https://docs.docker.com/compose/install) > `1.17`. The docker-compose tooling allows users to run their own instance of the Watcher to connect to the OMG Network and validate transactions.
 
 To check if you have Docker Compose installed, run the following command in your terminal:
 ```
@@ -26,33 +27,28 @@ Example output:
 docker-compose version 1.25.5, build 8a1c60f6
 ```
 
-2. A fully synced Ethereum client. You can choose one of the following options:
-- Run [Geth](https://geth.ethereum.org/docs), [Parity](https://openethereum.github.io/wiki/Parity-Ethereum) or other [officially supported clients](https://ethereum.org/developers/#clients) by Ethereum.
-- Use one of Ethereum infrastructure providers: [Infura](https://infura.io), [QuickNode](https://www.quiknode.io/), [Fiews](https://fiews.io/), [Rivet](https://rivet.cloud/), etc.
+2. A fully synced Ethereum client. 
+
+Ethereum client is required to synchronise transactions on the OMG Network with the Ethereum Network. The easiest way to have a full ETH client is to use one of the Ethereum infrastructure providers: [Infura](https://infura.io), [QuickNode](https://www.quiknode.io/), [Fiews](https://fiews.io/), [Rivet](https://rivet.cloud/), etc.
 
 ## Supported Platforms
 
 Watcher currently supports the following operating systems:
 - Ubuntu 16.04
 - Ubuntu 18.04
-- macOS
+- macOS 11.0.0
+
+> Note, it might be possible to run a Watcher on other OS that supports the Docker daemon and tooling. 
 
 ## Minimum Hardware Requirements
 
 The following hardware is required to run a Watcher:
-- Storage: 128GB SSD
+- Storage: 16GB SSD
 - CPU: Intel i5
-- RAM: 8GB
-- 20 Mbps cable internet
+- RAM: 6GB
+- Bandwidth: 20 Mbps
 
 > The requirements are based on the network's load in Q2 2020. It is recommended to use hardware with higher performance to avoid a potential increase in the volume of transactions.
-
-## Estimated Costs
-
-The estimated monthly costs for running a Watcher locally can be calculated as follows:
-- Ethereum full node: ~$10-50
-- Cable internet: ~$10-$50
-- Total: ~$20-$100
 
 ## Installation Process
 
@@ -73,7 +69,7 @@ mkdir omg-watcher
 
 ### STEP 2 - Check TCP ports
 
-Before attempting the start up, please ensure that you are not running any services that are listening on the following TCP ports: 7434, 7534, 4000, 8025, 5432. You can use one of the following commands to accomplish that:
+Before attempting the start up, please ensure that you are not running any services that are listening on the following TCP ports: 7434, 7534, 5432. You can use one of the following commands to accomplish that:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Linux -->
@@ -104,6 +100,24 @@ sudo kill <PID>
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+Additionally, you can check services that Docker is already using with the following command:
+
+```
+docker ps
+```
+
+Example output:
+
+```
+CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS                 PORTS                                             NAMES
+29641165a1be        omisego/ewallet:stable   "/init /entrypoint f…"   4 months ago        Up 7 hours             4369/tcp, 0.0.0.0:4000->4000/tcp, 6900-6909/tcp   omisego_ewallet_1
+```
+
+Each of the ports are used for running one of the following containers:
+- 7434: `elixir-omg_watcher_1`, a light-weight Watcher to ensure security of funds deposited into the child chain.
+- 7534: `elixir-omg_watcher_info_1`, a convenient and performant API to the child chain data.
+- 5432: `elixir-omg_postgres_1`, a PostgreSQL database that stores transactions and contains data needed for challenges and exits.
+
 ### STEP 3 - Clone elixir-omg
 
 Currently, child chain and Watcher exist in a single repository [`elixir-omg`](https://github.com/omisego/elixir-omg). Thus, you need to clone it to start working with the Watcher.
@@ -112,23 +126,23 @@ Currently, child chain and Watcher exist in a single repository [`elixir-omg`](h
 git clone https://github.com/omisego/elixir-omg.git
 ```
 
-Make sure you're on a `master` branch.
+Make sure you're on the [`latest release`](https://github.com/omisego/elixir-omg/releases) branch (e.g. `v0.4.7`). It's not recommended to use pre-releases, they may not be stable.
 ```
-git checkout master
+git checkout <LATEST_RELEASE_BRANCH>
 ```
 
-### STEP 4 - Mofidy Configurations
+### STEP 4 - Modify Configurations
 
 Most of the configurations required to run a Watcher are filled with default values. If you encounter any issues (e.g. `get_block:not_found`), check the latest [network connections](network-connection-details) for chosen environment (testnet or mainnet). Also, you need to set up `ETHEREUM_RPC_URL` that corresponds with a full Ethereum node URL. To change the values, use the following command from the root of `elixir-omg` repository:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Linux -->
 ```
-nano docker-compose-watcher.yml
+vi docker-compose-watcher.yml
 ```
 <!-- macOS -->
 ```
-nano docker-compose-watcher.yml
+vim docker-compose-watcher.yml
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -195,7 +209,7 @@ Starting elixir-omg_watcher_info_1 ... done
 
 To see logs, use the following command:
 ```
-docker-compose -f docker-compose-watcher.yml logs -f
+docker-compose -f docker-compose-watcher.yml logs -ft
 ```
 
 Example output:
@@ -219,7 +233,35 @@ curl -X POST "http://localhost:7434/status.get"
 
 Example output:
 ```
-{"data":{"byzantine_events":[{"details":{"available_inputs":[{"address":"0x0dc8e240d90f3b0d511b6447543b28ea2471401a","index":0}],"available_outputs":[{"address":"0x0dc8e240d90f3b0d511b6447543b28ea2471401a","index":1}],"name":"piggyback_available","txbytes":"0xf8b201e1a00000000000000000000000000000000000000000000000000000bc43f177f002f86bf401f2948b63bb2b829813ece5c2f378d47b2862be271c6c9400000000000000000000000000000000000000008711c37937e08000f501f3940dc8e240d90f3b0d511b6447543b28ea2471401a940000000000000000000000000000000000000000880150c300b642600080a00000000000000000000000000000000000000000000000000000000000000000"},"event":"piggyback_available"},{"details":{"available_inputs":[{"address":"0x0dc8e240d90f3b0d511b6447543b28ea2471401a","index":0}],"available_outputs":[{"address":"0x0dc8e240d90f3b0d511b6447543b28ea2471401a","index":1}],"name":"piggyback_available","txbytes":"0xf8b101e1a00000000000000000000000000000000000000000000000000000bc44dfe31800f86af401f2948b63bb2b829813ece5c2f378d47b2862be271c6c9400000000000000000000000000000000000000008711c37937e08000f401f2940dc8e240d90f3b0d511b6447543b28ea2471401a9400000000000000000000000000000000000000008711a8304c88a00080a00000000000000000000000000000000000000000000000000000000000000000"},"event":"piggyback_available"}],"contract_addr":{"erc20_vault":"0x18e15c2cdc003b845b056f8d6b6a91ab33d3f182","eth_vault":"0x895cc6f20d386f5c0deae08b08ccfec9f821e7d9","payment_exit_game":"0x08c569c5774110eb84a80b292e6d6f039e18915a","plasma_framework":"0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9"},"eth_syncing":false,"in_flight_exits":[{"eth_height":7816644,"piggybacked_inputs":[],"piggybacked_outputs":[0],"txbytes":"0xf8b201e1a00000000000000000000000000000000000000000000000000000bc43f177f002f86bf401f2948b63bb2b829813ece5c2f378d47b2862be271c6c9400000000000000000000000000000000000000008711c37937e08000f501f3940dc8e240d90f3b0d511b6447543b28ea2471401a940000000000000000000000000000000000000000880150c300b642600080a00000000000000000000000000000000000000000000000000000000000000000","txhash":"0x160ec605a609be3cc6ffd5fea5aefcedabfe00d929d1b5be169e2e20253059ad"},{"eth_height":7907328,"piggybacked_inputs":[],"piggybacked_outputs":[0],"txbytes":"0xf8b101e1a00000000000000000000000000000000000000000000000000000bc44dfe31800f86af401f2948b63bb2b829813ece5c2f378d47b2862be271c6c9400000000000000000000000000000000000000008711c37937e08000f401f2940dc8e240d90f3b0d511b6447543b28ea2471401a9400000000000000000000000000000000000000008711a8304c88a00080a00000000000000000000000000000000000000000000000000000000000000000","txhash":"0xb4e8d1b7a04bf49753a0bf757e4f2b9f3c06b5ef628f99e30892a209da6455ec"}],"last_mined_child_block_number":232000,"last_mined_child_block_timestamp":1589538254,"last_seen_eth_block_number":7908163,"last_seen_eth_block_timestamp":1589549882,"last_validated_child_block_number":232000,"last_validated_child_block_timestamp":1589538254,"services_synced_heights":[{"height":7908162,"service":"block_getter"},{"height":7908149,"service":"challenges_responds_processor"},{"height":7908149,"service":"competitor_processor"},{"height":7908152,"service":"depositor"},{"height":7908149,"service":"exit_challenger"},{"height":7908149,"service":"exit_finalizer"},{"height":7908149,"service":"exit_processor"},{"height":7908150,"service":"ife_exit_finalizer"},{"height":7908150,"service":"in_flight_exit_processor"},{"height":7908150,"service":"piggyback_challenges_processor"},{"height":7908150,"service":"piggyback_processor"},{"height":7908163,"service":"root_chain_height"}]},"service_name":"watcher","success":true,"version":"0.4.3+4445aee"}
+{
+   "data":{
+      "byzantine_events":[
+         ...
+      ],
+      "contract_addr":{
+         "erc20_vault":"0x18e15c2cdc003b845b056f8d6b6a91ab33d3f182",
+         "eth_vault":"0x895cc6f20d386f5c0deae08b08ccfec9f821e7d9",
+         "payment_exit_game":"0x08c569c5774110eb84a80b292e6d6f039e18915a",
+         "plasma_framework":"0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9"
+      },
+      "eth_syncing":false,
+      "in_flight_exits":[
+         ...
+      ],
+      "last_mined_child_block_number":232000,
+      "last_mined_child_block_timestamp":1589538254,
+      "last_seen_eth_block_number":7908163,
+      "last_seen_eth_block_timestamp":1589549882,
+      "last_validated_child_block_number":232000,
+      "last_validated_child_block_timestamp":1589538254,
+      "services_synced_heights":[
+         ...
+      ]
+   },
+   "service_name":"watcher",
+   "success":true,
+   "version":"0.4.3+4445aee"
+}
 ```
 
 The `last_validated_child_block_number` value should correspond with the latest validated block on the network.
@@ -242,17 +284,43 @@ curl -X POST "http://localhost:7534/stats.get"
 
 Example output:
 ```
-{"data":{"average_block_interval_seconds":{"all_time":23916.056277056276,"last_24_hours":750.5294117647059},"block_count":{"all_time":232,"last_24_hours":18},"transaction_count":{"all_time":36965,"last_24_hours":7873}},"service_name":"watcher_info","success":true,"version":"0.4.3+4445aee"}
+{
+   "data":{
+      "average_block_interval_seconds":{
+         "all_time":23916.056277056276,
+         "last_24_hours":750.5294117647059
+      },
+      "block_count":{
+         "all_time":232,
+         "last_24_hours":18
+      },
+      "transaction_count":{
+         "all_time":36965,
+         "last_24_hours":7873
+      }
+   },
+   "service_name":"watcher_info",
+   "success":true,
+   "version":"0.4.3+4445aee"
+}
 ```
 
 ### Leave Watcher Logs
 
 If you're running Watcher logs, you can exit them without stopping containers with the following command:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- Linux -->
 ```
 Ctrl+C
 ```
+<!-- macOS -->
+```
+Cmd+C
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-### Stop/Start/Restart/Update Docker Containers
+### Start/Stop/Restart/Update Docker Containers
 > All of the functions should be called from the root of the `elixir-omg` repository.
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -275,10 +343,10 @@ docker-compose -f docker-compose-watcher.yml restart
 ```
 <!-- Update -->
 
-To update docker containers, pull the latest updates from the `master` branch of the [`elixir-omg`](https://github.com/omisego/elixir-omg) repository:
+To update docker containers, pull the latest updates from the [`latest release`](https://github.com/omisego/elixir-omg/releases) branch of the `elixir-omg` repository:
 
 ```
-git checkout master
+git checkout <LATEST_RELEASE_BRANCH>
 git pull
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -293,5 +361,16 @@ curl -X GET "http://localhost:7534/alarm.get"
 
 Example output:
 ```
-{"data":[{"system_memory_high_watermark":[]}],"service_name":"watcher_info","success":true,"version":"0.4.3+4445aee"}
+{
+   "data":[
+      {
+         "system_memory_high_watermark":[
+
+         ]
+      }
+   ],
+   "service_name":"watcher_info",
+   "success":true,
+   "version":"0.4.3+4445aee"
+}
 ```

@@ -28,9 +28,9 @@ Example output:
 docker-compose version 1.25.5, build 8a1c60f6
 ```
 
-2. A fully synced Ethereum client. You can choose one of the following options:
-- Run [Geth](https://geth.ethereum.org/docs), [Parity](https://openethereum.github.io/wiki/Parity-Ethereum) or another [officially supported client](https://ethereum.org/developers/#clients) by Ethereum.
-- Use one of Ethereum infrastructure providers: [Infura](https://infura.io), [QuickNode](https://www.quiknode.io/), [Fiews](https://fiews.io/), [Rivet](https://rivet.cloud/), etc.
+2. A fully synced Ethereum client. 
+
+Ethereum client is required to synchronise transactions on the OMG Network with the Ethereum Network. The easiest way to have a full ETH client is to use one of the Ethereum infrastructure providers: [Infura](https://infura.io), [QuickNode](https://www.quiknode.io/), [Fiews](https://fiews.io/), [Rivet](https://rivet.cloud/), etc.
 
 ## Supported Platforms
 
@@ -50,12 +50,6 @@ The following hardware is required to run a Watcher:
 - Bandwidth: 20 Mbps
 
 > The requirements are based on the network's load in Q2 2020. It is recommended to use hardware with higher performance to avoid a potential increase in the volume of transactions.
-
-## Estimated Costs
-
-The costs of running a Watcher locally can vary and are defined as follows:
-- Internet bill
-- Ethereum full node costs
 
 ## Installation Process
 
