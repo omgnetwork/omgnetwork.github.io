@@ -59,7 +59,6 @@ async function mergeUtxo() {
   const utxo = await childChain.mergeUtxos({
     utxos: utxosToMerge,
     privateKey: "0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7",
-    verifyingContract: "0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9",
   });
 
   return utxo;

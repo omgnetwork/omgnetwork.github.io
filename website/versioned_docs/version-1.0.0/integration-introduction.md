@@ -35,7 +35,7 @@ import { ChildChain, RootChain, OmgUtil } from "@omisego/omg-js"
 
 const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url))
 const rootChain = new RootChain({ web3, plasmaContractAddress })
-const childChain = new ChildChain({ watcherUrl })
+const childChain = new ChildChain({ watcherUrl, plasmaContractAddress })
 ```
 ### Omg-js API documentation
 
