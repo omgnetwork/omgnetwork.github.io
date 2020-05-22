@@ -27,6 +27,16 @@
         ]
       }
     ],
+    "How-to Guides": [
+      "version-1.0.0-how-to-guides",
+      {
+        "type": "subcategory",
+        "label": "OMG Network",
+        "ids": [
+          "version-1.0.0-run-watcher-locally"
+        ]
+      }
+    ],
     "Concepts": [
       {
         "type": "subcategory",
