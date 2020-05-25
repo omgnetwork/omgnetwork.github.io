@@ -100,7 +100,7 @@ class Index extends React.Component {
           title: "Tutorials",
           content:
             "Learn technical implementation of the OMG Network features.",
-          url: "integration-introduction",
+          url: "tutorials-intro",
           imageLink: `${baseUrl}img/icons/receipt.svg`,
         },
         {
@@ -111,8 +111,7 @@ class Index extends React.Component {
         },
         {
           title: "Elixir-omg",
-          content:
-            "Run Watcher and Child Chain server locally.",
+          content: "Run Watcher and Child Chain server locally.",
           url: "https://github.com/omisego/elixir-omg",
           imageLink: `${baseUrl}img/icons/remotely.svg`,
         },
@@ -179,7 +178,11 @@ class Index extends React.Component {
           <a href={props.url} target="_blank">
             <div className="row box">
               <div className="col-3 d-none d-lg-block align-self-center">
-                <img alt="image" className="fdb-icon mx-auto" src={props.imageLink} />
+                <img
+                  alt="image"
+                  className="fdb-icon mx-auto"
+                  src={props.imageLink}
+                />
               </div>
               <div className="col-sm-12 col-md-12 col-lg-9">
                 <h3>{props.title}</h3>
@@ -218,6 +221,7 @@ class Index extends React.Component {
                   content={item.content}
                   imageLink={item.imageLink}
                   url={item.url}
+                  key={key}
                 ></ImagedCard>
               );
             })}
@@ -230,6 +234,7 @@ class Index extends React.Component {
                   content={item.content}
                   imageLink={item.imageLink}
                   url={item.url}
+                  key={key}
                 ></ImagedCard>
               );
             })}
@@ -242,6 +247,7 @@ class Index extends React.Component {
                   content={item.content}
                   imageLink={item.imageLink}
                   url={item.url}
+                  key={key}
                 ></ImagedCard>
               );
             })}
@@ -254,6 +260,7 @@ class Index extends React.Component {
                   content={item.content}
                   imageLink={item.imageLink}
                   url={item.url}
+                  key={key}
                 ></CalloutCard>
               );
             })}

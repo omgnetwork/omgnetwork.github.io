@@ -54,7 +54,7 @@ class Footer extends React.Component {
         },
         {
           content: "Tutorials",
-          url: "integration-introduction",
+          url: "tutorials-intro",
         },
         {
           content: "Plasma Contracts",

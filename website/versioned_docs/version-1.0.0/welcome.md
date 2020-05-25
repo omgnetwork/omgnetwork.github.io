@@ -14,10 +14,10 @@ The OMG Network allows you to access, manage, and transact with digital assets t
 ### Try it out
 Depending on your needs, feel free to check one of the following sections:
 - [Getting Started Guide](quick-start-webwallet) — create your first transaction on the network.
-- [Integration Section](integration-introduction) — browse code samples for integration purposes.
+- [Tutorials Section](tutorials-intro) — browse code samples for integration purposes.
 - [Network Connection](/network-connection-details) — verify the up-to-date network configurations.
 - [Block Explorer](/network-connection-details) — watch the latest blocks and transactions on the network.
-- [APIs](/api-reference-introduction) — work with REST APIs of the OMG Network.
+- [APIs](/api) — work with REST APIs of the OMG Network.
 - [Blockchain Design](/blockchain-design) — learn about consensus design and technical implementation of the OMG Network.
  
 > For more information about the benefits of the OMG Network, see the [OMG Network website](https://omisego.co/network).

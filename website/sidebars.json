@@ -4,7 +4,7 @@
       "welcome"
     ],
     "Tutorials": [
-      "integration-introduction",
+      "tutorials-intro",
       {
         "type": "subcategory",
         "label": "OMG Network",

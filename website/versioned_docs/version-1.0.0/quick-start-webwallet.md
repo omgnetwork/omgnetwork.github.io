@@ -167,6 +167,6 @@ After the challenge period has passed, you can process your exit to release your
 
 <img src="/img/webwallet/process-exits-confirmed.png" width="500">
 
-Congratulations! You've performed an end-to-end process of transacting on the OMG Network. If you would like to learn more, continue to the [`Integration`](https://docs.omg.network/integration-introduction) section.
+Congratulations! You've performed an end-to-end process of transacting on the OMG Network. If you would like to learn more, continue to the [`Tutorials`](https://docs.omg.network/tutorials-intro) section.
 
 To learn more about process exits, please check [`Process Exits`](https://docs.omg.network/process-exits) section.

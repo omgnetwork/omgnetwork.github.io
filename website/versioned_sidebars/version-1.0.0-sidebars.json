@@ -4,7 +4,7 @@
       "version-1.0.0-welcome"
     ],
     "Tutorials": [
-      "version-1.0.0-integration-introduction",
+      "version-1.0.0-tutorials-intro",
       {
         "type": "subcategory",
         "label": "OMG Network",
