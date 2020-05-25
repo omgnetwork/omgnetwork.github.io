@@ -1,7 +1,7 @@
 ---
 id: api
-title: OMG Network APIs
-sidebar_label: OMG Network APIs
+title: API References
+sidebar_label: API References
 ---
 
 This is a guide to working with the OMG Network REST APIs.

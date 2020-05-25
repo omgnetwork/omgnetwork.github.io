@@ -59,9 +59,11 @@
         ]
       }
     ],
-    "5. Appendix": [
+    "5. Resources": [
       "version-1.0.0-glossary",
-      "version-1.0.0-faq"
+      "version-1.0.0-faq",
+      "version-1.0.0-api",
+      "version-1.0.0-release-notes"
     ],
     "6. Migration Guides": [
       "version-1.0.0-migration-0.2-0.3",

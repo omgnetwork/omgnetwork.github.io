@@ -1,7 +1,7 @@
 ---
 id: version-1.0.0-api
-title: OMG Network APIs
-sidebar_label: OMG Network APIs
+title: API References
+sidebar_label: API References
 original_id: api
 ---
 
