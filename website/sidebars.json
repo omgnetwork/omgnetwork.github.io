@@ -1,9 +1,9 @@
 {
   "docs": {
-    "Introduction": [
+    "1. Introduction": [
       "welcome"
     ],
-    "Tutorials": [
+    "2. Tutorials": [
       "tutorials-intro",
       {
         "type": "subcategory",
@@ -27,7 +27,7 @@
         ]
       }
     ],
-    "How-to Guides": [
+    "3. How-to Guides": [
       "how-to-guides",
       {
         "type": "subcategory",
@@ -37,7 +37,7 @@
         ]
       }
     ],
-    "Concepts": [
+    "4. Concepts": [
       {
         "type": "subcategory",
         "label": "OMG Network",
@@ -59,11 +59,11 @@
         ]
       }
     ],
-    "Appendix": [
+    "5. Appendix": [
       "glossary",
       "faq"
     ],
-    "Migration Guides": [
+    "6. Migration Guides": [
       "migration-0.2-0.3",
       "migration-0.3-0.4"
     ]

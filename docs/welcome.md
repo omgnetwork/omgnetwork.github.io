@@ -4,19 +4,27 @@ title: Welcome
 sidebar_label: About the OMG Network
 ---
 
-The OMG Network is a decentralized, public network that allows high throughput, low-cost peer-to-peer transactions, facilitating financial services across geographies, asset classes, and applications.
+The OMG Network is a decentralized, public network that allows fast, low-cost peer-to-peer transactions, facilitating financial services across geographies, asset classes, and applications.
  
 The OMG Network leverages Layer 2 Plasma architecture to provide high throughput and strong safety guarantees for third parties who wish to build scalable, decentralized payment apps on the network. 
  
 The OMG Network allows you to access, manage, and transact with digital assets that are kept securely on the blockchain. 
  
-### Try it out
-Depending on your needs, feel free to check one of the following sections:
-- [Getting Started Guide](quick-start-webwallet) — create your first transaction on the network.
-- [Tutorials Section](tutorials-intro) — browse code samples for integration purposes.
-- [Network Connection](/environments) — verify the up-to-date network configurations.
-- [Block Explorer](/network-connection-details) — watch the latest blocks and transactions on the network.
-- [APIs](/api) — work with REST APIs of the OMG Network.
-- [Blockchain Design](/blockchain-design) — learn about consensus design and technical implementation of the OMG Network.
+## Sections
+There are multiple sections the documentation site provides to help in achieving your goals:
+- Tutorials — browse code samples for integration purposes.
+- How-to Guides — install and manage infrastructure components of the OMG Network's products.
+- Concepts — learn about consensus and technical architecture of the OMG Network. 
+- Appendix — explore frequently asked questions and glossary. 
+- Migration Guides — read migration instructions, lessons, and breaking changes.
+
+
+## Try it out
+Depending on your needs, you may want to start with one of the following documents:
+- [Tutorials Intro](/tutorials-intro) — an introduction to work with code samples.
+- [APIs](/api) — REST APIs of the OMG Network.
+- [Web Wallet Quickstart](/quick-start-webwallet) — a user guide to work with the OMG Network's Web Wallet.
+- [Environments](/environments) — the up-to-date network configurations for available environments.
+- [Blockchain Design](/blockchain-design) — a blockchain design used to implement the OMG Network.
  
 > For more information about the benefits of the OMG Network, see the [OMG Network website](https://omg.network).
