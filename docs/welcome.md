@@ -19,4 +19,4 @@ Depending on your needs, feel free to check one of the following sections:
 - [APIs](/api-reference-introduction) — work with REST APIs of the OMG Network.
 - [Blockchain Design](/blockchain-design) — learn about consensus design and technical implementation of the OMG Network.
  
-> For more information about the benefits of the OMG Network, see the [OmiseGO website](https://omisego.co/network).
+> For more information about the benefits of the OMG Network, see the [OMG Network website](https://omg.network).
