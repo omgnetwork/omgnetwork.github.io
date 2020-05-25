@@ -78,27 +78,27 @@ class Footer extends React.Component {
       social: [
         {
           url: "https://twitter.com/omgnetworkhq",
-          src: "/img/twitter.svg",
+          src: "/img/social/twitter.svg",
           alt: "twitter",
         },
         {
           url: "https://www.linkedin.com/company/omgnetwork/",
-          src: "/img/linkedin.svg",
+          src: "/img/social/linkedin.svg",
           alt: "linkedin",
         },
         {
           url: "https://github.com/omgnetwork",
-          src: "/img/github.svg",
+          src: "/img/social/github.svg",
           alt: "github",
         },
         {
           url: "https://reddit.com/r/omgnetwork",
-          src: "/img/reddit.svg",
+          src: "/img/social/reddit.svg",
           alt: "reddit",
         },
         {
           url: "https://www.youtube.com/channel/UC-NfGRxTkJfVbFgyJoOxzCQ",
-          src: "/img/youtube.svg",
+          src: "/img/social/youtube.svg",
           alt: "youtube",
         },
       ],

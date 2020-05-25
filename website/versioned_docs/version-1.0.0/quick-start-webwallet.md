@@ -36,7 +36,7 @@ There are two options to work with the OMG network:
 
 You can set the preferred configuration in your Web3 wallet. Below you can see an example of Metamask:
 
-<img src="/img/metamask-example.png" width="300">
+<img src="/img/webwallet/metamask-example.png" width="300">
 
 ## 1. Make a Deposit
 > The current Web Wallet is deployed against the OMG Network v1 Testnet.
@@ -51,7 +51,7 @@ Before transacting on the OMG Network, you need to have ETH tokens on the root c
 * If you don't see your balance, make sure that your wallet points to the right network. Use [Wallet Configuration](#wallet-configuration) if you have any problems.
 * If everything is correct, your ETH root chain balance should be the same, as your balance in Metamask or another Web3 wallet you are using.
 
-![account-balance](/img/quick-start-account-balance.png)
+![account-balance](/img/webwallet/quick-start-account-balance.png)
 
 ### 1.2 Make an ETH Deposit
 
@@ -59,16 +59,16 @@ Before transacting on the OMG Network, you need to have ETH tokens on the root c
 2. Define the amount to deposit in ETH. It is recommended to have more funds in your root chain wallet to cover gas costs.
 3. Click **Deposit**. You will see a confirmation popup in your Web3 wallet. Notice, this example defaults the gas limit to `6000000` wei.
 
-![sign-deposit](/img/quick-start-sign-deposit.png)
+![sign-deposit](/img/webwallet/quick-start-sign-deposit.png)
 
 4. Click **Confirm**. By doing that, you are signing the transaction with your private key and sending it to the OMG Network. The confirmation process may take a few seconds.
 5. After deposit confirmation, click the `Deposits` tab to see the progress of your deposit. You have to wait for the [deposit finality period](https://docs.omg.network/glossary#deposit-finality-period) (currently 10 blocks) before your funds are accepted into the OMG Network. You can click on the transaction to see further details on [Etherscan](https://etherscan.io).
 
-<img src="/img/quick-start-deposit-pending.png" width="500">
+<img src="/img/webwallet/quick-start-deposit-pending.png" width="500">
 
 6. Your child chain balance should be updated in case of a successful deposit. This will also create a deposit UTXO validating that you have ETH on the OMG Network.
 
-<img src="/img/quick-start-deposit-confirmed.png" width="500">
+<img src="/img/webwallet/quick-start-deposit-confirmed.png" width="500">
 
 ### 1.3 Make an ERC20 Deposit
 
@@ -77,20 +77,20 @@ The process for depositing ERC20 into the OMG Network is very similar to an ETH 
 1. Click **Deposit**.
 2. Click on the `ERC20` tab and define the amount and the address of the token you are depositing (in our case the address for `WETH`).
 
-<img src="/img/quick-start-deposit-erc20.png" width="500">
+<img src="/img/webwallet/quick-start-deposit-erc20.png" width="500">
 
 3. Click **Deposit**. This step will differ from the ETH deposit, as your Web3 wallet will pop up twice. The first popup will ask you to approve the deposit, the second — to confirm the actual deposit transaction.
 
-![approve-erc20-deposit](/img/quick-start-deposit-erc20-confirm.png)
+![approve-erc20-deposit](/img/webwallet/quick-start-deposit-erc20-confirm.png)
 
 4. Click **Confirm** for both popups. The confirmation process may take a few seconds.
 5. After deposit confirmation, click the `Deposits` tab to see the progress of your deposit. You have to wait for the [deposit finality period](https://docs.omg.network/glossary#deposit-finality-period) (currently 10 blocks) before your funds are accepted into the OMG Network. You can click on the transaction to see further details on [Etherscan](https://etherscan.io).
 
-<img src="/img/quick-start-deposit-erc20-pending.png" width="500">
+<img src="/img/webwallet/quick-start-deposit-erc20-pending.png" width="500">
 
 6. Your child chain balance should be updated in case of a successful deposit. This will also create a deposit UTXO validating that you have ERC20 tokens on the OMG Network.
 
-<img src="/img/quick-start-deposit-erc20-confirmed.png" width="500">
+<img src="/img/webwallet/quick-start-deposit-erc20-confirmed.png" width="500">
 
 > When you perform a deposit, you are sending funds to the `Plasma Framework` contract and creating a deposit UTXO for your account. The new UTXO allows transferring funds to the OMG Network. To understand UTXO better, please check [UTXO glossary](https://docs.omg.network/glossary#utxo).
 
@@ -102,21 +102,21 @@ Now that you have funds on the OMG Network, you can make your first transaction.
 1. Click **Transfer**.
 2. Fill out the recipient's address, the amount and name of token you wish to transfer, the fee details, and optionally a message.
 
-<img src="/img/quick-start-transfer-create.png" width="500">
+<img src="/img/webwallet/quick-start-transfer-create.png" width="500">
 
 3. Click **Transfer**. You will see a confirmation popup in your Web3 wallet.
 4. Verify the inputs and outputs of your transactions to ensure they're correct.
 
-![transfer-sign](/img/quick-start-transfer-sign.png)
+![transfer-sign](/img/webwallet/quick-start-transfer-sign.png)
 
 5. Click **Sign**.
 6. Click on the `Transactions` tab to view the state of your transaction.
 
-<img src="/img/quick-start-transfer-pending.png" width="500">
+<img src="/img/webwallet/quick-start-transfer-pending.png" width="500">
 
 7. Once the transaction is confirmed, you can click on it to view its details in the block explorer. Your child chain balance should be updated in case of a successful transaction.
 
-<img src="/img/quick-start-transfer-success.png" width="500">
+<img src="/img/webwallet/quick-start-transfer-success.png" width="500">
 
 8. Congratulate yourself. You've just sent your first transaction on the OMG Network!
 
@@ -130,20 +130,20 @@ You've successfully deposited and made a transfer to the OMG Network. If you wan
 1. Click **Exit**.
 2. Select the UTXO that you want to exit. The example below shows an exit worth `890 wei`.
 
-<img src="/img/exit-create.png" width="500">
+<img src="/img/webwallet/exit-create.png" width="500">
 
 3. Click **Submit Exit**. You will see a confirmation popup in your Web3 wallet.
 
-![exit-sign](/img/exit-sign.png)
+![exit-sign](/img/webwallet/exit-sign.png)
 
 4. Click **Confirm**. The confirmation process may take a few seconds.
 5. If the transaction is successful, you will see the status of your exit under the `Exits` section. You will be temporarily blocked from making other transactions and exits while this transaction is pending.
 
-<img src="/img/exit-status.png" width="500">
+<img src="/img/webwallet/exit-status.png" width="500">
 
 6. To prevent any malicious activity on the network, each exit goes through the [`Challenge Period`](https://docs.omg.network/challenge-period). This allows other users to challenge your exit on validity and trust. You will find the date of your exit approval below the transaction id. You will have to wait until this time passes, before being able to [process your exit](https://docs.omg.network/process-exits).
 
-<img src="/img/exit-challenge.png" width="500">
+<img src="/img/webwallet/exit-challenge.png" width="500">
 
 >To learn more about standard exits, please check [`Standard Exits`](https://docs.omg.network/standard-exits) section.
 
@@ -153,19 +153,19 @@ After the challenge period has passed, you can process your exit to release your
 
 1. Click **Process Exit** next to the UTXO you want to process.
 
-<img src="/img/process-exits-start.png" width="500">
+<img src="/img/webwallet/process-exits-start.png" width="500">
 
 2. Fill out the number of exits you want to process based on the information provided in the modal. In the example, our exit was placed 7th in the ETH exit queue. We will need to process the 6 exits before ours, as well as our exit to release funds immediately. If you process a number less than your position in the queue, your exit will not be processed.
 
-<img src="/img/process-exits-create.png" width="500">
+<img src="/img/webwallet/process-exits-create.png" width="500">
 
 3. Click **Process**. You will see a confirmation popup in your Web3 wallet.
 
-![exit-sign](/img/process-exits-confirm.png)
+![exit-sign](/img/webwallet/process-exits-confirm.png)
 
 4. A successful transaction means that your exit along with the other 6 exits was processed. You can now check your balance on Metamask to ensure you received the funds back. 
 
-<img src="/img/process-exits-confirmed.png" width="500">
+<img src="/img/webwallet/process-exits-confirmed.png" width="500">
 
 Congratulations! You've performed an end-to-end process of transacting on the OMG Network. If you would like to learn more, continue to the [`Integration`](https://docs.omg.network/integration-introduction) section.
 
