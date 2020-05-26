@@ -100,6 +100,8 @@ The [`plasma-contracts`](https://github.com/omisego/plasma-contracts) is a set o
 - [Release v0.0.1](https://github.com/omisego/plasma-contracts/releases/tag/v0.0.1)
 
 <!-- Web Wallet -->
+
+## Web Wallet
 The [`web-wallet`](https://github.com/omisego/web-wallet) is an example client side wallet built with React.js that allows to make interactions with the OMG Network from the browser.
 
 - [All Releases](https://github.com/omisego/web-wallet/releases)
