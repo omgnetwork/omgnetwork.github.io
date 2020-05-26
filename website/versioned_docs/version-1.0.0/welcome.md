@@ -16,7 +16,7 @@ There are multiple sections the documentation site provides to help in achieving
 - Tutorials — browse code samples for integration purposes.
 - How-to Guides — install and manage infrastructure components of the OMG Network's products.
 - Concepts — learn about consensus and technical architecture of the OMG Network. 
-- Appendix — explore frequently asked questions and glossary. 
+- Resources — explore resources helpful during integration.
 - Migration Guides — read migration instructions, lessons, and breaking changes.
 
 

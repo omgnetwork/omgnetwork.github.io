@@ -5,18 +5,12 @@ sidebar_label: Release Notes
 original_id: release-notes
 ---
 
-## Plasma Contracts
-- [All Releases](https://github.com/omisego/plasma-contracts/releases)
-- [Release v1.0.5](https://github.com/omisego/plasma-contracts/releases/tag/v1.0.5)
-- [Release v1.0.4](https://github.com/omisego/plasma-contracts/releases/tag/v1.0.4)
-- [Release v1.0.3](https://github.com/omisego/plasma-contracts/releases/tag/v1.0.3)
-- [Release v1.0.2](https://github.com/omisego/plasma-contracts/releases/tag/v1.0.2)
-- [Release v1.0.0](https://github.com/omisego/plasma-contracts/releases/tag/v1.0.0)
-- [Release v0.2.0](https://github.com/omisego/plasma-contracts/releases/tag/v0.2.0)
-- [Release v0.1.0](https://github.com/omisego/plasma-contracts/releases/tag/v0.1.0)
-- [Release v0.0.1](https://github.com/omisego/plasma-contracts/releases/tag/v0.0.1)
+<!--DOCUSAURUS_CODE_TABS-->
 
+<!-- Elixir-omg -->
 ## Elixir-omg
+The [`elixir-omg`](https://github.com/omisego/elixir-omg) is a OMG Network's Elixir implementation of Plasma that forms the basis for the OMG Network.
+
 - [All Releases](https://github.com/omisego/elixir-omg/releases)
 - [Release v0.4.8](https://github.com/omisego/elixir-omg/releases/tag/v0.4.8)
 - [Release v0.4.8-pre.1](https://github.com/omisego/elixir-omg/releases/tag/v0.4.8-pre.1)
@@ -45,7 +39,10 @@ original_id: release-notes
 - [Release v0.1.2](https://github.com/omisego/elixir-omg/releases/tag/v0.1.2)
 - [Release v0.1.1](https://github.com/omisego/elixir-omg/releases/tag/v0.1.1)
 
+<!-- Omg-js -->
 ## Omg-js
+The [`omg-js`](https://github.com/omisego/omg-js) is is a Javascript library that allows to interact with OMG Network's MoreVP implementation of Plasma.
+
 - [All Releases](https://github.com/omisego/omg-js/releases)
 - [Release v4.0.0-0.4.7](https://github.com/omisego/omg-js/releases/tag/v4.0.0-0.4.7)
 - [Release v3.1.0-0.4.6](https://github.com/omisego/omg-js/releases/tag/v3.1.0-0.4.6)
@@ -87,6 +84,25 @@ original_id: release-notes
 - [Release v0.1.7](https://github.com/omisego/omg-js/releases/tag/v0.1.7)
 - [Release v0.1.6](https://github.com/omisego/omg-js/releases/tag/v0.1.6)
 
-## Web Wallet
+<!-- Plasma Contracts -->
+
+## Plasma Contracts
+The [`plasma-contracts`](https://github.com/omisego/plasma-contracts) is a set of root chain contracts for The OMG Network Plasma Framework, a layer 2 scaling solution for Ethereum.
+
+- [All Releases](https://github.com/omisego/plasma-contracts/releases)
+- [Release v1.0.5](https://github.com/omisego/plasma-contracts/releases/tag/v1.0.5)
+- [Release v1.0.4](https://github.com/omisego/plasma-contracts/releases/tag/v1.0.4)
+- [Release v1.0.3](https://github.com/omisego/plasma-contracts/releases/tag/v1.0.3)
+- [Release v1.0.2](https://github.com/omisego/plasma-contracts/releases/tag/v1.0.2)
+- [Release v1.0.0](https://github.com/omisego/plasma-contracts/releases/tag/v1.0.0)
+- [Release v0.2.0](https://github.com/omisego/plasma-contracts/releases/tag/v0.2.0)
+- [Release v0.1.0](https://github.com/omisego/plasma-contracts/releases/tag/v0.1.0)
+- [Release v0.0.1](https://github.com/omisego/plasma-contracts/releases/tag/v0.0.1)
+
+<!-- Web Wallet -->
+The [`web-wallet`](https://github.com/omisego/web-wallet) is an example client side wallet built with React.js that allows to make interactions with the OMG Network from the browser.
+
 - [All Releases](https://github.com/omisego/web-wallet/releases)
 - [Release v1.0.0](https://github.com/omisego/omg-js/releases/tag/v1.0.0)
+
+<!--END_DOCUSAURUS_CODE_TABS-->

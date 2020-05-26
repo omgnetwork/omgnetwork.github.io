@@ -15,11 +15,11 @@ const siteConfig = {
   organizationName: "omisego",
   headerLinks: [
     { doc: "welcome", label: "Docs" },
-    {
-      href: "environments",
-      external: false,
-      label: "Environments",
-    },
+    // {
+    //   href: "environments",
+    //   external: false,
+    //   label: "Environments",
+    // },
     { doc: "api", label: "APIs" },
     { href: "https://omg.network", external: true, label: "Product" },
   ],
