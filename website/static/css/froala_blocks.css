@@ -1587,7 +1587,7 @@ h6,
   box-shadow: 0 0.3125rem 0.875rem 0 rgba(129, 129, 129, 0.2) !important;
 }
 .fdb-block .fdb-touch {
-  border-top: solid 0.3125rem #007bff;
+  border-top: solid 0.3125rem #4967FF;
   z-index: 2;
 }
 .fdb-block img + p,
@@ -1649,7 +1649,7 @@ h6,
 }
 
 .bg-dark {
-  background-color: #1f1f22;
+  background-color: #101010;
   color: #f2f2f2;
 }
 .bg-dark p.lead {
@@ -1686,9 +1686,9 @@ h6,
   border-radius: 3px;
 }
 .callout-primary {
-  border-left-color: #007bff;
+  border-left-color: #4967FF;
 }
 .callout-primary:hover {
-  border: 1px solid #007bff;
+  border: 1px solid #4967FF;
   border-left-width: 5px;
 }
