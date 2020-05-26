@@ -15,11 +15,6 @@ const siteConfig = {
   organizationName: "omisego",
   headerLinks: [
     { doc: "welcome", label: "Docs" },
-    // {
-    //   href: "environments",
-    //   external: false,
-    //   label: "Environments",
-    // },
     { doc: "api", label: "APIs" },
     { href: "https://omg.network", external: true, label: "Product" },
   ],
@@ -35,6 +30,7 @@ const siteConfig = {
     'https://buttons.github.io/buttons.js',
     'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js',
     '/js/code-block-buttons.js',
+    'js/intercom.js',
   ],
   stylesheets: ['/css/code-block-buttons.css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'],
   // wrapPagesHTML: true,
