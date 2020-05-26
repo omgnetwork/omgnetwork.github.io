@@ -15,15 +15,10 @@ const siteConfig = {
   organizationName: "omisego",
   headerLinks: [
     { doc: "welcome", label: "Docs" },
-    {
-      href: "network-connection-details",
-      external: false,
-      label: "Network Connection",
-    },
-    { doc: "api-reference-introduction", label: "API" },
-    { href: "https://omisego.co/", external: true, label: "Product" },
+    { doc: "api", label: "APIs" },
+    { href: "https://omg.network", external: true, label: "Product" },
   ],
-  headerIcon: "img/omisego-white.svg",
+  headerIcon: "img/logo/omg-white.svg",
   footerIcon: "img/favicon.ico",
   favicon: "img/favicon.ico",
   colors: {
@@ -50,8 +45,8 @@ const siteConfig = {
   },
   docsSideNavCollapsible: false,
   // Open Graph and Twitter card images.
-  ogImage: "img/omisego-blue.svg",
-  twitterImage: "img/omisego-blue.svg",
+  ogImage: "img/logo/omg-blue.svg",
+  twitterImage: "img/logo/omg-blue.svg",
   // Show documentation's last contributor's name.
   enableUpdateBy: false,
   enableUpdateTime: false,

@@ -1,10 +1,10 @@
 {
   "version-1.0.0-docs": {
-    "Introduction": [
+    "1. Introduction": [
       "version-1.0.0-welcome"
     ],
-    "Tutorials": [
-      "version-1.0.0-integration-introduction",
+    "2. Tutorials": [
+      "version-1.0.0-tutorials-intro",
       {
         "type": "subcategory",
         "label": "OMG Network",
@@ -27,7 +27,7 @@
         ]
       }
     ],
-    "How-to Guides": [
+    "3. How-to Guides": [
       "version-1.0.0-how-to-guides",
       {
         "type": "subcategory",
@@ -37,7 +37,7 @@
         ]
       }
     ],
-    "Concepts": [
+    "4. Concepts": [
       {
         "type": "subcategory",
         "label": "OMG Network",
@@ -59,11 +59,14 @@
         ]
       }
     ],
-    "Appendix": [
+    "5. Resources": [
       "version-1.0.0-glossary",
-      "version-1.0.0-faq"
+      "version-1.0.0-faq",
+      "version-1.0.0-api",
+      "version-1.0.0-environments",
+      "version-1.0.0-release-notes"
     ],
-    "Migration Guides": [
+    "6. Migration Guides": [
       "version-1.0.0-migration-0.2-0.3",
       "version-1.0.0-migration-0.3-0.4"
     ]

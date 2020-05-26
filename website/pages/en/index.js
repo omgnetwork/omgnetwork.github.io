@@ -2,9 +2,6 @@ const React = require("react");
 
 class Header extends React.Component {
   render() {
-    const { siteConfig } = this.props;
-    const { baseUrl, gettingStartedUrl } = siteConfig;
-
     const HeaderContainer = (props) => (
       <section className="home">
         <div className="container">{props.children}</div>
@@ -61,7 +58,7 @@ class Header extends React.Component {
           <HeaderColumn className="col-10 col-sm-6 col-md-5 col-lg-4 m-auto pb-5 pb-md-0">
             <Image
               className="img-fluid rounded-0 d-none d-lg-block"
-              src="./img/dev/dev01.svg"
+              src="./img/icons/dev01.svg"
             ></Image>
           </HeaderColumn>
         </HeaderRow>
@@ -86,16 +83,16 @@ class Index extends React.Component {
     const state = {
       integrationTools: [
         {
-          title: "Block Explorer (Ropsten)",
+          title: "Block Explorer",
           content: "Watch the latest blocks and transactions on the network.",
           url: `${blockExplorerUrl}`,
-          imageLink: `${baseUrl}img/icons/02.svg`,
+          imageLink: `${baseUrl}img/icons/progress.svg`,
         },
         {
-          title: "Web Wallet App (Ropsten)",
+          title: "Web Wallet App",
           content: "Deposit funds and transact on the OMG Network.",
           url: `${webWalletUrl}`,
-          imageLink: `${baseUrl}img/icons/03.svg`,
+          imageLink: `${baseUrl}img/icons/transfer.svg`,
         },
       ],
       integrationDocs: [
@@ -103,21 +100,20 @@ class Index extends React.Component {
           title: "Tutorials",
           content:
             "Learn technical implementation of the OMG Network features.",
-          url: "integration-introduction",
-          imageLink: `${baseUrl}img/icons/01.svg`,
+          url: "tutorials-intro",
+          imageLink: `${baseUrl}img/icons/receipt.svg`,
         },
         {
           title: "Plasma Contracts",
           content: "Browse smart contracts that power the network.",
           url: "https://github.com/omisego/plasma-contracts",
-          imageLink: `${baseUrl}img/icons/04.svg`,
+          imageLink: `${baseUrl}img/icons/contract.svg`,
         },
         {
           title: "Elixir-omg",
-          content:
-            "Run Watcher and Child Chain server locally.",
+          content: "Run Watcher and Child Chain server locally.",
           url: "https://github.com/omisego/elixir-omg",
-          imageLink: `${baseUrl}img/icons/05.svg`,
+          imageLink: `${baseUrl}img/icons/remotely.svg`,
         },
       ],
       codeSamples: [
@@ -125,13 +121,13 @@ class Index extends React.Component {
           title: "Web Wallet Code",
           content: "Interact with the OMG Network from your browser.",
           url: "https://github.com/omisego/web-wallet",
-          imageLink: `${baseUrl}img/icons/06.svg`,
+          imageLink: `${baseUrl}img/icons/dev02.svg`,
         },
         {
           title: "OMG Samples",
           content: "Browse and run locally various code samples.",
           url: "https://github.com/omisego/omg-samples",
-          imageLink: `${baseUrl}img/icons/07.svg`,
+          imageLink: `${baseUrl}img/icons/collecting.svg`,
         },
       ],
       apiDocs: [
@@ -182,7 +178,11 @@ class Index extends React.Component {
           <a href={props.url} target="_blank">
             <div className="row box">
               <div className="col-3 d-none d-lg-block align-self-center">
-                <img alt="image" className="fdb-icon mx-auto" src={props.imageLink} />
+                <img
+                  alt="image"
+                  className="fdb-icon mx-auto"
+                  src={props.imageLink}
+                />
               </div>
               <div className="col-sm-12 col-md-12 col-lg-9">
                 <h3>{props.title}</h3>
@@ -221,6 +221,7 @@ class Index extends React.Component {
                   content={item.content}
                   imageLink={item.imageLink}
                   url={item.url}
+                  key={key}
                 ></ImagedCard>
               );
             })}
@@ -233,6 +234,7 @@ class Index extends React.Component {
                   content={item.content}
                   imageLink={item.imageLink}
                   url={item.url}
+                  key={key}
                 ></ImagedCard>
               );
             })}
@@ -245,6 +247,7 @@ class Index extends React.Component {
                   content={item.content}
                   imageLink={item.imageLink}
                   url={item.url}
+                  key={key}
                 ></ImagedCard>
               );
             })}
@@ -257,6 +260,7 @@ class Index extends React.Component {
                   content={item.content}
                   imageLink={item.imageLink}
                   url={item.url}
+                  key={key}
                 ></CalloutCard>
               );
             })}
