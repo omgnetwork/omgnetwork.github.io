@@ -30,6 +30,7 @@ const siteConfig = {
     'https://buttons.github.io/buttons.js',
     'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js',
     '/js/code-block-buttons.js',
+    'js/intercom.js',
   ],
   stylesheets: ['/css/code-block-buttons.css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'],
   // wrapPagesHTML: true,
