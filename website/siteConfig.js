@@ -53,8 +53,8 @@ const siteConfig = {
   enableUpdateTime: false,
   // omg urls
   gettingStartedUrl: "welcome",
-  blockExplorerUrl: "https://blockexplorer.ropsten.v1.omg.network",
-  webWalletUrl: "https://webwallet.ropsten.v1.omg.network",
+  blockExplorerUrl: "https://omg.eco/blockexplorer",
+  webWalletUrl: "https://omg.eco/webwallet",
   watcherInfoAPIUrl:
     "https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs",
   watcherSecurityAPIUrl:

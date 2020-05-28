@@ -31,7 +31,7 @@
       "version-1.0.0-how-to-guides",
       {
         "type": "subcategory",
-        "label": "OMG Network",
+        "label": "Watcher",
         "ids": [
           "version-1.0.0-run-watcher-locally"
         ]

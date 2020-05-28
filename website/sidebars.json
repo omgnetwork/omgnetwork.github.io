@@ -31,7 +31,7 @@
       "how-to-guides",
       {
         "type": "subcategory",
-        "label": "OMG Network",
+        "label": "Watcher",
         "ids": [
           "run-watcher-locally"
         ]
