@@ -34,6 +34,7 @@
         "label": "Watcher",
         "ids": [
           "run-watcher-locally",
+          "run-watcher-vps",
           "manage-vps"
         ]
       }
