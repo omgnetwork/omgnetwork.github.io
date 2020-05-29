@@ -11,9 +11,9 @@ The OMG Network API documentation describes how you can explore and interact wit
 OMG Network APIs are completely open. No authentication is required to query and get data
 
 ## Rate Limits
-API requests may be rate limited. These limits are to ensure good performance as we bring on public load. We will be constantly evaluating any rate limits we out in place as we learn more about how the system behaves.
+API requests may be rate limited. These limits are to ensure good performance as we bring on public load. We will be constantly evaluating any rate limits we put in place as we learn more about how the system behaves.
 
-If you use exhaust the number of requests, you'll receive `HTTP/1.1 429 Too Many Requests` response with the following body:
+If you exhaust the number of requests, you'll receive `HTTP/1.1 429 Too Many Requests` response with the following body:
 ```
 {
    "data":{
@@ -36,7 +36,7 @@ If you use exhaust the number of requests, you'll receive `HTTP/1.1 429 Too Many
 ## OMG Network APIs
 
 ### Watcher 
-It's recommended to run your Watcher. This means you are not bound by a requirement to place complete trust in the network operator (in this case, OMG Network). OMG Network provides the following Watcher APIs you can work with:
+It's recommended to run your own Watcher. This means you are not bound by a requirement to place complete trust in the network operator (in this case, OMG Network). OMG Network provides the following Watcher APIs you can work with:
 
 * [`Watcher’s Informational API`](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs) — API for common interactions, such as balance query or making transactions. 
 * [`Watcher Security-Critical API`](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Fsecurity_critical_api_specs) — Plasma exit operations API.

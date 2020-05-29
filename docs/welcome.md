@@ -4,14 +4,14 @@ title: Welcome
 sidebar_label: About the OMG Network
 ---
 
-The OMG Network is a decentralized, public network that allows fast, low-cost peer-to-peer transactions, facilitating financial services across geographies, asset classes, and applications.
+The OMG Network is a decentralized, public network that allows high throughput, low-cost peer-to-peer transactions, facilitating financial services across geographies, asset classes, and applications.
  
 The OMG Network leverages Layer 2 Plasma architecture to provide high throughput and strong safety guarantees for third parties who wish to build scalable, decentralized payment apps on the network. 
  
 The OMG Network allows you to access, manage, and transact with digital assets that are kept securely on the blockchain. 
  
 ## Sections
-There are multiple sections the documentation site provides to help in achieving your goals:
+OMG Developer Portal includes the following sections:
 - Tutorials — browse code samples for integration purposes.
 - How-to Guides — install and manage infrastructure components of the OMG Network's products.
 - Concepts — learn about consensus and technical architecture of the OMG Network. 
