@@ -33,7 +33,8 @@
         "type": "subcategory",
         "label": "Watcher",
         "ids": [
-          "run-watcher-locally"
+          "run-watcher-locally",
+          "manage-vps"
         ]
       }
     ],
