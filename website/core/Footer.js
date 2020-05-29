@@ -4,151 +4,212 @@ class Footer extends React.Component {
   render() {
     const { config: siteConfig } = this.props;
     const {
-      gettingStartedUrl,
       blockExplorerUrl,
       watcherInfoAPIUrl,
       watcherSecurityAPIUrl,
       childChainAPIUrl,
     } = siteConfig;
 
+    const state = {
+      gettingStarted: [
+        {
+          content: "MoreVP Architecture",
+          url: "morevp-technical-overview",
+        },
+        {
+          content: "Web Wallet Quick Start",
+          url: "quick-start-webwallet",
+        },
+        {
+          content: "Web Wallet Code",
+          url: "https://github.com/omisego/web-wallet",
+        },
+        {
+          content: "OMG Samples",
+          url: "https://github.com/omisego/omg-samples",
+        },
+      ],
+      api: [
+        {
+          content: `Watcher\nInformational API`,
+          url: watcherInfoAPIUrl,
+        },
+        {
+          content: `Watcher\nSecurity Critical API`,
+          url: watcherSecurityAPIUrl,
+        },
+        {
+          content: `Child Chain API`,
+          url: childChainAPIUrl,
+        },
+      ],
+      docs: [
+        {
+          content: "Elixir-omg",
+          url: "https://github.com/omisego/elixir-omg/blob/master/README.md",
+        },
+        {
+          content: "Omg-js",
+          url: "https://github.com/omisego/omg-js/blob/master/README.md",
+        },
+        {
+          content: "Tutorials",
+          url: "tutorials-intro",
+        },
+        {
+          content: "Plasma Contracts",
+          url: "https://github.com/omisego/plasma-contracts",
+        },
+      ],
+      resources: [
+        {
+          content: "Block Explorer",
+          url: blockExplorerUrl,
+        },
+        {
+          content: "OMG Network",
+          url: "https://www.omg.network",
+        },
+        {
+          content: "Github",
+          url: "https://github.com/omisego",
+        },
+      ],
+      social: [
+        {
+          url: "https://twitter.com/omgnetworkhq",
+          src: "/img/social/twitter.svg",
+          alt: "twitter",
+        },
+        {
+          url: "https://www.linkedin.com/company/omgnetwork/",
+          src: "/img/social/linkedin.svg",
+          alt: "linkedin",
+        },
+        {
+          url: "https://github.com/omisego",
+          src: "/img/social/github.svg",
+          alt: "github",
+        },
+        // {
+        //   url: "https://reddit.com/r/omgnetwork",
+        //   src: "/img/social/reddit.svg",
+        //   alt: "reddit",
+        // },
+        // {
+        //   url: "https://www.youtube.com/channel/UC-NfGRxTkJfVbFgyJoOxzCQ",
+        //   src: "/img/social/youtube.svg",
+        //   alt: "youtube",
+        // },
+      ],
+    };
+
+    const FooterColumn = (props) => {
+      return (
+        <div className="footer-column">
+          <span className="footer-title">{props.title}</span>
+          {props.children}
+        </div>
+      );
+    };
+
+    const FooterColumnSocial = (props) => {
+      return (
+        <div className="footer-column">
+          <span className="footer-title">{props.title}</span>
+          <span className="footer-item">{props.children}</span>
+        </div>
+      );
+    };
+
+    const FooterItem = (props) => {
+      return (
+        <span className="footer-item">
+          <a target="_blank" href={props.href}>
+            {props.content}
+          </a>
+        </span>
+      );
+    };
+
+    const FooterItemSocial = (props) => {
+      return (
+        <a target="_blank" href={props.href}>
+          <img src={props.src} alt={props.alt} className="footer-social" />
+        </a>
+      );
+    };
+
     return (
       <div className="footer-content">
         <div className="footer-wrapper">
-          <div className="footer-column">
-            <span className="footer-title">Getting Started</span>
-            <span className="footer-item">
-              <a
-                target="_blank"
-                href={"morevp-technical-overview"}
-              >
-                {`Learn MoreVP\nArchitecture`}
-              </a>
-            </span>
-            <span className="footer-item">
-              <a
-                target="_blank"
-                href="/quick-start-webwallet"
-              >
-                {`Get to know\nthe Plasma Interface`}
-              </a>
-            </span>
-          </div>
+          <FooterColumn title="Getting Started">
+            {state.gettingStarted.map((item, key) => {
+              return (
+                <FooterItem
+                  href={item.url}
+                  content={item.content}
+                  key={key}
+                ></FooterItem>
+              );
+            })}
+          </FooterColumn>
+          <FooterColumn title="API References">
+            {state.api.map((item, key) => {
+              return (
+                <FooterItem
+                  href={item.url}
+                  content={item.content}
+                  key={key}
+                ></FooterItem>
+              );
+            })}
+          </FooterColumn>
+          <FooterColumn title="Integration Docs">
+            {state.docs.map((item, key) => {
+              return (
+                <FooterItem
+                  href={item.url}
+                  content={item.content}
+                  key={key}
+                ></FooterItem>
+              );
+            })}
+          </FooterColumn>
+          <FooterColumn title="Resources">
+            {state.resources.map((item, key) => {
+              return (
+                <FooterItem
+                  href={item.url}
+                  content={item.content}
+                  key={key}
+                ></FooterItem>
+              );
+            })}
+          </FooterColumn>
 
-          <div className="footer-column">
-            <span className="footer-title">APIs</span>
-            <span className="footer-item">
-              <a target="_blank" href={watcherInfoAPIUrl}>
-                {`Watcher\nInformational API`}
-              </a>
-            </span>
-            <span className="footer-item">
-              <a target="_blank" href={watcherSecurityAPIUrl}>
-                {`Watcher\nSecurity Critical API`}
-              </a>
-            </span>
-            <span className="footer-item">
-              <a target="_blank" href={childChainAPIUrl}>
-                {`Child Chain API`}
-              </a>
-            </span>
-          </div>
-
-          <div className="footer-column">
-            <span className="footer-title">Documentation</span>
-            <span className="footer-item">
-              <a
-                target="_blank"
-                href="https://github.com/omisego/elixir-omg/blob/master/README.md"
-              >
-                {`OMG Network`}
-              </a>
-            </span>
-            <span className="footer-item">
-              <a
-                target="_blank"
-                href="https://github.com/omisego/omg-js/blob/master/README.md"
-              >
-                {`omg-js`}
-              </a>
-            </span>
-          </div>
-
-          <div className="footer-column">
-            <span className="footer-title">Links</span>
-            <span className="footer-item">
-              <a target="_blank" href={blockExplorerUrl}>
-                {`Block Explorer`}
-              </a>
-            </span>
-            <span className="footer-item">
-              <a target="_blank" href="https://omisego.co/">
-                {`OmiseGO`}
-              </a>
-            </span>
-            <span className="footer-item">
-              <a target="_blank" href="https://github.com/omisego">
-                {`GitHub`}
-              </a>
-            </span>
-          </div>
-
-          <div className="footer-column" style={{ position: "relative" }}>
-            <span className="footer-title">Follow us</span>
-
-            <span className="footer-item">
-              <a target="_blank" href="https://twitter.com/omise_go">
-                <img
-                  src="/img/twitter.svg"
-                  alt="twitter"
-                  className="footer-social"
-                />
-              </a>
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/company/omisego/"
-              >
-                <img
-                  src="/img/linkedin.svg"
-                  alt="linkedin"
-                  className="footer-social"
-                />
-              </a>
-              <a target="_blank" href="https://github.com/omisego">
-                <img
-                  src="/img/github.svg"
-                  alt="github"
-                  className="footer-social"
-                />
-              </a>
-              <a target="_blank" href="https://reddit.com/r/omise_go/">
-                <img
-                  src="/img/reddit.svg"
-                  alt="reddit"
-                  className="footer-social"
-                />
-              </a>
-              <a
-                target="_blank"
-                href="https://www.youtube.com/channel/UC-NfGRxTkJfVbFgyJoOxzCQ"
-              >
-                <img
-                  src="/img/youtube.svg"
-                  alt="youtube"
-                  className="footer-social"
-                />
-              </a>
-            </span>
-
+          <FooterColumnSocial
+            title="Follow us"
+          >
+            {state.social.map((item, key) => {
+              return (
+                <FooterItemSocial
+                  href={item.url}
+                  src={item.src}
+                  alt={item.alt}
+                  key={key}
+                ></FooterItemSocial>
+              );
+            })}
+            <br /> <br />
             <span className="footer-copyright">
-              {`© 2019-present OmiseGO.\nAll rights reserved`}
+              {`© 2019-present OMG Network.\nAll rights reserved`}
             </span>
-          </div>
+          </FooterColumnSocial>
         </div>
       </div>
     );
   }
 }
-
-// function Footer() {}
 
 module.exports = Footer;

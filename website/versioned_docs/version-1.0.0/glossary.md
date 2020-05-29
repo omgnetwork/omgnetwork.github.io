@@ -38,7 +38,7 @@ If the "other" transaction is not included in the chain but known to exist, it i
 A centralized network where users and nodes are all connected to a central server. 
 
 ## Cash in/Cash out
-A cash-in/cash-out solution assumes that everyone has a smartphone with access to e-wallet applications that exist in a 'closed-loop' payment infrastructure. OmiseGO aims to open up these wallet siloes to allow wallets to exchange with each other. Cash-in and cash-out touchpoints aim to create a network of banking, hardware, and retail partners where users can deposit and withdraw their cash. The cash becomes tokenized on any wallet application the user chooses and may immediately be exchanged for other tokenized currencies and assets via the OMG Network.
+A cash-in/cash-out solution assumes that everyone has a smartphone with access to e-wallet applications that exist in a 'closed-loop' payment infrastructure. OMG Network aims to open up these wallet siloes to allow wallets to exchange with each other. Cash-in and cash-out touchpoints aim to create a network of banking, hardware, and retail partners where users can deposit and withdraw their cash. The cash becomes tokenized on any wallet application the user chooses and may immediately be exchanged for other tokenized currencies and assets via the OMG Network.
 
 ## Child chain
 The OMG Network.
@@ -81,10 +81,10 @@ Also known as DEX. A cryptocurrency exchange that trades via an automated, peer-
 * Infrastructure is more secure because it's distributed through nodes.
 
 ## Decentralized Finance
-Also known as DeFi. OmiseGO contributes to and supports DeFi, enabling interoperability of multiple solutions to guard against fragmentation. DeFi requires a network with an ecosystem that makes it attractive to build products on it, including adequate liquidity. DeFi can lower barriers to access financial services, supporting the provision of loans, for example data on the blockchain can be used as input to identify credit risk of the debtor. Financial literacy is a requirement since users must look after their keys and use the technology responsibly.
+Also known as DeFi. OMG Network contributes to and supports DeFi, enabling interoperability of multiple solutions to guard against fragmentation. DeFi requires a network with an ecosystem that makes it attractive to build products on it, including adequate liquidity. DeFi can lower barriers to access financial services, supporting the provision of loans, for example data on the blockchain can be used as input to identify credit risk of the debtor. Financial literacy is a requirement since users must look after their keys and use the technology responsibly.
 
 ## Decentralized network
-In a decentralized network, such as a blockchain, data is redundantly stored and monitored by multiple nodes, instead of on a private server. Additionally, data is distributed amongst a web of individual machines with different owners that perform continuous consensus on the validity of changes to its state. In a decentralized network, mechanisms exist to reward nodes that align themselves with network consensus and penalize those which do not. See Proof of Stake for more information about OmiseGO's enforcement mechanisms. Centralized networks require trust in a central party, which is opaque and gated. Centralized databases are vulnerable to attack because they present a single point of entry for bad actors looking to steal or manipulate data. Decentralized networks are transparent. Every state change of such networks (i.e. every balance and every transaction) is stored on a shared ledger that can be viewed by anyone or is obscured in a way that makes voluntary provable traceability possible where necessary. Thus, there is no need to trust the word of a central authority.
+In a decentralized network, such as a blockchain, data is redundantly stored and monitored by multiple nodes, instead of on a private server. Additionally, data is distributed amongst a web of individual machines with different owners that perform continuous consensus on the validity of changes to its state. In a decentralized network, mechanisms exist to reward nodes that align themselves with network consensus and penalize those which do not. See Proof of Stake for more information about OMG Network's enforcement mechanisms. Centralized networks require trust in a central party, which is opaque and gated. Centralized databases are vulnerable to attack because they present a single point of entry for bad actors looking to steal or manipulate data. Decentralized networks are transparent. Every state change of such networks (i.e. every balance and every transaction) is stored on a shared ledger that can be viewed by anyone or is obscured in a way that makes voluntary provable traceability possible where necessary. Thus, there is no need to trust the word of a central authority.
 
 ## Deposit Finality Period
 The deposit finality period refers to the number of Ethereum block confirmations required before a deposit can be used on the network. It is in place to mitigate the risk posed to the OMG Network by Ethereum chain re-organizations.
@@ -161,26 +161,26 @@ Mint is a record of each occurrence when more tokens were put into circulation.
 Any computer that connects to the blockchain network.
 
 ## ODP
-Short for OmiseGO Developer Program. Find out more [here](https://developer.omisego.co/)
+Short for OMG Network Developer Program. Find out more [here](https://docs.omg.network).
 
 ## OMG
-Short for OmiseGO, the name of the OMG Network. Also, the ticker of the ERC20 token used to secure the network.
+Short for OMG Network, the name of the OMG Network. Also, the ticker of the ERC20 token used to secure the network.
 
 ## OMG token
-A utility and staking token that gives users the right to take an active role by running validator nodes on OmiseGO's Proof of Stake network, using their tokens as a security deposit. 
-An OMG token brings value to the Ethereum Mainnet because the value of the OMG token is backed by the value of the amounts transacted on the OMG Network (both external, real-world money, and crypto-money) and being pushed through the network’s decentralized exchange (including the other applications, businesses, and token projects that are outsourcing their DEX requirements to it). As the OmiseGO platform and the underlying network evolves, so does the nature and role of the OMG token.
+A utility and staking token that gives users the right to take an active role by running validator nodes on OMG Network's Proof of Stake network, using their tokens as a security deposit. 
+An OMG token brings value to the Ethereum Mainnet because the value of the OMG token is backed by the value of the amounts transacted on the OMG Network (both external, real-world money, and crypto-money) and being pushed through the network’s decentralized exchange (including the other applications, businesses, and token projects that are outsourcing their DEX requirements to it). As the OMG Network platform and the underlying network evolves, so does the nature and role of the OMG token.
 
-## OmiseGO
-Pronounced oh-mee-say-go, OmiseGO is an incorporated entity, a subsidiary of Omise Holdings.
+## OMG Network
+Pronounced oh-mee-say-go, OMG Network is an incorporated entity, a subsidiary of Omise Holdings.
 
 ## Order matching
-Refers to the rules of the market for matching orders. An order for OmiseGO and the industry is the intent to trade, which includes the following:
+Refers to the rules of the market for matching orders. An order for OMG Network and the industry is the intent to trade, which includes the following:
 * An instrument (an asset - crypto)
 * A price
 * Volume (quantity)
 
 ## Operator
-The company or user running the software that provides blockchain services, such as OmiseGO.
+The company or user running the software that provides blockchain services, such as OMG Network.
 
 ## Proof of Stake
 Also known as *PoS*. A blockchain consensus algorithm.
@@ -192,7 +192,7 @@ Also known as P2P, a system in which peers (computers) connect, share resources,
 Also known as *PoW*. A blockchain consensus algorithm, invented by Satoshi Nakamoto.
 
 ## Plasma
-Plasma is the scaling solution of OmiseGO. It is a framework for incentivized and enforced execution of smart contracts.
+Plasma is the scaling solution of OMG Network. It is a framework for incentivized and enforced execution of smart contracts.
 
 ## Plasma block verifier
 The entity that verifies blocks in a child chain. In the OMG Network's case, an entity that runs the watcher software.
@@ -222,7 +222,7 @@ Also known as PoS. An alternative to Proof-of-Work (PoW). In PoW, a miner spends
 | PoS  | Miner must stake their tokens as security deposit and receives transaction fees for honest behavior. Dishonest users risk losing their tokens (hard slashing) or receive reduced returns (soft slashing).  |
 | PoW  | Requires substantial investment in hardware and energy. The first miner to demonstrate correct PoW on a mined block receives a block reward and transaction fees for the block. Investment cost exists regardless of the outcome, but a dishonest miner (e.g. submits incorrect proofs) risks losing the investment. |
 
-OmiseGO used soft slashing in its initial Honte implementation. Returns are distributed in proportion to the number of tokens staked. However, PoS still represents a more equitable system in that returns are directly proportional to your stake. In PoW, the more computing power you have, the cheaper it is to add more - and since computing power is what earns you mining rewards, this leads to people with lots of money collecting disproportionately larger returns. In PoS, a dollar is a dollar no matter how many of them you have.
+OMG Network used soft slashing in its initial Honte implementation. Returns are distributed in proportion to the number of tokens staked. However, PoS still represents a more equitable system in that returns are directly proportional to your stake. In PoW, the more computing power you have, the cheaper it is to add more - and since computing power is what earns you mining rewards, this leads to people with lots of money collecting disproportionately larger returns. In PoS, a dollar is a dollar no matter how many of them you have.
 
 ## Protocol
 An established set of rules or parameters for formatting, transmitting and communicating data between network devices.
@@ -244,7 +244,7 @@ A settlement is a final step in the lifecycle of a securities transaction.
 A settlement is similar to PSP (Payment Service Provider), reconciliation reports, and so on. The purpose of the audit layer is to support the integrity of these settlements, to ensure that all data is valid.
 
 ## Shared liquidity
-Shared liquidity implies that there is a large amount (a pool) of orders. OmiseGO does not offer shared liquidity. Instead, OmiseGo allows users to move their funds easily between venues. For example, if OmiseGO offered shared liquidity, Binance and GO.Exchange could see and access the orders of both (it is a shared/combined view of orders).
+Shared liquidity implies that there is a large amount (a pool) of orders. OMG Network does not offer shared liquidity. Instead, OmiseGo allows users to move their funds easily between venues. For example, if OMG Network offered shared liquidity, Binance and GO.Exchange could see and access the orders of both (it is a shared/combined view of orders).
 
 ## Spend transaction
 A spend transaction is any transaction that spends a UTXO that is already present on the child chain. 
@@ -268,7 +268,7 @@ An entity in a secure settlement that verifies the correctness of matching off-c
 In a blockchain, a transaction is an exchange of value between two wallets. Transactions are stored in the local ledger using a DEB approach. DEB (Double Entry Bookkeeping) is a system where entry is created and DEBIT/CREDIT transactions are linked to it. The sum of all debits minus the sum of all credits for a specific entry has to be equal to 0. Summing up all credit transactions minus all debit transactions for a specific balance address and the token symbol gives the balance of the address.
 
 ## Unstoppable
-While this is not a typical technical glossary term, it's important to clarify what we mean when we say that the OMG Network is 'Unstoppable'. We use this term to characterize the OMG Network because even if OmiseGO (the company) ceased to exist and our servers were shut down, the OMG Network can be restarted. All software required to run the network is open source and freely available, and anyone could restart the OMG Network. Additionally, OmiseGO does not control the OMG token; the token cannot be withdrawn from circulation because the authority key for the contract was destroyed. 
+While this is not a typical technical glossary term, it's important to clarify what we mean when we say that the OMG Network is 'Unstoppable'. We use this term to characterize the OMG Network because even if OMG Network (the company) ceased to exist and our servers were shut down, the OMG Network can be restarted. All software required to run the network is open source and freely available, and anyone could restart the OMG Network. Additionally, OMG Network does not control the OMG token; the token cannot be withdrawn from circulation because the authority key for the contract was destroyed. 
 
 ## UTXO
 Short for Unspent Transaction Output. See: https://bitcoin.org/en/glossary/unspent-transaction-output.

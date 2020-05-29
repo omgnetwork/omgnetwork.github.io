@@ -1,10 +1,10 @@
 {
   "docs": {
-    "Introduction": [
+    "1. Introduction": [
       "welcome"
     ],
-    "Tutorials": [
-      "integration-introduction",
+    "2. Tutorials": [
+      "tutorials-intro",
       {
         "type": "subcategory",
         "label": "OMG Network",
@@ -27,17 +27,17 @@
         ]
       }
     ],
-    "How-to Guides": [
+    "3. How-to Guides": [
       "how-to-guides",
       {
         "type": "subcategory",
-        "label": "OMG Network",
+        "label": "Watcher",
         "ids": [
           "run-watcher-locally"
         ]
       }
     ],
-    "Concepts": [
+    "4. Concepts": [
       {
         "type": "subcategory",
         "label": "OMG Network",
@@ -59,11 +59,14 @@
         ]
       }
     ],
-    "Appendix": [
+    "5. Resources": [
       "glossary",
-      "faq"
+      "faq",
+      "api",
+      "environments",
+      "release-notes"
     ],
-    "Migration Guides": [
+    "6. Migration Guides": [
       "migration-0.2-0.3",
       "migration-0.3-0.4"
     ]

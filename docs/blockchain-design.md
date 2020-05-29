@@ -4,17 +4,17 @@ title: Blockchain Design
 sidebar_label: Blockchain Design
 ---
 
-This page describes the blockchain (consensus) design used by the first iteration of OmiseGO Plasma-based implementation. This design is a modified version of [Minimal Viable Plasma design](https://ethresear.ch/t/minimal-viable-plasma/426).
+This page describes the blockchain (consensus) design used by the first iteration of OMG Network Plasma-based implementation. This design is a modified version of [Minimal Viable Plasma design](https://ethresear.ch/t/minimal-viable-plasma/426).
  
 > This content assumes that you have prior knowledge of Ethereum and general familiarity with Plasma.
  
 ### Tesuji Plasma architecture
 Tesuji Plasma's architecture allows cheaper transactions and higher throughput, without sacrificing security. Users make transactions on a child chain that derives its security from a root chain. 
  
-Child chain refers to a blockchain that coalesces multiple transactions into a child chain block, compacting them into a single, cheap transaction on a root chain. OmiseGO's root chain is the Ethereum blockchain.
+Child chain refers to a blockchain that coalesces multiple transactions into a child chain block, compacting them into a single, cheap transaction on a root chain. OMG Network's root chain is the Ethereum blockchain.
  
-### OmiseGO's blockchain design
-The key features of OmiseGO's blockchain design may be viewed as deviations from the big picture Plasma that is outlined by the original Plasma paper:
+### OMG Network's blockchain design
+The key features of OMG Network's blockchain design may be viewed as deviations from the big picture Plasma that is outlined by the original Plasma paper:
  
 1. Only supports transactions transferring value between addresses.
  
@@ -192,7 +192,7 @@ Reorg refers to changing the order of blocks and transactions on the root chain.
  
 Everything is valid if the submit block root chain transaction gets mined after the deposit (causing the honest child chain to allow the spend). However, if the order of these transactions gets reversed due to a reorg, the spend will appear before the deposit, rendering the child chain invalid.
  
-OmiseGO blockchain employs these mechanisms to protect itself against reorgs: 
+OMG Network blockchain employs these mechanisms to protect itself against reorgs: 
  
 * Only allow deposits to be used on the child chain N Ethereum Block confirmations.
  
@@ -360,4 +360,4 @@ Watcher takes on an additional responsibility: collecting and storing data relev
 2. Full transaction history (child chain blocks).
  
 ## Exchange
-For a high-level discussion about exchange designs on top of Tesuji plasma, see [OmiseGO Decentralized Exchange](https://github.com/omisego/elixir-omg/blob/master/docs/dex_design.md) (ODEX).
+For a high-level discussion about exchange designs on top of Tesuji plasma, see [OMG Network Decentralized Exchange](https://github.com/omisego/elixir-omg/blob/master/docs/dex_design.md) (ODEX).

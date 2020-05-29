@@ -134,7 +134,7 @@ git checkout <LATEST_RELEASE_BRANCH>
 
 ### STEP 4 - Modify Configurations
 
-Most of the configurations required to run a Watcher are filled with default values. If you encounter any issues (e.g. `get_block:not_found`), check the latest [network connections](network-connection-details) for chosen environment (testnet or mainnet). Also, you need to set up `ETHEREUM_RPC_URL` that corresponds with a full Ethereum node URL. To change the values, use the following command from the root of `elixir-omg` repository:
+Most of the configurations required to run a Watcher are filled with default values. If you encounter any issues (e.g. `get_block:not_found`), check the latest [network connections](environments) for chosen environment (testnet or mainnet). Also, you need to set up `ETHEREUM_RPC_URL` that corresponds with a full Ethereum node URL. To change the values, use the following command from the root of `elixir-omg` repository:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Linux -->

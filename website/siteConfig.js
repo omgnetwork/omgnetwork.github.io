@@ -15,15 +15,10 @@ const siteConfig = {
   organizationName: "omisego",
   headerLinks: [
     { doc: "welcome", label: "Docs" },
-    {
-      href: "network-connection-details",
-      external: false,
-      label: "Network Connection",
-    },
-    { doc: "api-reference-introduction", label: "API" },
-    { href: "https://omisego.co/", external: true, label: "Product" },
+    { doc: "api", label: "APIs" },
+    { href: "https://omg.network", external: true, label: "Product" },
   ],
-  headerIcon: "img/omisego-white.svg",
+  headerIcon: "img/logo/omg-white.svg",
   footerIcon: "img/favicon.ico",
   favicon: "img/favicon.ico",
   colors: {
@@ -35,6 +30,7 @@ const siteConfig = {
     'https://buttons.github.io/buttons.js',
     'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js',
     '/js/code-block-buttons.js',
+    'js/intercom.js',
   ],
   stylesheets: ['/css/code-block-buttons.css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'],
   // wrapPagesHTML: true,
@@ -50,15 +46,15 @@ const siteConfig = {
   },
   docsSideNavCollapsible: false,
   // Open Graph and Twitter card images.
-  ogImage: "img/omisego-blue.svg",
-  twitterImage: "img/omisego-blue.svg",
+  ogImage: "img/logo/omg-blue.svg",
+  twitterImage: "img/logo/omg-blue.svg",
   // Show documentation's last contributor's name.
   enableUpdateBy: false,
   enableUpdateTime: false,
   // omg urls
   gettingStartedUrl: "welcome",
-  blockExplorerUrl: "https://blockexplorer.ropsten.v1.omg.network",
-  webWalletUrl: "https://webwallet.ropsten.v1.omg.network",
+  blockExplorerUrl: "https://omg.eco/blockexplorer",
+  webWalletUrl: "https://omg.eco/webwallet",
   watcherInfoAPIUrl:
     "https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs",
   watcherSecurityAPIUrl:

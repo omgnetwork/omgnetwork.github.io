@@ -45,7 +45,7 @@ This section describes the basic MoreVP exit mechanism and provides insights tow
 
 The MoreVP exit protocol allows the owners of both inputs and outputs to transactions to attempt an exit.
 
-OmiseGO intends to design a mechanism that allows withdrawal of inputs and outputs under the following conditions:
+OMG Network intends to design a mechanism that allows withdrawal of inputs and outputs under the following conditions:
 
 **The owner of an input `in` to a transaction `tx` must prove that:**
 
@@ -106,7 +106,7 @@ Any user may initiate an exit following such steps:
 
 ### How to prove that a spend transaction is exitable
 
-Several mechanisms exist to prove that a spend transaction is exitable. This section describes two methods, starting with the method OmiseGO has implemented.
+Several mechanisms exist to prove that a spend transaction is exitable. This section describes two methods, starting with the method OMG Network has implemented.
 
 **Implemented exit proof method**
 1. User presents `tx` along with each of the `input_tx1, input_tx2, ... , input_txn` that created the inputs to the transaction, a Merkle proof of inclusion for each `input_tx`, and a signature over `tx` from the `newowner` of each `input_tx`.
