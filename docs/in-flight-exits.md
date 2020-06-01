@@ -39,9 +39,9 @@ async function startInflightExit() {
     await rootChain.addToken({
       token: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
       txOptions: {
-        from: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+        from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
         privateKey:
-          "0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7",
+          "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
       },
     });
   }
@@ -55,10 +55,10 @@ async function startInflightExit() {
 
   // construct a transaction body
   const transactionBody = await childChain.createTransaction({
-    owner: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+    owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
     payments: [
       {
-        owner: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+        owner: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
         currency: OmgUtil.transaction.ETH_CURRENCY,
         amount: "350000000000000",
       },
@@ -78,7 +78,7 @@ async function startInflightExit() {
   // define private keys to use for transaction signing
   const privateKeys = new Array(
     transactionBody.transactions[0].inputs.length
-  ).fill("0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7");
+  ).fill("0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7");
 
   // locally sign typedData with passed private keys, useful for multiple different signatures
   const signatures = childChain.signTransaction(typedData, privateKeys);
@@ -103,14 +103,14 @@ async function startInflightExit() {
     inFlightTxSigs: exitData.in_flight_tx_sigs,
     txOptions: {
       privateKey:
-        "0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7",
-      from: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+        "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
+      from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
     },
   });
 
   // decode the transaction to get the index of Alice's output
   const outputIndex = transactionBody.transactions[0].outputs.findIndex(
-    (e) => e.owner === "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a"
+    (e) => e.owner === "0x8CB0DE6206f459812525F2BA043b14155C2230C0"
   );
 
   // piggyback onto the in-flight exit
@@ -119,8 +119,8 @@ async function startInflightExit() {
     outputIndex: outputIndex,
     txOptions: {
       privateKey:
-        "0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7",
-      from: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+        "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
+      from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
     },
   });
 
@@ -174,8 +174,8 @@ rootChain.piggybackInFlightExitOnInput({
   inputIndex,
   inFlightTx: exitData.in_flight_tx,
   txOptions: {
-    from: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
-    privateKey: "0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7"
+    from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+    privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
   }
 })
 ```

@@ -19,12 +19,12 @@ Retrieving balances involves converting an [RLP encoded](https://github.com/ethe
 
 ```js
 async function retrieveRootChainBalance() {
-  return web3.eth.getBalance("0x0dC8e240d90F3B0d511b6447543b28Ea2471401a");
+  return web3.eth.getBalance("0x8CB0DE6206f459812525F2BA043b14155C2230C0");
 }
 
 async function retrieveChildChainBalance() {
   const childchainBalanceArray = await childChain.getBalance(
-    "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a"
+    "0x8CB0DE6206f459812525F2BA043b14155C2230C0"
   );
   const aliceChildchainBalance = childchainBalanceArray.map((i) => {
     return {
@@ -47,14 +47,14 @@ async function retrieveChildChainBalance() {
 async function retrieveRootChainBalance() {
   await OmgUtil.getErc20Balance({
     web3,
-    address: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+    address: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
     erc20Address: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
   });
 }
 
 async function retrieveChildChainBalance() {
   const childchainBalanceArray = await childChain.getBalance(
-    "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a"
+    "0x8CB0DE6206f459812525F2BA043b14155C2230C0"
   );
   const aliceChildchainBalance = alicesBalanceArray.map((i) => {
     return {

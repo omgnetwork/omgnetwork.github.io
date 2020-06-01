@@ -83,7 +83,7 @@ async function challengeInvalidExit () {
     inputIndex: challengeData.input_index,
     challengeTxSig: challengeData.sig,
     txOptions: {
-      from: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+      from: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
       privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
     }
   })
@@ -137,7 +137,7 @@ rootChain.challengeInFlightExitNonCanonical({
   competingTxInclusionProof,
   competingTxWitness,
   txOptions: {
-    from: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+    from: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
     privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
   }
 })
@@ -185,7 +185,7 @@ async function respondToInvalidIFEChallenge () {
     inFlightTxPos: proof.in_flight_tx_pos,
     inFlightTxInclusionProof: proof.in_flight_proof,
     txOptions: {
-      from: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+      from: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
       privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
     }
   })
@@ -241,7 +241,7 @@ async function challengeInvalidPiggyback () {
     challengingTxInputIndex: challengeData.spending_input_index,
     challengingTxWitness: challengeData.spending_sig,
     txOptions: {
-      from: "0x8b63BB2B829813ECe5C2F378d47b2862bE271c6C",
+      from: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
       privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
     }
   })

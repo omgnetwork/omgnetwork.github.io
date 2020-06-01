@@ -45,7 +45,7 @@ In the above scenario, Alice can merge her UTXOs to send the desired amount to B
 ```js
 async function mergeUtxo() {
   // retrieve all utxos
-  const aliceUtxosAll = await childChain.getUtxos("0x0dC8e240d90F3B0d511b6447543b28Ea2471401a");
+  const aliceUtxosAll = await childChain.getUtxos("0x8CB0DE6206f459812525F2BA043b14155C2230C0");
   
   // filter utxos based on the token
   const aliceEthUtxos = aliceUtxosAll.filter(
@@ -58,7 +58,7 @@ async function mergeUtxo() {
   // merge utxos
   const utxo = await childChain.mergeUtxos({
     utxos: utxosToMerge,
-    privateKey: "0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7",
+    privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
     verifyingContract: "0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9",
   });
 
@@ -104,17 +104,17 @@ async function splitUtxo() {
   // define payments objects that will represent new utxos
   const payments = [
     {
-      owner: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+      owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
       currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
       amount: "120000000000000",
     },
     {
-      owner: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+      owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
       currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
       amount: "250000000000000",
     },
     {
-      owner: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+      owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
       currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
       amount: "250000000000000",
     },
@@ -122,7 +122,7 @@ async function splitUtxo() {
 
   // create a transaction body
   const transactionBody = await childChain.createTransaction({
-    owner: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+    owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
     payments,
     fee: {
       currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
@@ -139,7 +139,7 @@ async function splitUtxo() {
   // define private keys to use for transaction signing
   const privateKeys = new Array(
     transactionBody.transactions[0].inputs.length
-  ).fill("0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7");
+  ).fill("0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7");
 
   // locally sign typedData with passed private keys, useful for multiple different signatures
   const signatures = childChain.signTransaction(typedData, privateKeys);

@@ -33,16 +33,16 @@ async function startStandardExit() {
     return rootChain.addToken({
       token: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
       txOptions: {
-        from: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+        from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
         privateKey:
-          "0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7",
+          "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
       },
     });
   }
 
   // get utxo information
   const alicesUtxos = await childChain.getUtxos(
-    "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a"
+    "0x8CB0DE6206f459812525F2BA043b14155C2230C0"
   );
   const exitData = await childChain.getExitData(alicesUtxos);
 
@@ -52,9 +52,9 @@ async function startStandardExit() {
     outputTx: exitData.txbytes,
     inclusionProof: exitData.proof,
     txOptions: {
-      from: "0x0dC8e240d90F3B0d511b6447543b28Ea2471401a",
+      from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
       privateKey:
-        "0xCD5994C7E2BF03202C59B529B76E5582266CEB384F02D32B470AC57112D0C6E7",
+        "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
     },
   });
 }
