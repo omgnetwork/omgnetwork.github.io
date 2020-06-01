@@ -35,7 +35,7 @@ In general, run and/or integrate with the WatcherInfo to utilize the full set of
 
 NOTE: This is handled by `/transaction.create` and `/transaction.submit_typed`, so it is unlikely to affect integrators.
 
-The transaction decoding and checks are documented in plasma-contracts [here](https://github.com/omisego/plasma-contracts/blob/master/plasma_framework/docs/integration-docs/integration-doc.md#transactions).
+The transaction decoding and checks are documented in plasma-contracts [here](https://github.com/omgnetwork/plasma-contracts/blob/master/plasma_framework/docs/integration-docs/integration-doc.md#transactions).
 
 ### Obsoleted configurations
 The environment variables with prefixes RINKEBY_, ROPSTEN_ and MAINNET_ have been replaced with ETHEREUM_NETWORK and their non-prefixed names. To upgrade from previous versions, migrate the old configurations to the following new ones:
@@ -47,7 +47,7 @@ The environment variables with prefixes RINKEBY_, ROPSTEN_ and MAINNET_ have bee
 - CONTRACT_ADDRESS_ERC20_VAULT
 - CONTRACT_ADDRESS_PAYMENT_EXIT_GAME
 
-For more information, see [Deployment Configurations](https://github.com/omisego/elixir-omg/blob/master/docs/deployment_configuration.md).
+For more information, see [Deployment Configurations](https://github.com/omgnetwork/elixir-omg/blob/master/docs/deployment_configuration.md).
 
 ### New configurations
 The following new environment variables can be configured to modify the behaviour of your self-hosted Watcher and WatcherInfo.
@@ -58,14 +58,14 @@ The following new environment variables can be configured to modify the behaviou
 - EXIT_PROCESSOR_SLA_MARGIN_FORCED
 - ETHEREUM_BLOCK_TIME_SECONDS
 
-For more information, see [Deployment Configurations](https://github.com/omisego/elixir-omg/blob/master/docs/deployment_configuration.md).
+For more information, see [Deployment Configurations](https://github.com/omgnetwork/elixir-omg/blob/master/docs/deployment_configuration.md).
 
 ## omg-js
 *from 3.0.0-alpha.6 to 3.0.0-0.4.1*
 
 ### General changes
 - Library has been updated to work with the updated contracts and latest APIs from `elixir-omg`.
-- [API documentation](https://developer.omisego.co/omg-js/) significantly improved with correct types and definitions.
+- [API documentation](https://docs.omg.network/omg-js/) significantly improved with correct types and definitions.
 - Introduced input validation so users are able to catch input errors earlier and avoid confusing stack traces
 - Examples folder has been updated to show implementation of new functionality as well as more helper functions.
 - See better balance and UTXO information.
@@ -79,7 +79,7 @@ For more information, see [Deployment Configurations](https://github.com/omisego
 - `inFlightExitGetOutputChallengeData` - new function that gets the data to challenge an invalid output piggybacked on an in-flight exit.
 
 ### RootChain Module
-In most functions, arguments are now passed as objects in this module for easier readability. Please check the [API documentation](https://developer.omisego.co/omg-js/) for more details.
+In most functions, arguments are now passed as objects in this module for easier readability. Please check the [API documentation](https://docs.omg.network/omg-js/) for more details.
 - `Constructor` - arguments are retrieved as an object and passing the abi is no longer necessary. 
 - Vault contracts will be instantiated along with returning the contract address for you.
     - `getErc20Vault`

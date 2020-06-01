@@ -7,11 +7,11 @@ const siteConfig = {
   gaGtag: true,
   title: "OMG Network",
   tagline: "Documentation for the OMG Network",
-  url: "https://omisego.github.io",
+  url: "https://omgnetwork.github.io",
   baseUrl: "/",
   docsUrl: "",
   cname: "docs.omg.network",
-  projectName: "omisego.github.io",
+  projectName: "omgnetwork.github.io",
   organizationName: "omgnetwork",
   headerLinks: [
     { doc: "welcome", label: "Docs" },

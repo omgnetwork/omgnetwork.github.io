@@ -106,13 +106,13 @@ class Index extends React.Component {
         {
           title: "Plasma Contracts",
           content: "Browse smart contracts that power the network.",
-          url: "https://github.com/omisego/plasma-contracts",
+          url: "https://github.com/omgnetwork/plasma-contracts",
           imageLink: `${baseUrl}img/icons/contract.svg`,
         },
         {
           title: "Elixir-omg",
           content: "Run Watcher and Child Chain server locally.",
-          url: "https://github.com/omisego/elixir-omg",
+          url: "https://github.com/omgnetwork/elixir-omg",
           imageLink: `${baseUrl}img/icons/remotely.svg`,
         },
       ],
@@ -120,13 +120,13 @@ class Index extends React.Component {
         {
           title: "Web Wallet Code",
           content: "Interact with the OMG Network from your browser.",
-          url: "https://github.com/omisego/web-wallet",
+          url: "https://github.com/omgnetwork/web-wallet",
           imageLink: `${baseUrl}img/icons/dev02.svg`,
         },
         {
           title: "OMG Samples",
           content: "Browse and run locally various code samples.",
-          url: "https://github.com/omisego/omg-samples",
+          url: "https://github.com/omgnetwork/omg-samples",
           imageLink: `${baseUrl}img/icons/collecting.svg`,
         },
       ],

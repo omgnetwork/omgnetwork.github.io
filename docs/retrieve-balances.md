@@ -84,13 +84,13 @@ This section provides a demo project that contains a detailed implementation of 
 
 For running a full `omg-js` code sample for the tutorial, please use the following steps:
 
-1. Clone [OMG Samples](https://github.com/omisego/omg-samples) repository:
+1. Clone [OMG Samples](https://github.com/omgnetwork/omg-samples) repository:
 
 ```
-git clone https://github.com/omisego/omg-samples.git
+git clone https://github.com/omgnetwork/omg-samples.git
 ```
 
-2. Create `.env` file and provide the [required configuration values](https://github.com/omisego/omg-samples/tree/master/omg-js#setup).
+2. Create `.env` file and provide the [required configuration values](https://github.com/omgnetwork/omg-samples/tree/master/omg-js#setup).
 
 3. Run these commands:
 
@@ -102,6 +102,6 @@ npm run start
 
 4. Open your browser at [http://localhost:3000](http://localhost:3000). 
 
-5. Select [`Retrieve Balances`](https://github.com/omisego/omg-samples/tree/master/omg-js/app/01-balances) on the left side, observe the logs on the right.
+5. Select [`Retrieve Balances`](https://github.com/omgnetwork/omg-samples/tree/master/omg-js/app/01-balances) on the left side, observe the logs on the right.
 
 > Code samples for all tutorials use the same repository — `omg-samples`, thus you have to set up the project and install dependencies only one time.

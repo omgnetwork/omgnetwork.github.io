@@ -27,7 +27,7 @@ By the end of the guide, you will achieve the following:
 
 > Keep your tokens safe. Please ensure you understand how to store and send tokens without compromising security, always double-check the recipient`s address, never send private keys to anyone unless you want to lose your funds.
 
-> The quick start guide uses a hosted application via [react-starter-kit](https://github.com/omisego/react-starter-kit). To run it yourself, check the installation instructions in the repository.
+> The quick start guide uses a hosted application via [react-starter-kit](https://github.com/omgnetwork/react-starter-kit). To run it yourself, check the installation instructions in the repository.
 
 ## Wallet Configuration
 There are two options to work with the OMG network:

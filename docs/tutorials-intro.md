@@ -8,13 +8,13 @@ The tutorials section aims to give a deeper technical explanation and code imple
 
 ## Code Samples
 
-The majority of tutorials have sufficient code as a part of a larger [OMG Samples](https://github.com/omisego/omg-samples) project. This project contains code samples in multiple programming languages. You may find a full implementation of a chosen tutorial for your preferred language in the respective folder (e.g. `omg-js` for Javascript).
+The majority of tutorials have sufficient code as a part of a larger [OMG Samples](https://github.com/omgnetwork/omg-samples) project. This project contains code samples in multiple programming languages. You may find a full implementation of a chosen tutorial for your preferred language in the respective folder (e.g. `omg-js` for Javascript).
  
-> Currently, all code samples are implemented in Javascript as a part of [omg-js](https://github.com/omisego/omg-js) library.
+> Currently, all code samples are implemented in Javascript as a part of [omg-js](https://github.com/omgnetwork/omg-js) library.
 
 The tutorials section explains how things work under the hood and show a general integration approach for each of the network's features or services. If you want to learn the core network implementation, please check the following references:
-- [Plasma Framework Contracts](https://github.com/omisego/plasma-contracts)  
-- [Child Chain and Watcher](https://github.com/omisego/elixir-omg) 
+- [Plasma Framework Contracts](https://github.com/omgnetwork/plasma-contracts)  
+- [Child Chain and Watcher](https://github.com/omgnetwork/elixir-omg) 
 
 ### Alice and Bob
 

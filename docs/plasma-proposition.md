@@ -14,7 +14,7 @@ The core security proposition of Plasma revolves around honest users being able 
 
 As the child chain relies on the root chain to be its ultimate arbiter, it must commit a compacted and verifiable version of its state changes periodically to the smart contract running on the root chain. As opposed to submitting individual transaction data onto the root chain, the child chain bundles transactions into a [Merkle tree](https://medium.com/crypto-0-nite/merkle-proofs-explained-6dd429623dc5) and submits the root hash.
 
-Beyond these core elements, there is no prescribed configuration for a Plasma chain. They can take on different consensus protocols, block validation mechanisms or fraud proofs. The design is adaptable to the use case. The OMG Network is  based on the Plasma [MoreVP](https://github.com/omisego/elixir-omg/blob/master/docs/morevp.md) design, an extension of [Minimum Viable Plasma](https://ethresear.ch/t/minimal-viable-plasma/426) optimised for the settlement of payments and exchanges.
+Beyond these core elements, there is no prescribed configuration for a Plasma chain. They can take on different consensus protocols, block validation mechanisms or fraud proofs. The design is adaptable to the use case. The OMG Network is  based on the Plasma [MoreVP](https://github.com/omgnetwork/elixir-omg/blob/master/docs/morevp.md) design, an extension of [Minimum Viable Plasma](https://ethresear.ch/t/minimal-viable-plasma/426) optimised for the settlement of payments and exchanges.
 
 
 ## Plasma versus Side Chains

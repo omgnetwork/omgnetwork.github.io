@@ -121,13 +121,13 @@ Each of the ports are used for running one of the following containers:
 
 ### STEP 3 - Clone elixir-omg
 
-Currently, child chain and Watcher exist in a single repository [`elixir-omg`](https://github.com/omisego/elixir-omg). Thus, you need to clone it to start working with the Watcher.
+Currently, child chain and Watcher exist in a single repository [`elixir-omg`](https://github.com/omgnetwork/elixir-omg). Thus, you need to clone it to start working with the Watcher.
 
 ```
-git clone https://github.com/omisego/elixir-omg.git
+git clone https://github.com/omgnetwork/elixir-omg.git
 ```
 
-Make sure you're on the [`latest release`](https://github.com/omisego/elixir-omg/releases) branch (e.g. `v0.4.7`). It's not recommended to use pre-releases, they may not be stable.
+Make sure you're on the [`latest release`](https://github.com/omgnetwork/elixir-omg/releases) branch (e.g. `v0.4.7`). It's not recommended to use pre-releases, they may not be stable.
 ```
 git checkout <LATEST_RELEASE_BRANCH>
 ```
@@ -270,7 +270,7 @@ The `last_validated_child_block_number` value should correspond with the latest 
 ### STEP 7 - Test Your Watcher
 
 The last step is to test that your Watcher is working properly. There are two ways to do that:
-1. Use `http://localtost:7353` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omisego/omg-samples). 
+1. Use `http://localtost:7353` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omgnetwork/omg-samples). 
 2. Make a transaction or other operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
 
 ## Useful Commands
@@ -344,7 +344,7 @@ docker-compose -f docker-compose-watcher.yml restart
 ```
 <!-- Update -->
 
-To update docker containers, pull the latest updates from the [`latest release`](https://github.com/omisego/elixir-omg/releases) branch of the `elixir-omg` repository:
+To update docker containers, pull the latest updates from the [`latest release`](https://github.com/omgnetwork/elixir-omg/releases) branch of the `elixir-omg` repository:
 
 ```
 git checkout <LATEST_RELEASE_BRANCH>

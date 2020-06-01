@@ -208,7 +208,7 @@ There are two approaches for ensuring that money can't be double-spent via the t
     * Standard exits on UTXO seen as the input of an in-flight tx exit can be challenged using tx body.
     * Canonicity of in-flight exit can be removed by pointing contract to finalized standard exit from in-flight exit inputs, marking particular input as spent.
 
-> More information may be found in [Standard vs In-flight Exits Interaction](https://github.com/omisego/elixir-omg/blob/master/docs/standard_vs_in_flight_exits_interaction.md)
+> More information may be found in [Standard vs In-flight Exits Interaction](https://github.com/omgnetwork/elixir-omg/blob/master/docs/standard_vs_in_flight_exits_interaction.md)
 
 ## Alice-Bob Scenarios
 

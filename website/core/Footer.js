@@ -22,11 +22,11 @@ class Footer extends React.Component {
         },
         {
           content: "Web Wallet Code",
-          url: "https://github.com/omisego/web-wallet",
+          url: "https://github.com/omgnetwork/web-wallet",
         },
         {
           content: "OMG Samples",
-          url: "https://github.com/omisego/omg-samples",
+          url: "https://github.com/omgnetwork/omg-samples",
         },
       ],
       api: [
@@ -46,11 +46,11 @@ class Footer extends React.Component {
       docs: [
         {
           content: "Elixir-omg",
-          url: "https://github.com/omisego/elixir-omg/blob/master/README.md",
+          url: "https://github.com/omgnetwork/elixir-omg/blob/master/README.md",
         },
         {
           content: "Omg-js",
-          url: "https://github.com/omisego/omg-js/blob/master/README.md",
+          url: "https://github.com/omgnetwork/omg-js/blob/master/README.md",
         },
         {
           content: "Tutorials",
@@ -58,7 +58,7 @@ class Footer extends React.Component {
         },
         {
           content: "Plasma Contracts",
-          url: "https://github.com/omisego/plasma-contracts",
+          url: "https://github.com/omgnetwork/plasma-contracts",
         },
       ],
       resources: [
@@ -72,7 +72,7 @@ class Footer extends React.Component {
         },
         {
           content: "Github",
-          url: "https://github.com/omisego",
+          url: "https://github.com/omgnetwork",
         },
       ],
       social: [
@@ -87,7 +87,7 @@ class Footer extends React.Component {
           alt: "linkedin",
         },
         {
-          url: "https://github.com/omisego",
+          url: "https://github.com/omgnetwork",
           src: "/img/social/github.svg",
           alt: "github",
         },

@@ -31,14 +31,14 @@ Things to be aware of:
 ## Migrating from v0.2 (Samrong) to v0.3 (pre-Lumphini)
 There small changes API changes in the Watcher APIs relating to Exits. There are more significant changes to the way the contracts are organized. Here’s how to get your v0.2 integration working with v0.3:
 
-Update your Watcher and Child Chain endpoints to match the new [`pre-lumpini` services](https://github.com/omisego/dev-portal/blob/master/guides/network_endpoints.md)
+Update your Watcher and Child Chain endpoints to match the new [`pre-lumpini` services](https://github.com/omgnetwork/dev-portal/blob/master/guides/network_endpoints.md)
 
 ### Deposits
 - Deposits now go to a vault contract, depending on whether you are depositing ETH or an ERC-20 token. You must now send your deposits to the correct vault contract. If using ETH, deposit into ETH_VAULT. If using ERC-20 send your deposits to the ERC20_VAULT.
 - If depositing ERC-20, the same process of approving still applies - you must approve the ERC20_VAULT address to transfer the amount of tokens that you want to deposit.
 
 ### Transactions
-- The structure of typed data has changed slightly in v0.3, still following the EIP-712 signing method. Please refer to the following if building and [signing the transaction](https://github.com/omisego/plasma-contracts/blob/master/plasma_framework/docs/integration-docs/integration-doc.md#eip-712-signing) yourself.
+- The structure of typed data has changed slightly in v0.3, still following the EIP-712 signing method. Please refer to the following if building and [signing the transaction](https://github.com/omgnetwork/plasma-contracts/blob/master/plasma_framework/docs/integration-docs/integration-doc.md#eip-712-signing) yourself.
 - omg-js provides many helper methods that abstract away these details to create and submit a Child Chain transaction with v0.3.
 
 ### Exits
@@ -46,7 +46,7 @@ Update your Watcher and Child Chain endpoints to match the new [`pre-lumpini` se
 - Exits and their challenges are now called from the PaymentExitGame contract. The inputs for both standard and in flight exits have changed slightly. Please see below for implementation detail with regards to the Omg-js library.
 
 ## omg-js
-- For reference implementation of each process, it is recommended to go through the [integration tests](https://github.com/omisego/omg-js/tree/v0.3/packages/integration-tests/test) written in the library.
+- For reference implementation of each process, it is recommended to go through the [integration tests](https://github.com/omgnetwork/omg-js/tree/v0.3/packages/integration-tests/test) written in the library.
 
 - Childchain object instantiation now accepts a proxy url for requests made to the watcher
   - v0.2: `new ChildChain(config.watcher_url)`
@@ -79,22 +79,22 @@ Update your Watcher and Child Chain endpoints to match the new [`pre-lumpini` se
 
 ## Watcher API Changes
 
-- [`/in_flight_exit.get_data`](https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Fsecurity_critical_api_specs#/InFlightExit/in_flight_exit_get_data)
+- [`/in_flight_exit.get_data`](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs#/InFlightExit/in_flight_exit_get_data)
   - Response:
     - `input_txs`: is now an array of hex encoded binaries, instead of one concatenated binary
     - `input_txs_inclusion_proofs`: same as above
     - `in_flight_tx_sigs`: same as above
     - `input_utxos_pos`: new field, an array of utxo positions of inputs to the ife tx
-- [`/in_flight_exit.get_competitor`](https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Fsecurity_critical_api_specs#/InFlightExit/in_flight_exit_get_competitor)
+- [`/in_flight_exit.get_competitor`](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs#/InFlightExit/in_flight_exit_get_competitor)
   - Response:
     - `input_tx`: new field, hex encoded binary with the transaction that created the double-spent input
     - `input_utxo_pos`: new field, utxo position of the double-spent input
-- [`/in_flight_exit.get_input_challenge_data`](https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Fsecurity_critical_api_specs#/InFlightExit/in_flight_exit_get_input_challenge_data)
+- [`/in_flight_exit.get_input_challenge_data`](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Fsecurity_critical_api_specs#/InFlightExit/in_flight_exit_get_input_challenge_data)
   - Response:
     - Same changes as `/in_flight_exit.get_competitor` above
-- [`/status.get`](https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Fsecurity_critical_api_specs#/Status/status_get)
+- [`/status.get`](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs#/Status/status_get)
   - Response:
     - `contract_addr`: instead of a hex encoded binary, now an object with entries being pairs of “name: contract_address”; all contract addresses within the object are hex encoded binaries
-- [`/utxo.get_challenge_data`](https://developer.omisego.co/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Fsecurity_critical_api_specs#/UTXO/utxo_get_challenge_data)
+- [`/utxo.get_challenge_data`](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs#/UTXO/utxo_get_challenge_data)
   - Response:
     - `exiting_tx`: new field, hex encoded binary with the transaction that created the exiting output

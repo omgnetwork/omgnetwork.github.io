@@ -296,7 +296,7 @@ As a result, the child chain will have the following:
  
 > To create a valid transaction you must have access to the positions of all the UTXOs that you own.
  
-> **Note:** *Detailed documentation for the transaction encoding scheme used is pending. In the meantime, please refer to the implementation details in the  `elixir-omg` GitHub repo: [here](https://github.com/omisego/elixir-omg/blob/master/apps/omg/lib/omg/state/transaction/signed.ex#L35) and [here](https://github.com/omisego/elixir-omg/blob/master/apps/omg/lib/omg/state/transaction/signed.ex#L41).
+> **Note:** *Detailed documentation for the transaction encoding scheme used is pending. In the meantime, please refer to the implementation details in the  `elixir-omg` GitHub repo: [here](https://github.com/omgnetwork/elixir-omg/blob/master/apps/omg/lib/omg/state/transaction/signed.ex#L35) and [here](https://github.com/omgnetwork/elixir-omg/blob/master/apps/omg/lib/omg/state/transaction/signed.ex#L41).
  
 ## Watcher
  
@@ -361,4 +361,4 @@ Watcher takes on an additional responsibility: collecting and storing data relev
 2. Full transaction history (child chain blocks).
  
 ## Exchange
-For a high-level discussion about exchange designs on top of Tesuji plasma, see [OMG Network Decentralized Exchange](https://github.com/omisego/elixir-omg/blob/master/docs/dex_design.md) (ODEX).
+For a high-level discussion about exchange designs on top of Tesuji plasma, see [OMG Network Decentralized Exchange](https://github.com/omgnetwork/elixir-omg/blob/master/docs/dex_design.md) (ODEX).

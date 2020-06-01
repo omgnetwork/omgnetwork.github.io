@@ -8,7 +8,7 @@ These are Byzantine Conditions that are signals for users to exit the child chai
  
 #### `unchallenged_exit`
 Indicates that an invalid exit is dangerously close to finalization and hasn't been challenged and the user should exit.
-See docs on [`unchallenged_exit` condition](https://github.com/omisego/elixir-omg/blob/master/docs/exit_validation.md#unchallenged_exit-condition) for more details.
+See docs on [`unchallenged_exit` condition](https://github.com/omgnetwork/elixir-omg/blob/master/docs/exit_validation.md#unchallenged_exit-condition) for more details.
  
 ```json
 {
