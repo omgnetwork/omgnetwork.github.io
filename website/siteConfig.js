@@ -59,7 +59,7 @@ const siteConfig = {
     "https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs",
   watcherSecurityAPIUrl:
     "https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs",
-  childChainAPIUrl: "https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Foperator_api_specs",
+  childChainAPIUrl: "https://docs.omg.network/elixir-omg/docs-ui/",
   omgJsAPIUrl: "https://docs.omg.network/omg-js"
 };
 
