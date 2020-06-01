@@ -7,7 +7,7 @@ const siteConfig = {
   gaGtag: true,
   title: "OMG Network",
   tagline: "Documentation for the OMG Network",
-  url: "https://omgnetwork.github.io",
+  url: "https://omisego.github.io",
   baseUrl: "/",
   docsUrl: "",
   cname: "docs.omg.network",
@@ -56,10 +56,10 @@ const siteConfig = {
   blockExplorerUrl: "https://omg.eco/blockexplorer",
   webWalletUrl: "https://omg.eco/webwallet",
   watcherInfoAPIUrl:
-    "https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs",
+    "https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs",
   watcherSecurityAPIUrl:
-    "https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Fsecurity_critical_api_specs",
-  childChainAPIUrl: "https://docs.omg.network/elixir-omg/docs-ui",
+    "https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs",
+  childChainAPIUrl: "docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Foperator_api_specs",
   omgJsAPIUrl: "https://docs.omg.network/omg-js"
 };
 
