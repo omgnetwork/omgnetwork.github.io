@@ -27,6 +27,7 @@ Ethereum client is required to synchronize transactions on the OMG Network with 
 
 You can install Watcher on the following Linux OS:
 - Ubuntu 16.04
+- Ubuntu 18.04
 
 > Note, it might be possible to run a Watcher on other versions of Linux. Above are provided the versions that have been tested.
 
@@ -38,7 +39,14 @@ The following hardware is required to run a Watcher on VPS or dedicated server:
 - RAM: 6GB
 - Bandwidth: 20 Mbps
 
-> The requirements are based on the network's load in Q2 2020. It is recommended to use hardware with higher performance to avoid a potential increase in the volume of transactions.
+> The requirements are based on the network's load in Q2 2020. It is recommended to use hardware with higher performance to avoid a potential increase in transaction volume.
+
+## Costs
+
+The costs of running a Watcher on VPS include the following components:
+- A full Ethereum node (local or ETH provider).
+- VPS or dedicated server that matches [the minimum hardware requirements](#minimum-hardware-requirements).
+- DevOps setup and maintenance fee.
 
 ## Installation Process
 
@@ -46,7 +54,7 @@ The following hardware is required to run a Watcher on VPS or dedicated server:
 
 It is possible to [run a Watcher locally](run-watcher-locally) for testing purposes but it's recommended to use a remote or dedicated server to increase uptime, reduce latency, and configure advanced security measures for your instance.
 
-The process takes a significant amount of time and may require help from your DevOps team. This step is fully covered in [Manage VPS](manage-vps) guide.
+The process takes a significant amount of time and may require help from your DevOps team. This step is fully covered in the [Manage VPS](manage-vps) guide.
 
 ### 2. Log in to VPS
 
@@ -60,7 +68,7 @@ ssh $USER@REMOTE_IP -p PORT
 
 Running a Watcher requires Docker and Docker Compose tooling. If your server doesn't have these dependencies, you need to install them.
 
-#### Update Ubuntu Packages
+#### 3.1 Update Ubuntu Packages
 
 First, make sure your system has the latest packages:
 
@@ -69,7 +77,7 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-#### Install Docker
+#### 3.2 Install Docker
 
 ```
 curl -sSL https://get.docker.com/ | sh
@@ -77,7 +85,7 @@ sudo usermod -aG docker $USER
 exit
 ```
 
-#### Install Docker Compose
+#### 3.3 Install Docker Compose
 
 Make sure to install the latest version of Docker Compose from the [official repository](https://github.com/docker/compose/releases).
 
@@ -87,6 +95,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 exit
 ```
 
+#### 3.4 Verify
+
 To verify the installed dependencies, use the following commands:
 
 ```
@@ -94,7 +104,9 @@ docker -v
 docker-compose -v
 ```
 
-### 3. Check TCP Ports
+### 4. Check TCP Ports
+
+#### 4.1 System Ports
 
 Before attempting the start up, please ensure that you are not running any services that are listening on the following TCP ports: 7434, 7534, 5432. You can use one of the following commands to accomplish that:
 
@@ -104,12 +116,14 @@ sudo ss -tulpn
 sudo netstat -tulpn
 ```
 
-If you found one of the ports is already in use, consider closing them with the following commands:
+If you found one of the ports is already in use, close them with the following commands:
 
 ```
 sudo lsof -t -i:<PORT>
 sudo kill -9 <PID>
 ```
+
+#### 4.2 Docker Ports
 
 Additionally, you can check if Docker is already using some services as follows:
 
@@ -123,21 +137,21 @@ Example output:
 CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS                 PORTS                                             NAMES
 ```
 
-Each of the ports are used for running one of the following containers:
-- 7434: `elixir-omg_watcher_1`, a light-weight Watcher to ensure security of funds deposited into the child chain.
+Each of the ports is used for running one of the following containers:
+- 7434: `elixir-omg_watcher_1`, a light-weight Watcher to ensure the security of funds deposited into the child chain.
 - 7534: `elixir-omg_watcher_info_1`, a convenient and performant API to the child chain data.
 - 5432: `elixir-omg_postgres_1`, a PostgreSQL database that stores transactions and contains data needed for challenges and exits.
 
-### 4. Create and Enter a New Directory
+### 5. Create and Enter a New Directory
 
 It's advised to create a local directory to hold the Watcher data.
 
 ```
 mkdir watcher
-cd mkdir
+cd watcher
 ```
 
-### 5. Clone elixir-omg
+### 6. Clone elixir-omg
 
 Currently, child chain and Watcher exist in a single repository [`elixir-omg`](https://github.com/omisego/elixir-omg). Thus, you need to clone it to start working with the Watcher.
 
@@ -150,7 +164,9 @@ Make sure you're on the [`latest release`](https://github.com/omisego/elixir-omg
 git checkout <LATEST_RELEASE_BRANCH>
 ```
 
-### 6. Modify Configurations
+### 7. Modify Configurations
+
+#### 7.1 Network
 
 Most of the configurations required to run a Watcher are filled with default values. If you encounter any issues (e.g. `get_block:not_found`), check the latest [network connections](environments) for chosen environment (testnet or mainnet). Also, you need to set up `ETHEREUM_RPC_URL` that corresponds with a full Ethereum node URL. To change the values, use `nano` or `vi` text editor from the root of the `elixir-omg` repository:
 
@@ -158,7 +174,35 @@ Most of the configurations required to run a Watcher are filled with default val
 nano docker-compose-watcher.yml
 ```
 
-### 7. Run a Watcher Instance
+#### 7.2 Infrastructure Monitoring (optional)
+
+If you want to monitor the the status of your Docker containers and the overall health of your server, consider setting up a [Sematext](https://sematext.com/) or other alternatives. For Sematext, first create a new app on their website. Then add the corresponding configurations to your `docker-compose-watcher.yml` file using `nano` or `vi` text editor:
+
+```
+services:
+  sematext-agent:
+    image: 'sematext/agent:latest'
+    environment:
+      - INFRA_TOKEN=<INFRA_TOKEN>
+      - CONTAINER_TOKEN=<CONTAINER_TOKEN>
+      - REGION=EU
+    cap_add:
+      - SYS_ADMIN
+    restart: always
+    volumes:
+      - '/:/hostfs:ro'
+      - '/etc/passwd:/etc/passwd:ro'
+      - '/etc/group:/etc/group:ro'
+      - '/var/run/:/var/run/'
+      - '/sys/kernel/debug:/sys/kernel/debug'
+      - '/sys:/host/sys:ro'
+```
+
+If you set everything correctly, you should see the following dashboard:
+
+![sematext](/img/watcher/03.png)
+
+### 8. Run a Watcher Instance
 
 To run a Watcher instance, you need to start the required Docker containers. The parameter `-d` allows running containers in the background.
 
@@ -189,13 +233,13 @@ watcher_info_1  | 2020-05-15 06:53:43.230 [info] module=OMG.Watcher.BlockGetter 
 
 > Depending on the server's hardware and internet connection, the entire process can take up to an hour.
 
-If you want to exit the logs without stopping containers use `Ctrl+C` or `Cmd+C`.
+If you want to exit the logs without stopping containers, use `Ctrl+C` or `Cmd+C`.
 
-### 8. Verify You're Synced 
+### 9. Verify You're Synced 
 
 To verify that you're fully synced, check the status of Watcher and Watcher Info:
 
-#### Watcher
+#### 9.1 Watcher
 
 ```
 curl -X POST "http://REMOTE_IP:7434/status.get"
@@ -234,10 +278,10 @@ Example output:
 }
 ```
 
-#### Watcher Info
+#### 9.2 Watcher Info
 
 ```
-curl -X POST "http://REMOTE_IP:7434/stats.get"
+curl -X POST "http://REMOTE_IP:7534/stats.get"
 ```
 
 Example output:
@@ -263,8 +307,8 @@ Example output:
 }
 ```
 
-### 9. Test Your Watcher
+### 10. Test Your Watcher
 
 The last step is to test that your Watcher is working properly. There are two ways to do that:
-1. Use `http://REMOTE_IP:7434` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omisego/omg-samples). 
-2. Make a transaction or other operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
+1. Use `http://REMOTE_IP:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omisego/omg-samples). 
+2. Make a transaction or another operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
