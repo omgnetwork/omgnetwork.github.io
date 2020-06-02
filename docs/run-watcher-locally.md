@@ -16,14 +16,15 @@ You should use this guide if you need to accomplish one of the following goals:
 
 ## Prerequisites
 
-1. [Docker Compose](https://docs.docker.com/compose/install) > `1.17`. The docker-compose tooling allows users to run their own instance of the Watcher to connect to the OMG Network and validate transactions.
+1. [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) > `1.17`. The docker-compose tooling allows users to run their own instance of the Watcher to connect to the OMG Network and validate transactions.
 
-To check if you have Docker Compose installed, run the following command in your terminal:
+To check if you have Docker and Docker Compose installed, run the following commands in your terminal:
 ```
-docker-compose --version
+docker -v && docker-compose --version
 ```
 Example output:
 ```
+Docker version 19.03.9, build 9d988398e7
 docker-compose version 1.25.5, build 8a1c60f6
 ```
 
@@ -52,22 +53,20 @@ The following hardware is required to run a Watcher:
 
 ## Installation Process
 
-### STEP 1 - Create a Directory
+### 1. Create a Directory
 
 It's advised to create a local directory to hold the Watcher data.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- Linux -->
+<!-- Linux/macOS -->
 ```
-mkdir omg-watcher
-```
-<!-- macOS -->
-```
-mkdir omg-watcher
+mkdir watcher && cd watcher
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### STEP 2 - Check TCP ports
+### 2. Check TCP Ports
+
+#### 2.1 System Ports
 
 Before attempting the start up, please ensure that you are not running any services that are listening on the following TCP ports: 7434, 7534, 5432. You can use one of the following commands to accomplish that:
 
@@ -85,20 +84,22 @@ sudo netstat -anp tcp | grep LISTEN
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-If you found one of the ports is already in use, consider closing them with the following commands:
+If you found one of the ports is already in use, close them with the following commands:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Linux -->
 ```
-sudo lsof -t -i:<PORT>
-sudo kill -9 <PID>
+sudo lsof -t -i:$PORT
+sudo kill -9 $PID
 ```
 <!-- macOS -->
 ```
-sudo lsof -i :<PORT>
-sudo kill <PID>
+sudo lsof -i :$PORT
+sudo kill $PID
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+#### 2.2 Docker Ports
 
 Additionally, you can check services that Docker is already using with the following command:
 
@@ -118,7 +119,7 @@ Each of the ports are used for running one of the following containers:
 - 7534: `elixir-omg_watcher_info_1`, a convenient and performant API to the child chain data.
 - 5432: `elixir-omg_postgres_1`, a PostgreSQL database that stores transactions and contains data needed for challenges and exits.
 
-### STEP 3 - Clone elixir-omg
+### 3. Clone elixir-omg
 
 Currently, child chain and Watcher exist in a single repository [`elixir-omg`](https://github.com/omgnetwork/elixir-omg). Thus, you need to clone it to start working with the Watcher.
 
@@ -126,19 +127,19 @@ Currently, child chain and Watcher exist in a single repository [`elixir-omg`](h
 git clone https://github.com/omgnetwork/elixir-omg.git
 ```
 
-Make sure you're on the [`latest release`](https://github.com/omgnetwork/elixir-omg/releases) branch (e.g. `v0.4.7`). It's not recommended to use pre-releases, they may not be stable.
+Make sure you're on the [`latest release`](https://github.com/omgnetwork/elixir-omg/releases) branch (e.g. `v0.4.8`). It's not recommended to use pre-releases, they may not be stable.
 ```
 git checkout <LATEST_RELEASE_BRANCH>
 ```
 
-### STEP 4 - Modify Configurations
+### 4. Modify Configurations
 
-Most of the configurations required to run a Watcher are filled with default values. If you encounter any issues (e.g. `get_block:not_found`), check the latest [network connections](environments) for chosen environment (testnet or mainnet). Also, you need to set up `ETHEREUM_RPC_URL` that corresponds with a full Ethereum node URL. To change the values, use the following command from the root of `elixir-omg` repository:
+Most of the configurations required to run a Watcher are filled with default values. If you encounter any issues (e.g. `get_block:not_found`), check the latest [network connections](environments) for chosen environment (testnet or mainnet). Also, you need to set up `ETHEREUM_RPC_URL` that corresponds with a full Ethereum node URL. To change the values, use `nano` or `vim` text editor from the root of `elixir-omg` repository:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Linux -->
 ```
-vi docker-compose-watcher.yml
+vim docker-compose-watcher.yml
 ```
 <!-- macOS -->
 ```
@@ -192,7 +193,7 @@ https://cl-main.fiews.io/v1/{KEY}
 
 > Note, the URL paths may change by providers in the future.
 
-### STEP 5 - Run a Watcher Instance
+### 5. Run a Watcher Instance
 
 To run a Watcher instance, you need to start the required Docker containers. The parameter `-d` allows running containers in the background.
 
@@ -221,11 +222,15 @@ watcher_info_1  | 2020-05-15 06:53:43.062 [info] module=OMG.Watcher.BlockGetter 
 watcher_info_1  | 2020-05-15 06:53:43.230 [info] module=OMG.Watcher.BlockGetter function=handle_continue/2 ⋅Applied block: #147000, from eth height: 7765973 with 2 txs⋅
 ```
 
+If you want to exit the logs without stopping containers, use `Ctrl+C` or `Cmd+C`.
+
 > Depending on your hardware and internet connection, the entire process can take up to an hour.
 
-### STEP 6 - Verify You're Synced 
+### 6. Verify You're Synced 
 
-To verify that you're fully synced, call the following function in your terminal:
+To verify that you're fully synced, check the status of Watcher and Watcher Info:
+
+#### 6.1 Watcher
 
 ```
 curl -X POST "http://localhost:7434/status.get"
@@ -260,23 +265,11 @@ Example output:
    },
    "service_name":"watcher",
    "success":true,
-   "version":"0.4.3+4445aee"
+   "version":"0.4.8+c6a25a0"
 }
 ```
 
-The `last_validated_child_block_number` value should correspond with the latest validated block on the network.
-
-### STEP 7 - Test Your Watcher
-
-The last step is to test that your Watcher is working properly. There are two ways to do that:
-1. Use `http://localtost:7353` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omgnetwork/omg-samples). 
-2. Make a transaction or other operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
-
-## Useful Commands
-
-### Check Watcher Status
-
-When you run a Watcher locally, it's recommended to check its status daily to make sure it's synced and working properly. You can call `status.get` for more detailed output or `stats.get` for a more compact version of network statistics that also returns a status of `watcher_info` service:
+#### 6.2 Watcher Info
 
 ```
 curl -X POST "http://localhost:7534/stats.get"
@@ -287,38 +280,31 @@ Example output:
 {
    "data":{
       "average_block_interval_seconds":{
-         "all_time":23916.056277056276,
-         "last_24_hours":750.5294117647059
+         "all_time":4768.440056417489,
+         "last_24_hours":1550.673076923077
       },
       "block_count":{
-         "all_time":232,
-         "last_24_hours":18
+         "all_time":1419,
+         "last_24_hours":53
       },
       "transaction_count":{
-         "all_time":36965,
-         "last_24_hours":7873
+         "all_time":39299,
+         "last_24_hours":100
       }
    },
    "service_name":"watcher_info",
    "success":true,
-   "version":"0.4.3+4445aee"
+   "version":"0.4.8+c6a25a0"
 }
 ```
 
-### Leave Watcher Logs
+### 7. Test Your Watcher
 
-If you're running Watcher logs, you can exit them without stopping containers with the following command:
+The last step is to test that your Watcher is working properly. There are two ways to do that:
+1. Use `http://localtost:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omgnetwork/omg-samples). 
+2. Make a transaction or other operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!-- Linux -->
-```
-Ctrl+C
-```
-<!-- macOS -->
-```
-Cmd+C
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
+## Useful Commands
 
 ### Start/Stop/Restart/Update Docker Containers
 > All of the functions should be called from the root of the `elixir-omg` repository.
