@@ -47,7 +47,7 @@ To connect to VPS, use `ssh` command from your terminal:
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Linux/macOS -->
 ```
-ssh root@REMOTE_SERVER
+ssh root@$REMOTE_SERVER
 ```
 
 <!-- Windows -->
@@ -55,7 +55,7 @@ ssh root@REMOTE_SERVER
 The SSH Client is available starting from [Windows 10](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview) version. For earlier versions, please use [PuTTY](https://www.putty.org/) or other alternatives to connect to a remote server:
 
 ```
-ssh root@REMOTE_SERVER
+ssh root@$REMOTE_SERVER
 ```
 
 By default, OpenSSH Client is an optional feature. You need to install it if you're using it the first time with the following commands:
@@ -70,7 +70,7 @@ By default, OpenSSH Client is an optional feature. You need to install it if you
 When you connect to the server the first time, it will show the following message:
 
 ```
-The authenticity of host 'REMOTE_SERVER' can't be established.
+The authenticity of host '$REMOTE_SERVER' can't be established.
 ECDSA key fingerprint is SHA256: ...
 Are you sure you want to continue connecting (yes/no)? yes
 ```
@@ -78,8 +78,8 @@ Are you sure you want to continue connecting (yes/no)? yes
 Type `yes`. This will prompt you to enter a password. Note, all Linux systems don't reveal passwords when you type them, thus complete the process and click Enter. If your credentials are correct, you will see the following message:
 
 ```
-Warning: Permanently added 'REMOTE_SERVER' (ECDSA) to the list of known hosts.
-root@REMOTE_SERVER's password:
+Warning: Permanently added '$REMOTE_SERVER' (ECDSA) to the list of known hosts.
+root@$REMOTE_SERVER's password:
 Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-169-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -154,7 +154,7 @@ To test a connection with a new user, logout from your existing session and log 
 
 ```
 logout
-ssh $USER@REMOTE_SERVER
+ssh $USER@$REMOTE_SERVER
 ```
 > Make sure to have both root and your new user passwords saved before doing any of the steps below.
 
@@ -196,7 +196,7 @@ sudo nano /etc/ssh/sshd_config
 Scroll to `# What ports, IPs and protocols we listen for` section and change the port number from `22` to any number higher than 100 or ideally 1000. Save the changes, restart the SSH, and logout from the server. If you try to access your server with default connections, you'll receive `Connection refused` error. You'll need to specify a port number each time you login into the server as follows:
 
 ```
-ssh $USER@REMOTE_SERVER -p PORT
+ssh $USER@$REMOTE_SERVER -p $PORT
 ```
 
 ## VPS Security (medium)
@@ -269,11 +269,11 @@ You will be asked to choose the path to save the keys and a passphrase that will
 ```
 ssh-keygen -t rsa
 Generating public/private rsa key pair.
-Enter file in which to save the key (<ID_RSA_PATH>):
+Enter file in which to save the key ($ID_RSA_DIR):
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
-Your identification has been saved in <ID_RSA_PATH>.
-Your public key has been saved in <ID_RSA_PATH>.
+Your identification has been saved in $ID_RSA_DIR.
+Your public key has been saved in $ID_RSA_DIR.
 The key fingerprint is:
 SHA256: ...
 The key's randomart image is:
@@ -297,7 +297,7 @@ After you've generated the SSH keys, you need to copy the public key to your ser
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Linux -->
 ```
-ssh-copy-id $USER@REMOTE_SERVER -p PORT
+ssh-copy-id $USER@$REMOTE_SERVER -p $PORT
 ```
 <!-- macOS -->
 
@@ -310,7 +310,7 @@ brew install ssh-copy-id
 Then you can copy the public key:
 
 ```
-ssh-copy-id $USER@REMOTE_SERVER -p PORT
+ssh-copy-id $USER@$REMOTE_SERVER -p $PORT
 ```
 
 <!-- Windows -->
@@ -318,7 +318,7 @@ ssh-copy-id $USER@REMOTE_SERVER -p PORT
 Windows currently doesn't support `ssh-copy-id` but you can use an alternative approach to achieve the same result. Run the following command from the Powershell as administrator:
 
 ```
-cat ~/.ssh/id_rsa.pub | ssh $USER@REMOTE_SERVER -p PORT "umask 077; test -d .ssh || mkdir .ssh ; cat >> .ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh $USER@$REMOTE_SERVER -p $PORT "umask 077; test -d .ssh || mkdir .ssh ; cat >> .ssh/authorized_keys"
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -326,7 +326,7 @@ cat ~/.ssh/id_rsa.pub | ssh $USER@REMOTE_SERVER -p PORT "umask 077; test -d .ssh
 If the keys were added successfully, you will be prompt to log in a passphrase you set up during SSH keys generation:
 
 ```
-Enter passphrase for key '<ID_RSA_PATH>':
+Enter passphrase for key '$ID_RSA_DIR':
 ```
 
 Otherwise, you will be logged in without a passphrase.
@@ -336,7 +336,7 @@ Otherwise, you will be logged in without a passphrase.
 Disabling password logins is the last step of basic security measures for your server. Make sure to verify one more time that authentication with SSH keys works before disabling password logins. You can accomplish that with the following command:
 
 ```
-ssh $USER@REMOTE_SERVER -p PORT
+ssh $USER@$REMOTE_SERVER -p $PORT
 ```
 
 You can disable password logins by changing `sshd_config` file on your server as follows:
@@ -415,15 +415,15 @@ Add the following values:
 -A FORWARD -m state --state INVALID -j REJECT
 
 # to ensure fail2ban works correctly after iptables restore
--A INPUT -p tcp -m multiport --dports PORT -j f2b-sshd
+-A INPUT -p tcp -m multiport --dports $PORT -j f2b-sshd
 # SSH
--A INPUT -p tcp --dport PORT -j ACCEPT
+-A INPUT -p tcp --dport $PORT -j ACCEPT
 COMMIT
 ```
 
 If the file is not empty, replace it with the content above. Press `Ctrl+o` (Linux/Windows) or `Cmd+o` (macOS) to save and `Enter` to confirm the changes respectively. Then exit the file with `Ctrl+x` or `Cmd+x`.
 
-> Note, `PORT` is a port you're using to connect to the server via SSH. The default value is 22 but if you follow this guide, it should be different by now. See [`step 5`](#5-change-the-default-port) for reference.
+> Note, `$PORT` is a port you're using to connect to the server via SSH. The default value is 22 but if you follow this guide, it should be different by now. See [`step 5`](#5-change-the-default-port) for reference.
 
 #### 8.4 Restore Iptables
 
@@ -447,14 +447,14 @@ systemctl restart containerd
 To check if you set up everything properly, use `nmap` or `netcat` tools as follows:
 
 ```
-nmap -sS -p PORT -T4 REMOTE_SERVER
+nmap -sS -p $PORT -T4 $REMOTE_SERVER
 ```
 
 Example output (for your server's port):
 
 ```
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-02 19:06 FLE Daylight Time
-Nmap scan report for REMOTE_SERVER
+Nmap scan report for $REMOTE_SERVER
 Host is up (0.34s latency).
 
 PORT     STATE SERVICE
@@ -467,7 +467,7 @@ Example output (for arbitrary port):
 
 ```
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-02 19:04 FLE Daylight Time
-Nmap scan report for REMOTE_SERVER
+Nmap scan report for $REMOTE_SERVER
 Host is up (0.37s latency).
 
 PORT     STATE    SERVICE
@@ -519,7 +519,7 @@ sudo nano /etc/fail2ban/jail.local
 # "ignoreip" can be an IP address, a CIDR mask or a DNS host. Fail2ban will not
 # ban a host which matches an address in this list. Several addresses can be
 # defined using space separator.
-ignoreip = 127.0.0.1/8 REMOTE_SERVER
+ignoreip = 127.0.0.1/8 $REMOTE_SERVER
 
 # "bantime" is the number of seconds that a host is banned.
 bantime = 3600

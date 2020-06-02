@@ -61,7 +61,7 @@ The process takes a significant amount of time and may require help from your De
 All of the subsequent operations require an active session with your server. You can log in using the following command from your terminal or command prompt:
 
 ```
-ssh $USER@REMOTE_IP -p PORT
+ssh $USER@$REMOTE_SERVER -p $PORT
 ```
 
 ### 3. Install Dependencies
@@ -119,8 +119,8 @@ sudo netstat -tulpn
 If you found one of the ports is already in use, close them with the following commands:
 
 ```
-sudo lsof -t -i:<PORT>
-sudo kill -9 <PID>
+sudo lsof -t -i:$PORT
+sudo kill -9 $PID
 ```
 
 #### 4.2 Docker Ports
@@ -242,7 +242,7 @@ To verify that you're fully synced, check the status of Watcher and Watcher Info
 #### 9.1 Watcher
 
 ```
-curl -X POST "http://REMOTE_IP:7434/status.get"
+curl -X POST "http://$REMOTE_SERVER:7434/status.get"
 ```
 
 Example output:
@@ -281,7 +281,7 @@ Example output:
 #### 9.2 Watcher Info
 
 ```
-curl -X POST "http://REMOTE_IP:7534/stats.get"
+curl -X POST "http://$REMOTE_SERVER:7534/stats.get"
 ```
 
 Example output:
@@ -310,5 +310,5 @@ Example output:
 ### 10. Test Your Watcher
 
 The last step is to test that your Watcher is working properly. There are two ways to do that:
-1. Use `http://REMOTE_IP:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omisego/omg-samples). 
+1. Use `http://$REMOTE_SERVER:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omisego/omg-samples). 
 2. Make a transaction or another operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
