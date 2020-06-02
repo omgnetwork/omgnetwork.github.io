@@ -185,7 +185,7 @@ sudo service ssh restart
 
 Now if you try to log into your server with root via SSH, it won't work and return `Permission denied, please try again` message. 
  
-### 5. Change the Default Port (optional)
+### 5. Change the Default Port
 
 Another security measure to prevent people from making different types of attacks is to make it harder to find your SSH access port. You can change it in the `sshd_config` file by using the method from the previous step:
 
@@ -269,11 +269,11 @@ You will be asked to choose the path to save the keys and a passphrase that will
 ```
 ssh-keygen -t rsa
 Generating public/private rsa key pair.
-Enter file in which to save the key (C:\Users\<PC_USER>/.ssh/id_rsa):
+Enter file in which to save the key (<ID_RSA_PATH>):
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
-Your identification has been saved in C:\Users\<PC_USER>/.ssh/id_rsa.
-Your public key has been saved in C:\Users\<PC_USER>/.ssh/id_rsa.pub.
+Your identification has been saved in <ID_RSA_PATH>.
+Your public key has been saved in <ID_RSA_PATH>.
 The key fingerprint is:
 SHA256: ...
 The key's randomart image is:
@@ -366,3 +366,222 @@ echo 'AddressFamily inet' | sudo tee -a /etc/ssh/sshd_config
 ```
 
 Save the changes, close the file, and restart the SSH service. If you ever need IPv6 SSH back, remove the `AddressFamily inet` line.
+
+## VPS Security (advanced)
+
+### 8. Set Up Firewall
+
+A firewall is the last point of contact before anyone in the internet can get into your server. Getting a firewall up is crucial before deploying a server online. The example below demonstrates iptables as a way to set up Firewall rules. However, you may choose another software you're more comfortable with, such as `ufw`, `firewalld`, etc.
+
+#### 8.1 Check the Current Iptables Rules
+
+```
+sudo iptables -S
+```
+
+#### 8.2 Install iptables-persistent
+
+On Ubuntu, the easiest way to save iptables rules without a server reboot is to use the `iptables-persistent` package. You can install it with the following command:
+
+```
+sudo apt-get install iptables-persistent
+```
+
+During the installation, you will be prompt to save the current iptables rules. You can save them to be able to make a backup of the current configs in case something goes wrong.  
+
+> Make sure to have two active SSH connections to your server (two terminals) before following the rest of the guide. This will help to change configs back without rebooting the server.
+
+#### 8.3 Add Iptables Rules
+
+Open iptables file:
+
+```
+nano /etc/iptables/rules.v4
+```
+
+Add the following values:
+
+```
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT ACCEPT [985:1075980]
+:f2b-sshd - [0:0]
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+# block invalid trafic
+-A INPUT -m state --state INVALID -j REJECT
+-A FORWARD -m state --state INVALID -j REJECT
+
+# to ensure fail2ban works correctly after iptables restore
+-A INPUT -p tcp -m multiport --dports PORT -j f2b-sshd
+# SSH
+-A INPUT -p tcp --dport PORT -j ACCEPT
+COMMIT
+```
+
+If the file is not empty, replace it with the content above. Press `Ctrl+o` (Linux/Windows) or `Cmd+o` (macOS) to save and `Enter` to confirm the changes respectively. Then exit the file with `Ctrl+x` or `Cmd+x`.
+
+> Note, `PORT` is a port you're using to connect to the server via SSH. The default value is 22 but if you follow this guide, it should be different by now. See [`step 5`](#5-change-the-default-port) for reference.
+
+#### 8.4 Restore Iptables
+
+`iptables-restore` is used to restore IP Tables from data specified on STDIN or in file. The command should be used as follows:
+
+```
+sudo iptables-restore < /etc/iptables/rules.v4
+```
+
+#### 8.5 Restart Docker Services
+
+If you are using Docker or any other virtualisation software, you may need to restart their services after doing an `iptables-restore`:
+
+```
+systemctl restart docker
+systemctl restart containerd
+```
+
+#### 8.6 Check the Result
+
+To check if you set up everything properly, use `nmap` or `netcat` tools as follows:
+
+```
+nmap -sS -p PORT -T4 REMOTE_SERVER
+```
+
+Example output (for your server's port):
+
+```
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-02 19:06 FLE Daylight Time
+Nmap scan report for REMOTE_SERVER
+Host is up (0.34s latency).
+
+PORT     STATE SERVICE
+1111/tcp open  unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 1.73 seconds
+```
+
+Example output (for arbitrary port):
+
+```
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-02 19:04 FLE Daylight Time
+Nmap scan report for REMOTE_SERVER
+Host is up (0.37s latency).
+
+PORT     STATE    SERVICE
+2222/tcp filtered EtherNetIP-1
+
+Nmap done: 1 IP address (1 host up) scanned in 4.01 seconds
+```
+
+Alternatively, you can use [`Firewall Rule Test`](http://www.firewallruletest.com/) to achieve the same result.
+
+### 9. Set Up Fail2Ban
+
+[Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page) scans log files and bans IPs that show the malicious signs, such as too many password failures, seeking for exploits, etc. Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time, although any arbitrary other action (e.g. sending an email) could also be configured.
+
+#### 9.1 Install Dependencies
+
+To install the dependencies, use `apt-get` command as follows:
+
+```
+sudo apt-get install fail2ban sendmail
+```
+
+> `sendmail` is an optional dependency used to send emails when new IP bans happen.
+
+#### 9.2 Check Fail2Ban Status
+
+When the dependencies are installed correctly, Fail2Ban status should indicate `active (running)`. You can verify this with the following command:
+
+```
+service fail2ban status
+```
+
+#### 9.3 Configure Fail2Ban
+
+To define Fail2Ban rules, you need to create a configurations file:
+
+```
+sudo touch /etc/fail2ban/jail.local
+```
+
+Then, open the file in `nano` or `vi` text editor, paste the following values, and save the result:
+
+```
+sudo nano /etc/fail2ban/jail.local
+```
+
+```
+[DEFAULT] 
+# "ignoreip" can be an IP address, a CIDR mask or a DNS host. Fail2ban will not
+# ban a host which matches an address in this list. Several addresses can be
+# defined using space separator.
+ignoreip = 127.0.0.1/8 REMOTE_SERVER
+
+# "bantime" is the number of seconds that a host is banned.
+bantime = 3600
+
+# A host is banned if it has generated "maxretry" during the last "findtime"
+# seconds.
+findtime = 600
+maxretry = 3
+
+# Enable the SSH daemon jail.
+[sshd] 
+enabled = true
+
+# Enable Email alerts
+destemail = user@example.com
+sendername = Fail2Ban
+sender = user@server
+action = %(action_mwl)s
+```
+
+> For setting up custom configurations, refer to [`Linode guide`](https://www.linode.com/docs/security/using-fail2ban-to-secure-your-server-a-tutorial/#email-alerts).
+
+After the changes are saved, restart the Fail2Ban service as follows:
+
+```
+sudo service fail2ban restart
+```
+
+Now, if anyone makes 3 failed attempts to log in to your server with the wrong SSH passphrase within 600 seconds, the corresponding IP will be banned for 3600 seconds.
+
+#### 9.4 Check Fail2Ban Status
+
+After the Fail2Ban is configured, you can check its status with the following command:
+
+```
+sudo fail2ban-client status
+```
+
+Example output:
+
+```
+Status
+|- Number of jail:    1
+`- Jail list:    sshd
+```
+
+You can also poll the detailed status of individual jails, such as `sshd`:
+
+```
+sudo fail2ban-client status sshd
+```
+
+Example output:
+
+```
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed:    0
+|  |- Total failed:    0
+|  `- File list:                 /var/log/auth.log
+`- Actions
+|- Currently banned:    0
+|- Total banned:    0
+`- Banned IP list:
+```
