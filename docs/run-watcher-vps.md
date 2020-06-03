@@ -63,6 +63,10 @@ All of the subsequent operations require an active session with your server. You
 ssh $USER@$REMOTE_SERVER -p $PORT
 ```
 
+> - `$USER` - the name of the user with root privileges used to log into the remote server. Default: root.
+> - `$REMOTE_SERVER` - an ip address of your remote server.
+> - `$PORT` - a port used to connect to the server. Default: 22.
+
 ### 3. Install Dependencies
 
 Running a Watcher requires Docker and Docker Compose tooling. If your server doesn't have these dependencies, you need to install them.
@@ -73,25 +77,22 @@ First, make sure your system has the latest packages:
 
 ```
 sudo apt-get update
-sudo apt-get upgrade
 ```
 
 #### 3.2 Install Docker
 
 ```
-curl -sSL https://get.docker.com/ | sh
-sudo usermod -aG docker $USER
-exit
+sudo curl -sSL https://get.docker.com/ | sh && sudo usermod -aG docker $USER && exit
 ```
+
+> - `$USER` - the name of the user with root privileges used on a remote server.
 
 #### 3.3 Install Docker Compose
 
 Make sure to install the latest version of Docker Compose from the [official repository](https://github.com/docker/compose/releases).
 
 ```
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-exit
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose && exit
 ```
 
 #### 3.4 Verify
@@ -99,8 +100,13 @@ exit
 To verify the installed dependencies, use the following commands:
 
 ```
-docker -v
-docker-compose -v
+docker -v && docker-compose -v
+```
+
+Example output:
+```
+Docker version 19.03.9, build 9d988398e7
+docker-compose version 1.25.5, build 8a1c60f6
 ```
 
 ### 4. Check TCP Ports
@@ -121,6 +127,9 @@ If you found one of the ports is already in use, close them with the following c
 sudo lsof -t -i:$PORT
 sudo kill -9 $PID
 ```
+
+> - `$PORT` - a port to clear from other processes.
+> - `$PID` - process ID listening on defined port.
 
 #### 4.2 Docker Ports
 
@@ -146,8 +155,7 @@ Each of the ports is used for running one of the following containers:
 It's advised to create a local directory to hold the Watcher data.
 
 ```
-mkdir watcher
-cd watcher
+mkdir watcher && cd watcher
 ```
 
 ### 6. Clone elixir-omg
@@ -182,9 +190,9 @@ services:
   sematext-agent:
     image: 'sematext/agent:latest'
     environment:
-      - INFRA_TOKEN=<INFRA_TOKEN>
-      - CONTAINER_TOKEN=<CONTAINER_TOKEN>
-      - REGION=EU
+      - INFRA_TOKEN=$INFRA_TOKEN
+      - CONTAINER_TOKEN=$CONTAINER_TOKEN
+      - REGION=$REGION
     cap_add:
       - SYS_ADMIN
     restart: always
@@ -196,6 +204,10 @@ services:
       - '/sys/kernel/debug:/sys/kernel/debug'
       - '/sys:/host/sys:ro'
 ```
+
+> - `$INFRA_TOKEN` - Sematext infrastructure token.
+> - `$CONTAINER_TOKEN` - Sematext Docker container token.  
+> - `$REGION` - region used in your Sematext account.
 
 If you set everything correctly, you should see the following dashboard:
 
@@ -244,6 +256,8 @@ To verify that you're fully synced, check the status of Watcher and Watcher Info
 curl -X POST "http://$REMOTE_SERVER:7434/status.get"
 ```
 
+> - `$REMOTE_SERVER` - an ip address of your remote server.
+
 Example output:
 ```
 {
@@ -283,6 +297,8 @@ Example output:
 curl -X POST "http://$REMOTE_SERVER:7534/stats.get"
 ```
 
+> - `$REMOTE_SERVER` - an ip address of your remote server.
+
 Example output:
 ```
 {
@@ -311,3 +327,5 @@ Example output:
 The last step is to test that your Watcher is working properly. There are two ways to do that:
 1. Use `http://$REMOTE_SERVER:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omisego/omg-samples). 
 2. Make a transaction or another operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
+
+> - `$REMOTE_SERVER` - an ip address of your remote server.

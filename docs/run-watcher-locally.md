@@ -99,6 +99,9 @@ sudo kill $PID
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+> - `$PORT` - a port to clear from other processes.
+> - `$PID` - process ID listening on defined port.
+
 #### 2.2 Docker Ports
 
 Additionally, you can check services that Docker is already using with the following command:
