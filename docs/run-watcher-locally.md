@@ -130,9 +130,9 @@ Currently, child chain and Watcher exist in a single repository [`elixir-omg`](h
 git clone https://github.com/omgnetwork/elixir-omg.git
 ```
 
-Make sure you're on the [`latest release`](https://github.com/omgnetwork/elixir-omg/releases) branch (e.g. `v0.4.8`). It's not recommended to use pre-releases, they may not be stable.
+Make sure you're on the [`latest release`](https://github.com/omgnetwork/elixir-omg/releases) tag (e.g. `v0.4.8`). It's not recommended to use pre-releases, they may not be stable.
 ```
-git checkout <LATEST_RELEASE_BRANCH>
+git checkout <LATEST_RELEASE_TAG>
 ```
 
 ### 4. Modify Configurations
@@ -301,10 +301,16 @@ Example output:
 }
 ```
 
+Notice, the server may not respond until the following line appears in the `watcher_info` logs:
+
+```
+watcher_info_1   | 2020-05-30 06:13:36.445 [info] module=Phoenix.Endpoint.CowboyAdapter function=start_link/3 ⋅Running OMG.WatcherRPC.Web.Endpoint with cowboy 1.1.2 at :::7434 (http)⋅
+```
+
 ### 7. Test Your Watcher
 
 The last step is to test that your Watcher is working properly. There are two ways to do that:
-1. Use `http://localtost:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omgnetwork/omg-samples). 
+1. Use `http://localhost:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omgnetwork/omg-samples). 
 2. Make a transaction or other operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
 
 ## Useful Commands
@@ -332,10 +338,10 @@ docker-compose -f docker-compose-watcher.yml restart
 ```
 <!-- Update -->
 
-To update docker containers, pull the latest updates from the [`latest release`](https://github.com/omgnetwork/elixir-omg/releases) branch of the `elixir-omg` repository:
+To update docker containers, pull the latest updates from the [`latest release`](https://github.com/omgnetwork/elixir-omg/releases) tag of the `elixir-omg` repository:
 
 ```
-git checkout <LATEST_RELEASE_BRANCH>
+git checkout <LATEST_RELEASE_TAG>
 git pull
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->

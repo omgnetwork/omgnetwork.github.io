@@ -160,15 +160,15 @@ mkdir watcher && cd watcher
 
 ### 6. Clone elixir-omg
 
-Currently, child chain and Watcher exist in a single repository [`elixir-omg`](https://github.com/omisego/elixir-omg). Thus, you need to clone it to start working with the Watcher.
+Currently, child chain and Watcher exist in a single repository [`elixir-omg`](https://github.com/omgnetwork/elixir-omg). Thus, you need to clone it to start working with the Watcher.
 
 ```
-git clone https://github.com/omisego/elixir-omg.git
+git clone https://github.com/omgnetwork/elixir-omg.git
 ```
 
-Make sure you're on the [`latest release`](https://github.com/omisego/elixir-omg/releases) branch (e.g. `v0.4.8`). It's not recommended to use pre-releases, they may not be stable.
+Make sure you're on the [`latest release`](https://github.com/omgnetwork/elixir-omg/releases) tag (e.g. `v0.4.8`). It's not recommended to use pre-releases, they may not be stable.
 ```
-git checkout <LATEST_RELEASE_BRANCH>
+git checkout <LATEST_RELEASE_TAG>
 ```
 
 ### 7. Modify Configurations
@@ -322,10 +322,16 @@ Example output:
 }
 ```
 
+Notice, the server may not respond until the following line appears in the `watcher_info` logs:
+
+```
+watcher_info_1   | 2020-05-30 06:13:36.445 [info] module=Phoenix.Endpoint.CowboyAdapter function=start_link/3 ⋅Running OMG.WatcherRPC.Web.Endpoint with cowboy 1.1.2 at :::7434 (http)⋅
+```
+
 ### 10. Test Your Watcher
 
 The last step is to test that your Watcher is working properly. There are two ways to do that:
-1. Use `http://$REMOTE_SERVER:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omisego/omg-samples). 
+1. Use `http://$REMOTE_SERVER:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omgnetwork/omg-samples). 
 2. Make a transaction or another operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
 
 > - `$REMOTE_SERVER` - an ip address of your remote server.
