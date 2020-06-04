@@ -137,7 +137,25 @@ git checkout <LATEST_RELEASE_TAG>
 
 ### 4. Modify Configurations
 
-Most of the configurations required to run a Watcher are filled with default values. If you encounter any issues (e.g. `get_block:not_found`), check the latest [network connections](environments) for chosen environment (testnet or mainnet). Also, you need to set up `ETHEREUM_RPC_URL` that corresponds with a full Ethereum node URL. To change the values, use `nano` or `vim` text editor from the root of `elixir-omg` repository:
+Most of the configurations required to run a Watcher are filled with default values. If you encounter any issues (e.g. `get_block:not_found`), check the latest [network connections](environments) for chosen environment (testnet or mainnet). The following values have to be defined properly for `watcher` and `watcher_info` services:
+
+```js
+- ETHEREUM_RPC_URL=
+- CHILD_CHAIN_URL=
+- ETHEREUM_NETWORK=
+- AUTHORITY_ADDRESS=
+- TXHASH_CONTRACT=
+- CONTRACT_ADDRESS_PLASMA_FRAMEWORK=
+- CONTRACT_ADDRESS_ETH_VAULT=
+- CONTRACT_ADDRESS_ERC20_VAULT=
+- CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=
+```
+
+A few things to keep in mind:
+- `ETHEREUM_RPC_URL` should correspond with a full Ethereum node URL. OMG Network doesn't provide such a service, you need to set it up on your own or use an Ethereum infrastructure provider.
+- `ETHEREUM_NETWORK` accepts only all caps values: `RINKEBY`, `ROPSTEN`, `MAINNET`, etc.
+
+To change the values, use `nano` or `vim` text editor from the root of `elixir-omg` repository:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Linux -->
