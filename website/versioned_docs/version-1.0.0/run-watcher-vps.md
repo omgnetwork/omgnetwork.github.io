@@ -164,7 +164,7 @@ mkdir watcher && cd watcher
 Currently, child chain and Watcher exist in a single repository [`elixir-omg`](https://github.com/omgnetwork/elixir-omg). Thus, you need to clone it to start working with the Watcher.
 
 ```
-git clone https://github.com/omgnetwork/elixir-omg.git
+git clone https://github.com/omgnetwork/elixir-omg.git && cd elixir-omg
 ```
 
 Make sure you're on the [`latest release`](https://github.com/omgnetwork/elixir-omg/releases) tag (e.g. `v0.4.8`). It's not recommended to use pre-releases, they may not be stable.
@@ -202,7 +202,7 @@ nano docker-compose-watcher.yml
 
 #### 7.2 Infrastructure Monitoring (optional)
 
-If you want to monitor the the status of your Docker containers and the overall health of your server, consider setting up a [Sematext](https://sematext.com/) or other alternatives. For Sematext, first create a new app on their website. Then add the corresponding configurations to your `docker-compose-watcher.yml` file using `nano` or `vi` text editor:
+If you want to monitor the the status of your Docker containers and the overall health of your server, consider setting up a [Sematext](https://sematext.com/) or other alternatives. For Sematext, first create a new app on their website. Then add the corresponding configurations to your `docker-compose-watcher.yml` file using `nano` or `vim` text editor:
 
 ```
 services:
@@ -349,8 +349,22 @@ watcher_info_1   | 2020-05-30 06:13:36.445 [info] module=Phoenix.Endpoint.Cowboy
 
 ### 10. Test Your Watcher
 
-The last step is to test that your Watcher is working properly. There are two ways to do that:
+TThere are two ways to test that your Watcher is working properly:
 1. Use `http://$REMOTE_SERVER:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omgnetwork/omg-samples). 
 2. Make a transaction or another operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
 
 > - `$REMOTE_SERVER` - an ip address of your remote server.
+
+### 11. Set Up Monitoring and Notification Services
+
+Lastly, you want to make sure that your server is always up and the Watcher notifies you with certain alarms and byzantine conditions on the child chain.
+
+#### 11.1 Server Monitoring
+
+To monitor the status of your server, you can use [Pingdom](https://www.pingdom.com/), [Status Cake](https://www.statuscake.com/) or similar software that provides website/VPS monitoring functionality. If you're using Status Cake, go to the `MONITORING > Uptime Monitoring` section, and select `New Uptime Test`. Choose `TCP` test type and fill the required values, including your server's IP address, port, test name, and contact group that contains details about users who will receive notifications.
+
+![statuscake](/img/watcher/04.png)
+
+Status Cake provides multiple ways to receive notifications, such as Datadog, Slack, Discord, Telegram, OpsGenie, etc. You can set your preferred method in the `ALRERTING > Integrations` section.
+
+![statuscake](/img/watcher/05.png)
