@@ -128,7 +128,7 @@ Each of the ports are used for running one of the following containers:
 Currently, child chain and Watcher exist in a single repository [`elixir-omg`](https://github.com/omgnetwork/elixir-omg). Thus, you need to clone it to start working with the Watcher.
 
 ```
-git clone https://github.com/omgnetwork/elixir-omg.git
+git clone https://github.com/omgnetwork/elixir-omg.git && cd elixir-omg
 ```
 
 Make sure you're on the [`latest release`](https://github.com/omgnetwork/elixir-omg/releases) tag (e.g. `v0.4.8`). It's not recommended to use pre-releases, they may not be stable.
