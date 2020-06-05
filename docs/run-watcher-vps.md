@@ -353,17 +353,3 @@ TThere are two ways to test that your Watcher is working properly:
 2. Make a transaction or another operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
 
 > - `$REMOTE_SERVER` - an ip address of your remote server.
-
-### 11. Set Up Monitoring and Notification Services
-
-Lastly, you want to make sure that your server is always up and the Watcher notifies you with certain alarms and byzantine conditions on the child chain.
-
-#### 11.1 Server Monitoring
-
-To monitor the status of your server, you can use [Pingdom](https://www.pingdom.com/), [Status Cake](https://www.statuscake.com/) or similar software that provides website/VPS monitoring functionality. If you're using Status Cake, go to the `MONITORING > Uptime Monitoring` section, and select `New Uptime Test`. Choose `TCP` test type and fill the required values, including your server's IP address, port, test name, and contact group that contains details about users who will receive notifications.
-
-![statuscake](/img/watcher/04.png)
-
-Status Cake provides multiple ways to receive notifications, such as Datadog, Slack, Discord, Telegram, OpsGenie, etc. You can set your preferred method in the `ALRERTING > Integrations` section.
-
-![statuscake](/img/watcher/05.png)

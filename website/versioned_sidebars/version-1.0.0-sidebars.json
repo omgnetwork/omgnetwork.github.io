@@ -35,7 +35,8 @@
         "ids": [
           "version-1.0.0-run-watcher-locally",
           "version-1.0.0-run-watcher-vps",
-          "version-1.0.0-manage-vps"
+          "version-1.0.0-manage-vps",
+          "version-1.0.0-watcher-monitoring"
         ]
       }
     ],
