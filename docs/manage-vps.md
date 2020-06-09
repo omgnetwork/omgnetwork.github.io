@@ -152,8 +152,7 @@ Done.
 To test a connection with a new user, logout from your existing session and log in with the name of the user you've just created:
 
 ```
-logout
-ssh $USER@$REMOTE_SERVER
+logout && ssh $USER@$REMOTE_SERVER
 ```
 > Make sure to have both root and your new user passwords saved before doing any of the steps below.
 
@@ -224,8 +223,7 @@ ls id_*
 If you have existing SSH keys but you don't want to use them, you can make a backup with the `cp` command:
 
 ```
-mkdir key_backup
-cp id_rsa* key_backup
+mkdir key_backup && cp id_rsa* key_backup
 ```
 
 If you don't have any keys, create a new pair from your terminal:
@@ -437,8 +435,7 @@ sudo iptables-restore < /etc/iptables/rules.v4
 If you are using Docker or any other virtualisation software, you may need to restart their services after doing an `iptables-restore`:
 
 ```
-systemctl restart docker
-systemctl restart containerd
+systemctl restart docker && systemctl restart containerd
 ```
 
 #### 8.6 Check the Result
