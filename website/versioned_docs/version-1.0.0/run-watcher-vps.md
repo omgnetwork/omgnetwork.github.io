@@ -35,8 +35,8 @@ You can install Watcher on the following Linux OS:
 
 The following hardware is required to run a Watcher on VPS or dedicated server:
 - Storage: 16GB SSD
-- CPU: Intel i5
-- RAM: 6GB
+- CPU: 1 CPU Core with at least 2.2 GHz
+- RAM: 4GB
 - Bandwidth: 20 Mbps
 
 > The requirements are based on the network's load in Q2 2020. It is recommended to use hardware with higher performance to avoid a potential increase in transaction volume.
@@ -114,23 +114,54 @@ docker-compose version 1.25.5, build 8a1c60f6
 
 #### 4.1 System Ports
 
-Before attempting the start up, please ensure that you are not running any services that are listening on the following TCP ports: 7434, 7534, 5432. You can use one of the following commands to accomplish that:
+Each of the ports is used for running one of the following containers:
+- 7434: `elixir-omg_watcher_1`, a light-weight Watcher to ensure the security of funds deposited into the child chain.
+- 7534: `elixir-omg_watcher_info_1`, a convenient and performant API to the child chain data.
+- 5432: `elixir-omg_postgres_1`, a PostgreSQL database that stores transactions and contains data needed for challenges and exits.
 
+Ensure you are not running any processes that are listening to the corresponding ports: 7434, 7534, 5432. You can use `lsof`, `netstat` or other alternatives to accomplish that:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- Linux -->
 ```
 sudo lsof -i -n -P | grep LISTEN
-sudo ss -tulpn
-sudo netstat -tulpn
 ```
+<!-- macOS -->
+```
+sudo lsof -i -n -P | grep TCP
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-If you found one of the ports is already in use, close them with the following commands:
+If you found one of the ports is already in use, kill the process the port is occupied with as follows:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- Linux -->
+
+View the process that occupies the port:
 ```
 sudo lsof -t -i:$PORT
+```
+
+Kill the process with its ID:
+```
 sudo kill -9 $PID
 ```
 
+<!-- macOS -->
+
+View the process that occupies the port:
+```
+sudo lsof -i :$PORT
+```
+
+Kill the process with its ID:
+```
+sudo kill $PID
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 > - `$PORT` - a port to clear from other processes.
-> - `$PID` - process ID listening on defined port.
+> - `$PID` - process ID listening on a defined port.
 
 #### 4.2 Docker Ports
 
@@ -145,11 +176,6 @@ Example output:
 ```
 CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS                 PORTS                                             NAMES
 ```
-
-Each of the ports is used for running one of the following containers:
-- 7434: `elixir-omg_watcher_1`, a light-weight Watcher to ensure the security of funds deposited into the child chain.
-- 7534: `elixir-omg_watcher_info_1`, a convenient and performant API to the child chain data.
-- 5432: `elixir-omg_postgres_1`, a PostgreSQL database that stores transactions and contains data needed for challenges and exits.
 
 ### 5. Create and Enter a New Directory
 
@@ -174,33 +200,133 @@ git checkout <LATEST_RELEASE_TAG>
 
 ### 7. Modify Configurations
 
-#### 7.1 Network
+The OMG Network provides several environments you can sync your Watcher with. To change the values, use `nano` or `vim` text editor from the root of the `elixir-omg` repository.
 
-Most of the configurations required to run a Watcher are filled with default values. If you encounter any issues (e.g. `get_block:not_found`), check the latest [network connections](environments) for chosen environment (testnet or mainnet). The following values have to be defined properly for `watcher` and `watcher_info` services:
+#### 7.1 Open `docker-compose-watcher.yml` File
 
-```js
-- ETHEREUM_RPC_URL=
-- CHILD_CHAIN_URL=
-- ETHEREUM_NETWORK=
-- AUTHORITY_ADDRESS=
-- TXHASH_CONTRACT=
-- CONTRACT_ADDRESS_PLASMA_FRAMEWORK=
-- CONTRACT_ADDRESS_ETH_VAULT=
-- CONTRACT_ADDRESS_ERC20_VAULT=
-- CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=
-```
-
-A few things to keep in mind:
-- `ETHEREUM_RPC_URL` should correspond with a full Ethereum node URL. OMG Network doesn't provide such a service, you need to set it up on your own or use an Ethereum infrastructure provider.
-- `ETHEREUM_NETWORK` accepts only all caps values: `RINKEBY`, `ROPSTEN`, `MAINNET`, etc.
-
-To change the values, use `nano` or `vim` text editor from the root of the `elixir-omg` repository:
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- Linux -->
 ```
 nano docker-compose-watcher.yml
 ```
+<!-- macOS -->
+```
+nano docker-compose-watcher.yml
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-#### 7.2 Infrastructure Monitoring (optional)
+#### 7.2 Replace Environment Values
+
+In the opened file replace the environments details for `watcher` and `watcher_info` services as follows:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- watcher -->
+```
+  watcher:
+    image: ${WATCHER_IMAGE}
+    command: "full_local"
+    environment:
+      - ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
+      - CHILD_CHAIN_URL=${CHILD_CHAIN_URL}
+      - ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
+      - AUTHORITY_ADDRESS=${AUTHORITY_ADDRESS}
+      - TXHASH_CONTRACT=${TXHASH_CONTRACT}
+      - CONTRACT_ADDRESS_PLASMA_FRAMEWORK=${CONTRACT_ADDRESS_PLASMA_FRAMEWORK}
+      - CONTRACT_ADDRESS_ETH_VAULT=${CONTRACT_ADDRESS_ETH_VAULT}
+      - CONTRACT_ADDRESS_ERC20_VAULT=${CONTRACT_ADDRESS_ERC20_VAULT}
+      - CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=${CONTRACT_ADDRESS_PAYMENT_EXIT_GAME}
+      - DATABASE_URL=${DATABASE_URL}
+      - PORT=7434
+      - DD_DISABLED=true
+      - DB_PATH=/app/.omg/data
+      - ETHEREUM_EVENTS_CHECK_INTERVAL_MS=8000
+      - ETHEREUM_STALLED_SYNC_THRESHOLD_MS=300000
+      - ETHEREUM_BLOCK_TIME_SECONDS=15
+      - EXIT_PROCESSOR_SLA_MARGIN=5520
+      - EXIT_PROCESSOR_SLA_MARGIN_FORCED=TRUE
+      - LOGGER_BACKEND=console
+      - DD_HOSTNAME=datadog
+      - APP_ENV=local-development
+    restart: always
+    ports:
+      - "7434:7434"
+    healthcheck:
+      test: curl watcher:7434
+      interval: 5s
+      timeout: 3s
+      retries: 5
+```
+<!-- watcher_info -->
+```
+  watcher_info:
+    image: ${WATCHER_INFO_IMAGE}
+    command: "full_local"
+    environment:
+      - ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
+      - CHILD_CHAIN_URL=${CHILD_CHAIN_URL}
+      - ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
+      - AUTHORITY_ADDRESS=${AUTHORITY_ADDRESS}
+      - TXHASH_CONTRACT=${TXHASH_CONTRACT}
+      - CONTRACT_ADDRESS_PLASMA_FRAMEWORK=${CONTRACT_ADDRESS_PLASMA_FRAMEWORK}
+      - CONTRACT_ADDRESS_ETH_VAULT=${CONTRACT_ADDRESS_ETH_VAULT}
+      - CONTRACT_ADDRESS_ERC20_VAULT=${CONTRACT_ADDRESS_ERC20_VAULT}
+      - CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=${CONTRACT_ADDRESS_PAYMENT_EXIT_GAME}
+      - DATABASE_URL=${DATABASE_URL}
+      - PORT=7534
+      - DD_DISABLED=true
+      - DB_PATH=/app/.omg/data
+      - ETHEREUM_EVENTS_CHECK_INTERVAL_MS=8000
+      - ETHEREUM_STALLED_SYNC_THRESHOLD_MS=300000
+      - ETHEREUM_BLOCK_TIME_SECONDS=15
+      - EXIT_PROCESSOR_SLA_MARGIN=5520
+      - EXIT_PROCESSOR_SLA_MARGIN_FORCED=TRUE
+      - LOGGER_BACKEND=console
+      - DD_HOSTNAME=datadog
+      - APP_ENV=local-development
+    restart: always
+    ports:
+      - "7534:7534"
+    healthcheck:
+      test: curl watcher_info:7534
+      interval: 5s
+      timeout: 3s
+      retries: 5
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+#### 7.3 Create `.env` file
+
+Modifying `.yml` file directly is not the best approach, and can lead to various human errors. `env` file will contain all of the values used for Watcher's configuration. You can create `env` file with `nano` or `vim` editor as follows:
+
+```
+nano .env
+```
+
+#### 7.4 Paste and Configure Environment Values
+
+Below are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments). Note, you need to provide `ETHEREUM_RPC_URL` that will correspond to your local ETH node or the one used by ETH infrastructure provider.
+
+```
+WATCHER_IMAGE=omisego/watcher:v0.4.8
+WATCHER_INFO_IMAGE=omisego/watcher_info:v0.4.8
+DATABASE_URL=postgres://omisego_dev:omisego_dev@postgres:5432/omisego_dev
+ETHEREUM_RPC_URL=$ETHEREUM_RPC_URL
+ETHEREUM_NETWORK=MAINNET
+CHILD_CHAIN_URL=https://childchain.mainnet.v1.omg.network
+AUTHORITY_ADDRESS=0x22405c1782913fb676bc74ef54a60727b0e1026f
+TXHASH_CONTRACT=0x1c29b67acc33eba0d26f52a1e4d26625f52b53e6fbb0a4db915aeb052f7ec849
+CONTRACT_ADDRESS_PLASMA_FRAMEWORK=0x0d4c1222f5e839a911e2053860e45f18921d72ac
+CONTRACT_ADDRESS_ETH_VAULT=0x3eed23ea148d356a72ca695dbce2fceb40a32ce0
+CONTRACT_ADDRESS_ERC20_VAULT=0x070cb1270a4b2ba53c81cef89d0fd584ed4f430b
+CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=0x48d7a6bbc428bca019a560cf3e8ea5364395aad3
+```
+
+> - `$ETHEREUM_RPC_URL` - a full Ethereum node URL.
+> - `$ETHEREUM_NETWORK` - an Ethereum network, accepts only all caps values: `ROPSTEN`, `MAINNET`, etc.
+
+After providing the values, save the changes, and exit `.env` file.
+
+#### 7.5 Infrastructure Monitoring (optional)
 
 If you want to monitor the the status of your Docker containers and the overall health of your server, consider setting up a [Sematext](https://sematext.com/) or other alternatives. For Sematext, first create a new app on their website. Then add the corresponding configurations to your `docker-compose-watcher.yml` file using `nano` or `vim` text editor:
 
