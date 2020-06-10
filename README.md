@@ -1,30 +1,30 @@
-# OMG Network Documentation
+## OMG Developer Portal
 
-## Running Locally
+### Running Locally
 
-### Enter `/website` directory:
+#### Enter `/website` directory:
 
 ```
 cd website
 ```
 
-### Install Dependencies
+#### Install Dependencies
 
 ```
 npm install
 ```
 
-### Start a Local Server on Port 3000
+#### Start a Local Server on Port 3000
 
 ```
 npm run start
 ```
 
-## Documentation Updates
+### Documentation Updates
 
 To add new documentation, you need to make changes inside `/docs` and `versioned_docs/version-${version}` directories as follows:
 
-### Create `.md` Files
+#### Create `.md` Files
 
 The project maintains different versions of documentation that correspond with the latest version of the OMG Network. Therefore, you need to make changes to the versioned docs as well.
 
@@ -57,7 +57,7 @@ original_id: ${original_id}
 > - ${title} - the title of the page (e.g. `Retrieve Data`).
 > - ${sidebar_label} - sidebar label of the page (e.g. `Retrieve Data`). Typically it's a shorter version of the title.
 
-### Edit Sidebars
+#### Edit Sidebars
 
 To make the documents you've just created visible, include them to configs of your sidebars.
 
@@ -95,7 +95,7 @@ To make the documents you've just created visible, include them to configs of yo
     ],
 ```
 
-### Add Images
+#### Add Images
 
 If you want to add images, include them into `/website/static/img` directory. After, you can reference them in the markdown as follows:
 
@@ -107,7 +107,7 @@ If you want to add images, include them into `/website/static/img` directory. Af
 
 The version of Docusaurus used for the dev portal does not version assets. Image changes in future versions should upload and reference a different image.
 
-## Deployment
+### Deployment
 
 The project uses GitHub pages to deploy a website. The current project is an organization repository, the script below will deploy static files to the `master` branch.
 
@@ -115,7 +115,7 @@ All documentation is stored in the `docsdocsdocs` branch. The `master` is used s
 
 It's possible to deploy the project on multiple platforms. Enter `/website` directory and run the corresponding script:
 
-### Bash
+#### Bash
 
 ```
 GIT_USER=<GIT_USER> \ 
@@ -124,7 +124,7 @@ GIT_USER=<GIT_USER> \
   npm run publish-gh-pages
 ```
 
-### Windows
+#### Windows
 
 ```
 cmd /C "set "GIT_USER=<GIT_USER>" && set CURRENT_BRANCH=dev && set USE_SSH=true && yarn deploy"
@@ -132,7 +132,7 @@ cmd /C "set "GIT_USER=<GIT_USER>" && set CURRENT_BRANCH=dev && set USE_SSH=true 
 
 > `<GIT_USER>` - a GitHub account with push access to this repository.
 
-## Versioning
+### Versioning
 
 The project will render files in the latest versioned directory. This means that new changes will not be reflected on the base URL unless they have been versioned. Therefore, to see the latest unversioned changes, append `/next` to the base URL as follows:
 
