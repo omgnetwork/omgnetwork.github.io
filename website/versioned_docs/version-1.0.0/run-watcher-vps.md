@@ -96,7 +96,15 @@ Make sure to install the latest version of Docker Compose from the [official rep
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose && exit
 ```
 
-#### 3.4 Verify
+#### 3.4 Install Postgres (optionally)
+
+Some Linux servers don't have pre-installed Postgres. You need to install it manually as follows:
+
+```
+sudo apt update && sudo apt install postgresql postgresql-contrib
+```
+
+#### 3.5 Verify
 
 To verify the installed dependencies, use the following commands:
 
@@ -131,6 +139,8 @@ sudo lsof -i -n -P | grep LISTEN
 sudo lsof -i -n -P | grep TCP
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+> Note, if you just installed Postgres, it is possible it will occupy 5432 port, so you need to kill the corresponding process.
 
 If you found one of the ports is already in use, kill the process the port is occupied with as follows:
 

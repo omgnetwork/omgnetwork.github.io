@@ -17,7 +17,7 @@ You should use this guide if you need to accomplish one of the following goals:
 
 ## Prerequisites
 
-1. [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) > `1.17`. The docker-compose tooling allows users to run their own instance of the Watcher to connect to the OMG Network and validate transactions.
+1. [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) > `1.17`, [Postgres](https://www.postgresql.org/). The docker-compose tooling allows users to run their own instance of the Watcher to connect to the OMG Network and validate transactions.
 
 To check if you have Docker and Docker Compose installed, run the following commands in your terminal:
 ```
