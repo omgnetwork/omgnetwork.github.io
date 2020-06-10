@@ -1,0 +1,77 @@
+{
+  "version-V1-docs": {
+    "1. Introduction": [
+      "version-V1-welcome"
+    ],
+    "2. Tutorials": [
+      "version-V1-tutorials-intro",
+      {
+        "type": "subcategory",
+        "label": "OMG Network",
+        "ids": [
+          "version-V1-retrieve-balances",
+          "version-V1-deposits",
+          "version-V1-transfers",
+          "version-V1-standard-exits",
+          "version-V1-in-flight-exits",
+          "version-V1-process-exits",
+          "version-V1-managing-utxos",
+          "version-V1-challenging-exits"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "OMG Wallet",
+        "ids": [
+          "version-V1-quick-start-webwallet"
+        ]
+      }
+    ],
+    "3. How-to Guides": [
+      "version-V1-how-to-guides",
+      {
+        "type": "subcategory",
+        "label": "Watcher",
+        "ids": [
+          "version-V1-run-watcher-locally",
+          "version-V1-run-watcher-vps",
+          "version-V1-manage-vps",
+          "version-V1-watcher-monitoring"
+        ]
+      }
+    ],
+    "4. Concepts": [
+      {
+        "type": "subcategory",
+        "label": "OMG Network",
+        "ids": [
+          "version-V1-blockchain-design",
+          "version-V1-byzantine-conditions",
+          "version-V1-network-architecture",
+          "version-V1-challenge-period",
+          "version-V1-exitbonds",
+          "version-V1-fees"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "Plasma",
+        "ids": [
+          "version-V1-morevp-technical-overview",
+          "version-V1-plasma-proposition"
+        ]
+      }
+    ],
+    "5. Resources": [
+      "version-V1-glossary",
+      "version-V1-faq",
+      "version-V1-api",
+      "version-V1-environments",
+      "version-V1-release-notes"
+    ],
+    "6. Migration Guides": [
+      "version-V1-migration-0.2-0.3",
+      "version-V1-migration-0.3-0.4"
+    ]
+  }
+}
