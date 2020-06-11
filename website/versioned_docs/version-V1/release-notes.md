@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-release-notes
+id: version-V1-release-notes
 title: Release Notes
 sidebar_label: Release Notes
 original_id: release-notes

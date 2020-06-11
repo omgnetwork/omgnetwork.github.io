@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-glossary
+id: version-V1-glossary
 title: Glossary
 sidebar_label: Glossary
 original_id: glossary

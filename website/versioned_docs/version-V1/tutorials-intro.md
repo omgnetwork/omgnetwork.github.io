@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-tutorials-intro
+id: version-V1-tutorials-intro
 title: Introduction
 sidebar_label: Introduction
 original_id: tutorials-intro

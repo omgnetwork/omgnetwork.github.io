@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-run-watcher-vps
+id: version-V1-run-watcher-vps
 title: Run a Watcher on VPS
 sidebar_label: Run a Watcher on VPS
 original_id: run-watcher-vps

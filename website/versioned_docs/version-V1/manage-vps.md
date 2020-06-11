@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-manage-vps
+id: version-V1-manage-vps
 title: Manage VPS
 sidebar_label: Manage VPS
 original_id: manage-vps

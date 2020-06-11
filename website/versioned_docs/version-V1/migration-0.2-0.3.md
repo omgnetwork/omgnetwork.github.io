@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-migration-0.2-0.3
+id: version-V1-migration-0.2-0.3
 title: Introducing v0.3 (ODP Edition)
 sidebar_label: 0.2 to 0.3
 original_id: migration-0.2-0.3

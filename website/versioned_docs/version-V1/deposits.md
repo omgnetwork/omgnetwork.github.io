@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-deposits
+id: version-V1-deposits
 title: Deposit Funds
 sidebar_label: Deposit Funds
 original_id: deposits

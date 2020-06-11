@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-challenge-period
+id: version-V1-challenge-period
 title: Challenge Period
 sidebar_label: Challenge Period
 original_id: challenge-period

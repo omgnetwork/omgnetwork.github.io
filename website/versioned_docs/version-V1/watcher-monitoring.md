@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-watcher-monitoring
+id: version-V1-watcher-monitoring
 title: Watcher Monitoring
 sidebar_label: Watcher Monitoring
 original_id: watcher-monitoring

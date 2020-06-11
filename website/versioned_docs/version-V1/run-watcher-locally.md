@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-run-watcher-locally
+id: version-V1-run-watcher-locally
 title: Run a Watcher Locally
 sidebar_label: Run a Watcher Locally
 original_id: run-watcher-locally

@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-process-exits
+id: version-V1-process-exits
 title: Process an Exit
 sidebar_label: Process an Exit
 original_id: process-exits

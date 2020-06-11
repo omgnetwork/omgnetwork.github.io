@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-managing-utxos
+id: version-V1-managing-utxos
 title: Merge or Split UTXO
 sidebar_label: Merge or Split UTXO
 original_id: managing-utxos

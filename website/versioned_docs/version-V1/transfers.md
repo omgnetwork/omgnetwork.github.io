@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-transfers
+id: version-V1-transfers
 title: Make a Transfer
 sidebar_label: Make a Transfer
 original_id: transfers

@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-network-architecture
+id: version-V1-network-architecture
 title: Network Architecture
 sidebar_label: Network Architecture
 original_id: network-architecture

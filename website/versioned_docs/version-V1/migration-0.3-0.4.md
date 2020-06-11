@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-migration-0.3-0.4
+id: version-V1-migration-0.3-0.4
 title: v0.4
 sidebar_label: 0.3 to 0.4
 original_id: migration-0.3-0.4

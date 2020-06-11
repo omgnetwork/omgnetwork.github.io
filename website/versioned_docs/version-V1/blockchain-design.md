@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-blockchain-design
+id: version-V1-blockchain-design
 title: Blockchain Design
 sidebar_label: Blockchain Design
 original_id: blockchain-design

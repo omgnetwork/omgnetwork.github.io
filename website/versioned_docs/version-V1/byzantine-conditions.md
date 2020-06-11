@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-byzantine-conditions
+id: version-V1-byzantine-conditions
 title: Byzantine Conditions
 sidebar_label: Byzantine Conditions
 original_id: byzantine-conditions

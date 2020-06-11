@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-in-flight-exits
+id: version-V1-in-flight-exits
 title: Start an In-flight Exit
 sidebar_label: Start an In-flight Exit
 original_id: in-flight-exits

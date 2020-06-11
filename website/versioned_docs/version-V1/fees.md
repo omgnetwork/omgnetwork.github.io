@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-fees
+id: version-V1-fees
 title: Fees
 sidebar_label: Fees
 original_id: fees

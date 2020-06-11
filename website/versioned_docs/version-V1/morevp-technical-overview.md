@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-morevp-technical-overview
+id: version-V1-morevp-technical-overview
 title: MoreVP Technical Overview
 sidebar_label: MoreVP Technical Overview
 original_id: morevp-technical-overview

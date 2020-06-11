@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-exitbonds
+id: version-V1-exitbonds
 title: Exit Bonds
 sidebar_label: Exit Bonds
 original_id: exitbonds

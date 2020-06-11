@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-faq
+id: version-V1-faq
 title: FAQ
 sidebar_label: FAQ
 original_id: faq
