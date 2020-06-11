@@ -1,14 +1,83 @@
-## Contributing to the OMG Development Portal
+## Contributing to the OMG Developer Portal
 
-### Submitting Guidelines
+### Got a Question or Problem?
+
+Do not open issues for general support questions as we want to keep GitHub issues for bug reports and feature requests. If you have any questions, use assistance from the chat you can find on the bottom right corner of the website. Also, don't forget to check the [FAQ](https://docs.omg.network/faq) section of the dev portal, as some of the questions might be already answered.
+
+### Found an Issue?
+
+If you find a bug in code samples or a mistake in the documentation, you can submit an issue to our [GitHub repository](https://github.com/omgnetwork/omgnetwork.github.io), or submit a Pull Request with a fix.
+
+### Missing Documentation?
+
+If you're missing code samples or documentation that hasn't been covered in the OMG Developer Portal, you can open an issue. Our team will review your request and add the corresponding content if appropriate.
+
+### Submission Guidelines
 
 #### Submitting an Issue
 
-...
+Before you submit an issue, please search the archive, maybe an issue for your problem already exists or is already solved. If your issue hasn't been reported, open a new issue. We want to fix any critical issues as soon as possible, but before we need to reproduce and confirm it. 
+
+If your issue is documentation-related, use the following structure:
+
+```
+Issue type: 
+Documentation URL (if exists): 
+Documentation section: 
+
+Expected content: 
+
+Actual content: 
+
+```
+
+> - Issue type samples: suggestion, typo, language, docs request, etc.
+> - Documentation section should correspond with the existing sections (e.g. Tutorials, Concepts, Resources, etc.) or it can be a new section you would like to add.
+> - Expected and actual content shouldn't be too long. It's a brief overview of what you think should be added or modified.
+
+If your issue is code-related, use the following structure:
+
+```
+Browser: 
+Browser version: 
+Operating system: 
+Operating system version: 
+
+Steps to reproduce the problem:
+1. 
+2. 
+3. 
+
+Expected result: 
+
+Actual result: 
+
+Please provide any other information below, and attach a screenshot if possible.
+```
 
 #### Submitting a Pull Request
 
-...
+1. Clone this repository:
+
+```
+git clone https://github.com/omgnetwork/omgnetwork.github.io.git
+```
+
+2. Checkout to `docsdocsdocs` branch that contains the project's source code:
+
+```
+git checkout docsdocsdocs
+```
+
+3. Checkout to a new branch with `<GIT_USERNAME>/<FEATURE>` name.
+
+```
+git checkout -b <GIT_USERNAME>/<FEATURE>
+```
+
+4. Make changes according to the [Documentation Guidelines](#documentation-guidelines).
+5. Submit the PR to the `docsdocsdocs` branch. Don't submit the PR to the `master` branch, it's strictly for deployment.
+6. After your PR is merged, you can safely delete your branch and pull the changes from the main (upstream) repository.
 
 ### Documentation Guidelines
 
