@@ -1,5 +1,9 @@
 ## OMG Developer Portal
 
+### Documentation Changes
+
+Please follow [`CONTRIBUTING.md`](./CONTRIBUTING.md) guidelines when making any updates to the project.
+
 ### Running Locally
 
 #### Enter `/website` directory:
