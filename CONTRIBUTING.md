@@ -69,15 +69,24 @@ git clone https://github.com/omgnetwork/omgnetwork.github.io.git
 git checkout docsdocsdocs
 ```
 
-3. Checkout to a new branch with `<GIT_USERNAME>/<FEATURE>` name.
+3. Checkout to a new branch with `<GIT_USERNAME>/<FEATURE>` name:
 
 ```
 git checkout -b <GIT_USERNAME>/<FEATURE>
 ```
 
 4. Make changes according to the [Documentation Guidelines](#documentation-guidelines).
-5. Submit the PR to the `docsdocsdocs` branch. Don't submit the PR to the `master` branch, it's strictly for deployment.
-6. After your PR is merged, you can safely delete your branch and pull the changes from the main (upstream) repository.
+5. Submit the PR to the `docsdocsdocs` branch for review. Don't submit the PR to the `master` branch, it's strictly for deployment.
+6. When your PR is approved, please use the `Squash and merge` option to maintain more clear commit history.
+7. After your PR is merged, you can safely delete your branch and pull the changes from the main (upstream) repository.
+
+#### Commit Message Guidelines
+
+There are no strict commit guidelines when you're working with your branch. However to maintain consistency across the entire project, please use the following pull request naming when merging:
+- `[Add]: <FEATURE>` - when adding new documentation or code samples.
+- `[Update]: <FEATURE>` - when updating the existing documentation.
+
+> `<FEATURE>` - a short description of the changes you've made in the PR (e.g. `[Add]: OMG Wallet Quick Start`).
 
 ### Documentation Guidelines
 
