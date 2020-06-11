@@ -16,6 +16,7 @@ const siteConfig = {
   headerLinks: [
     { doc: "welcome", label: "Docs" },
     { doc: "api", label: "APIs" },
+    { doc: "environments", label: "Environments" },
     { href: "https://omg.network", external: true, label: "Product" },
   ],
   headerIcon: "img/logo/omg-white.svg",

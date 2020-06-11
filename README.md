@@ -1,59 +1,77 @@
-# OMG Network Documentation
+## OMG Developer Portal
 
-### Documentation changes
-To update the documentation, you only need to work inside the `/docs` folder. All changes to `master` will be deployed and reflected in the published docs.
+### Documentation Changes
 
-To add new documentation, follow these steps:
-1. Add a new `.md` file inside the `/docs` folder.
-2. Add the proper meta data to the top of the page.
-  ```
-  ---
-  id: welcome
-  title: About OMG Network
-  sidebar_label: About OMG Network
-  ---
-  ```
-3. Find `/website/sidebars.json` and add the `id` as you defined above to the relevant section you want the page to show up in.
-4. Create a PR to merge into `master`.
+Please follow [`CONTRIBUTING.md`](./CONTRIBUTING.md) guidelines when making any updates to the project.
 
-Note: to add images, they must be included in `/website/static/img`. They can be referenced in the markdown like:
+### Running Locally
+
+#### Enter `/website` directory:
 
 ```
-![account-balance](/img/quick-start-account-balance.png)
-- or -
-<img src="/img/quick-start-account-balance.png" width="500">
+cd website
 ```
 
-The version of Docusaurus we are using does not version assets so image changes and future versions must upload and reference a different image.
+#### Install Dependencies
 
-### To run locally
-- `$ cd website` -> step into `/website` directory
-- `$ npm install` -> install dependencies
-- `$ npm run start` -> start local server serving site on port 3000
+```
+npm install
+```
 
-### Versioning
-The app will render whatever is in the latest versioned folder. This means that new changes will not be reflected on the base url unless they have been versioned. Therefore, to see the latest unversioned changes, append `/next` to the base url.
+#### Start a Local Server on Port 3000
 
-ie. `http://localhost:3000/next/welcome.html`
+```
+npm run start
+```
 
-Navigating further in the app will stay on the latest changes.
+### Deployment
 
-To lock in the current state of docs with the next version run the following from `/website` folder. Please use sem-ver syntax.
+The project uses GitHub pages to deploy a website. The current project is an organization repository, the script below will deploy static files to the `master` branch.
 
- *This command can only be run on new versions and not on existing versions.
+All documentation is stored in the `docsdocsdocs` branch. The `master` is used strictly for deployment. To learn more info about deployment, refer to [Docusaurus docs](https://github.com/facebook/docusaurus/blob/master/docs/getting-started-publishing.md#using-github-pages). 
 
-- `$ npm run version <next version number>`
+It's possible to deploy the project on multiple platforms. Enter `/website` directory and run the corresponding script:
 
-Note that to make changes to old versions, you can edit the markdowns directly in their relevant folders `/website/versioned_docs/version-<0.0.1etc>`
+#### Bash
 
-### To Deploy to Production
-- Deployment is using github pages. Since this is an organization repo, the deploy script below will deploy to the `master` branch. Therefore we have to keep all doc infrastructure on `docsdocsdocs` and use `master` strictly for deployment. More information can be found here:
-https://github.com/facebook/docusaurus/blob/master/docs/getting-started-publishing.md#using-github-pages
-From the `website` directory, using bash run:
 ```
 GIT_USER=<GIT_USER> \ 
   USE_SSH=true \
   CURRENT_BRANCH=docsdocsdocs \
   npm run publish-gh-pages
 ```
-`GIT_USER` being a github account with push access to this repository.
+
+#### Windows
+
+```
+cmd /C "set "GIT_USER=<GIT_USER>" && set CURRENT_BRANCH=dev && set USE_SSH=true && yarn deploy"
+```
+
+> `<GIT_USER>` - a GitHub account with push access to this repository.
+
+### Versioning
+
+The project will render files in the latest versioned directory. This means that new changes will not be reflected on the base URL unless they have been versioned. Therefore, to see the latest unversioned changes, append `/next` to the base URL as follows:
+
+```
+http://localhost:3000/next/welcome.html
+```
+
+Navigating further in the project will keep the latest changes.
+
+To lock in the current state of docs with the next version, run the following command from `/website` directory:
+
+```
+$ npm run version ${next-version}
+```
+
+> - This command can only be run on new versions, not on existing versions.
+
+To make changes to old versions, you can edit the markdowns directly in their relevant directories `/website/versioned_docs/version-<0.0.1etc>`, or use [`docusaurus-rename`](https://docusaurus.io/docs/en/versioning#renaming-existing-versions) script as follows:
+
+```
+yarn run rename-version ${current_version} ${next_version}
+```
+
+> - ${current_version} - the current version of the dev portal.
+> - ${next_version} - the next version of the dev portal.
