@@ -116,7 +116,7 @@ Enter `/website/sidebars.json` and add the `${original_id}` you've defined above
 
 ```
 "3. How-to Guides": [
-      "version-1.0.0-how-to-guides",
+      "how-to-guides",
       {
         "type": "subcategory",
         "label": "Watcher",
