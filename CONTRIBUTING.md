@@ -108,9 +108,9 @@ sidebar_label: ${sidebar_label}
 > - ${title} - the title of the page (e.g. `Retrieve Data`).
 > - ${sidebar_label} - sidebar label of the page (e.g. `Retrieve Data`). Typically it's a shorter version of the title.
 
-#### Edit Sidebars
+#### Edit Sidebar
 
-To make the documents you've just created visible, include them to configs of your sidebars.
+To make the documents you've just created visible, include them to configs of your sidebar.
 
 Enter `/website/sidebars.json` and add the `${original_id}` you've defined above to the relevant section that your page should be a part of:
 
