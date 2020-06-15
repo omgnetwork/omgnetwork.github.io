@@ -40,7 +40,10 @@
         ]
       }
     ],
-    "4. Concepts": [
+    "4. Security": [
+      "contracts-roles"
+    ],
+    "5. Concepts": [
       {
         "type": "subcategory",
         "label": "OMG Network",
@@ -62,14 +65,14 @@
         ]
       }
     ],
-    "5. Resources": [
+    "6. Resources": [
       "glossary",
       "faq",
       "api",
       "environments",
       "release-notes"
     ],
-    "6. Migration Guides": [
+    "7. Migration Guides": [
       "migration-0.2-0.3",
       "migration-0.3-0.4"
     ]
