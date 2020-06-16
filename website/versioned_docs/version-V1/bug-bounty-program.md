@@ -93,7 +93,7 @@ The list is not meant to limit or discourage other types of submissions but it s
 | Secondary**  |  up to 100 USD | up to 500 USD  |  up to 2,000 USD | up to 5,000 USD   |
 
 _*The plasma-contracts, the child chain and the watcher_ <br>
-_**Secondary components are any other components in scope that are not primary components_
+_**Any other components in scope that are not primary components_
 
 ## Ineligible methods
 
