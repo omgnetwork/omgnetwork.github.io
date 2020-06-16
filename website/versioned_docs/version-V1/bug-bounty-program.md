@@ -24,7 +24,7 @@ A vulnerability submission may qualify for a bounty under the following conditio
 - Make good faith efforts to avoid privacy violations, destruction of data, and interruption or degradation of our services.
 - Submissions are made without any conditions, demands, or threats.
 - Bounty amount rewarded for a successful submission is at our discretion. 
-- Participation is subject to our [general terms and conditions](./static/pdf/OMG-Network-Bug-Bounty-Program-June-2020.pdf). 
+- Participation is subject to our [general terms and conditions](./pdf/OMG-Network-Bug-Bounty-Program-June-2020-v2.pdf). 
 
 ### Multiples or duplicates
 
@@ -37,7 +37,7 @@ Let us know as soon as possible upon discovery of a potential vulnerability, and
 
 ## Scope
 
-We have setup a dedicated environment for the bug bounty program that should give participants access to all services without the need to spend any time on installation, setup and configuration. There is also no need to worry about accidentally breaking something as this environment is completely isolated from the production services. The bug bounty environment has a shorter finalization time than the production environment to be able to better test the exit flows. 
+We have set up a dedicated environment for the bug bounty program that should give participants access to all services without the need to spend any time on installation, setup and configuration. There is also no need to worry about accidentally breaking something as this environment is completely isolated from the production services. The bug bounty environment has a shorter finalization time than the production environment to be able to better test the exit flows. 
 
 With the launch of the bug bounty program we put the following components in scope:
 
@@ -54,13 +54,13 @@ With the launch of the bug bounty program we put the following components in sco
 * Blockexplorer: [URL](https://audit-blockexplorer-rinkeby-lr.omg.network/), source code will be published soon 
 * Web wallet: [URL](https://audit-webwallet-rinkeby-lr.omg.network/), [source code](https://github.com/omgnetwork/web-wallet)
 
-If you are brave enough and want to setup a local test environment, you can setup contracts, child chain and watcher with this [guide](https://github.com/omgnetwork/elixir-omg#getting-started).
+If you are brave enough and want to set up a local test environment, you can set up contracts, child chain, and watcher with this [guide](https://github.com/omgnetwork/elixir-omg#getting-started).
 
 The scope will be increased to other systems, so stay tuned for updates.
 
 ### Testing
 
-In order to interact with the OMG network you can leverage [omg-js](https://github.com/omgnetwork/omg-js) the official client reference implementation. You can also check out [omg-cli](https://github.com/omgnetwork/omg-cli) a command line tool that was specifically created to make security testing more straight forward by isolating end points and by providing callable interfaces for both the contracts as well as the watcher component.
+To interact with the OMG Network, you can leverage [omg-js](https://github.com/omgnetwork/omg-js) the official client reference implementation. You can also check out [omg-cli](https://github.com/omgnetwork/omg-cli) a command line tool that was specifically created to make security testing more straight forward by isolating end points and by providing callable interfaces for both the contracts as well as the watcher component.
 
 For debugging the root chain contracts in the audit environment check out our public [Tenderly project](https://dashboard.tenderly.co/public/omg-network/audit-a69c763-rinkeby-lr). 
 
@@ -80,7 +80,7 @@ The list is not meant to limit or discourage other types of submissions but it s
 
 ## Bounty Rewards
 
-- The bounty amount will de determined in USD but will only be paid out in crypto. (USD-to-crypto exchange rate will be determined based on the date of notification of award)
+- The bounty amount will be determined in USD but will only be paid out in crypto. (USD-to-crypto exchange rate will be determined based on the date of notification of award)
 - Participants may choose to receive their bounty in OMG or ETH
 - Local laws may require us to ask for proof of your identity and other supporting documents. In addition, we will also need your ETH address
 - Successful submissions are rewarded based on the severity of the issue
@@ -108,11 +108,11 @@ We would like to ask bug bounty participants to refrain from:
 
 The following vulnerability categories are not eligible for a bounty reward:
 
-- Outdated third party software
+- Outdated third-party software
 - Any HTTP security header related issues
 - Content Spoofing
 - Issues affecting users of outdated or un-patched browsers and platforms.
-- Weak TLS and SSL cyphers
+- Weak TLS and SSL ciphers
 - Private keys that are not used in production or public test networks 
 - Credentials or API keys that are expired 
 
