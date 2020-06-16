@@ -1,8 +1,6 @@
 {
   "docs": {
-    "1. Introduction": [
-      "welcome"
-    ],
+    "1. Introduction": ["welcome"],
     "2. Tutorials": [
       "tutorials-intro",
       {
@@ -22,9 +20,7 @@
       {
         "type": "subcategory",
         "label": "OMG Wallet",
-        "ids": [
-          "quick-start-webwallet"
-        ]
+        "ids": ["quick-start-webwallet"]
       }
     ],
     "3. How-to Guides": [
@@ -40,7 +36,8 @@
         ]
       }
     ],
-    "4. Concepts": [
+    "4. Security": ["bug-bounty-program"],
+    "5. Concepts": [
       {
         "type": "subcategory",
         "label": "OMG Network",
@@ -56,22 +53,10 @@
       {
         "type": "subcategory",
         "label": "Plasma",
-        "ids": [
-          "morevp-technical-overview",
-          "plasma-proposition"
-        ]
+        "ids": ["morevp-technical-overview", "plasma-proposition"]
       }
     ],
-    "5. Resources": [
-      "glossary",
-      "faq",
-      "api",
-      "environments",
-      "release-notes"
-    ],
-    "6. Migration Guides": [
-      "migration-0.2-0.3",
-      "migration-0.3-0.4"
-    ]
+    "6. Resources": ["glossary", "faq", "api", "environments", "release-notes"],
+    "7. Migration Guides": ["migration-0.2-0.3", "migration-0.3-0.4"]
   }
 }
