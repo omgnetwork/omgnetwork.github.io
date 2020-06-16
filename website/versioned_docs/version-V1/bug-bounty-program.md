@@ -84,7 +84,7 @@ The list is not meant to limit or discourage other types of submissions but it s
 - Participants may choose to receive their bounty in OMG or ETH
 - Local laws may require us to ask for proof of your identity and other supporting documents. In addition, we will also need your ETH address
 - Successful submissions are rewarded based on the severity of the issue
-- We generally use CVSSv3 scoring to understand the risk of an issue. This might not always make sense to determine the bounty reward though especially for the smart contracts
+- We generally use CVSSv3 scoring system to understand the risk of an issue. This might not always make sense to determine the bounty reward though especially for the smart contracts
 - The following table gives an overview of the reward structure:
 
 | Component Category  | Low | Medium  | High  |  Critical |

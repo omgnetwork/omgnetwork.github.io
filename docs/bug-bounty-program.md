@@ -16,6 +16,7 @@ A vulnerability submission may qualify for a bounty under the following conditio
 
 ### General
 
+- Issues must be submitted through the [bounty submission form](https://omg.network/bounty). 
 - The vulnerability is not disclosed publicly or to 3rd parties. A bug report can only be made public with explicit permission (We generally support public disclosure but only once it is assured that all production systems are fixed and no user funds are at risk).
 - You have not used the vulnerability to receive any reward or monetary gain outside of the bug bounty program, or allowed anyone else to profit outside the bug bounty program.
 - The vulnerability is not exploited on production systems. (We provide test environments that can be used to demonstrate an issue and to produce a proof of concept. If you face any limitations while testing in the audit environment, please let us know.)
@@ -23,7 +24,7 @@ A vulnerability submission may qualify for a bounty under the following conditio
 - Make good faith efforts to avoid privacy violations, destruction of data, and interruption or degradation of our services.
 - Submissions are made without any conditions, demands, or threats.
 - Bounty amount rewarded for a successful submission is at our discretion. 
-- Participation is subject to our [general terms and conditions](). 
+- Participation is subject to our [general terms and conditions](./static/pdf/OMG-Network-Bug-Bounty-Program-June-2020.pdf). 
 
 ### Multiples or duplicates
 
@@ -50,7 +51,7 @@ With the launch of the bug bounty program we put the following components in sco
 * Child Chain: [URL](https://audit-childchain-rinkeby-lr.omg.network/), [source code](https://github.com/omgnetwork/elixir-omg)
 * Watcher Security: [URL](https://audit-watcher-rinkeby-lr.omg.network/), [source code](https://github.com/omgnetwork/elixir-omg)
 * Watcher Info [URL](https://audit-watcher-info-rinkeby-lr.omg.network/), [source code](https://github.com/omgnetwork/elixir-omg)
-* Blockexplorer: [URL](https://audit-blockexplorer-rinkeby-lr.omg.network/), Source will be published soon 
+* Blockexplorer: [URL](https://audit-blockexplorer-rinkeby-lr.omg.network/), source code will be published soon 
 * Web wallet: [URL](https://audit-webwallet-rinkeby-lr.omg.network/), [source code](https://github.com/omgnetwork/web-wallet)
 
 If you are brave enough and want to setup a local test environment, you can setup contracts, child chain and watcher with this [guide](https://github.com/omgnetwork/elixir-omg#getting-started).
@@ -58,21 +59,11 @@ If you are brave enough and want to setup a local test environment, you can setu
 The scope will be increased to other systems, so stay tuned for updates.
 
 ### Testing
-In order to interact with the OMG network you can leverage [omg-js](https://github.com/omgnetwork/omg-js) the official client reference implementation. You can also check out [omg-cli](https://github.com/omgnetwork/omg-cli) a command line tool that was specifically created to make security testing more straight forward by isolating end points and by providing callable interfaces for both the contracts as well as the watcher component.
-For debugging the contracts in the audit environment check out our public Tenderly project https://dashboard.tenderly.co/public/omg-network/audit-a69c763-rinkeby-lr. 
 
-### Documentation
-Getting starting with OMG network
-* [Network Architecture](https://docs.omg.network/network-architecture)
-* [Blockchain Design](https://docs.omg.network/blockchain-design)
-Plasma
-* [Learn about Plasma](https://www.learnplasma.org/en/)
-* [OMG's Plasma flavour - MoreVP](https://docs.omg.network/next/morevp-technical-overview)
-Source Code
-* [Root chain contracts](https://github.com/omgnetwork/plasma-contracts) 
-* [ChildChain and Watcher](https://github.com/omgnetwork/elixir-omg)
-* [Block Explorer](https://github.com/omgnetwork/blockexplorer)
-* [Web Wallet](https://github.com/omgnetwork/web-wallet)
+In order to interact with the OMG network you can leverage [omg-js](https://github.com/omgnetwork/omg-js) the official client reference implementation. You can also check out [omg-cli](https://github.com/omgnetwork/omg-cli) a command line tool that was specifically created to make security testing more straight forward by isolating end points and by providing callable interfaces for both the contracts as well as the watcher component.
+
+For debugging the root chain contracts in the audit environment check out our public [Tenderly project](https://dashboard.tenderly.co/public/omg-network/audit-a69c763-rinkeby-lr). 
+
 
 ## Issues we are interested in
 
@@ -89,20 +80,20 @@ The list is not meant to limit or discourage other types of submissions but it s
 
 ## Bounty Rewards
 
-- Successful submissions are rewarded based on the severity of the issue.
-- The bounty amount is based on USD but will only be paid out in crypto. (USD-to-crypto exchange rate will be determined based on the date of notification of award)
-- Participants may choose to receive their bounty in ETH or OMG.
-- Local laws may require us to ask for proof of your identity and other supporting documents. In addition, we will also need your ETH address.
-- The bounty rewards for primary components (plasma-contracts, child chain and watcher):
-Up to 500 USD for low severity issues
-Up to 2500 USD for medium severity issues
-Up to 10000 USD for high severity issues
-Up to 25000 USD for critical severity issues
-- The bounty rewards for secondary components (any other components in scope that are not primary):
-Up to 100 USD for low severity issues
-Up to 500 USD for medium severity issues
-Up to 2000 USD for high severity issues
-Up to 5000 USD for critical severity issues
+- The bounty amount will de determined in USD but will only be paid out in crypto. (USD-to-crypto exchange rate will be determined based on the date of notification of award)
+- Participants may choose to receive their bounty in OMG or ETH
+- Local laws may require us to ask for proof of your identity and other supporting documents. In addition, we will also need your ETH address
+- Successful submissions are rewarded based on the severity of the issue
+- We generally use CVSSv3 scoring system to understand the risk of an issue. This might not always make sense to determine the bounty reward though especially for the smart contracts
+- The following table gives an overview of the reward structure:
+
+| Component Category  | Low | Medium  | High  |  Critical |
+|---|---|---|---|---|
+| Primary* |  up to 500 USD |  up to 2,500 USD | up to 10,000 USD  |  up to 25,000 USD  |
+| Secondary**  |  up to 100 USD | up to 500 USD  |  up to 2,000 USD | up to 5,000 USD   |
+
+_*The plasma-contracts, the child chain and the watcher_ <br>
+_**Secondary components are any other components in scope that are not primary components_
 
 ## Ineligible methods
 
@@ -125,8 +116,6 @@ The following vulnerability categories are not eligible for a bounty reward:
 - Private keys that are not used in production or public test networks 
 - Credentials or API keys that are expired 
 
-## Safe Harbor
-
-Any activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.
+--- 
 
 Thank you for helping keep OMG network safe and we wish you happy bug hunting! Let us know if you have questions at bounty@omg.network.
