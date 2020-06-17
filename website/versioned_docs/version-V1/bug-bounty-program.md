@@ -48,9 +48,9 @@ With the launch of the bug bounty program we put the following components in sco
   - PaymentExitGame: [Tenderly](https://dashboard.tenderly.co/public/omg-network/audit-a69c763-rinkeby-lr/contract/rinkeby/0xeab79468190bad7d013a3a27e2d6d01906711d13), [Etherscan](https://rinkeby.etherscan.io/address/0xeab79468190bad7d013a3a27e2d6d01906711d13) 
   - PlasmaFramework: [Tenderly](https://dashboard.tenderly.co/public/omg-network/audit-a69c763-rinkeby-lr/contract/rinkeby/0xd74c1c7a85680bb1b1661e335ec1ddb16178e01a), [Etherscan](https://rinkeby.etherscan.io/address/0xd74c1c7a85680bb1b1661e335ec1ddb16178e01a) 
 
-* Child Chain: [URL](https://audit-childchain-rinkeby-lr.omg.network/), [source code](https://github.com/omgnetwork/elixir-omg)
-* Watcher Security: [URL](https://audit-watcher-rinkeby-lr.omg.network/), [source code](https://github.com/omgnetwork/elixir-omg)
-* Watcher Info [URL](https://audit-watcher-info-rinkeby-lr.omg.network/), [source code](https://github.com/omgnetwork/elixir-omg)
+* Child Chain: [URL](https://audit-childchain-rinkeby-lr.omg.network/), [source code](https://github.com/omgnetwork/elixir-omg), [Swagger](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Foperator_api_specs)
+* Watcher Security: [URL](https://audit-watcher-rinkeby-lr.omg.network/), [source code](https://github.com/omgnetwork/elixir-omg), [Swagger](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs)
+* Watcher Info [URL](https://audit-watcher-info-rinkeby-lr.omg.network/), [source code](https://github.com/omgnetwork/elixir-omg), [Swagger](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs)
 * Blockexplorer: [URL](https://audit-blockexplorer-rinkeby-lr.omg.network/), source code will be published soon 
 * Web wallet: [URL](https://audit-webwallet-rinkeby-lr.omg.network/), [source code](https://github.com/omgnetwork/web-wallet)
 
@@ -93,7 +93,8 @@ The list is not meant to limit or discourage other types of submissions but it s
 | Secondary**  |  up to 100 USD | up to 500 USD  |  up to 2,000 USD | up to 5,000 USD   |
 
 _*The plasma-contracts, the child chain and the watcher_ <br>
-_**Secondary components are any other components in scope that are not primary components_
+_**Any other components in scope that are not primary components_
+
 
 ## Ineligible methods
 

@@ -36,7 +36,7 @@
         ]
       }
     ],
-    "4. Security": ["bug-bounty-program"],
+    "4. Security": ["bug-bounty-program", "audits"],
     "5. Concepts": [
       {
         "type": "subcategory",
