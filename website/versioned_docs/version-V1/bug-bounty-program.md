@@ -95,6 +95,7 @@ The list is not meant to limit or discourage other types of submissions but it s
 _*The plasma-contracts, the child chain and the watcher_ <br>
 _**Any other components in scope that are not primary components_
 
+
 ## Ineligible methods
 
 We would like to ask bug bounty participants to refrain from:
