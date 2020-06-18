@@ -1,7 +1,7 @@
 ---
 id: manage-vps
-title: Manage VPS
-sidebar_label: Manage VPS
+title: Manage a VPS
+sidebar_label: Manage a VPS
 ---
 
 *By the end of this guide you should know how to set up, configure, and secure a VPS or dedicated server. The guide is useful for launching a Watcher instance or any blockchain node. It is required to have some basic knowledge of Linux.*
@@ -173,7 +173,7 @@ PermitRootLogin no
 StrictModes yes
 ```
 
-Press `Ctrl+o` (Linux/Windows) or `Cmd+o` (macOS) to save and `Enter` to confirm the changes respectively. Then exit the file with `Ctrl+x` or `Cmd+x`.
+Press `Ctrl+o` (Linux/Windows) or `Control+o` (macOS) to save and `Enter` to confirm the changes respectively. Then exit the file with `Ctrl+x` or `Control+x`.
 
 To apply the changes, restart SSH with the following command:
 
@@ -418,7 +418,7 @@ Add the following values:
 COMMIT
 ```
 
-If the file is not empty, replace it with the content above. Press `Ctrl+o` (Linux/Windows) or `Cmd+o` (macOS) to save and `Enter` to confirm the changes respectively. Then exit the file with `Ctrl+x` or `Cmd+x`.
+If the file is not empty, replace it with the content above. Press `Ctrl+o` (Linux/Windows) or `Control+o` (macOS) to save and `Enter` to confirm the changes respectively. Then exit the file with `Ctrl+x` or `Control+x`.
 
 > Note, `$PORT` is a port you're using to connect to the server via SSH. The default value is 22 but if you follow this guide, it should be different by now. See [`step 5`](#5-change-the-default-port) for reference.
 
