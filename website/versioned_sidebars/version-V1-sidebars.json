@@ -32,7 +32,7 @@
           "version-V1-run-watcher-locally",
           "version-V1-run-watcher-vps",
           "version-V1-manage-vps",
-          "version-V1-watcher-monitoring"
+          "version-V1-manage-watcher"
         ]
       }
     ],

@@ -32,7 +32,7 @@
           "run-watcher-locally",
           "run-watcher-vps",
           "manage-vps",
-          "watcher-monitoring"
+          "manage-watcher"
         ]
       }
     ],
