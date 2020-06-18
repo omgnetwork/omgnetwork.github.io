@@ -313,7 +313,7 @@ Example output:
    },
    "service_name":"watcher",
    "success":true,
-   "version":"0.4.8+c6a25a0"
+   "version":"1.0.0+6234ec5"
 }
 ```
 
@@ -344,7 +344,7 @@ Example output:
    },
    "service_name":"watcher_info",
    "success":true,
-   "version":"0.4.8+c6a25a0"
+   "version":"1.0.0+6234ec5"
 }
 ```
 
