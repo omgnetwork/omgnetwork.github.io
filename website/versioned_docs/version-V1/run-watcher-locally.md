@@ -1,7 +1,7 @@
 ---
 id: version-V1-run-watcher-locally
-title: How to Run Watcher Locally
-sidebar_label: Run Watcher Locally
+title: How to Run a Watcher Locally
+sidebar_label: Run a Watcher Locally
 original_id: run-watcher-locally
 ---
 
@@ -133,134 +133,40 @@ CONTAINER ID        IMAGE                    COMMAND                  CREATED   
 29641165a1be        omisego/ewallet:stable   "/init /entrypoint f…"   4 months ago        Up 7 hours             4369/tcp, 0.0.0.0:4000->4000/tcp, 6900-6909/tcp   omisego_ewallet_1
 ```
 
-### 3. Clone elixir-omg
-
-Currently, child chain and Watcher exist in a single repository [`elixir-omg`](https://github.com/omgnetwork/elixir-omg). Thus, you need to clone it to start working with the Watcher:
+### 3. Create and Enter a New Directory
 
 ```
-git clone https://github.com/omgnetwork/elixir-omg.git && cd elixir-omg
+mkdir watcher && cd watcher
 ```
 
-Make sure you're on the [`latest stable release`](https://github.com/omgnetwork/elixir-omg/tags) tag (e.g. `v0.4.8`, `v1.0.0`, etc.). It's not recommended to use pre-releases, they may not be stable:
+### 4. Set Up Configuration Files
 
-```
-git checkout <LATEST_RELEASE_TAG>
-```
-
-### 4. Modify Configurations
-
-The OMG Network provides several environments you can sync your Watcher with. To change the values, use `nano` or `vim` text editor from the root of the `elixir-omg` repository.
-
-#### 4.1 Open `docker-compose-watcher.yml` File
+The Wather relies on several services that have to run simultaneously: Watcher, Watcher Info and Postgres database. You can build them yourself from official [`elixir-omg releases`](https://github.com/omgnetwork/elixir-omg/releases) or use Docker containers as follows:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- Linux -->
+
+<!-- Docker Compose -->
+
+#### 4.1 Configure docker-compose-watcher.yml File
+
+Docker Compose allows defining and running multi-container Docker applications. To launch a Watcher with Compose, first, create YAML file that will contain configurations for our services with `nano` or `vim` text editor:
+
 ```
 nano docker-compose-watcher.yml
 ```
-<!-- macOS -->
-```
-nano docker-compose-watcher.yml
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
-#### 4.2 Replace Environment Values
+Then, copy and paste the [required configs](https://gist.github.com/dmitrydao/c69a886e30f29d49f853975bf7237cd6), save the changes with `Ctrl+o` (Linux/Windows) or `Control+o` (macOS) and `Enter` to confirm the changes respectively. Then exit the file with `Ctrl+x` or `Control+x`.
 
-In the opened file replace the environments details for `watcher` and `watcher_info` services as follows:
+#### 4.2 Configure Environment File
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!-- watcher -->
-```
-  watcher:
-    image: ${WATCHER_IMAGE}
-    command: "full_local"
-    environment:
-      - ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
-      - CHILD_CHAIN_URL=${CHILD_CHAIN_URL}
-      - ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
-      - AUTHORITY_ADDRESS=${AUTHORITY_ADDRESS}
-      - TXHASH_CONTRACT=${TXHASH_CONTRACT}
-      - CONTRACT_ADDRESS_PLASMA_FRAMEWORK=${CONTRACT_ADDRESS_PLASMA_FRAMEWORK}
-      - CONTRACT_ADDRESS_ETH_VAULT=${CONTRACT_ADDRESS_ETH_VAULT}
-      - CONTRACT_ADDRESS_ERC20_VAULT=${CONTRACT_ADDRESS_ERC20_VAULT}
-      - CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=${CONTRACT_ADDRESS_PAYMENT_EXIT_GAME}
-      - DATABASE_URL=${DATABASE_URL}
-      - PORT=7434
-      - DD_DISABLED=true
-      - DB_PATH=/app/.omg/data
-      - ETHEREUM_EVENTS_CHECK_INTERVAL_MS=8000
-      - ETHEREUM_STALLED_SYNC_THRESHOLD_MS=300000
-      - ETHEREUM_BLOCK_TIME_SECONDS=15
-      - EXIT_PROCESSOR_SLA_MARGIN=5520
-      - EXIT_PROCESSOR_SLA_MARGIN_FORCED=TRUE
-      - LOGGER_BACKEND=console
-      - DD_HOSTNAME=datadog
-      - APP_ENV=local-development
-    restart: always
-    ports:
-      - "7434:7434"
-    healthcheck:
-      test: curl watcher:7434
-      interval: 5s
-      timeout: 3s
-      retries: 5
-```
-<!-- watcher_info -->
-```
-  watcher_info:
-    image: ${WATCHER_INFO_IMAGE}
-    command: "full_local"
-    environment:
-      - ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
-      - CHILD_CHAIN_URL=${CHILD_CHAIN_URL}
-      - ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
-      - AUTHORITY_ADDRESS=${AUTHORITY_ADDRESS}
-      - TXHASH_CONTRACT=${TXHASH_CONTRACT}
-      - CONTRACT_ADDRESS_PLASMA_FRAMEWORK=${CONTRACT_ADDRESS_PLASMA_FRAMEWORK}
-      - CONTRACT_ADDRESS_ETH_VAULT=${CONTRACT_ADDRESS_ETH_VAULT}
-      - CONTRACT_ADDRESS_ERC20_VAULT=${CONTRACT_ADDRESS_ERC20_VAULT}
-      - CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=${CONTRACT_ADDRESS_PAYMENT_EXIT_GAME}
-      - DATABASE_URL=${DATABASE_URL}
-      - PORT=7534
-      - DD_DISABLED=true
-      - DB_PATH=/app/.omg/data
-      - ETHEREUM_EVENTS_CHECK_INTERVAL_MS=8000
-      - ETHEREUM_STALLED_SYNC_THRESHOLD_MS=300000
-      - ETHEREUM_BLOCK_TIME_SECONDS=15
-      - EXIT_PROCESSOR_SLA_MARGIN=5520
-      - EXIT_PROCESSOR_SLA_MARGIN_FORCED=TRUE
-      - LOGGER_BACKEND=console
-      - DD_HOSTNAME=datadog
-      - APP_ENV=local-development
-    restart: always
-    ports:
-      - "7534:7534"
-    healthcheck:
-      test: curl watcher_info:7534
-      interval: 5s
-      timeout: 3s
-      retries: 5
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-#### 4.3 Create `.env` file
-
-Modifying `.yml` file directly is not the best approach, and can lead to various human errors. `env` file will contain all of the values used for Watcher's configuration. You can create `env` file with `nano` or `vim` editor as follows:
+The YAML file has several values that have to be configured in `.env` file. To edit them, open `.env` with `nano` or `vim` text editor and paste the following values:
 
 ```
-nano .env
-```
-
-#### 4.4 Paste and Configure Environment Values
-
-Below are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments). Note, you need to provide `ETHEREUM_RPC_URL` that will correspond to your local ETH node or the one used by ETH infrastructure provider.
-
-```
-WATCHER_IMAGE=omisego/watcher:v0.4.8
-WATCHER_INFO_IMAGE=omisego/watcher_info:v0.4.8
+WATCHER_IMAGE=${WATCHER_IMAGE}
+WATCHER_INFO_IMAGE=${WATCHER_INFO_IMAGE}
 DATABASE_URL=postgres://omisego_dev:omisego_dev@postgres:5432/omisego_dev
-ETHEREUM_RPC_URL=$ETHEREUM_RPC_URL
-ETHEREUM_NETWORK=MAINNET
+ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
+ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
 CHILD_CHAIN_URL=https://childchain.mainnet.v1.omg.network
 AUTHORITY_ADDRESS=0x22405c1782913fb676bc74ef54a60727b0e1026f
 TXHASH_CONTRACT=0x1c29b67acc33eba0d26f52a1e4d26625f52b53e6fbb0a4db915aeb052f7ec849
@@ -271,9 +177,13 @@ CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=0x48d7a6bbc428bca019a560cf3e8ea5364395aad3
 ```
 
 > - `$ETHEREUM_RPC_URL` - a full Ethereum node URL.
-> - `$ETHEREUM_NETWORK` - an Ethereum network, accepts only all caps values: `ROPSTEN`, `MAINNET`, etc.
+> - `$ETHEREUM_NETWORK` - an Ethereum network, all caps values: `RINKEBY`,`ROPSTEN`, `MAINNET`, etc.
+> - `${WATCHER_IMAGE}` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.0`).
+> - `${WATCHER_INFO_IMAGE}` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.0`).
 
-After providing the values, save the changes, and exit `.env` file.
+Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments).
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 If you're using one of the Ethereum infrastructure providers, the connection setting `ETHEREUM_RPC_URL` may have the following format:
 
@@ -348,7 +258,7 @@ watcher_info_1  | 2020-05-15 06:53:43.062 [info] module=OMG.Watcher.BlockGetter 
 watcher_info_1  | 2020-05-15 06:53:43.230 [info] module=OMG.Watcher.BlockGetter function=handle_continue/2 ⋅Applied block: #147000, from eth height: 7765973 with 2 txs⋅
 ```
 
-If you want to exit the logs without stopping containers, use `Ctrl+C` or `Cmd+C`.
+If you want to exit the logs without stopping containers, use `Ctrl+C` or `Control+C`.
 
 > Depending on your hardware and internet connection, the entire process can take up to an hour.
 
@@ -391,7 +301,7 @@ Example output:
    },
    "service_name":"watcher",
    "success":true,
-   "version":"0.4.8+c6a25a0"
+   "version":"1.0.0+6234ec5"
 }
 ```
 
@@ -420,7 +330,7 @@ Example output:
    },
    "service_name":"watcher_info",
    "success":true,
-   "version":"0.4.8+c6a25a0"
+   "version":"1.0.0+6234ec5"
 }
 ```
 
@@ -435,60 +345,3 @@ watcher_info_1   | 2020-05-30 06:13:36.445 [info] module=Phoenix.Endpoint.Cowboy
 The last step is to test that your Watcher is working properly. There are two ways to do that:
 1. Use `http://localhost:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omgnetwork/omg-samples). 
 2. Make a transaction or other operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
-
-## Useful Commands
-
-### Start/Stop/Restart/Update Docker Containers
-> All of the functions should be called from the root of the `elixir-omg` repository.
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!-- Start -->
-
-```
-docker-compose -f docker-compose-watcher.yml start
-```
-<!-- Stop -->
-
-```
-docker-compose -f docker-compose-watcher.yml stop
-```
-<!-- Restart -->
-
-If `status.get` function returns an error (e.g. `The server is not ready to handle the request`), you may want to restart Docker containers.
-
-```
-docker-compose -f docker-compose-watcher.yml restart
-```
-<!-- Update -->
-
-To update docker containers, pull the latest updates from the [`latest release`](https://github.com/omgnetwork/elixir-omg/releases) tag of the `elixir-omg` repository:
-
-```
-git checkout <LATEST_RELEASE_TAG>
-git pull
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-### Retrieve Alarms
-
-Alarms can be useful if you encounter issues with system memory, CPU, or storage of your Watcher. You can check your alarms with `alarm.get` function:
-
-```
-curl -X GET "http://localhost:7534/alarm.get"
-```
-
-Example output:
-```
-{
-   "data":[
-      {
-         "system_memory_high_watermark":[
-
-         ]
-      }
-   ],
-   "service_name":"watcher_info",
-   "success":true,
-   "version":"0.4.3+4445aee"
-}
-```
