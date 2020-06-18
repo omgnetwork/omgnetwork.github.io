@@ -65,7 +65,7 @@ ssh $USER@$REMOTE_SERVER -p $PORT
 ```
 
 > - `$USER` - the name of the user with root privileges used to log into the remote server. Default: root.
-> - `$REMOTE_SERVER` - an ip address of your remote server.
+> - `$REMOTE_SERVER` - an IP address of your remote server.
 > - `$PORT` - a port used to connect to the server. Default: 22.
 
 ### 3. Install Dependencies
@@ -175,7 +175,7 @@ sudo kill $PID
 
 #### 4.2 Docker Ports (optionally)
 
-If you have a Docker installed earlier, check if one of the containers uses the required ports as follows:
+If you have Docker tooling installed earlier, check if one of the containers uses the required ports as follows:
 
 ```
 docker ps
@@ -203,7 +203,7 @@ The Wather relies on several services that have to run simultaneously: Watcher, 
 
 #### 6.1 Configure docker-compose-watcher.yml File
 
-Docker Compose allows defining and running multi-container Docker applications. To launch a Watcher with Compose, first create YAML file that will contain configurations for our services with `nano` or `vim` text editor:
+Docker Compose allows defining and running multi-container Docker applications. To launch a Watcher with Compose, first, create YAML file that will contain configurations for our services with `nano` or `vim` text editor:
 
 ```
 nano docker-compose-watcher.yml
@@ -232,8 +232,8 @@ CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=0x48d7a6bbc428bca019a560cf3e8ea5364395aad3
 
 > - `$ETHEREUM_RPC_URL` - a full Ethereum node URL.
 > - `$ETHEREUM_NETWORK` - an Ethereum network, all caps values: `RINKEBY`,`ROPSTEN`, `MAINNET`, etc.
-> - `${WATCHER_IMAGE}` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image.
-> - `${WATCHER_INFO_IMAGE}` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image.
+> - `${WATCHER_IMAGE}` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.0`).
+> - `${WATCHER_INFO_IMAGE}` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.0`).
 
 Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments).
 
@@ -282,7 +282,7 @@ To verify that you're fully synced, check the status of Watcher and Watcher Info
 curl -X POST "http://$REMOTE_SERVER:7434/status.get"
 ```
 
-> - `$REMOTE_SERVER` - an ip address of your remote server.
+> - `$REMOTE_SERVER` - an IP address of your remote server.
 
 Example output:
 ```
@@ -323,7 +323,7 @@ Example output:
 curl -X POST "http://$REMOTE_SERVER:7534/stats.get"
 ```
 
-> - `$REMOTE_SERVER` - an ip address of your remote server.
+> - `$REMOTE_SERVER` - an IP address of your remote server.
 
 Example output:
 ```
@@ -356,8 +356,8 @@ watcher_info_1   | 2020-05-30 06:13:36.445 [info] module=Phoenix.Endpoint.Cowboy
 
 ### 9. Test Your Watcher
 
-TThere are two ways to test that your Watcher is working properly:
+There are two ways to test that your Watcher is working properly:
 1. Use `http://$REMOTE_SERVER:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omgnetwork/omg-samples). 
 2. Make a transaction or another operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
 
-> - `$REMOTE_SERVER` - an ip address of your remote server.
+> - `$REMOTE_SERVER` - an IP address of your remote server.
