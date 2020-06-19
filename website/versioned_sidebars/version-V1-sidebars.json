@@ -36,7 +36,11 @@
         ]
       }
     ],
-    "4. Security": ["version-V1-bug-bounty-program", "version-V1-audits"],
+    "4. Security": [
+      "version-V1-bug-bounty-program",
+      "version-V1-audits",
+      "version-V1-administrative-controls-for-smart-contracts"
+    ],
     "5. Concepts": [
       {
         "type": "subcategory",

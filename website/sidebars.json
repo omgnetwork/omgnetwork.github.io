@@ -36,7 +36,11 @@
         ]
       }
     ],
-    "4. Security": ["bug-bounty-program", "audits"],
+    "4. Security": [
+      "bug-bounty-program",
+      "audits",
+      "administrative-controls-for-smart-contracts"
+    ],
     "5. Concepts": [
       {
         "type": "subcategory",
