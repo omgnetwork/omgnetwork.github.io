@@ -64,7 +64,7 @@ ssh $USER@$REMOTE_SERVER -p $PORT
 ```
 
 > - `$USER` - the name of the user with root privileges used to log into the remote server. Default: root.
-> - `$REMOTE_SERVER` - an ip address of your remote server.
+> - `$REMOTE_SERVER` - an IP address of your remote server.
 > - `$PORT` - a port used to connect to the server. Default: 22.
 
 ### 3. Install Dependencies
@@ -97,7 +97,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-
 
 #### 3.4 Install Postgres (optionally)
 
-Some Linux servers don't have pre-installed Postgres. You need to install it manually as follows:
+Some Linux servers don't have pre-installed Postgres. You might need to install it manually as follows:
 
 ```
 sudo apt update && sudo apt install postgresql postgresql-contrib
@@ -172,9 +172,9 @@ sudo kill $PID
 > - `$PORT` - a port to clear from other processes.
 > - `$PID` - process ID listening on a defined port.
 
-#### 4.2 Docker Ports
+#### 4.2 Docker Ports (optionally)
 
-Additionally, you can check if Docker is already using some services as follows:
+If you have Docker tooling installed earlier, check if one of the containers uses the required ports as follows:
 
 ```
 docker ps
@@ -188,139 +188,38 @@ CONTAINER ID        IMAGE                    COMMAND                  CREATED   
 
 ### 5. Create and Enter a New Directory
 
-It's advised to create a local directory to hold the Watcher data.
-
 ```
 mkdir watcher && cd watcher
 ```
 
-### 6. Clone elixir-omg
+### 6. Set Up Configuration Files
 
-Currently, child chain and Watcher exist in a single repository [`elixir-omg`](https://github.com/omgnetwork/elixir-omg). Thus, you need to clone it to start working with the Watcher.
-
-```
-git clone https://github.com/omgnetwork/elixir-omg.git && cd elixir-omg
-```
-
-Make sure you're on the [`latest release`](https://github.com/omgnetwork/elixir-omg/releases) tag (e.g. `v0.4.8`). It's not recommended to use pre-releases, they may not be stable.
-```
-git checkout <LATEST_RELEASE_TAG>
-```
-
-### 7. Modify Configurations
-
-The OMG Network provides several environments you can sync your Watcher with. To change the values, use `nano` or `vim` text editor from the root of the `elixir-omg` repository.
-
-#### 7.1 Open `docker-compose-watcher.yml` File
+The Wather relies on several services that have to run simultaneously: Watcher, Watcher Info and Postgres database. You can build them yourself from official [`elixir-omg releases`](https://github.com/omgnetwork/elixir-omg/releases) or use Docker containers as follows:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!-- Linux -->
+
+<!-- Docker Compose -->
+
+#### 6.1 Configure docker-compose-watcher.yml File
+
+Docker Compose allows defining and running multi-container Docker applications. To launch a Watcher with Compose, first, create YAML file that will contain configurations for our services with `nano` or `vim` text editor:
+
 ```
 nano docker-compose-watcher.yml
 ```
-<!-- macOS -->
-```
-nano docker-compose-watcher.yml
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
-#### 7.2 Replace Environment Values
+Then, copy and paste the [required configs](https://gist.github.com/dmitrydao/c69a886e30f29d49f853975bf7237cd6), save the changes with `Ctrl+o` (Linux/Windows) or `Control+o` (macOS) and `Enter` to confirm the changes respectively. Then exit the file with `Ctrl+x` or `Control+x`.
 
-In the opened file replace the environments details for `watcher` and `watcher_info` services as follows:
+#### 6.2 Configure Environment File
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!-- watcher -->
-```
-  watcher:
-    image: ${WATCHER_IMAGE}
-    command: "full_local"
-    environment:
-      - ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
-      - CHILD_CHAIN_URL=${CHILD_CHAIN_URL}
-      - ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
-      - AUTHORITY_ADDRESS=${AUTHORITY_ADDRESS}
-      - TXHASH_CONTRACT=${TXHASH_CONTRACT}
-      - CONTRACT_ADDRESS_PLASMA_FRAMEWORK=${CONTRACT_ADDRESS_PLASMA_FRAMEWORK}
-      - CONTRACT_ADDRESS_ETH_VAULT=${CONTRACT_ADDRESS_ETH_VAULT}
-      - CONTRACT_ADDRESS_ERC20_VAULT=${CONTRACT_ADDRESS_ERC20_VAULT}
-      - CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=${CONTRACT_ADDRESS_PAYMENT_EXIT_GAME}
-      - DATABASE_URL=${DATABASE_URL}
-      - PORT=7434
-      - DD_DISABLED=true
-      - DB_PATH=/app/.omg/data
-      - ETHEREUM_EVENTS_CHECK_INTERVAL_MS=8000
-      - ETHEREUM_STALLED_SYNC_THRESHOLD_MS=300000
-      - ETHEREUM_BLOCK_TIME_SECONDS=15
-      - EXIT_PROCESSOR_SLA_MARGIN=5520
-      - EXIT_PROCESSOR_SLA_MARGIN_FORCED=TRUE
-      - LOGGER_BACKEND=console
-      - DD_HOSTNAME=datadog
-      - APP_ENV=local-development
-    restart: always
-    ports:
-      - "7434:7434"
-    healthcheck:
-      test: curl watcher:7434
-      interval: 5s
-      timeout: 3s
-      retries: 5
-```
-<!-- watcher_info -->
-```
-  watcher_info:
-    image: ${WATCHER_INFO_IMAGE}
-    command: "full_local"
-    environment:
-      - ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
-      - CHILD_CHAIN_URL=${CHILD_CHAIN_URL}
-      - ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
-      - AUTHORITY_ADDRESS=${AUTHORITY_ADDRESS}
-      - TXHASH_CONTRACT=${TXHASH_CONTRACT}
-      - CONTRACT_ADDRESS_PLASMA_FRAMEWORK=${CONTRACT_ADDRESS_PLASMA_FRAMEWORK}
-      - CONTRACT_ADDRESS_ETH_VAULT=${CONTRACT_ADDRESS_ETH_VAULT}
-      - CONTRACT_ADDRESS_ERC20_VAULT=${CONTRACT_ADDRESS_ERC20_VAULT}
-      - CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=${CONTRACT_ADDRESS_PAYMENT_EXIT_GAME}
-      - DATABASE_URL=${DATABASE_URL}
-      - PORT=7534
-      - DD_DISABLED=true
-      - DB_PATH=/app/.omg/data
-      - ETHEREUM_EVENTS_CHECK_INTERVAL_MS=8000
-      - ETHEREUM_STALLED_SYNC_THRESHOLD_MS=300000
-      - ETHEREUM_BLOCK_TIME_SECONDS=15
-      - EXIT_PROCESSOR_SLA_MARGIN=5520
-      - EXIT_PROCESSOR_SLA_MARGIN_FORCED=TRUE
-      - LOGGER_BACKEND=console
-      - DD_HOSTNAME=datadog
-      - APP_ENV=local-development
-    restart: always
-    ports:
-      - "7534:7534"
-    healthcheck:
-      test: curl watcher_info:7534
-      interval: 5s
-      timeout: 3s
-      retries: 5
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-#### 7.3 Create `.env` file
-
-Modifying `.yml` file directly is not the best approach, and can lead to various human errors. `env` file will contain all of the values used for Watcher's configuration. You can create `env` file with `nano` or `vim` editor as follows:
+The YAML file has several values that have to be configured in `.env` file. To edit them, open `.env` with `nano` or `vim` text editor and paste the following values:
 
 ```
-nano .env
-```
-
-#### 7.4 Paste and Configure Environment Values
-
-Below are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments). Note, you need to provide `ETHEREUM_RPC_URL` that will correspond to your local ETH node or the one used by ETH infrastructure provider.
-
-```
-WATCHER_IMAGE=omisego/watcher:v0.4.8
-WATCHER_INFO_IMAGE=omisego/watcher_info:v0.4.8
+WATCHER_IMAGE=${WATCHER_IMAGE}
+WATCHER_INFO_IMAGE=${WATCHER_INFO_IMAGE}
 DATABASE_URL=postgres://omisego_dev:omisego_dev@postgres:5432/omisego_dev
-ETHEREUM_RPC_URL=$ETHEREUM_RPC_URL
-ETHEREUM_NETWORK=MAINNET
+ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
+ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
 CHILD_CHAIN_URL=https://childchain.mainnet.v1.omg.network
 AUTHORITY_ADDRESS=0x22405c1782913fb676bc74ef54a60727b0e1026f
 TXHASH_CONTRACT=0x1c29b67acc33eba0d26f52a1e4d26625f52b53e6fbb0a4db915aeb052f7ec849
@@ -331,43 +230,15 @@ CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=0x48d7a6bbc428bca019a560cf3e8ea5364395aad3
 ```
 
 > - `$ETHEREUM_RPC_URL` - a full Ethereum node URL.
-> - `$ETHEREUM_NETWORK` - an Ethereum network, accepts only all caps values: `ROPSTEN`, `MAINNET`, etc.
+> - `$ETHEREUM_NETWORK` - an Ethereum network, all caps values: `RINKEBY`,`ROPSTEN`, `MAINNET`, etc.
+> - `${WATCHER_IMAGE}` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.0`).
+> - `${WATCHER_INFO_IMAGE}` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.0`).
 
-After providing the values, save the changes, and exit `.env` file.
+Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments).
 
-#### 7.5 Infrastructure Monitoring (optional)
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-If you want to monitor the the status of your Docker containers and the overall health of your server, consider setting up a [Sematext](https://sematext.com/) or other alternatives. For Sematext, first create a new app on their website. Then add the corresponding configurations to your `docker-compose-watcher.yml` file using `nano` or `vim` text editor:
-
-```
-services:
-  sematext-agent:
-    image: 'sematext/agent:latest'
-    environment:
-      - INFRA_TOKEN=$INFRA_TOKEN
-      - CONTAINER_TOKEN=$CONTAINER_TOKEN
-      - REGION=$REGION
-    cap_add:
-      - SYS_ADMIN
-    restart: always
-    volumes:
-      - '/:/hostfs:ro'
-      - '/etc/passwd:/etc/passwd:ro'
-      - '/etc/group:/etc/group:ro'
-      - '/var/run/:/var/run/'
-      - '/sys/kernel/debug:/sys/kernel/debug'
-      - '/sys:/host/sys:ro'
-```
-
-> - `$INFRA_TOKEN` - Sematext infrastructure token.
-> - `$CONTAINER_TOKEN` - Sematext Docker container token.  
-> - `$REGION` - region used in your Sematext account.
-
-If you set everything correctly, you should see the following dashboard:
-
-![sematext](/img/watcher/03.png)
-
-### 8. Run a Watcher Instance
+### 7. Run a Watcher Instance
 
 To run a Watcher instance, you need to start the required Docker containers. The parameter `-d` allows running containers in the background.
 
@@ -398,19 +269,19 @@ watcher_info_1  | 2020-05-15 06:53:43.230 [info] module=OMG.Watcher.BlockGetter 
 
 > Depending on the server's hardware and internet connection, the entire process can take up to an hour.
 
-If you want to exit the logs without stopping containers, use `Ctrl+C` or `Cmd+C`.
+If you want to exit the logs without stopping containers, use `Ctrl+C` or `Control+C`.
 
-### 9. Verify You're Synced 
+### 8. Verify You're Synced 
 
 To verify that you're fully synced, check the status of Watcher and Watcher Info:
 
-#### 9.1 Watcher
+#### 8.1 Watcher
 
 ```
 curl -X POST "http://$REMOTE_SERVER:7434/status.get"
 ```
 
-> - `$REMOTE_SERVER` - an ip address of your remote server.
+> - `$REMOTE_SERVER` - an IP address of your remote server.
 
 Example output:
 ```
@@ -441,17 +312,17 @@ Example output:
    },
    "service_name":"watcher",
    "success":true,
-   "version":"0.4.8+c6a25a0"
+   "version":"1.0.0+6234ec5"
 }
 ```
 
-#### 9.2 Watcher Info
+#### 8.2 Watcher Info
 
 ```
 curl -X POST "http://$REMOTE_SERVER:7534/stats.get"
 ```
 
-> - `$REMOTE_SERVER` - an ip address of your remote server.
+> - `$REMOTE_SERVER` - an IP address of your remote server.
 
 Example output:
 ```
@@ -472,7 +343,7 @@ Example output:
    },
    "service_name":"watcher_info",
    "success":true,
-   "version":"0.4.8+c6a25a0"
+   "version":"1.0.0+6234ec5"
 }
 ```
 
@@ -482,10 +353,10 @@ Notice, the server may not respond until the following line appears in the `watc
 watcher_info_1   | 2020-05-30 06:13:36.445 [info] module=Phoenix.Endpoint.CowboyAdapter function=start_link/3 ⋅Running OMG.WatcherRPC.Web.Endpoint with cowboy 1.1.2 at :::7434 (http)⋅
 ```
 
-### 10. Test Your Watcher
+### 9. Test Your Watcher
 
-TThere are two ways to test that your Watcher is working properly:
+There are two ways to test that your Watcher is working properly:
 1. Use `http://$REMOTE_SERVER:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omgnetwork/omg-samples). 
 2. Make a transaction or another operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
 
-> - `$REMOTE_SERVER` - an ip address of your remote server.
+> - `$REMOTE_SERVER` - an IP address of your remote server.
