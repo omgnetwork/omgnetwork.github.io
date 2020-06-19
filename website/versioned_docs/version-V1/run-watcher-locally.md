@@ -141,7 +141,7 @@ mkdir watcher && cd watcher
 
 ### 4. Set Up Configuration Files
 
-The Wather relies on several services that have to run simultaneously: Watcher, Watcher Info and Postgres database. You can build them yourself from official [`elixir-omg releases`](https://github.com/omgnetwork/elixir-omg/releases) or use Docker containers as follows:
+The Watcher relies on several services that have to run simultaneously: Watcher, Watcher Info and Postgres database. You can build them yourself from official [`elixir-omg releases`](https://github.com/omgnetwork/elixir-omg/releases) or use Docker containers as follows:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
