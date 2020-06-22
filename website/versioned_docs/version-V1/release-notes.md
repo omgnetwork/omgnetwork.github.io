@@ -12,6 +12,8 @@ original_id: release-notes
 The [`elixir-omg`](https://github.com/omgnetwork/elixir-omg) is a OMG Network's Elixir implementation of Plasma that forms the basis for the OMG Network.
 
 - [All Releases](https://github.com/omgnetwork/elixir-omg/releases)
+- [Release v1.0.1](https://github.com/omgnetwork/elixir-omg/releases/tag/v1.0.1)
+- [Release v1.0.0](https://github.com/omgnetwork/elixir-omg/releases/tag/v1.0.0)
 - [Release v0.4.8](https://github.com/omgnetwork/elixir-omg/releases/tag/v0.4.8)
 - [Release v0.4.8-pre.1](https://github.com/omgnetwork/elixir-omg/releases/tag/v0.4.8-pre.1)
 - [Release v0.4.8-pre.0](https://github.com/omgnetwork/elixir-omg/releases/tag/v0.4.8-pre.0)
@@ -44,6 +46,7 @@ The [`elixir-omg`](https://github.com/omgnetwork/elixir-omg) is a OMG Network's 
 The [`omg-js`](https://github.com/omgnetwork/omg-js) is is a Javascript library that allows to interact with OMG Network's MoreVP implementation of Plasma.
 
 - [All Releases](https://github.com/omgnetwork/omg-js/releases)
+- [Release v4.0.1-1.0.0](https://github.com/omgnetwork/omg-js/releases/tag/v4.0.1-1.0.0)
 - [Release v4.0.0-0.4.7](https://github.com/omgnetwork/omg-js/releases/tag/v4.0.0-0.4.7)
 - [Release v3.1.0-0.4.6](https://github.com/omgnetwork/omg-js/releases/tag/v3.1.0-0.4.6)
 - [Release v3.0.3-0.4.5](https://github.com/omgnetwork/omg-js/releases/tag/v3.0.3-0.4.5)
