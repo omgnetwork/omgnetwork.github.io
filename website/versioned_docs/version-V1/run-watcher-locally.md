@@ -141,7 +141,7 @@ mkdir watcher && cd watcher
 
 ### 4. Set Up Configuration Files
 
-The Watcher relies on several services: Watcher, Watcher Info and Postgres database. You can build them yourself from official [`elixir-omg releases`](https://github.com/omgnetwork/elixir-omg/releases) or use Docker containers as follows:
+The Wather relies on several services: Watcher, Watcher Info and Postgres database. You can build them yourself from official [`elixir-omg releases`](https://github.com/omgnetwork/elixir-omg/releases) or use Docker containers as follows:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -177,10 +177,10 @@ CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=0x48d7a6bbc428bca019a560cf3e8ea5364395aad3
 
 > - `$ETHEREUM_RPC_URL` - a full Ethereum node URL.
 > - `$ETHEREUM_NETWORK` - an Ethereum network, all caps values: `RINKEBY`,`ROPSTEN`, `MAINNET`, etc.
-> - `${WATCHER_IMAGE}` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.1`).
-> - `${WATCHER_INFO_IMAGE}` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.1`).
+> - `${WATCHER_IMAGE}` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.0`).
+> - `${WATCHER_INFO_IMAGE}` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.0`).
 
-Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments). You can also find all network releases and their correspondent Docker images on the [official releases](https://github.com/omgnetwork/elixir-omg/releases) page.
+Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments).
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -299,7 +299,7 @@ Example output:
       "services_synced_heights":[
          ...
       ]
-   },
+   },ß
    "service_name":"watcher",
    "success":true,
    "version":"1.0.0+6234ec5"

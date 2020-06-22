@@ -194,7 +194,7 @@ mkdir watcher && cd watcher
 
 ### 6. Set Up Configuration Files
 
-The Wather relies on several services that have to run simultaneously: Watcher, Watcher Info and Postgres database. You can build them yourself from official [`elixir-omg releases`](https://github.com/omgnetwork/elixir-omg/releases) or use Docker containers as follows:
+The Wather relies on several services: Watcher, Watcher Info and Postgres database. You can build them yourself from official [`elixir-omg releases`](https://github.com/omgnetwork/elixir-omg/releases) or use Docker containers as follows:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -217,7 +217,6 @@ The YAML file has several values that have to be configured in `.env` file. To e
 ```
 WATCHER_IMAGE=${WATCHER_IMAGE}
 WATCHER_INFO_IMAGE=${WATCHER_INFO_IMAGE}
-DATABASE_URL=postgres://omisego_dev:omisego_dev@postgres:5432/omisego_dev
 ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
 ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
 CHILD_CHAIN_URL=https://childchain.mainnet.v1.omg.network
