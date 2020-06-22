@@ -1,7 +1,8 @@
 ---
-id: administrative-controls-for-smart-contracts
-title: Administrative controls for smart contracts
-sidebar_label: Administrative controls for smart contracts
+id: version-V1-admin-accounts-sc
+title: Smart Contract Admin Accounts
+sidebar_label: Smart Contract Admin Accounts
+original_id: admin-accounts-sc
 ---
 
 It is tempting to build administrative controls such as upgrade or update mechanisms into smart contracts to allow for greater flexibility. If there are valid reasons to have them is a heated topic and actively discussed in the community. Our own perspective is that administrative accounts in smart contracts are a security anti-pattern and one of the design goals of the root chain contracts is to reduce administrative abilities as much as possible. 
