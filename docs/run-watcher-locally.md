@@ -140,7 +140,7 @@ mkdir watcher && cd watcher
 
 ### 4. Set Up Configuration Files
 
-The Watcher relies on several services that have to run simultaneously: Watcher, Watcher Info and Postgres database. You can build them yourself from official [`elixir-omg releases`](https://github.com/omgnetwork/elixir-omg/releases) or use Docker containers as follows:
+The Watcher relies on several services: Watcher, Watcher Info and Postgres database. You can build them yourself from official [`elixir-omg releases`](https://github.com/omgnetwork/elixir-omg/releases) or use Docker containers as follows:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -154,7 +154,7 @@ Docker Compose allows defining and running multi-container Docker applications. 
 nano docker-compose-watcher.yml
 ```
 
-Then, copy and paste the [required configs](https://gist.github.com/dmitrydao/c69a886e30f29d49f853975bf7237cd6), save the changes with `Ctrl+o` (Linux/Windows) or `Control+o` (macOS) and `Enter` to confirm the changes respectively. Then exit the file with `Ctrl+x` or `Control+x`.
+Then, copy and paste the [required configs](https://gist.github.com/dmitrydao/c69a886e30f29d49f853975bf7237cd6), save the changes with `ctrl+o` (Linux/Windows) or `control+o` (macOS) and `Enter` to confirm the changes respectively. Then exit the file with `ctrl+x` or `control+x`.
 
 #### 4.2 Configure Environment File
 
@@ -163,7 +163,6 @@ The YAML file has several values that have to be configured in `.env` file. To e
 ```
 WATCHER_IMAGE=${WATCHER_IMAGE}
 WATCHER_INFO_IMAGE=${WATCHER_INFO_IMAGE}
-DATABASE_URL=postgres://omisego_dev:omisego_dev@postgres:5432/omisego_dev
 ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
 ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
 CHILD_CHAIN_URL=https://childchain.mainnet.v1.omg.network
@@ -177,10 +176,10 @@ CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=0x48d7a6bbc428bca019a560cf3e8ea5364395aad3
 
 > - `$ETHEREUM_RPC_URL` - a full Ethereum node URL.
 > - `$ETHEREUM_NETWORK` - an Ethereum network, all caps values: `RINKEBY`,`ROPSTEN`, `MAINNET`, etc.
-> - `${WATCHER_IMAGE}` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.0`).
-> - `${WATCHER_INFO_IMAGE}` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.0`).
+> - `${WATCHER_IMAGE}` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.1`).
+> - `${WATCHER_INFO_IMAGE}` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.1`).
 
-Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments).
+Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments). You can also find all network releases and their correspondent Docker images on the [official releases](https://github.com/omgnetwork/elixir-omg/releases) page.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -190,19 +189,19 @@ If you're using one of the Ethereum infrastructure providers, the connection set
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Infura -->
 ```
-https://ropsten.infura.io/v3/{KEY}
+https://ropsten.infura.io/v3/${KEY}
 ```
 <!-- QuickNode -->
 ```
-https://falling-delicate-sunset.ropsten.quiknode.pro/{KEY}
+https://falling-delicate-sunset.ropsten.quiknode.pro/${KEY}
 ```
 <!-- Rivet -->
 ```
-https://{KEY}.eth.ropsten.rpc.rivet.cloud
+https://${KEY}.eth.ropsten.rpc.rivet.cloud
 ```
 <!-- Fiews -->
 ```
-https://cl-ropsten.fiews.io/v1/{KEY}
+https://cl-ropsten.fiews.io/v1/${KEY}
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -210,22 +209,24 @@ https://cl-ropsten.fiews.io/v1/{KEY}
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Infura -->
 ```
-https://mainnet.infura.io/v3/{KEY}
+https://mainnet.infura.io/v3/${KEY}
 ```
 <!-- QuickNode -->
 ```
-https://falling-delicate-sunset.mainnet.quiknode.pro/{KEY}
+https://falling-delicate-sunset.mainnet.quiknode.pro/${KEY}
 ```
 <!-- Rivet -->
 ```
-https://{KEY}.eth.rpc.rivet.cloud
+https://${KEY}.eth.rpc.rivet.cloud
 ```
 <!-- Fiews -->
 ```
-https://cl-main.fiews.io/v1/{KEY}
+https://cl-main.fiews.io/v1/{$KEY}
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+> ${KEY} - the environment/project/account key from your infrastructure provider.
+> 
 > Note, the URL paths may change by providers in the future.
 
 ### 5. Run a Watcher Instance
@@ -257,7 +258,7 @@ watcher_info_1  | 2020-05-15 06:53:43.062 [info] module=OMG.Watcher.BlockGetter 
 watcher_info_1  | 2020-05-15 06:53:43.230 [info] module=OMG.Watcher.BlockGetter function=handle_continue/2 ⋅Applied block: #147000, from eth height: 7765973 with 2 txs⋅
 ```
 
-If you want to exit the logs without stopping containers, use `Ctrl+C` or `Control+C`.
+If you want to exit the logs without stopping containers, use `ctrl+c` or `control+c`.
 
 > Depending on your hardware and internet connection, the entire process can take up to an hour.
 
