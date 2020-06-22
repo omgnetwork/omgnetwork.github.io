@@ -208,7 +208,7 @@ Docker Compose allows defining and running multi-container Docker applications. 
 nano docker-compose-watcher.yml
 ```
 
-Then, copy and paste the [required configs](https://gist.github.com/dmitrydao/c69a886e30f29d49f853975bf7237cd6), save the changes with `Ctrl+o` (Linux/Windows) or `Control+o` (macOS) and `Enter` to confirm the changes respectively. Then exit the file with `Ctrl+x` or `Control+x`.
+Then, copy and paste the [required configs](https://gist.github.com/dmitrydao/c69a886e30f29d49f853975bf7237cd6), save the changes with `ctrl+o` (Linux/Windows) or `control+o` (macOS) and `Enter` to confirm the changes respectively. Then exit the file with `ctrl+x` or `control+x`.
 
 #### 6.2 Configure Environment File
 
@@ -269,7 +269,7 @@ watcher_info_1  | 2020-05-15 06:53:43.230 [info] module=OMG.Watcher.BlockGetter 
 
 > Depending on the server's hardware and internet connection, the entire process can take up to an hour.
 
-If you want to exit the logs without stopping containers, use `Ctrl+C` or `Control+C`.
+If you want to exit the logs without stopping containers, use `ctrl+c` or `control+c`.
 
 ### 8. Verify You're Synced 
 
