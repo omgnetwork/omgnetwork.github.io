@@ -36,7 +36,7 @@
         ]
       }
     ],
-    "4. Security": ["bug-bounty-program", "audits"],
+    "4. Security": ["bug-bounty-program", "audits", "admin-accounts-sc"],
     "5. Concepts": [
       {
         "type": "subcategory",

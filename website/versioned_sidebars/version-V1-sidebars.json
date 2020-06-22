@@ -36,7 +36,11 @@
         ]
       }
     ],
-    "4. Security": ["version-V1-bug-bounty-program", "version-V1-audits"],
+    "4. Security": [
+      "version-V1-bug-bounty-program",
+      "version-V1-audits",
+      "version-V1-admin-accounts-sc"
+    ],
     "5. Concepts": [
       {
         "type": "subcategory",
