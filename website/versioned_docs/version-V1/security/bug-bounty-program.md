@@ -24,7 +24,7 @@ A vulnerability submission may qualify for a bounty under the following conditio
 - Make good faith efforts to avoid privacy violations, destruction of data, and interruption or degradation of our services.
 - Submissions are made without any conditions, demands, or threats.
 - Bounty amount rewarded for a successful submission is at our discretion. 
-- Participation is subject to our [general terms and conditions](./pdf/OMG-Network-Bug-Bounty-Program-June-2020-v2.pdf). 
+- Participation is subject to our [general terms and conditions](https://omg.eco/bugbountyterms). 
 
 ### Multiples or duplicates
 

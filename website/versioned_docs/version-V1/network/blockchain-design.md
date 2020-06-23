@@ -119,7 +119,7 @@ The table describes scheduled finalization time (SFT) for different types of exi
 | In-flight exits   | `exitable_at = max(exit_request_block.timestamp + MFP, youngest_input_block.timestamp + MFP + REP)` |
 | Deposits  |   The exit priority for deposits is elevated to protect against malicious operators: `SFT = max(exit_request_block.timestamp + MFP, utxo_submission_block.timestamp + MFP)` |
  
-See [MoreVP Technical Overview](morevp-technical-overview.md) for further details.
+See [MoreVP Technical Overview](/contracts/morevp) for further details.
  
 ***
  
@@ -324,7 +324,7 @@ The Watcher performs these tasks:
 The Watcher checks for the following conditions, which will optionally prompt for an exit challenge:
  
 * Exits during their challenge period referencing UTXOs that have already been spent on the child chain.
-* Invalid actions taken during the in-flight exit game. Check [MoreVP Technical Overview](morevp-technical-overview.md) for more details.
+* Invalid actions taken during the in-flight exit game. Check [MoreVP Technical Overview](/contracts/morevp) for more details.
  
 As soon as one Watcher detects an invalid child chain, all Watchers trigger a notification to anyone with assets on the child chain to exit immediately.
  

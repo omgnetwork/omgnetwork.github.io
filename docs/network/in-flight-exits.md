@@ -12,7 +12,7 @@ A user may consider an exit _in-flight_ in the following scenarios:
 - The user has signed and broadcast a transaction, but is unable to verify its inclusion in a block.
 - The user can see that the transaction has been included in a block, but believes that the block is invalid due to a dishonest operator.
 
-The user can initiate an IFE regardless of whether the above is correct, but one must commit an [`exit bond`](exitbonds). The purpose of the `exit bond` is to deter users from initiating exits dishonestly, as this bond will be awarded to any party who successfully proves that the exit is dishonest.
+The user can initiate an IFE regardless of whether the above is correct, but one must commit an [`exit bond`](/network/exitbonds). The purpose of the `exit bond` is to deter users from initiating exits dishonestly, as this bond will be awarded to any party who successfully proves that the exit is dishonest.
 
 ## Implementation
 
@@ -133,11 +133,11 @@ async function startInflightExit() {
 
 1. A user calls the `hasToken` function on the `PlasmaFramework` contract to check if there's an exit queue for the token in question. If no exit queue is registered, a user needs to register it using the `addToken` function. The corresponding `PlasmaFramework` contract functions used in this step are `hasExitQueue` and `addExitQueue`. This step is optional but it was included because it prevents from any potential issues a user may encounter during an exit.
 2. A user calls the `inFlightExitGetData` function on the Watcher to get the necessary exit data to start a standard exit. A transaction is termed exitable if it is correctly formed and properly signed by the owner(s) of the transaction input(s).
-3. A user calls the `startInFlightExit` function on the `PaymentExitGame` contract and commits an [exit bond](exitbonds) to the exit.
+3. A user calls the `startInFlightExit` function on the `PaymentExitGame` contract and commits an [exit bond](/network/exitbonds) to the exit.
 4. A user calls the `piggybackInFlightExitOnInput` or `piggybackInFlightExitOnOutput` function on the `PaymentExitGame` contract to piggyback on in-flight exit input or output call. Such a process is required for every in-flight exit before proceeding to the processing stage.
-5. After a [challenge period](challenge-period) a user can [process](process-exits) this exit.
+5. After a [challenge period](/network/challenge-period) a user can [process](/network/process-exits) this exit.
 
-> You can only exit one UTXO at a time. It is therefore recommended to [merge your UTXOs](managing-utxos) if you would like to exit multiple ones.
+> You can only exit one UTXO at a time. It is therefore recommended to [merge your UTXOs](/network/utxos) if you would like to exit multiple ones.
 
 ### Piggybacking
 

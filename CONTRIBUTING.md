@@ -121,11 +121,11 @@ Enter `/website/sidebars.json` and add the `${original_id}` you've defined above
         "type": "subcategory",
         "label": "Watcher",
         "ids": [
-          "run-watcher-locally",
-          "run-watcher-vps",
-          "manage-vps",
-          "watcher-monitoring",
-          "${original_id}"
+          "watcher/run-watcher-locally",
+          "watcher/run-watcher-vps",
+          "watcher/manage-vps",
+          "watcher/watcher-monitoring",
+          "watcher/${original_id}"
         ]
       }
     ],

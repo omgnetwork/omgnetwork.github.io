@@ -10,7 +10,7 @@ sidebar_label: Manage a VPS
 
 ### 1. Work with VPS Provider
 
-A VPS is the most common way to run any blockchain infrastructure. It is a very efficient way to run a Watcher because it offers guaranteed uptime, redundancy in the case of hardware failure, and a static IP address that is required to use the installed Watcher instance during integration with the OMG Network. It is also possible to [run a Watcher locally](run-watcher-locally) if you're an individual developer.
+A VPS is the most common way to run any blockchain infrastructure. It is a very efficient way to run a Watcher because it offers guaranteed uptime, redundancy in the case of hardware failure, and a static IP address that is required to use the installed Watcher instance during integration with the OMG Network. It is also possible to [run a Watcher locally](/watcher/run-watcher-locally) if you're an individual developer.
 
 The guide is using [Digital Ocean](https://www.digitalocean.com/) as an example of VPS. However, [Amazon EC2](https://aws.amazon.com/ec2/), [Google Cloud](https://cloud.google.com/), [OVH](https://www.ovh.ie/), and [Linode](https://www.linode.com/) are also popular choices. It's recommended to choose a provider that supports a Docker daemon and a Postgres database.
 

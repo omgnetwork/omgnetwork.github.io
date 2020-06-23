@@ -87,7 +87,7 @@ In the above scenario, Alice can split her UTXO to withdraw 2 ETH.
 
 ### Implementation
 
-For splitting UTXO, a user needs to follow the same steps as [making a transaction](transfers) but using the following transaction format:
+For splitting UTXO, a user needs to follow the same steps as [making a transaction](/network/transfers) but using the following transaction format:
 - The sender is specified as the recipient. 
 - The input consists of a single UTXO.
 - The amount set in each payment object corresponds to the desired output value. In other words, the amount the user wants to split from the input UTXO.

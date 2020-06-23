@@ -22,7 +22,7 @@ By the end of the guide, you will achieve the following:
 ## Pre-requisites
 * Chrome browser. Other browsers, such as Brave, may have compatibility issues with Web3 wallets.
 * Web3 wallet, preferably [MetaMask](https://metamask.io).
-* Basic knowledge of blockchain, [Ethereum](https://ethereum.org) and [Plasma](https://docs.omg.network/faq#what-is-plasma).
+* Basic knowledge of blockchain, [Ethereum](https://ethereum.org) and [Plasma](/faq#what-is-plasma).
 
 > Keep your tokens safe. Please ensure you understand how to store and send tokens without compromising security, always double-check the recipient`s address, never send private keys to anyone unless you want to lose your funds.
 
@@ -61,7 +61,7 @@ Before transacting on the OMG Network, you need to have ETH tokens on the root c
 ![sign-deposit](/img/webwallet/quick-start-sign-deposit.png)
 
 4. Click **Confirm**. By doing that, you are signing the transaction with your private key and sending it to the OMG Network. The confirmation process may take a few seconds.
-5. After deposit confirmation, click the `Deposits` tab to see the progress of your deposit. You have to wait for the [deposit finality period](https://docs.omg.network/glossary#deposit-finality-period) (currently 10 blocks) before your funds are accepted into the OMG Network. You can click on the transaction to see further details on [Etherscan](https://etherscan.io).
+5. After deposit confirmation, click the `Deposits` tab to see the progress of your deposit. You have to wait for the [deposit finality period](/glossary#deposit-finality-period) (currently 10 blocks) before your funds are accepted into the OMG Network. You can click on the transaction to see further details on [Etherscan](https://etherscan.io).
 
 <img src="/img/webwallet/quick-start-deposit-pending.png" width="500">
 
@@ -83,7 +83,7 @@ The process for depositing ERC20 into the OMG Network is very similar to an ETH 
 ![approve-erc20-deposit](/img/webwallet/quick-start-deposit-erc20-confirm.png)
 
 4. Click **Confirm** for both popups. The confirmation process may take a few seconds.
-5. After deposit confirmation, click the `Deposits` tab to see the progress of your deposit. You have to wait for the [deposit finality period](https://docs.omg.network/glossary#deposit-finality-period) (currently 10 blocks) before your funds are accepted into the OMG Network. You can click on the transaction to see further details on [Etherscan](https://etherscan.io).
+5. After deposit confirmation, click the `Deposits` tab to see the progress of your deposit. You have to wait for the [deposit finality period](/glossary#deposit-finality-period) (currently 10 blocks) before your funds are accepted into the OMG Network. You can click on the transaction to see further details on [Etherscan](https://etherscan.io).
 
 <img src="/img/webwallet/quick-start-deposit-erc20-pending.png" width="500">
 
@@ -91,9 +91,9 @@ The process for depositing ERC20 into the OMG Network is very similar to an ETH 
 
 <img src="/img/webwallet/quick-start-deposit-erc20-confirmed.png" width="500">
 
-> When you perform a deposit, you are sending funds to the `Plasma Framework` contract and creating a deposit UTXO for your account. The new UTXO allows transferring funds to the OMG Network. To understand UTXO better, please check [UTXO glossary](https://docs.omg.network/glossary#utxo).
+> When you perform a deposit, you are sending funds to the `Plasma Framework` contract and creating a deposit UTXO for your account. The new UTXO allows transferring funds to the OMG Network. To understand UTXO better, please check [UTXO glossary](/glossary#utxo).
 
-> To learn more about deposits, please check [`Deposits`](https://docs.omg.network/deposits) section. 
+> To learn more about deposits, please check [`Deposits`](/network/deposits) section. 
 
 ## 2. Send a Transaction
 
@@ -119,7 +119,7 @@ Now that you have funds on the OMG Network, you can make your first transaction.
 
 8. Congratulate yourself. You've just sent your first transaction on the OMG Network!
 
->To learn more about transactions, please check [`Transfers`](https://docs.omg.network/transfers) section.
+>To learn more about transactions, please check [`Transfers`](/network/transfers) section.
 
 ## 3. Exit Funds
 
@@ -140,11 +140,11 @@ You've successfully deposited and made a transfer to the OMG Network. If you wan
 
 <img src="/img/webwallet/exit-status.png" width="500">
 
-6. To prevent any malicious activity on the network, each exit goes through the [`Challenge Period`](https://docs.omg.network/challenge-period). This allows other users to challenge your exit on validity and trust. You will find the date of your exit approval below the transaction id. You will have to wait until this time passes, before being able to [process your exit](https://docs.omg.network/process-exits).
+6. To prevent any malicious activity on the network, each exit goes through the [`Challenge Period`](/network/challenge-period). This allows other users to challenge your exit on validity and trust. You will find the date of your exit approval below the transaction id. You will have to wait until this time passes, before being able to [process your exit](/network/process-exits).
 
 <img src="/img/webwallet/exit-challenge.png" width="500">
 
->To learn more about standard exits, please check [`Standard Exits`](https://docs.omg.network/standard-exits) section.
+>To learn more about standard exits, please check [`Standard Exits`](/network/standard-exits) section.
 
 ### 3.2 Processing an Exit
 
@@ -166,6 +166,6 @@ After the challenge period has passed, you can process your exit to release your
 
 <img src="/img/webwallet/process-exits-confirmed.png" width="500">
 
-Congratulations! You've performed an end-to-end process of transacting on the OMG Network. If you would like to learn more, continue to the [`Tutorials`](https://docs.omg.network/tutorials-intro) section.
+Congratulations! You've performed an end-to-end process of transacting on the OMG Network. If you would like to learn more, continue to the [`Tutorials`](/network/tutorials) section.
 
-To learn more about process exits, please check [`Process Exits`](https://docs.omg.network/process-exits) section.
+To learn more about process exits, please check [`Process Exits`](/network/process-exits) section.

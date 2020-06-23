@@ -1,8 +1,8 @@
 ---
-id: version-V1-retrieve-balances
+id: version-V1-balances
 title: Retrieve Root Chain and Child Chain Balances
 sidebar_label: Retrieve Balances
-original_id: retrieve-balances
+original_id: balances
 ---
 
 Retrieving balances involves converting an [RLP encoded](https://github.com/ethereum/wiki/wiki/RLP) array of balances into a human-readable array of balances.

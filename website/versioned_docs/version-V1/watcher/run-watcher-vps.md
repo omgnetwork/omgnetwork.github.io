@@ -52,9 +52,9 @@ The costs of running a Watcher on VPS include the following components:
 
 ### 1. Set Up VPS
 
-It is possible to [run a Watcher locally](run-watcher-locally) for testing purposes but it's recommended to use a remote or dedicated server to increase uptime, reduce latency, and configure advanced security measures for your instance.
+It is possible to [run a Watcher locally](/watcher/run-watcher-locally) for testing purposes but it's recommended to use a remote or dedicated server to increase uptime, reduce latency, and configure advanced security measures for your instance.
 
-The process takes a significant amount of time and may require help from your DevOps team. This step is fully covered in the [Manage VPS](manage-vps) guide.
+The process takes a significant amount of time and may require help from your DevOps team. This step is fully covered in the [Manage VPS](/watcher/manage-vps) guide.
 
 ### 2. Log in to VPS
 
