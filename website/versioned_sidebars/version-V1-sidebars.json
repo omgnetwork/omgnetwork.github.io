@@ -3,58 +3,42 @@
     "Introduction": [
       "version-V1-welcome"
     ],
-    "OMG Network": [
-      {
-        "type": "subcategory",
-        "label": "Tutorials",
-        "ids": [
-          "version-V1-network/tutorials",
-          "version-V1-network/balances",
-          "version-V1-network/deposits",
-          "version-V1-network/transfers",
-          "version-V1-network/standard-exits",
-          "version-V1-network/in-flight-exits",
-          "version-V1-network/process-exits",
-          "version-V1-network/utxos",
-          "version-V1-network/challenge-exits"
-        ]
-      },
-      {
-        "type": "subcategory",
-        "label": "Concepts",
-        "ids": [
-          "version-V1-network/blockchain-design",
-          "version-V1-network/byzantine-conditions",
-          "version-V1-network/network-architecture",
-          "version-V1-network/challenge-period",
-          "version-V1-network/exitbonds",
-          "version-V1-network/fees"
-        ]
-      }
+    "Network": [
+      "version-V1-network/tutorials",
+      "version-V1-network/balances",
+      "version-V1-network/deposits",
+      "version-V1-network/transfers",
+      "version-V1-network/standard-exits",
+      "version-V1-network/in-flight-exits",
+      "version-V1-network/process-exits",
+      "version-V1-network/utxos",
+      "version-V1-network/challenge-exits"
     ],
-    "OMG Wallet": [
+    "Wallet": [
       "version-V1-wallet/quick-start-webwallet"
     ],
+    "Contracts": [
+      "version-V1-contracts/plasma-proposition",
+      "version-V1-contracts/admin-accounts",
+      "version-V1-contracts/morevp"
+    ],
     "Watcher": [
-      {
-        "type": "subcategory",
-        "label": "How-to Guides",
-        "ids": [
-          "version-V1-watcher/run-watcher-locally",
-          "version-V1-watcher/run-watcher-vps",
-          "version-V1-watcher/manage-vps",
-          "version-V1-watcher/manage-watcher"
-        ]
-      }
+      "version-V1-watcher/run-watcher-locally",
+      "version-V1-watcher/run-watcher-vps",
+      "version-V1-watcher/manage-vps",
+      "version-V1-watcher/manage-watcher"
     ],
     "Security": [
       "version-V1-security/bug-bounty",
       "version-V1-security/audits"
     ],
-    "Plasma Contracts": [
-      "version-V1-contracts/admin-accounts",
-      "version-V1-contracts/morevp",
-      "version-V1-contracts/plasma-proposition"
+    "Concepts": [
+      "version-V1-network/blockchain-design",
+      "version-V1-network/byzantine-conditions",
+      "version-V1-network/network-architecture",
+      "version-V1-network/challenge-period",
+      "version-V1-network/exitbonds",
+      "version-V1-network/fees"
     ],
     "Resources": [
       "version-V1-glossary",

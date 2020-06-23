@@ -13,11 +13,12 @@ The OMG Network allows you to access, manage, and transact with digital assets t
  
 ## Sections
 OMG Developer Portal includes the following sections:
-- OMG Network — browse tutorials, code samples, and main concepts of the OMG Network.
-- OMG Wallet — make your first transaction with the OMG Wallet.
+- Network — browse tutorials and code samples for integration purposes.
+- Wallet — make your first transaction with the OMG Wallet.
 - Watcher — install, manage, and monitor the Watcher.
 - Security — learn about our security principles and completed audits.
-- Plasma Contracts — understand smart contracts that power up the network.
+- Contracts — understand smart contracts that power up the network.
+- Concepts — learn about architecture and various components of the OMG Network. 
 - Resources — explore resources helpful during integration. 
 - Migration Guides — read migration instructions, lessons, and breaking changes.
 

@@ -3,58 +3,42 @@
     "Introduction": [
       "welcome"
     ],
-    "OMG Network": [
-      {
-        "type": "subcategory",
-        "label": "Tutorials",
-        "ids": [
-          "network/tutorials",
-          "network/balances",
-          "network/deposits",
-          "network/transfers",
-          "network/standard-exits",
-          "network/in-flight-exits",
-          "network/process-exits",
-          "network/utxos",
-          "network/challenge-exits"
-        ]
-      },
-      {
-        "type": "subcategory",
-        "label": "Concepts",
-        "ids": [
-          "network/blockchain-design",
-          "network/byzantine-conditions",
-          "network/network-architecture",
-          "network/challenge-period",
-          "network/exitbonds",
-          "network/fees"
-        ]
-      }
+    "Network": [
+      "network/tutorials",
+      "network/balances",
+      "network/deposits",
+      "network/transfers",
+      "network/standard-exits",
+      "network/in-flight-exits",
+      "network/process-exits",
+      "network/utxos",
+      "network/challenge-exits"
     ],
-    "OMG Wallet": [
+    "Wallet": [
       "wallet/quick-start-webwallet"
     ],
+    "Contracts": [
+      "contracts/plasma-proposition",
+      "contracts/admin-accounts",
+      "contracts/morevp"
+    ],
     "Watcher": [
-      {
-        "type": "subcategory",
-        "label": "How-to Guides",
-        "ids": [
-          "watcher/run-watcher-locally",
-          "watcher/run-watcher-vps",
-          "watcher/manage-vps",
-          "watcher/manage-watcher"
-        ]
-      }
+      "watcher/run-watcher-locally",
+      "watcher/run-watcher-vps",
+      "watcher/manage-vps",
+      "watcher/manage-watcher"
     ],
     "Security": [
       "security/bug-bounty",
       "security/audits"
     ],
-    "Plasma Contracts": [
-      "contracts/admin-accounts",
-      "contracts/morevp",
-      "contracts/plasma-proposition"
+    "Concepts": [
+      "network/blockchain-design",
+      "network/byzantine-conditions",
+      "network/network-architecture",
+      "network/challenge-period",
+      "network/exitbonds",
+      "network/fees"
     ],
     "Resources": [
       "glossary",
