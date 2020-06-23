@@ -8,15 +8,67 @@ A deposit involves sending ETH or ERC-20 tokens to the `Vault` smart contract on
 
 ## Implementation
 
-1. Approve a token (for ERC20 tokens only). 
-2. Make a deposit.
+### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js)
 
-> Deposit amount is defined in WEI, the smallest denomination of ether (ETH), the currency used on the Ethereum network. You can use [ETH converter](https://eth-converter.com) or alternative tool to know how much WEI you have to put as the `amount` value.
+To access network features from your application, use our official libraries:
 
-### ETH Example
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Node -->
+
+Requires Node >= 8.11.3 < 13.0.0
+
+```js
+npm install @omisego/omg-js
+```
+
+<!-- Browser -->
+
+You can add `omg-js` to a website using a script tag:
+
+```js
+<script src="https://unpkg.com/@omisego/browser-omg-js"></script>
+```
+
+<!-- React Native -->
+
+You can easily integrate `omg-js` with React Native projects. First, add this postinstall script to your project's `package.json`:
+
+```js
+"scripts": {
+    "postinstall": "omgjs-nodeify"
+}
+```
+
+Then install the react native compatible library:
+
+```js
+npm install @omisego/react-native-omg-js
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
+
+### 2. Import dependencies
+
+Depositing funds to the OMG Network involves using 2 `omg-js` objects. Here's an example of how to instantiate them:
+
+```
+import Web3 from "web3";
+import { RootChain, OmgUtil } from "@omisego/omg-js";
+
+const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
+const rootChain = new RootChain({ web3, plasmaContractAddress });
+```
+
+> - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
+> - `plasmaContractAddress` - `CONTRACT_ADDRESS_PLASMA_FRAMEWORK` for defined [environment](/environments).
+
+### 3. Make an ETH deposit
+
+Performing any operation on the OMG Network requires funds. Funds deposit happens when a user sends ETH or ERC20 tokens to the `Vault` smart contract on Ethereum Network. A vault holds custody of tokens transferred to the Plasma Framework. Deposits increase the pool of funds held by the contract and also signals to the child chain server that the funds should be accessible on the child chain.
 
 ```js
 async function makeDeposit () {
@@ -32,12 +84,54 @@ async function makeDeposit () {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+> Deposit amount is defined in WEI, the smallest denomination of ether (ETH), the currency used on the Ethereum network. You can use [ETH converter](https://eth-converter.com) or alternative tool to know how much WEI you have to put as the `amount` value.
 
-### ERC20 Example
+A deposit generates a transaction receipt verifiable on Ethereum Network. A typical receipt has the following structure:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript (ESNext) -->
+```
+{
+    "blockHash": "0x41455ed19db8e5a495233e54c1813962edaf8a5fb87f847a704c72efa90e2c71",
+    "blockNumber": 7779244,
+    "contractAddress": null,
+    "cumulativeGasUsed": 391297,
+    "from": "0x0dc8e240d90f3b0d511b6447543b28ea2471401a",
+    "gasUsed": 130821,
+    "logs": [
+        {
+            "address": "0x895Cc6F20D386f5C0deae08B08cCFeC9f821E7D9",
+            "topics": [
+                "0x18569122d84f30025bb8dffb33563f1bdbfb9637f21552b11b8305686e9cb307",
+                "0x0000000000000000000000000dc8e240d90f3b0d511b6447543b28ea2471401a",
+                "0x0000000000000000000000000000000000000000000000000000000000023e42",
+                "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "data": "0x000000000000000000000000000000000000000000000000006a94d74f430000",
+            "blockNumber": 7779244,
+            "transactionHash": "0x0e7d060a63cb65f629cc6d053e71397c7fa3250b41e36cb2cae40b2acb4350a2",
+            "transactionIndex": 12,
+            "blockHash": "0x41455ed19db8e5a495233e54c1813962edaf8a5fb87f847a704c72efa90e2c71",
+            "logIndex": 1,
+            "removed": false,
+            "id": "log_8b0a6416"
+        }
+    ],
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000000001000000000024000000000000000000800000000000000000000010080000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000004000000010000000000000000000020000000000000000000000000000000000000080000022000000000000000000000",
+    "status": true,
+    "to": "0x895cc6f20d386f5c0deae08b08ccfec9f821e7d9",
+    "transactionHash": "0x0e7d060a63cb65f629cc6d053e71397c7fa3250b41e36cb2cae40b2acb4350a2",
+    "transactionIndex": 12
+}
+```
+
+After the funds are confirmed on the rootchain, child chain server generates a transaction in a form of UTXO corresponding to the deposited amount. UTXO (unspent transaction output) is a model used to keep a track of balances on the OMG Network.
+
+If a transaction is successful, you will see a unique `transactionHash` that can be verified on Ethereum block explorer, such as [Etherescan](https://ropsten.etherscan.io/tx/0xbcb340775157d5f0d21ae8bd5b13d51b7dd62bf79737f8ceea1f46bf33ae4fbe). Copy the hash and paste it in the search box for transaction's details.
+
+Depositing also involves forming a pseudo-block on the child chain. Such a block contains a single transaction with the deposited funds as a new UTXO. You can check a new block on [the OMG Block Explorer](https://blockexplorer.ropsten.v1.omg.network).
+
+### 4. Make an ERC20 deposit
+
+Depositing ERC20 tokens requires an approval of the corresponding `Vault` contract. You can deposit tokens only after this process is finished. 
 
 ```js
 async function makeDeposit () {
