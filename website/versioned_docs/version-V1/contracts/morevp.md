@@ -1,8 +1,8 @@
 ---
-id: version-V1-morevp-technical-overview
+id: version-V1-morevp
 title: MoreVP Technical Overview
 sidebar_label: MoreVP Technical Overview
-original_id: morevp-technical-overview
+original_id: morevp
 ---
 
 This page provides a technical description of More Viable Plasma (MoreVP).

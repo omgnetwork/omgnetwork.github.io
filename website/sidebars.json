@@ -1,62 +1,71 @@
 {
   "docs": {
-    "1. Introduction": ["welcome"],
-    "2. Tutorials": [
-      "tutorials-intro",
+    "Introduction": [
+      "welcome"
+    ],
+    "OMG Network": [
       {
         "type": "subcategory",
-        "label": "OMG Network",
+        "label": "Tutorials",
         "ids": [
-          "retrieve-balances",
-          "deposits",
-          "transfers",
-          "standard-exits",
-          "in-flight-exits",
-          "process-exits",
-          "managing-utxos",
-          "challenging-exits"
+          "network/tutorials",
+          "network/balances",
+          "network/deposits",
+          "network/transfers",
+          "network/standard-exits",
+          "network/in-flight-exits",
+          "network/process-exits",
+          "network/utxos",
+          "network/challenge-exits"
         ]
       },
       {
         "type": "subcategory",
-        "label": "OMG Wallet",
-        "ids": ["quick-start-webwallet"]
-      }
-    ],
-    "3. How-to Guides": [
-      "how-to-guides",
-      {
-        "type": "subcategory",
-        "label": "Watcher",
+        "label": "Concepts",
         "ids": [
-          "run-watcher-locally",
-          "run-watcher-vps",
-          "manage-vps",
-          "manage-watcher"
+          "network/blockchain-design",
+          "network/byzantine-conditions",
+          "network/network-architecture",
+          "network/challenge-period",
+          "network/exitbonds",
+          "network/fees"
         ]
       }
     ],
-    "4. Security": ["bug-bounty-program", "audits", "admin-accounts-sc"],
-    "5. Concepts": [
+    "OMG Wallet": [
+      "wallet/quick-start-webwallet"
+    ],
+    "Watcher": [
       {
         "type": "subcategory",
-        "label": "OMG Network",
+        "label": "How-to Guides",
         "ids": [
-          "blockchain-design",
-          "byzantine-conditions",
-          "network-architecture",
-          "challenge-period",
-          "exitbonds",
-          "fees"
+          "watcher/run-watcher-locally",
+          "watcher/run-watcher-vps",
+          "watcher/manage-vps",
+          "watcher/manage-watcher"
         ]
-      },
-      {
-        "type": "subcategory",
-        "label": "Plasma",
-        "ids": ["morevp-technical-overview", "plasma-proposition"]
       }
     ],
-    "6. Resources": ["glossary", "faq", "api", "environments", "release-notes"],
-    "7. Migration Guides": ["migration-0.2-0.3", "migration-0.3-0.4"]
+    "Security": [
+      "security/bug-bounty",
+      "security/audits"
+    ],
+    "Plasma Contracts": [
+      "contracts/admin-accounts",
+      "contracts/morevp",
+      "contracts/plasma-proposition"
+    ],
+    "Resources": [
+      "glossary",
+      "faq",
+      "api",
+      "environments",
+      "release-notes"
+    ],
+    "Migration Guides": [
+      "migration-0.2-0.3",
+      "migration-0.3-0.4"
+    ]
   }
 }

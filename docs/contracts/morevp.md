@@ -1,5 +1,5 @@
 ---
-id: morevp-technical-overview
+id: morevp
 title: MoreVP Technical Overview
 sidebar_label: MoreVP Technical Overview
 ---

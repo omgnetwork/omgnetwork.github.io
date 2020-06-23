@@ -1,8 +1,8 @@
 ---
-id: version-V1-tutorials-intro
-title: Introduction
-sidebar_label: Introduction
-original_id: tutorials-intro
+id: version-V1-tutorials
+title: Tutorials Introduction
+sidebar_label: Tutorials Intro
+original_id: tutorials
 ---
 
 The tutorials section aims to give a deeper technical explanation and code implementation around specific features of the OMG Network's products and services. It serves as a guide for integrators using the OMG Network.

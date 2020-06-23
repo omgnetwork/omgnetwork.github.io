@@ -1,8 +1,7 @@
 ---
-id: version-V1-run-watcher-locally
-title: How to Run a Watcher Locally
-sidebar_label: Run a Watcher Locally
-original_id: run-watcher-locally
+id: run-watcher-locally
+title: How to Run Watcher Locally
+sidebar_label: Run Watcher Locally
 ---
 
 *By the end of this guide you should know how to run a Watcher locally. The guide is useful for individual developers and clients who want to integrate with the OMG Network.*
@@ -141,7 +140,7 @@ mkdir watcher && cd watcher
 
 ### 4. Set Up Configuration Files
 
-The Wather relies on several services: Watcher, Watcher Info and Postgres database. You can build them yourself from official [`elixir-omg releases`](https://github.com/omgnetwork/elixir-omg/releases) or use Docker containers as follows:
+The Watcher consists from `watcher` and `watcher_info` services. You can run `watcher` separately, however `watcher_info` relies on Postgres database where it stores the network's data. All releases and corresponding Docker images (starting from `1.0.1`) can be found in our [`official repository`](https://github.com/omgnetwork/elixir-omg/releases).
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -177,10 +176,10 @@ CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=0x48d7a6bbc428bca019a560cf3e8ea5364395aad3
 
 > - `$ETHEREUM_RPC_URL` - a full Ethereum node URL.
 > - `$ETHEREUM_NETWORK` - an Ethereum network, all caps values: `RINKEBY`,`ROPSTEN`, `MAINNET`, etc.
-> - `${WATCHER_IMAGE}` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.0`).
-> - `${WATCHER_INFO_IMAGE}` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.0`).
+> - `${WATCHER_IMAGE}` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.1`).
+> - `${WATCHER_INFO_IMAGE}` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.1`).
 
-Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments).
+Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments). You can also find all network releases and their correspondent Docker images on the [official releases](https://github.com/omgnetwork/elixir-omg/releases) page.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -299,7 +298,7 @@ Example output:
       "services_synced_heights":[
          ...
       ]
-   },ß
+   },
    "service_name":"watcher",
    "success":true,
    "version":"1.0.0+6234ec5"

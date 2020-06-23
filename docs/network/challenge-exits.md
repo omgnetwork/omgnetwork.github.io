@@ -1,5 +1,5 @@
 ---
-id: challenging-exits
+id: challenge-exits
 title: Challenge an Exit
 sidebar_label: Challenge an Exit
 ---

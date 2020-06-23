@@ -1,11 +1,10 @@
 ---
-id: version-V1-audits
-title: Audits
-sidebar_label: Audits
-original_id: audits
+id: audits
+title: Plasma Contracts Audits
+sidebar_label: Contracts Audits
 ---
 
-The following table contains information on all audits that have been conducted for the Plasma contracts component of the OMG network.
+The following table contains information on all audits that have been conducted for the Plasma contracts component of the OMG network:
 
 | Release | Organization | Period | Report |
 |--|--|--|--|

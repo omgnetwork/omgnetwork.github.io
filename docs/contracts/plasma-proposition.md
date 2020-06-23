@@ -1,7 +1,7 @@
 ---
 id: plasma-proposition
-title: The Plasma Proposition
-sidebar_label: The Plasma Proposition
+title: Plasma Proposition
+sidebar_label: Plasma Proposition
 ---
 
 ## What is Plasma?

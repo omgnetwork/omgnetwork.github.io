@@ -1,8 +1,8 @@
 ---
-id: version-V1-managing-utxos
+id: version-V1-utxos
 title: Merge or Split UTXO
 sidebar_label: Merge or Split UTXO
-original_id: managing-utxos
+original_id: utxos
 ---
 
 [UTXOs](glossary#utxo) are core to the logic of the OMG Network.

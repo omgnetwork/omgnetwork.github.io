@@ -1,7 +1,7 @@
 ---
 id: version-V1-plasma-proposition
-title: The Plasma Proposition
-sidebar_label: The Plasma Proposition
+title: Plasma Proposition
+sidebar_label: Plasma Proposition
 original_id: plasma-proposition
 ---
 

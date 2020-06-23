@@ -1,8 +1,7 @@
 ---
-id: version-V1-bug-bounty-program
+id: bug-bounty
 title: Bug Bounty Program
 sidebar_label: Bug Bounty Program
-original_id: bug-bounty-program
 ---
 
 ## Introduction

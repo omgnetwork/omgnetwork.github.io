@@ -1,6 +1,6 @@
 ---
 id: version-V1-manage-vps
-title: Manage a VPS
+title: How to Manage a VPS
 sidebar_label: Manage a VPS
 original_id: manage-vps
 ---
@@ -174,7 +174,7 @@ PermitRootLogin no
 StrictModes yes
 ```
 
-Press `Ctrl+o` (Linux/Windows) or `Control+o` (macOS) to save and `Enter` to confirm the changes respectively. Then exit the file with `Ctrl+x` or `Control+x`.
+Press `ctrl+o` (Linux/Windows) or `control+o` (macOS) to save and `Enter` to confirm the changes respectively. Then exit the file with `ctrl+x` or `control+x`.
 
 To apply the changes, restart SSH with the following command:
 
@@ -419,7 +419,7 @@ Add the following values:
 COMMIT
 ```
 
-If the file is not empty, replace it with the content above. Press `Ctrl+o` (Linux/Windows) or `Control+o` (macOS) to save and `Enter` to confirm the changes respectively. Then exit the file with `Ctrl+x` or `Control+x`.
+If the file is not empty, replace it with the content above. Press `ctrl+o` (Linux/Windows) or `control+o` (macOS) to save and `Enter` to confirm the changes respectively. Then exit the file with `ctrl+x` or `control+x`.
 
 > Note, `$PORT` is a port you're using to connect to the server via SSH. The default value is 22 but if you follow this guide, it should be different by now. See [`step 5`](#5-change-the-default-port) for reference.
 

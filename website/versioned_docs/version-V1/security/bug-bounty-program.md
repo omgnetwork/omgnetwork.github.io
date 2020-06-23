@@ -1,8 +1,8 @@
 ---
-id: version-V1-bug-bounty-program
+id: version-V1-bug-bounty
 title: Bug Bounty Program
 sidebar_label: Bug Bounty Program
-original_id: bug-bounty-program
+original_id: bug-bounty
 ---
 
 ## Introduction
@@ -94,7 +94,6 @@ The list is not meant to limit or discourage other types of submissions but it s
 
 _*The plasma-contracts, the child chain and the watcher_ <br>
 _**Any other components in scope that are not primary components_
-
 
 ## Ineligible methods
 

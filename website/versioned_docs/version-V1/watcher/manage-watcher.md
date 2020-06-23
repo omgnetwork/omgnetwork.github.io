@@ -1,6 +1,6 @@
 ---
 id: version-V1-manage-watcher
-title: Manage a Watcher
+title: How to Manage a Watcher
 sidebar_label: Manage a Watcher
 original_id: manage-watcher
 ---
