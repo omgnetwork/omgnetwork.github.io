@@ -9,22 +9,80 @@ A transfer involves one wallet sending tokens to another wallet on the OMG Netwo
 
 ## Implementation
 
-For creating a transfer, the following steps are needed:
-1. Create a transaction body with the basic information about the transaction, including the UTXOs to be spent by the sender.
-2. Convert the transaction body into typed data, a sanitized version of the transaction body intended for transaction signing and encoding.
-3. Sign and encode the typed data into a signed transaction.
-4. Submit the signed transaction to the Watcher.
+### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js)
 
-There are several ways to send a transaction on the OMG Network. It's recommended to use the first method but you may want to choose another approach for your specific use case.
+To access network features from your application, use our official libraries:
 
-### Method A
+<!--DOCUSAURUS_CODE_TABS-->
 
-The most "granular" implementation includes fetching fees, creating, typing, signing and submitting the transaction. Such an approach will have the following structure of the code:
+<!-- Node -->
 
-> This method demonstrates a transfer made in ETH. If you want to make an ERC20 transfer, change the `currency` value to a corresponding smart contract address. 
+Requires Node >= 8.11.3 < 13.0.0
+
+```js
+npm install @omisego/omg-js
+```
+
+<!-- Browser -->
+
+You can add `omg-js` to a website using a script tag:
+
+```js
+<script src="https://unpkg.com/@omisego/browser-omg-js"></script>
+```
+
+<!-- React Native -->
+
+You can easily integrate `omg-js` with React Native projects. First, add this postinstall script to your project's `package.json`:
+
+```js
+"scripts": {
+    "postinstall": "omgjs-nodeify"
+}
+```
+
+Then install the react native compatible library:
+
+```js
+npm install @omisego/react-native-omg-js
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
+
+### 2. Import dependencies
+
+Transferring funds to the OMG Network involves using 2 `omg-js` objects. Here's an example of how to instantiate them:
+
+```
+import Web3 from "web3";
+import { ChildChain, OmgUtil } from "@omisego/omg-js";
+
+const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
+const childChain = new ChildChain({ watcherUrl });
+```
+
+> - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
+> - `watcherUrl` - the Watcher Info URL for defined [environment](/environments) (personal or from OMG Network).
+
+There are several ways to send a transaction on the OMG Network. It's recommended to use the first method but you may want to choose another approach for your specific use case.
+
+### 3. Send a payment transaction
+
+Transactions are composed of inputs and outputs. An input is simply a pointer to the output of another transaction. An output is a transaction that hasn't been spent yet (also known as UTXO). Each transaction contains details of the sender and receiver in the `owner` property for a respective object in the form of a public key. 
+
+The amount is defined in [RLP encoded](https://github.com/ethereum/wiki/wiki/RLP) format, as for any type of transaction on the network. Currency contains `0x0000000000000000000000000000000000000000` for ETH operations, and the respective smart contract address for ERC20 tokens.
+
+Note, the child chain server collects fees for sending a transaction. The fee can be paid in a variety of supported tokens by the network. To get more details on how the fees are defined, please refer to [Fees](https://docs.omg.network/fees).
+
+#### 3.1 Method A
+
+The most "granular" implementation of transfer includes fetching fees, creating, typing, signing and submitting the transaction. Such an approach will have the following structure of the code:
+
+> This method demonstrates a transfer made in ETH. If you want to make an ERC20 transfer, change the `currency` value to a corresponding smart contract address. 
+
 ```js
 async function transfer() {
   // fetch ETH fee amount from the Watcher
@@ -73,16 +131,13 @@ async function transfer() {
   return childChain.submitTransaction(signedTxn);
 }
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
-### Method B
+#### 3.2 Method B
 
 Another option relies on the child chain completely to create and send the transaction. Note that this method will choose the UTXO for you by using the largest UTXO of that specific currency. Also, you won't able to do 2 transactions in the same block using this method. 
 
-> This method demonstrates a transfer made in ERC20. If you want to make an ETH transfer, change the `currency` value to `OmgUtil.transaction.ETH_CURRENCY`. Notice, the fee is paid in ETH. If you want to know the list of supported tokens you can pay your fee, refer to [Fees documentation](/fees).
+> This method demonstrates a transfer made in ERC20. If you want to make an ETH transfer, change the `currency` value to `OmgUtil.transaction.ETH_CURRENCY`.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript (ESNext) -->
 ```js
 async function transfer() {
   // construct a transaction body
