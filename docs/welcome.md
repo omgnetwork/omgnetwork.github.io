@@ -23,7 +23,7 @@ OMG Developer Portal includes the following sections:
 
 ## Try it out
 Depending on your needs, you may want to start with one of the following documents:
-- [Tutorials Intro](/network/tutorials) — an introduction to code samples and network's features.
+- [Getting Started](/network/start) — an introduction to code samples and network's features.
 - [APIs](/api) — REST APIs of the OMG Network.
 - [Web Wallet Quickstart](/wallet/quick-start-webwallet) — a user guide to work with the OMG Network's Web Wallet.
 - [Environments](/environments) — the up-to-date network configurations for available environments.
