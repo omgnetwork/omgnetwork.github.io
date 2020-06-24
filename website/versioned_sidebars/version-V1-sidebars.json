@@ -1,76 +1,53 @@
 {
   "version-V1-docs": {
-    "1. Introduction": ["version-V1-welcome"],
-    "2. Tutorials": [
-      "version-V1-tutorials-intro",
-      {
-        "type": "subcategory",
-        "label": "OMG Network",
-        "ids": [
-          "version-V1-retrieve-balances",
-          "version-V1-deposits",
-          "version-V1-transfers",
-          "version-V1-standard-exits",
-          "version-V1-in-flight-exits",
-          "version-V1-process-exits",
-          "version-V1-managing-utxos",
-          "version-V1-challenging-exits"
-        ]
-      },
-      {
-        "type": "subcategory",
-        "label": "OMG Wallet",
-        "ids": ["version-V1-quick-start-webwallet"]
-      }
+    "Introduction": [
+      "version-V1-welcome"
     ],
-    "3. How-to Guides": [
-      "version-V1-how-to-guides",
-      {
-        "type": "subcategory",
-        "label": "Watcher",
-        "ids": [
-          "version-V1-run-watcher-locally",
-          "version-V1-run-watcher-vps",
-          "version-V1-manage-vps",
-          "version-V1-manage-watcher"
-        ]
-      }
+    "Network": [
+      "version-V1-network/start",
+      "version-V1-network/balances",
+      "version-V1-network/deposits",
+      "version-V1-network/transfers",
+      "version-V1-network/standard-exits",
+      "version-V1-network/in-flight-exits",
+      "version-V1-network/process-exits",
+      "version-V1-network/utxos",
+      "version-V1-network/challenge-exits"
     ],
-    "4. Security": [
-      "version-V1-bug-bounty-program",
-      "version-V1-audits",
-      "version-V1-admin-accounts-sc"
+    "Wallet": [
+      "version-V1-wallet/quick-start-webwallet"
     ],
-    "5. Concepts": [
-      {
-        "type": "subcategory",
-        "label": "OMG Network",
-        "ids": [
-          "version-V1-blockchain-design",
-          "version-V1-byzantine-conditions",
-          "version-V1-network-architecture",
-          "version-V1-challenge-period",
-          "version-V1-exitbonds",
-          "version-V1-fees"
-        ]
-      },
-      {
-        "type": "subcategory",
-        "label": "Plasma",
-        "ids": [
-          "version-V1-morevp-technical-overview",
-          "version-V1-plasma-proposition"
-        ]
-      }
+    "Contracts": [
+      "version-V1-contracts/plasma-proposition",
+      "version-V1-contracts/admin-accounts",
+      "version-V1-contracts/morevp"
     ],
-    "6. Resources": [
+    "Watcher": [
+      "version-V1-watcher/run-watcher-locally",
+      "version-V1-watcher/run-watcher-vps",
+      "version-V1-watcher/manage-vps",
+      "version-V1-watcher/manage-watcher"
+    ],
+    "Security": [
+      "version-V1-security/bug-bounty",
+      "version-V1-security/audits"
+    ],
+    "Concepts": [
+      "version-V1-network/blockchain-design",
+      "version-V1-network/byzantine-conditions",
+      "version-V1-network/network-architecture",
+      "version-V1-network/challenge-period",
+      "version-V1-network/exitbonds",
+      "version-V1-network/fees"
+    ],
+    "Resources": [
       "version-V1-glossary",
       "version-V1-faq",
       "version-V1-api",
       "version-V1-environments",
       "version-V1-release-notes"
     ],
-    "7. Migration Guides": [
+    "Migration Guides": [
       "version-V1-migration-0.2-0.3",
       "version-V1-migration-0.3-0.4"
     ]

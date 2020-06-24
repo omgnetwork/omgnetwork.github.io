@@ -180,4 +180,4 @@ However, users must also exit *before* the dishonest operator does if they are t
 
 A smaller UTXO set on the child chain can mitigate these vulnerabilities, and thereby reinforce the safety of user funds. For this reason, users are encouraged to merge their UTXOs continuously.
 
-> Due to the mechanics of the [Scheduled Finalisation Time (SFT)](challenge-period), users generally have <u>one week</u> to initiate an exit that can safely restore ownership of their funds. For UTXOs that are less than one week old, however, this window of safety is reduced to the time between the UTXO's creation and the start of the operator's dishonest exit.
+> Due to the mechanics of the [Scheduled Finalisation Time (SFT)](/network/challenge-period), users generally have <u>one week</u> to initiate an exit that can safely restore ownership of their funds. For UTXOs that are less than one week old, however, this window of safety is reduced to the time between the UTXO's creation and the start of the operator's dishonest exit.

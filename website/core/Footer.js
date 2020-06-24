@@ -14,11 +14,11 @@ class Footer extends React.Component {
       gettingStarted: [
         {
           content: "MoreVP Architecture",
-          url: "morevp-technical-overview",
+          url: "/contracts/morevp",
         },
         {
           content: "Web Wallet Quick Start",
-          url: "quick-start-webwallet",
+          url: "/wallet/quick-start-webwallet",
         },
         {
           content: "Web Wallet Code",
@@ -54,7 +54,7 @@ class Footer extends React.Component {
         },
         {
           content: "Tutorials",
-          url: "tutorials-intro",
+          url: "/network/tutorials",
         },
         {
           content: "Plasma Contracts",

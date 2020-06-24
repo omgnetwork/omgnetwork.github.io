@@ -12,19 +12,22 @@ The OMG Network allows you to access, manage, and transact with digital assets t
  
 ## Sections
 OMG Developer Portal includes the following sections:
-- Tutorials — browse code samples for integration purposes.
-- How-to Guides — install and manage infrastructure components of the OMG Network's products.
-- Concepts — learn about consensus and technical architecture of the OMG Network. 
+- Network — browse tutorials and code samples for integration purposes.
+- Wallet — make your first transaction with the OMG Wallet.
+- Watcher — install, manage, and monitor the Watcher.
+- Security — learn about our security principles and completed audits.
+- Contracts — understand smart contracts that power up the network.
+- Concepts — learn about architecture and various components of the OMG Network. 
 - Resources — explore resources helpful during integration. 
 - Migration Guides — read migration instructions, lessons, and breaking changes.
 
-
 ## Try it out
 Depending on your needs, you may want to start with one of the following documents:
-- [Tutorials Intro](/tutorials-intro) — an introduction to work with code samples.
+- [Getting Started](/network/start) — an introduction to code samples and network's features.
 - [APIs](/api) — REST APIs of the OMG Network.
-- [Web Wallet Quickstart](/quick-start-webwallet) — a user guide to work with the OMG Network's Web Wallet.
+- [Web Wallet Quickstart](/wallet/quick-start-webwallet) — a user guide to work with the OMG Network's Web Wallet.
 - [Environments](/environments) — the up-to-date network configurations for available environments.
-- [Blockchain Design](/blockchain-design) — a blockchain design used to implement the OMG Network.
+- [Bug Bounty](/security/bug-bounty) — a bug bounty program.
+- [Blockchain Design](/network/blockchain-design) — a blockchain design used to implement the OMG Network.
  
 > For more information about the benefits of the OMG Network, see the [OMG Network website](https://omg.network).
