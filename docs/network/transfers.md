@@ -70,9 +70,70 @@ There are several ways to send a transaction on the OMG Network. It's recommende
 
 ### 3. Send a payment transaction
 
-Transactions are composed of inputs and outputs. An input is simply a pointer to the output of another transaction. An output is a transaction that hasn't been spent yet (also known as UTXO). Each transaction contains details of the sender and receiver in the `owner` property for a respective object in the form of a public key. 
+Transactions are composed of inputs and outputs. An input is simply a pointer to the output of another transaction. An output is a transaction that hasn't been spent yet (also known as UTXO). Each transaction should be signed by the owner of funds (UTXOs), have a specific format, and encoded with [RLP encoding](https://github.com/ethereum/wiki/wiki/RLP) according to the following rules:
 
-The amount is defined in [RLP encoded](https://github.com/ethereum/wiki/wiki/RLP) format, as for any type of transaction on the network. Currency contains `0x0000000000000000000000000000000000000000` for ETH operations, and the respective smart contract address for ERC20 tokens.
+```
+[txType, inputs, outputs, txData, metaData]
+
+txType ::= uint256
+inputs ::= [input]
+input ::= bytes32
+outputs ::= [output]
+output ::= [outputType, outputData]
+outputType ::= uint256
+outputData ::= [outputGuard, token, amount]
+outputGuard ::= bytes20
+token ::= bytes20
+amount ::= uint256
+txData ::= uint256 (must be 0)
+metadata ::= bytes32
+```
+
+Transactions are signed using the [EIP-712](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-712.md) method. The EIP-712 typed data structure is defined as follows:
+
+```
+{
+  types: {
+    EIP712Domain: [
+        { name: 'name', type: 'string' },
+        { name: 'version', type: 'string' },
+        { name: 'verifyingContract', type: 'address' },
+        { name: 'salt', type: 'bytes32' }
+    ],
+    Transaction: [
+        { name: 'txType', type: 'uint256' },
+        { name: 'input0', type: 'Input' },
+        { name: 'input1', type: 'Input' },
+        { name: 'input2', type: 'Input' },
+        { name: 'input3', type: 'Input' },
+        { name: 'output0', type: 'Output' },
+        { name: 'output1', type: 'Output' },
+        { name: 'output2', type: 'Output' },
+        { name: 'output3', type: 'Output' },
+        { name: 'txData', type: 'uint256' },
+        { name: 'metadata', type: 'bytes32' }
+    ],
+    Input: [
+        { name: 'blknum', type: 'uint256' },
+        { name: 'txindex', type: 'uint256' },
+        { name: 'oindex', type: 'uint256' }
+    ],
+    Output: [
+        { name: 'outputType', type: 'uint256' },
+        { name: 'outputGuard', type: 'bytes20' },
+        { name: 'currency', type: 'address' },
+        { name: 'amount', type: 'uint256' }
+    ]
+  },
+  domain: {
+        name: 'OMG Network',
+        version: '1',
+        verifyingContract: '',
+        salt: '0xfad5c7f626d80f9256ef01929f3beb96e058b8b4b0e3fe52d84f054c0e2a7a83'
+    },
+  primaryType: 'Transaction'
+}
+```
 
 Note, the child chain server collects fees for sending a transaction. The fee can be paid in a variety of supported tokens by the network. To get more details on how the fees are defined, please refer to [Fees](https://docs.omg.network/fees).
 
