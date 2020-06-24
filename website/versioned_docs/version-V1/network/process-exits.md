@@ -8,14 +8,71 @@ original_id: process-exits
 Processing an exit allows a user to release their funds locked in the `Plasma Framework` contract. Any exit bonds from the exit game are also paid out at this time.
 
 ## Implementation
-1. Get the current exit queue.
-2. Process defined exit(s).
 
+### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js)
 
-> Exit processing is the same for both ETH and ERC20 UTXOs. This method demonstrates exit processing for ETH funds. If you want to process an ERC20 exit, change the `token` value to a corresponding smart contract address.
+To access network features from your application, use our official libraries:
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Node -->
+
+Requires Node >= 8.11.3 < 13.0.0
+
+```js
+npm install @omisego/omg-js
+```
+
+<!-- Browser -->
+
+You can add `omg-js` to a website using a script tag:
+
+```js
+<script src="https://unpkg.com/@omisego/browser-omg-js"></script>
+```
+
+<!-- React Native -->
+
+You can easily integrate `omg-js` with React Native projects. First, add this postinstall script to your project's `package.json`:
+
+```js
+"scripts": {
+    "postinstall": "omgjs-nodeify"
+}
+```
+
+Then install the react native compatible library:
+
+```js
+npm install @omisego/react-native-omg-js
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
+
+### 2. Import dependencies
+
+Processing exits involves using 2 `omg-js` objects. Here's an example of how to instantiate them:
+
+```
+import Web3 from "web3";
+import { RootChain, OmgUtil } from "@omisego/omg-js";
+
+const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
+const rootChain = new RootChain({ web3, plasmaContractAddress });
+```
+
+> - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
+> - `plasmaContractAddress` - `CONTRACT_ADDRESS_PLASMA_FRAMEWORK` for defined [environment](/environments).
+
+### 3. Process an exit
+
+> Exit processing is the same for both ETH and ERC20 UTXOs. This method demonstrates exit processing for ETH funds. If you want to process an ERC20 exit, change the `token` value to a corresponding smart contract address.
+
+Before you start processing, you can check the exit queue to see how many available exits the OMG Network has at a given moment:
+
 ```js
 async function processExit() {
   // get exit queue
