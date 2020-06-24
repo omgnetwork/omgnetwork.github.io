@@ -6,7 +6,7 @@ sidebar_label: Start an In-flight Exit
 
 Exits allow a user to withdraw funds from the OMG Network back onto the root chain. There are two types of exit: standard exits and in-flight exits (IFEs). This section will cover in-flight-exits.
 
-A transaction is considered to be “in-flight” if it has been broadcasted but has not yet been included in the child chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block where the said transaction is included.
+A transaction is considered to be _in-flight_ if it has been broadcasted but has not yet been included in the child chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block where the said transaction is included.
 
 A user may consider an exit _in-flight_ in the following scenarios:
 - The user has signed and broadcast a transaction, but is unable to verify its inclusion in a block.
@@ -16,18 +16,74 @@ The user can initiate an IFE regardless of whether the above is correct, but one
 
 ## Implementation
 
-For starting an in-flight exit, the following steps are needed:
+### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js)
 
-1. Get the in-flight exit data.
-2. Start the in-flight exit.
-3. Piggyback the selected inputs or outputs.
+To access network features from your application, use our official libraries:
 
-> The in-flight exit process is the same for both ETH and ERC20 UTXOs. The tutorial shows how to work with ERC20 tokens. For working with ETH, change `0xd74ef52053204c9887df4a0e921b1ae024f6fe31` value (ERC20 contract) into `OmgUtil.transaction.ETH_CURRENCY`.
+<!--DOCUSAURUS_CODE_TABS-->
 
-### Example
+<!-- Node -->
+
+Requires Node >= 8.11.3 < 13.0.0
+
+```js
+npm install @omisego/omg-js
+```
+
+<!-- Browser -->
+
+You can add `omg-js` to a website using a script tag:
+
+```js
+<script src="https://unpkg.com/@omisego/browser-omg-js"></script>
+```
+
+<!-- React Native -->
+
+You can easily integrate `omg-js` with React Native projects. First, add this postinstall script to your project's `package.json`:
+
+```js
+"scripts": {
+    "postinstall": "omgjs-nodeify"
+}
+```
+
+Then install the react native compatible library:
+
+```js
+npm install @omisego/react-native-omg-js
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
+
+### 2. Import dependencies
+
+In-Flight exit involves using 3 `omg-js` objects. Here's an example of how to instantiate them:
+
+```
+import Web3 from "web3";
+import { ChildChain, RootChain, OmgUtil } from "@omisego/omg-js";
+
+const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
+const rootChain = new RootChain({ web3, plasmaContractAddress });
+const childChain = new ChildChain({ watcherUrl });
+```
+
+> - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
+> - `plasmaContractAddress` - `CONTRACT_ADDRESS_PLASMA_FRAMEWORK` for defined [environment](/environments).
+> - `watcherUrl` - the Watcher Info URL for defined [environment](/environments) (personal or from OMG Network).
+
+### 3. Start an in-flight exit
+
+For creating an in-flight exit, you need to create a new transaction that has been signed but hasn't been submitted to the network.
+
+A transaction is considered to be “in-flight” if it has been broadcasted but has not yet been included in the child chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block where the defined transaction is included.
+
+> The in-flight exit process is the same for both ETH and ERC20 UTXOs. The tutorial shows how to work with ERC20 tokens. For working with ETH, change `0xd74ef52053204c9887df4a0e921b1ae024f6fe31` (ERC20 contract) into `OmgUtil.transaction.ETH_CURRENCY`.
+
 ```js
 async function startInflightExit() {
   // check if the exit queue exists for a given token
@@ -128,6 +184,8 @@ async function startInflightExit() {
 }
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+An in-flight exit creates an exit receipt. Each exit has an id that identifies it. After an in-flight exit starts, you'll have to wait a [challange period](/network/challenge-period) before you can process that exit and receive your funds back on Ethereum Network.
 
 ## Lifecycle
 
