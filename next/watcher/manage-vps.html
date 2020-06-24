@@ -1,0 +1,431 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>How to Manage a VPS · OMG Network</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="*By the end of this guide you should know how to set up, configure, and secure a VPS or dedicated server. The guide is useful for launching a Watcher instance or any blockchain node. It is required to have some basic knowledge of Linux.*"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="How to Manage a VPS · OMG Network"/><meta property="og:type" content="website"/><meta property="og:url" content="https://omgnetwork.github.io/"/><meta property="og:description" content="*By the end of this guide you should know how to set up, configure, and secure a VPS or dedicated server. The guide is useful for launching a Watcher instance or any blockchain node. It is required to have some basic knowledge of Linux.*"/><meta property="og:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-154130721-1"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-154130721-1');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/><script type="text/javascript" src="js/typeform.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="js/intercom.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo/omg-white.svg" alt="OMG Network"/></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/next/welcome" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/next/api" target="_self">APIs</a></li><li class="siteNavGroupActive"><a href="/next/environments" target="_self">Environments</a></li><li class=""><a href="https://omg.network" target="_blank">Product</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Watcher</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/welcome">About the OMG Network</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Network</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/network/start">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/next/network/balances">Retrieve Balances</a></li><li class="navListItem"><a class="navItem" href="/next/network/deposits">Deposit Funds</a></li><li class="navListItem"><a class="navItem" href="/next/network/transfers">Make a Transfer</a></li><li class="navListItem"><a class="navItem" href="/next/network/standard-exits">Start a Standard Exit</a></li><li class="navListItem"><a class="navItem" href="/next/network/in-flight-exits">Start an In-flight Exit</a></li><li class="navListItem"><a class="navItem" href="/next/network/process-exits">Process an Exit</a></li><li class="navListItem"><a class="navItem" href="/next/network/utxos">Merge or Split UTXO</a></li><li class="navListItem"><a class="navItem" href="/next/network/challenge-exits">Challenge an Exit</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Wallet</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/wallet/quick-start-webwallet">Web Wallet Quick Start</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contracts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/contracts/plasma-proposition">Plasma Proposition</a></li><li class="navListItem"><a class="navItem" href="/next/contracts/admin-accounts">Administrative Accounts</a></li><li class="navListItem"><a class="navItem" href="/next/contracts/morevp">MoreVP Technical Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Watcher</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/watcher/run-watcher-locally">Run Watcher Locally</a></li><li class="navListItem"><a class="navItem" href="/next/watcher/run-watcher-vps">Run a Watcher on VPS</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/next/watcher/manage-vps">Manage a VPS</a></li><li class="navListItem"><a class="navItem" href="/next/watcher/manage-watcher">Manage a Watcher</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Security</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/security/bug-bounty">Bug Bounty Program</a></li><li class="navListItem"><a class="navItem" href="/next/security/audits">Contracts Audits</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/network/blockchain-design">Blockchain Design</a></li><li class="navListItem"><a class="navItem" href="/next/network/byzantine-conditions">Byzantine Conditions</a></li><li class="navListItem"><a class="navItem" href="/next/network/network-architecture">Network Architecture</a></li><li class="navListItem"><a class="navItem" href="/next/network/challenge-period">Challenge Period</a></li><li class="navListItem"><a class="navItem" href="/next/network/exitbonds">Exit Bonds</a></li><li class="navListItem"><a class="navItem" href="/next/network/fees">Fees</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/glossary">Glossary</a></li><li class="navListItem"><a class="navItem" href="/next/faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/next/api">API References</a></li><li class="navListItem"><a class="navItem" href="/next/environments">Environments</a></li><li class="navListItem"><a class="navItem" href="/next/release-notes">Release Notes</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Migration Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/migration-0.2-0.3">0.2 to 0.3</a></li><li class="navListItem"><a class="navItem" href="/next/migration-0.3-0.4">0.3 to 0.4</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">How to Manage a VPS</h1></header><article><div><span><p><em>By the end of this guide you should know how to set up, configure, and secure a VPS or dedicated server. The guide is useful for launching a Watcher instance or any blockchain node. It is required to have some basic knowledge of Linux.</em></p>
+<h2><a class="anchor" aria-hidden="true" id="initial-vps-setup"></a><a href="#initial-vps-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initial VPS Setup</h2>
+<h3><a class="anchor" aria-hidden="true" id="1-work-with-vps-provider"></a><a href="#1-work-with-vps-provider" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Work with VPS Provider</h3>
+<p>A VPS is the most common way to run any blockchain infrastructure. It is a very efficient way to run a Watcher because it offers guaranteed uptime, redundancy in the case of hardware failure, and a static IP address that is required to use the installed Watcher instance during integration with the OMG Network. It is also possible to <a href="/watcher/run-watcher-locally">run a Watcher locally</a> if you're an individual developer.</p>
+<p>The guide is using <a href="https://www.digitalocean.com/">Digital Ocean</a> as an example of VPS. However, <a href="https://aws.amazon.com/ec2/">Amazon EC2</a>, <a href="https://cloud.google.com/">Google Cloud</a>, <a href="https://www.ovh.ie/">OVH</a>, and <a href="https://www.linode.com/">Linode</a> are also popular choices. It's recommended to choose a provider that supports a Docker daemon and a Postgres database.</p>
+<h4><a class="anchor" aria-hidden="true" id="11-set-up-an-account-and-project"></a><a href="#11-set-up-an-account-and-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.1 Set up an Account and Project</h4>
+<p>You need to have an account to start working with <a href="https://www.digitalocean.com/">Digital Ocean</a>. After your account is set up, you can create your first project as follows:</p>
+<p><img src="/img/watcher/01.png" alt="watcher"></p>
+<h4><a class="anchor" aria-hidden="true" id="12-create-a-droplet"></a><a href="#12-create-a-droplet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.2 Create a Droplet</h4>
+<p>Digital Ocean uses Droplets to create a new server, either standalone or as part of a larger, cloud-based infrastructure. To create a new Droplet, click on the <code>New Droplet</code> button.</p>
+<p>There are a few things you need to configure before creating a Droplet. Consider using the following values:</p>
+<ol>
+<li>Image: Ubuntu 16.04.6 (LTS) x64 or any other image that is listed on <a href="#supported-platforms">supported platforms</a> list.</li>
+<li>Plan: Basic with the pricing that matches <a href="#minimum-hardware-requirements">the minimum hardware requirements</a>.</li>
+<li>Block storage: —</li>
+<li>Datacenter Region: depends on your preference.</li>
+<li>VPC Network: —</li>
+<li>Additional options: —</li>
+<li>Authentication: password. It is recommended to use SSH for increased security. The password option was chosen because some of the VPS providers don't provide SSH authentication out of the box. You'll learn how to set up the SSH further in the guide.</li>
+<li>The number of Droplets: 1.</li>
+<li>Hostname: an identifying name for your host.</li>
+<li>Tags: any tags that will help to organize your servers, such as watcher, omg-network, etc.</li>
+</ol>
+<p>To finish the process, click the <code>Create Droplet</code> button. The creation of a Droplet might take a few minutes. As a result, you will see your server details as follows:</p>
+<p><img src="/img/watcher/02.png" alt="watcher"></p>
+<h3><a class="anchor" aria-hidden="true" id="2-connect-to-vps"></a><a href="#2-connect-to-vps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Connect to VPS</h3>
+<p>To connect to VPS, use <code>ssh</code> command from your terminal:</p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-66-tab-67" class="nav-link active" data-group="group_66" data-tab="tab-group-66-content-67">Linux/macOS</div><div id="tab-group-66-tab-68" class="nav-link" data-group="group_66" data-tab="tab-group-66-content-68">Windows</div></div><div class="tab-content"><div id="tab-group-66-content-67" class="tab-pane active" data-group="group_66" tabindex="-1"><div><span><pre><code class="hljs"><span class="hljs-attribute">ssh</span> root@<span class="hljs-variable">$REMOTE_SERVER</span><br /></code></pre>
+</span></div></div><div id="tab-group-66-content-68" class="tab-pane" data-group="group_66" tabindex="-1"><div><span><p>The SSH Client is available starting from <a href="https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview">Windows 10</a> version. For earlier versions, please use <a href="https://www.putty.org/">PuTTY</a> or other alternatives to connect to a remote server:</p>
+<pre><code class="hljs"><span class="hljs-attribute">ssh</span> root@<span class="hljs-variable">$REMOTE_SERVER</span><br /></code></pre>
+<p>By default, OpenSSH Client is an optional feature. You need to install it if you're using it the first time with the following commands:</p>
+<ol>
+<li>Go to <code>Settings &gt; Apps</code>, select <code>Manage optional features</code>.</li>
+<li>Click the <code>Add a feature</code> button.</li>
+<li>Find <code>OpenSSH Client</code>, click <code>Install</code>.</li>
+<li>Test if the client works with <code>ssh</code> command in your terminal.</li>
+</ol>
+</span></div></div></div></div>
+<p>When you connect to the server the first time, it will show the following message:</p>
+<pre><code class="hljs">The authenticity <span class="hljs-keyword">of</span> host <span class="hljs-comment">'$REMOTE_SERVER' can't be established.</span>
+ECDSA <span class="hljs-keyword">key</span> fingerprint <span class="hljs-keyword">is</span> SHA256: ...
+Are you sure you want <span class="hljs-keyword">to</span> <span class="hljs-keyword">continue</span> connecting (yes/no)? yes
+</code></pre>
+<p>Type <code>yes</code>. This will prompt you to enter a password. Note, all Linux systems don't reveal passwords when you type them, thus complete the process and click Enter. If your credentials are correct, you will see the following message:</p>
+<pre><code class="hljs"><span class="hljs-attr">Warning:</span> <span class="hljs-string">Permanently</span> <span class="hljs-string">added</span> <span class="hljs-string">'$REMOTE_SERVER'</span> <span class="hljs-string">(ECDSA)</span> <span class="hljs-string">to</span> <span class="hljs-string">the</span> <span class="hljs-string">list</span> <span class="hljs-string">of</span> <span class="hljs-string">known</span> <span class="hljs-string">hosts.</span>
+<span class="hljs-string">root@$REMOTE_SERVER's</span> <span class="hljs-attr">password:</span>
+<span class="hljs-string">Welcome</span> <span class="hljs-string">to</span> <span class="hljs-string">Ubuntu</span> <span class="hljs-number">16.04</span><span class="hljs-number">.6</span> <span class="hljs-string">LTS</span> <span class="hljs-string">(GNU/Linux</span> <span class="hljs-number">4.4</span><span class="hljs-number">.0</span><span class="hljs-number">-169</span><span class="hljs-string">-generic</span> <span class="hljs-string">x86_64)</span>
+
+ <span class="hljs-string">*</span> <span class="hljs-attr">Documentation:</span>  <span class="hljs-string">https://help.ubuntu.com</span>
+ <span class="hljs-string">*</span> <span class="hljs-attr">Management:</span>     <span class="hljs-string">https://landscape.canonical.com</span>
+ <span class="hljs-string">*</span> <span class="hljs-attr">Support:</span>        <span class="hljs-string">https://ubuntu.com/advantage</span>
+
+<span class="hljs-number">0</span> <span class="hljs-string">packages</span> <span class="hljs-string">can</span> <span class="hljs-string">be</span> <span class="hljs-string">updated.</span>
+<span class="hljs-number">0</span> <span class="hljs-string">updates</span> <span class="hljs-string">are</span> <span class="hljs-string">security</span> <span class="hljs-string">updates.</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="vps-security-basic"></a><a href="#vps-security-basic" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VPS Security (basic)</h2>
+<h3><a class="anchor" aria-hidden="true" id="3-change-a-password"></a><a href="#3-change-a-password" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Change a Password</h3>
+<p>Some of the server providers send the default login and password of the root user to your email. You must always change this password to a strong one. To change the password, use the <code>passwd</code> command. This will prompt you to type and repeat a new password. If everything is correct, you will see a success message:</p>
+<pre><code class="hljs">passwd
+Enter <span class="hljs-keyword">new</span> UNIX <span class="hljs-string">password:</span>
+Retype <span class="hljs-keyword">new</span> UNIX <span class="hljs-string">password:</span>
+<span class="hljs-string">passwd:</span> password updated successfully
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="4-replace-root-login"></a><a href="#4-replace-root-login" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Replace Root Login</h3>
+<h4><a class="anchor" aria-hidden="true" id="41-create-a-new-user"></a><a href="#41-create-a-new-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.1 Create a New User</h4>
+<p>It's not recommended to do any changes with the system under a root user due to security concerns. However, you can create a regular user and give <code>super user</code> rights to allow executing commands at root access without having all of the root access to modify system files. To create a new user, use the following command:</p>
+<pre><code class="hljs">adduser $<span class="hljs-keyword">USER</span>
+<span class="hljs-title"></span></code></pre>
+<p>Fill <code>$USER</code> with the name of the user you want to use instead of root. Then repeat a password for this user twice, and you can skip the other parts by pressing Enter:</p>
+<pre><code class="hljs">adduser <span class="hljs-variable">$USER</span>
+Adding<span class="hljs-built_in"> user </span>`<span class="hljs-variable">$USER</span><span class="hljs-string">' ...
+Adding new group `$USER'</span> (1000) <span class="hljs-built_in">..</span>.
+Adding new<span class="hljs-built_in"> user </span>`<span class="hljs-variable">$USER</span><span class="hljs-string">' (1000) with group `$USER'</span> <span class="hljs-built_in">..</span>.
+Creating home directory `/home/<span class="hljs-variable">$USER</span><span class="hljs-string">' ...
+Copying files from `/etc/skel'</span> <span class="hljs-built_in">..</span>.
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+Changing the<span class="hljs-built_in"> user </span>information <span class="hljs-keyword">for</span> <span class="hljs-variable">$USER</span>
+Enter the new value, <span class="hljs-keyword">or</span> press ENTER <span class="hljs-keyword">for</span> the<span class="hljs-built_in"> default
+</span>        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n] y
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="42-give-super-user-rights-to-a-new-user"></a><a href="#42-give-super-user-rights-to-a-new-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.2 Give Super User Rights To a New User</h4>
+<p>After a new user is created, one needs to have root access rights. This is accomplished with the following command:</p>
+<pre><code class="hljs">usermod -aG sudo $<span class="hljs-keyword">USER</span>
+<span class="hljs-title"></span></code></pre>
+<p>This will add our user to a sudo group:</p>
+<pre><code class="hljs">Adding<span class="hljs-built_in"> user </span>`rick<span class="hljs-string">' to group `sudo'</span> <span class="hljs-built_in">..</span>.
+Adding<span class="hljs-built_in"> user </span>rick <span class="hljs-keyword">to</span><span class="hljs-built_in"> group </span>sudo
+Done.
+</code></pre>
+<p>To test a connection with a new user, logout from your existing session and log in with the name of the user you've just created:</p>
+<pre><code class="hljs"><span class="hljs-built_in">logout</span> &amp;&amp; ssh <span class="hljs-variable">$USER</span>@<span class="hljs-variable">$REMOTE_SERVER</span>
+</code></pre>
+<blockquote>
+<p>Make sure to have both root and your new user passwords saved before doing any of the steps below.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="43-disable-root-login"></a><a href="#43-disable-root-login" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.3. Disable Root Login</h4>
+<p>To prevent brute force login attempts to the root account, it's recommended to disable root login. This is accomplished by changing configs in the <code>sshd_config</code> file using <code>nano</code> or <code>vi</code> text editors:</p>
+<pre><code class="hljs">sudo nano <span class="hljs-meta-keyword">/etc/</span>ssh/sshd_config
+</code></pre>
+<p>To prevent from login into root user, scroll to <code>#Authentication</code> section and change <code>PermitRootLogin</code> key from <code>yes</code> to <code>no</code> as follows:</p>
+<pre><code class="hljs"><span class="hljs-comment"># Authentication:</span>
+<span class="hljs-string">LoginGraceTime</span> <span class="hljs-number">120</span>
+<span class="hljs-string">PermitRootLogin</span> <span class="hljs-literal">no</span>
+<span class="hljs-string">StrictModes</span> <span class="hljs-literal">yes</span>
+</code></pre>
+<p>Press <code>ctrl+o</code> (Linux/Windows) or <code>control+o</code> (macOS) to save and <code>Enter</code> to confirm the changes respectively. Then exit the file with <code>ctrl+x</code> or <code>control+x</code>.</p>
+<p>To apply the changes, restart SSH with the following command:</p>
+<pre><code class="hljs">sudo<span class="hljs-built_in"> service </span>ssh restart
+</code></pre>
+<p>Now if you try to log into your server with root via SSH, it won't work and return <code>Permission denied, please try again</code> message.</p>
+<h3><a class="anchor" aria-hidden="true" id="5-change-the-default-port"></a><a href="#5-change-the-default-port" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Change the Default Port</h3>
+<p>Another security measure to prevent people from making different types of attacks is to make it harder to find your SSH access port. You can change it in the <code>sshd_config</code> file by using the method from the previous step:</p>
+<pre><code class="hljs">sudo nano <span class="hljs-meta-keyword">/etc/</span>ssh/sshd_config
+</code></pre>
+<p>Scroll to <code># What ports, IPs and protocols we listen for</code> section and change the port number from <code>22</code> to any number higher than 100 or ideally 1000. Save the changes, restart the SSH, and logout from the server. If you try to access your server with default connections, you'll receive <code>Connection refused</code> error. You'll need to specify a port number each time you login into the server as follows:</p>
+<pre><code class="hljs"><span class="hljs-attribute">ssh</span> <span class="hljs-variable">$USER</span>@<span class="hljs-variable">$REMOTE_SERVER</span> -p <span class="hljs-variable">$PORT</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="vps-security-medium"></a><a href="#vps-security-medium" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VPS Security (medium)</h2>
+<h3><a class="anchor" aria-hidden="true" id="6-change-authentication-method"></a><a href="#6-change-authentication-method" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Change Authentication Method</h3>
+<h4><a class="anchor" aria-hidden="true" id="61-generate-ssh-keys"></a><a href="#61-generate-ssh-keys" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.1 Generate SSH Keys</h4>
+<p>As was mentioned earlier, SSH keys allow a more secure method of authenticating to your server. To establish such a method, you need to have a pair of public and private keys on your laptop. Note, you should check for existing SSH keys and make a backup if they are available but you don't want to use them for this specific server.</p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-69-tab-70" class="nav-link active" data-group="group_69" data-tab="tab-group-69-content-70">Linux/macOS</div><div id="tab-group-69-tab-71" class="nav-link" data-group="group_69" data-tab="tab-group-69-content-71">Windows</div></div><div class="tab-content"><div id="tab-group-69-content-70" class="tab-pane active" data-group="group_69" tabindex="-1"><div><span><p>Open a terminal and run the following command:</p>
+<pre><code class="hljs"><span class="hljs-keyword">cd</span> ~<span class="hljs-string">/.ssh</span><br /></code></pre>
+<p>If you see <code>No such file or directory</code>, you don't have any SSH keys on your local computer. If you have <code>.shh</code> folder but you're not sure if you have any existing keys, use this command:</p>
+<pre><code class="hljs"><span class="hljs-keyword">ls</span> id_*<br /></code></pre>
+<p>If you have existing SSH keys but you don't want to use them, you can make a backup with the <code>cp</code> command:</p>
+<pre><code class="hljs"><span class="hljs-built_in">mkdir</span> key_backup &amp;&amp; <span class="hljs-keyword">cp</span> id_rsa* key_backup<br /></code></pre>
+<p>If you don't have any keys, create a new pair from your terminal:</p>
+<pre><code class="hljs"><span class="hljs-attribute">ssh-keygen -t rsa</span><br /></code></pre>
+</span></div></div><div id="tab-group-69-content-71" class="tab-pane" data-group="group_69" tabindex="-1"><div><span><p>Open a command prompt and run the following command:</p>
+<pre><code class="hljs"><span class="hljs-built_in">cd</span> <span class="hljs-variable">%userprofile%</span>/.ssh<br /></code></pre>
+<p>If you see <code>No such file or directory</code>, you don't have any SSH keys on your local computer. If you have <code>.shh</code> folder but you're not sure if you have any existing keys, follow this command:</p>
+<pre><code class="hljs"><span class="hljs-built_in">dir</span> id_*<br /></code></pre>
+<p>If you have existing SSH keys, but you don't want to use them, you can make a backup with the <code>copy</code> command:</p>
+<pre><code class="hljs">mkdir key_backup<br /><span class="hljs-keyword">copy</span><span class="bash"> id_rsa* key_backup</span><br /></code></pre>
+<p>If you don't have any keys, create a new pair from your command prompt:</p>
+<pre><code class="hljs"><span class="hljs-attribute">ssh-keygen -t rsa</span><br /></code></pre>
+</span></div></div></div></div>
+<p>You will be asked to choose the path to save the keys and a passphrase that will be used during login to the server. You can press <code>Enter</code> for both of the options to have a default path and no passphrase accordingly. If you're concerned that your SSH keys can be hacked or compromised, you might consider setting a password. The entire process will look as follows:</p>
+<pre><code class="hljs">ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key ($ID_RSA_DIR):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in $ID_RSA_DIR.
+Your public key has been saved in $ID_RSA_DIR.
+The key fingerprint is:
+SHA256: ...
+The key's randomart image is:
++---[RSA 2048]----+
+|<span class="hljs-string">++.o             </span>|
+|<span class="hljs-string">* o    .         </span>|
+|<span class="hljs-string">E+  o o          </span>|
+|<span class="hljs-string">. ...+ o         </span>|
+|<span class="hljs-string">  o.o.o S .      </span>|
+|<span class="hljs-string">.ooo.o . +       </span>|
+|<span class="hljs-string">ooooo o.o        </span>|
+|<span class="hljs-string"> .== =.=..       </span>|
+|<span class="hljs-string">o*B=ooO=o        </span>|
++----[SHA256]-----+
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="62-copy-ssh-keys-to-your-server"></a><a href="#62-copy-ssh-keys-to-your-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.2 Copy SSH Keys to Your Server</h4>
+<p>After you've generated the SSH keys, you need to copy the public key to your server. You can do that with <code>ssh-copy-id</code> command:</p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-72-tab-73" class="nav-link active" data-group="group_72" data-tab="tab-group-72-content-73">Linux</div><div id="tab-group-72-tab-74" class="nav-link" data-group="group_72" data-tab="tab-group-72-content-74">macOS</div><div id="tab-group-72-tab-75" class="nav-link" data-group="group_72" data-tab="tab-group-72-content-75">Windows</div></div><div class="tab-content"><div id="tab-group-72-content-73" class="tab-pane active" data-group="group_72" tabindex="-1"><div><span><pre><code class="hljs">ssh-<span class="hljs-keyword">copy</span><span class="bash">-id <span class="hljs-variable">$USER</span>@<span class="hljs-variable">$REMOTE_SERVER</span> -p <span class="hljs-variable">$PORT</span></span><br /></code></pre>
+</span></div></div><div id="tab-group-72-content-74" class="tab-pane" data-group="group_72" tabindex="-1"><div><span><p>Some of the versions of macOS may not support <code>ssh-copy-id</code> out of the box, so you need to install it first with <code>brew</code> or other alternatives:</p>
+<pre><code class="hljs">brew install ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span><br /></code></pre>
+<p>Then you can copy the public key:</p>
+<pre><code class="hljs">ssh-<span class="hljs-keyword">copy</span><span class="bash">-id <span class="hljs-variable">$USER</span>@<span class="hljs-variable">$REMOTE_SERVER</span> -p <span class="hljs-variable">$PORT</span></span><br /></code></pre>
+</span></div></div><div id="tab-group-72-content-75" class="tab-pane" data-group="group_72" tabindex="-1"><div><span><p>Windows currently doesn't support <code>ssh-copy-id</code> but you can use an alternative approach to achieve the same result. Run the following command from the Powershell as administrator:</p>
+<pre><code class="hljs">cat ~<span class="hljs-regexp">/.ssh/i</span>d_rsa.pub | ssh <span class="hljs-variable">$USER</span>@<span class="hljs-variable">$REMOTE_SERVER</span> -p <span class="hljs-variable">$PORT</span> <span class="hljs-string">"umask 077; test -d .ssh || mkdir .ssh ; cat &gt;&gt; .ssh/authorized_keys"</span><br /></code></pre>
+</span></div></div></div></div>
+<p>If the keys were added successfully, you will be prompt to log in a passphrase you set up during SSH keys generation:</p>
+<pre><code class="hljs"><span class="hljs-attribute">Enter</span> passphrase for key <span class="hljs-string">'<span class="hljs-variable">$ID_RSA_DIR</span>'</span>:
+</code></pre>
+<p>Otherwise, you will be logged in without a passphrase.</p>
+<h4><a class="anchor" aria-hidden="true" id="63-disable-password-logins"></a><a href="#63-disable-password-logins" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.3 Disable Password Logins</h4>
+<p>Disabling password logins is the last step of basic security measures for your server. Make sure to verify one more time that authentication with SSH keys works before disabling password logins. You can accomplish that with the following command:</p>
+<pre><code class="hljs"><span class="hljs-attribute">ssh</span> <span class="hljs-variable">$USER</span>@<span class="hljs-variable">$REMOTE_SERVER</span> -p <span class="hljs-variable">$PORT</span>
+</code></pre>
+<p>You can disable password logins by changing <code>sshd_config</code> file on your server as follows:</p>
+<pre><code class="hljs">sudo nano <span class="hljs-meta-keyword">/etc/</span>ssh/sshd_config
+</code></pre>
+<p>Scroll to <code># Change to no to disable tunnelled clear text passwords</code> section and change <code>PasswordAuthentication</code> from <code>yes</code> to <code>no</code> as follows:</p>
+<pre><code class="hljs"><span class="hljs-attribute">PasswordAuthentication</span> <span class="hljs-literal">no</span>
+</code></pre>
+<p>Save the changes, close the file, and restart the SSH service:</p>
+<pre><code class="hljs">sudo<span class="hljs-built_in"> service </span>ssh restart
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="7-remove-ipv6-listening"></a><a href="#7-remove-ipv6-listening" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Remove IPv6 listening</h3>
+<p>By default, Linux servers are configured to listen on IPv6 ports in addition to the standard IPv4 ports. It's a common practice to disable IPv6 because it's not widely used yet and can cause certain issues with SSH. To remove IPv6 listening, run the following command:</p>
+<pre><code class="hljs">echo 'AddressFamily inet' <span class="hljs-string">| sudo tee -a /etc/ssh/sshd_config</span>
+</code></pre>
+<p>Save the changes, close the file, and restart the SSH service. If you ever need IPv6 SSH back, remove the <code>AddressFamily inet</code> line.</p>
+<h2><a class="anchor" aria-hidden="true" id="vps-security-advanced"></a><a href="#vps-security-advanced" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VPS Security (advanced)</h2>
+<h3><a class="anchor" aria-hidden="true" id="8-set-up-firewall"></a><a href="#8-set-up-firewall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8. Set Up Firewall</h3>
+<p>A firewall is the last point of contact before anyone in the internet can get into your server. Getting a firewall up is crucial before deploying a server online. The example below demonstrates iptables as a way to set up Firewall rules. However, you may choose another software you're more comfortable with, such as <code>ufw</code>, <code>firewalld</code>, etc.</p>
+<h4><a class="anchor" aria-hidden="true" id="81-check-the-current-iptables-rules"></a><a href="#81-check-the-current-iptables-rules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8.1 Check the Current Iptables Rules</h4>
+<pre><code class="hljs"><span class="hljs-attribute">sudo iptables -S</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="82-install-iptables-persistent"></a><a href="#82-install-iptables-persistent" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8.2 Install iptables-persistent</h4>
+<p>On Ubuntu, the easiest way to save iptables rules without a server reboot is to use the <code>iptables-persistent</code> package. You can install it with the following command:</p>
+<pre><code class="hljs">sudo apt-<span class="hljs-builtin-name">get</span> install iptables-persistent
+</code></pre>
+<p>During the installation, you will be prompt to save the current iptables rules. You can save them to be able to make a backup of the current configs in case something goes wrong.</p>
+<blockquote>
+<p>Make sure to have two active SSH connections to your server (two terminals) before following the rest of the guide. This will help to change configs back without rebooting the server.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="83-add-iptables-rules"></a><a href="#83-add-iptables-rules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8.3 Add Iptables Rules</h4>
+<p>Open iptables file:</p>
+<pre><code class="hljs">nano <span class="hljs-meta-keyword">/etc/</span>iptables/rules.v4
+</code></pre>
+<p>Add the following values:</p>
+<pre><code class="hljs">*filter
+:INPUT DROP [<span class="hljs-number">0</span>:<span class="hljs-number">0</span>]
+:FORWARD DROP [<span class="hljs-number">0</span>:<span class="hljs-number">0</span>]
+:OUTPUT ACCEPT [<span class="hljs-number">985</span>:<span class="hljs-number">1075980</span>]
+:f2b-sshd - [<span class="hljs-number">0</span>:<span class="hljs-number">0</span>]
+-A INPUT -m <span class="hljs-keyword">state</span> --state RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+<span class="hljs-comment"># block invalid trafic</span>
+-A INPUT -m <span class="hljs-keyword">state</span> --state INVALID -j REJECT
+-A FORWARD -m <span class="hljs-keyword">state</span> --state INVALID -j REJECT
+
+<span class="hljs-comment"># to ensure fail2ban works correctly after iptables restore</span>
+-A INPUT -p tcp -m multiport --dports <span class="hljs-variable">$PORT</span> -j f2b-sshd
+<span class="hljs-comment"># SSH</span>
+-A INPUT -p tcp --dport <span class="hljs-variable">$PORT</span> -j ACCEPT
+COMMIT
+</code></pre>
+<p>If the file is not empty, replace it with the content above. Press <code>ctrl+o</code> (Linux/Windows) or <code>control+o</code> (macOS) to save and <code>Enter</code> to confirm the changes respectively. Then exit the file with <code>ctrl+x</code> or <code>control+x</code>.</p>
+<blockquote>
+<p>Note, <code>$PORT</code> is a port you're using to connect to the server via SSH. The default value is 22 but if you follow this guide, it should be different by now. See <a href="#5-change-the-default-port"><code>step 5</code></a> for reference.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="84-restore-iptables"></a><a href="#84-restore-iptables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8.4 Restore Iptables</h4>
+<p><code>iptables-restore</code> is used to restore IP Tables from data specified on STDIN or in file. The command should be used as follows:</p>
+<pre><code class="hljs">sudo iptables-restore &lt; <span class="hljs-regexp">/etc/i</span>ptables/rules.v4
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="85-restart-docker-services"></a><a href="#85-restart-docker-services" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8.5 Restart Docker Services</h4>
+<p>If you are using Docker or any other virtualisation software, you may need to restart their services after doing an <code>iptables-restore</code>:</p>
+<pre><code class="hljs">systemctl <span class="hljs-built_in">restart</span> docker &amp;&amp; systemctl <span class="hljs-built_in">restart</span> containerd
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="86-check-the-result"></a><a href="#86-check-the-result" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8.6 Check the Result</h4>
+<p>To check if you set up everything properly, use <code>nmap</code> or <code>netcat</code> tools as follows:</p>
+<pre><code class="hljs"><span class="hljs-attribute">nmap</span> -sS -p <span class="hljs-variable">$PORT</span> -T4 <span class="hljs-variable">$REMOTE_SERVER</span>
+</code></pre>
+<p>Example output (for your server's port):</p>
+<pre><code class="hljs"><span class="hljs-string">Starting</span> <span class="hljs-string">Nmap</span> <span class="hljs-number">7.80</span> <span class="hljs-string">(</span> <span class="hljs-string">https://nmap.org</span> <span class="hljs-string">)</span> <span class="hljs-string">at</span> <span class="hljs-number">2020</span><span class="hljs-number">-06</span><span class="hljs-number">-02</span> <span class="hljs-number">19</span><span class="hljs-string">:06</span> <span class="hljs-string">FLE</span> <span class="hljs-string">Daylight</span> <span class="hljs-string">Time</span>
+<span class="hljs-string">Nmap</span> <span class="hljs-string">scan</span> <span class="hljs-string">report</span> <span class="hljs-string">for</span> <span class="hljs-string">$REMOTE_SERVER</span>
+<span class="hljs-string">Host</span> <span class="hljs-string">is</span> <span class="hljs-string">up</span> <span class="hljs-string">(0.34s</span> <span class="hljs-string">latency).</span>
+
+<span class="hljs-string">PORT</span>     <span class="hljs-string">STATE</span> <span class="hljs-string">SERVICE</span>
+<span class="hljs-number">1111</span><span class="hljs-string">/tcp</span> <span class="hljs-string">open</span>  <span class="hljs-string">unknown</span>
+
+<span class="hljs-attr">Nmap done:</span> <span class="hljs-number">1</span> <span class="hljs-string">IP</span> <span class="hljs-string">address</span> <span class="hljs-string">(1</span> <span class="hljs-string">host</span> <span class="hljs-string">up)</span> <span class="hljs-string">scanned</span> <span class="hljs-string">in</span> <span class="hljs-number">1.73</span> <span class="hljs-string">seconds</span>
+</code></pre>
+<p>Example output (for arbitrary port):</p>
+<pre><code class="hljs">Starting Nmap <span class="hljs-number">7.80</span> ( https:<span class="hljs-comment">//nmap.org ) at 2020-06-02 19:04 FLE Daylight Time</span>
+Nmap scan report <span class="hljs-keyword">for</span> $REMOTE_SERVER
+Host <span class="hljs-keyword">is</span> up (<span class="hljs-number">0.37</span>s latency).
+
+PORT     STATE    SERVICE
+<span class="hljs-number">2222</span>/tcp filtered EtherNetIP<span class="hljs-number">-1</span>
+
+Nmap done: <span class="hljs-number">1</span> IP address (<span class="hljs-number">1</span> host up) scanned <span class="hljs-keyword">in</span> <span class="hljs-number">4.01</span> seconds
+</code></pre>
+<p>Alternatively, you can use <a href="http://www.firewallruletest.com/"><code>Firewall Rule Test</code></a> to achieve the same result.</p>
+<h3><a class="anchor" aria-hidden="true" id="9-set-up-fail2ban"></a><a href="#9-set-up-fail2ban" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9. Set Up Fail2Ban</h3>
+<p><a href="http://www.fail2ban.org/wiki/index.php/Main_Page">Fail2ban</a> scans log files and bans IPs that show the malicious signs, such as too many password failures, seeking for exploits, etc. Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time, although any arbitrary other action (e.g. sending an email) could also be configured.</p>
+<h4><a class="anchor" aria-hidden="true" id="91-install-dependencies"></a><a href="#91-install-dependencies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9.1 Install Dependencies</h4>
+<p>To install the dependencies, use <code>apt-get</code> command as follows:</p>
+<pre><code class="hljs">sudo apt-<span class="hljs-builtin-name">get</span> install fail2ban sendmail
+</code></pre>
+<blockquote>
+<p><code>sendmail</code> is an optional dependency used to send emails when new IP bans happen.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="92-check-fail2ban-status"></a><a href="#92-check-fail2ban-status" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9.2 Check Fail2Ban Status</h4>
+<p>When the dependencies are installed correctly, Fail2Ban status should indicate <code>active (running)</code>. You can verify this with the following command:</p>
+<pre><code class="hljs">service fail2ban <span class="hljs-keyword">status</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="93-configure-fail2ban"></a><a href="#93-configure-fail2ban" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9.3 Configure Fail2Ban</h4>
+<p>To define Fail2Ban rules, you need to create a configurations file:</p>
+<pre><code class="hljs">sudo touch /etc/fail2ban/jail.<span class="hljs-keyword">local</span>
+</code></pre>
+<p>Then, open the file in <code>nano</code> or <code>vi</code> text editor, paste the following values, and save the result:</p>
+<pre><code class="hljs">sudo nano /etc/fail2ban/jail.<span class="hljs-keyword">local</span>
+</code></pre>
+<pre><code class="hljs"><span class="hljs-section">[DEFAULT]</span> 
+<span class="hljs-comment"># "ignoreip" can be an IP address, a CIDR mask or a DNS host. Fail2ban will not</span>
+<span class="hljs-comment"># ban a host which matches an address in this list. Several addresses can be</span>
+<span class="hljs-comment"># defined using space separator.</span>
+<span class="hljs-attr">ignoreip</span> = <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>/<span class="hljs-number">8</span> <span class="hljs-variable">$REMOTE_SERVER</span>
+
+<span class="hljs-comment"># "bantime" is the number of seconds that a host is banned.</span>
+<span class="hljs-attr">bantime</span> = <span class="hljs-number">3600</span>
+
+<span class="hljs-comment"># A host is banned if it has generated "maxretry" during the last "findtime"</span>
+<span class="hljs-comment"># seconds.</span>
+<span class="hljs-attr">findtime</span> = <span class="hljs-number">600</span>
+<span class="hljs-attr">maxretry</span> = <span class="hljs-number">3</span>
+
+<span class="hljs-comment"># Enable the SSH daemon jail.</span>
+<span class="hljs-section">[sshd]</span> 
+<span class="hljs-attr">enabled</span> = <span class="hljs-literal">true</span>
+
+<span class="hljs-comment"># Enable Email alerts</span>
+<span class="hljs-attr">destemail</span> = user@example.com
+<span class="hljs-attr">sendername</span> = Fail2Ban
+<span class="hljs-attr">sender</span> = user@server
+<span class="hljs-attr">action</span> = %(action_mwl)s
+</code></pre>
+<blockquote>
+<p>For setting up custom configurations, refer to <a href="https://www.linode.com/docs/security/using-fail2ban-to-secure-your-server-a-tutorial/#email-alerts"><code>Linode guide</code></a>.</p>
+</blockquote>
+<p>After the changes are saved, restart the Fail2Ban service as follows:</p>
+<pre><code class="hljs">sudo<span class="hljs-built_in"> service </span>fail2ban restart
+</code></pre>
+<p>Now, if anyone makes 3 failed attempts to log in to your server with the wrong SSH passphrase within 600 seconds, the corresponding IP will be banned for 3600 seconds.</p>
+<h4><a class="anchor" aria-hidden="true" id="94-check-fail2ban-status"></a><a href="#94-check-fail2ban-status" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9.4 Check Fail2Ban Status</h4>
+<p>After the Fail2Ban is configured, you can check its status with the following command:</p>
+<pre><code class="hljs">sudo fail2ban-<span class="hljs-keyword">client</span> status
+</code></pre>
+<p>Example output:</p>
+<pre><code class="hljs"><span class="hljs-string">Status</span>
+<span class="hljs-string">|-</span> <span class="hljs-attr">Number of jail:</span>    <span class="hljs-number">1</span>
+<span class="hljs-string">`-</span> <span class="hljs-attr">Jail list:</span>    <span class="hljs-string">sshd</span>
+</code></pre>
+<p>You can also poll the detailed status of individual jails, such as <code>sshd</code>:</p>
+<pre><code class="hljs">sudo fail2ban-<span class="hljs-keyword">client</span> status sshd
+</code></pre>
+<p>Example output:</p>
+<pre><code class="hljs">Status <span class="hljs-keyword">for</span> the jail: sshd
+|-<span class="hljs-built_in"> Filter
+</span>|  |- Currently failed:    0
+|  |- Total failed:    0
+|  `- File list:                 /var/log/auth.log
+`- Actions
+|- Currently banned:    0
+|- Total banned:    0
+`- Banned<span class="hljs-built_in"> IP </span>list:
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/next/watcher/run-watcher-vps"><span class="arrow-prev">← </span><span>Run a Watcher on VPS</span></a><a class="docs-next button" href="/next/watcher/manage-watcher"><span>Manage a Watcher</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#initial-vps-setup">Initial VPS Setup</a><ul class="toc-headings"><li><a href="#1-work-with-vps-provider">1. Work with VPS Provider</a></li><li><a href="#2-connect-to-vps">2. Connect to VPS</a></li></ul></li><li><a href="#vps-security-basic">VPS Security (basic)</a><ul class="toc-headings"><li><a href="#3-change-a-password">3. Change a Password</a></li><li><a href="#4-replace-root-login">4. Replace Root Login</a></li><li><a href="#5-change-the-default-port">5. Change the Default Port</a></li></ul></li><li><a href="#vps-security-medium">VPS Security (medium)</a><ul class="toc-headings"><li><a href="#6-change-authentication-method">6. Change Authentication Method</a></li><li><a href="#7-remove-ipv6-listening">7. Remove IPv6 listening</a></li></ul></li><li><a href="#vps-security-advanced">VPS Security (advanced)</a><ul class="toc-headings"><li><a href="#8-set-up-firewall">8. Set Up Firewall</a></li><li><a href="#9-set-up-fail2ban">9. Set Up Fail2Ban</a></li></ul></li></ul></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a target="_blank" href="/contracts/morevp">MoreVP Architecture</a></span><span class="footer-item"><a target="_blank" href="/wallet/quick-start-webwallet">Web Wallet Quick Start</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/web-wallet">Web Wallet Code</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/omg-samples">OMG Samples</a></span></div><div class="footer-column"><span class="footer-title">API References</span><span class="footer-item"><a target="_blank" href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs">Watcher
+Informational API</a></span><span class="footer-item"><a target="_blank" href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
+Security Critical API</a></span><span class="footer-item"><a target="_blank" href="https://docs.omg.network/elixir-omg/docs-ui/">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Integration Docs</span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/elixir-omg/blob/master/README.md">Elixir-omg</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/omg-js/blob/master/README.md">Omg-js</a></span><span class="footer-item"><a target="_blank" href="/network/tutorials">Tutorials</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/plasma-contracts">Plasma Contracts</a></span></div><div class="footer-column"><span class="footer-title">Resources</span><span class="footer-item"><a target="_blank" href="https://omg.eco/blockexplorer">Block Explorer</a></span><span class="footer-item"><a target="_blank" href="https://www.omg.network">OMG Network</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork">Github</a></span></div><div class="footer-column"><span class="footer-title">Follow us</span><span class="footer-item"><a target="_blank" href="https://twitter.com/omgnetworkhq"><img src="/img/social/twitter.svg" alt="twitter" class="footer-social"/></a><a target="_blank" href="https://www.linkedin.com/company/omgnetwork/"><img src="/img/social/linkedin.svg" alt="linkedin" class="footer-social"/></a><a target="_blank" href="https://github.com/omgnetwork"><img src="/img/social/github.svg" alt="github" class="footer-social"/></a><br/> <br/><span class="footer-copyright">© 2019-present OMG Network.
+All rights reserved</span></span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+                indexName: 'omisego',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

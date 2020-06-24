@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Manage UTXOs · OMG Network</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[UTXOs](/glossary#utxo) are core to the logic of the OMG Network."/><meta name="docsearch:version" content="V1"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Manage UTXOs · OMG Network"/><meta property="og:type" content="website"/><meta property="og:url" content="https://omgnetwork.github.io/"/><meta property="og:description" content="[UTXOs](/glossary#utxo) are core to the logic of the OMG Network."/><meta property="og:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-154130721-1"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-154130721-1');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/><script type="text/javascript" src="js/typeform.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="js/intercom.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo/omg-white.svg" alt="OMG Network"/></a><a href="/versions"><h3>V1</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/welcome" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/api" target="_self">APIs</a></li><li class="siteNavGroupActive"><a href="/environments" target="_self">Environments</a></li><li class=""><a href="https://omg.network" target="_blank">Product</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Network</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/welcome">About the OMG Network</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Network</h3><ul class=""><li class="navListItem"><a class="navItem" href="/network/start">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/network/balances">Retrieve Balances</a></li><li class="navListItem"><a class="navItem" href="/network/deposits">Deposit Funds</a></li><li class="navListItem"><a class="navItem" href="/network/transfers">Make a Transfer</a></li><li class="navListItem"><a class="navItem" href="/network/standard-exits">Start a Standard Exit</a></li><li class="navListItem"><a class="navItem" href="/network/in-flight-exits">Start an In-flight Exit</a></li><li class="navListItem"><a class="navItem" href="/network/process-exits">Process an Exit</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/network/utxos">Manage UTXOs</a></li><li class="navListItem"><a class="navItem" href="/network/challenge-exits">Challenge an Exit</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Wallet</h3><ul class=""><li class="navListItem"><a class="navItem" href="/wallet/quick-start-webwallet">Web Wallet Quick Start</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contracts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/contracts/plasma-proposition">Plasma Proposition</a></li><li class="navListItem"><a class="navItem" href="/contracts/admin-accounts">Administrative Accounts</a></li><li class="navListItem"><a class="navItem" href="/contracts/morevp">MoreVP Technical Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Watcher</h3><ul class=""><li class="navListItem"><a class="navItem" href="/watcher/run-watcher-locally">Run Watcher Locally</a></li><li class="navListItem"><a class="navItem" href="/watcher/run-watcher-vps">Run a Watcher on VPS</a></li><li class="navListItem"><a class="navItem" href="/watcher/manage-vps">Manage a VPS</a></li><li class="navListItem"><a class="navItem" href="/watcher/manage-watcher">Manage a Watcher</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Security</h3><ul class=""><li class="navListItem"><a class="navItem" href="/security/bug-bounty">Bug Bounty Program</a></li><li class="navListItem"><a class="navItem" href="/security/audits">Contracts Audits</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/network/blockchain-design">Blockchain Design</a></li><li class="navListItem"><a class="navItem" href="/network/byzantine-conditions">Byzantine Conditions</a></li><li class="navListItem"><a class="navItem" href="/network/network-architecture">Network Architecture</a></li><li class="navListItem"><a class="navItem" href="/network/challenge-period">Challenge Period</a></li><li class="navListItem"><a class="navItem" href="/network/exitbonds">Exit Bonds</a></li><li class="navListItem"><a class="navItem" href="/network/fees">Fees</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/glossary">Glossary</a></li><li class="navListItem"><a class="navItem" href="/faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/api">API References</a></li><li class="navListItem"><a class="navItem" href="/environments">Environments</a></li><li class="navListItem"><a class="navItem" href="/release-notes">Release Notes</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Migration Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/migration-0.2-0.3">0.2 to 0.3</a></li><li class="navListItem"><a class="navItem" href="/migration-0.3-0.4">0.3 to 0.4</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Manage UTXOs</h1></header><article><div><span><p><a href="/glossary#utxo">UTXOs</a> are core to the logic of the OMG Network.</p>
+<h2><a class="anchor" aria-hidden="true" id="merging-utxos"></a><a href="#merging-utxos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Merging UTXOs</h2>
+<p>Merging UTXOs is desirable in the following scenarios:</p>
+<p><strong>1. Exiting your funds as a single UTXO</strong></p>
+<p>Standard Exits are initiated on a single UTXO and not a specified amount. However, a user may want to exit an amount greater than the value of any UTXO one owns. For example:</p>
+<ul>
+<li>Alice owns 4 UTXOs worth 1 ETH each.</li>
+<li>Alice would like to withdraw all her funds from the network.</li>
+<li>To exit her funds, Alice would need to initiate a <code>Standard Exit</code> (with an <code>exit bond</code>) on each UTXO.</li>
+</ul>
+<p>In the above scenario, it would be more economical for Alice to merge these UTXOs and exit a single one.</p>
+<p><strong>2. Fitting Inputs into a Transaction</strong></p>
+<p>A transaction can have a maximum of <u>4 inputs</u> but a user may not own four UTXOs that can cover the amount needed for a given transaction. For example:</p>
+<ul>
+<li>Alice owns 5 UTXOs worth 1 ETH each.</li>
+<li>Alice would like to send 5 ETH to Bob.</li>
+<li>Alice cannot send 5 ETH to Bob in a single transaction as a transaction can take four inputs only.</li>
+</ul>
+<p>In the above scenario, Alice can merge her UTXOs to send the desired amount to Bob in a single transaction.</p>
+<h2><a class="anchor" aria-hidden="true" id="implementation"></a><a href="#implementation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Implementation</h2>
+<h3><a class="anchor" aria-hidden="true" id="1-install-omg-jshttpsgithubcomomgnetworkomg-js"></a><a href="#1-install-omg-jshttpsgithubcomomgnetworkomg-js" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Install <a href="https://github.com/omgnetwork/omg-js"><code>omg-js</code></a></h3>
+<p>To access network features from your application, use our official libraries:</p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-154-tab-155" class="nav-link active" data-group="group_154" data-tab="tab-group-154-content-155">Node</div><div id="tab-group-154-tab-156" class="nav-link" data-group="group_154" data-tab="tab-group-154-content-156">Browser</div><div id="tab-group-154-tab-157" class="nav-link" data-group="group_154" data-tab="tab-group-154-content-157">React Native</div></div><div class="tab-content"><div id="tab-group-154-content-155" class="tab-pane active" data-group="group_154" tabindex="-1"><div><span><p>Requires Node &gt;= 8.11.3 &lt; 13.0.0</p>
+<pre><code class="hljs css language-js">npm install @omisego/omg-js<br /></code></pre>
+</span></div></div><div id="tab-group-154-content-156" class="tab-pane" data-group="group_154" tabindex="-1"><div><span><p>You can add <code>omg-js</code> to a website using a script tag:</p>
+<pre><code class="hljs css language-js">&lt;script src="https://unpkg.com/@omisego/browser-omg-js"&gt;&lt;/script&gt;<br /></code></pre>
+</span></div></div><div id="tab-group-154-content-157" class="tab-pane" data-group="group_154" tabindex="-1"><div><span><p>You can easily integrate <code>omg-js</code> with React Native projects. First, add this postinstall script to your project's <code>package.json</code>:</p>
+<pre><code class="hljs css language-js"><span class="hljs-string">"scripts"</span>: {<br />    <span class="hljs-string">"postinstall"</span>: <span class="hljs-string">"omgjs-nodeify"</span><br />}<br /></code></pre>
+<p>Then install the react native compatible library:</p>
+<pre><code class="hljs css language-js">npm install @omisego/react-native-omg-js<br /></code></pre>
+</span></div></div></div></div>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-158-tab-159" class="nav-link active" data-group="group_158" data-tab="tab-group-158-content-159">JavaScript (ESNext)</div></div><div class="tab-content"><div id="tab-group-158-content-159" class="tab-pane active" data-group="group_158" tabindex="-1"><div><span><h3><a class="anchor" aria-hidden="true" id="2-import-dependencies"></a><a href="#2-import-dependencies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Import dependencies</h3>
+<p>Merging UTXOs involves using 2 <code>omg-js</code> objects. Here's an example of how to instantiate them:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> Web3 <span class="hljs-keyword">from</span> <span class="hljs-string">"web3"</span>;<br /><span class="hljs-keyword">import</span> { ChildChain, OmgUtil } <span class="hljs-keyword">from</span> <span class="hljs-string">"@omisego/omg-js"</span>;<br /><br /><span class="hljs-keyword">const</span> web3 = <span class="hljs-keyword">new</span> Web3(<span class="hljs-keyword">new</span> Web3.providers.HttpProvider(web3_provider_url));<br /><span class="hljs-keyword">const</span> childChain = <span class="hljs-keyword">new</span> ChildChain({ watcherUrl });<br /></code></pre>
+<blockquote>
+<ul>
+<li><code>web3_provider_url</code> - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. <a href="https://infura.io/">Infura</a>).</li>
+<li><code>watcherUrl</code> - the Watcher Info URL for defined <a href="/environments">environment</a> (personal or from OMG Network).</li>
+</ul>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="3-merge-utxos"></a><a href="#3-merge-utxos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Merge UTXOs</h3>
+<p>Note, the minimum number of UTXOs to merge is 2, the maximum — 4. You also can't mix ETH and ERC20 UTXOs while performing merging.</p>
+<blockquote>
+<p>The merging UTXOs process is the same for both ETH and ERC20. This method demonstrates merging for ETH UTXOs. If you want to merge ERC20 tokens, change the <code>currency</code> value to a corresponding smart contract address.</p>
+</blockquote>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mergeUtxo</span>(<span class="hljs-params"></span>) </span>{<br />  <span class="hljs-comment">// retrieve all utxos</span><br />  <span class="hljs-keyword">const</span> aliceUtxosAll = <span class="hljs-keyword">await</span> childChain.getUtxos(<span class="hljs-string">"0x8CB0DE6206f459812525F2BA043b14155C2230C0"</span>);<br />  <br />  <span class="hljs-comment">// filter utxos based on the token</span><br />  <span class="hljs-keyword">const</span> aliceEthUtxos = aliceUtxosAll.filter(<br />    <span class="hljs-function">(<span class="hljs-params">u</span>) =&gt;</span> u.currency === OmgUtil.transaction.ETH_CURRENCY<br />  );<br /><br />  <span class="hljs-comment">// slice the array to only 4 utxos</span><br />  <span class="hljs-keyword">const</span> utxosToMerge = aliceEthUtxos.slice(<span class="hljs-number">0</span>, <span class="hljs-number">4</span>);<br /><br />  <span class="hljs-comment">// merge utxos</span><br />  <span class="hljs-keyword">const</span> utxo = <span class="hljs-keyword">await</span> childChain.mergeUtxos({<br />    <span class="hljs-attr">utxos</span>: utxosToMerge,<br />    <span class="hljs-attr">privateKey</span>: <span class="hljs-string">"0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"</span>,<br />    <span class="hljs-attr">verifyingContract</span>: <span class="hljs-string">"0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9"</span>,<br />  });<br /><br />  <span class="hljs-keyword">return</span> utxo;<br />}<br /></code></pre>
+</span></div></div></div></div>
+<p><u>No fee is charged</u> for merge transactions on the OMG Network since these are transactions that benefit the network.</p>
+<h3><a class="anchor" aria-hidden="true" id="lifecycle"></a><a href="#lifecycle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Lifecycle</h3>
+<ol>
+<li>A user calls the <code>getUtxos</code> function to retrieve the list of all available UTXOs.</li>
+<li>A user filters an array of UTXOs and returns an UTXOs for desired currency (<code>ETH_CURRENCY</code> for ETH or <code>ERC20_CONTRACT_ADDRESS</code> for ERC20 tokens). This step is important because you can't merge ETH and ERC20 tokens together.</li>
+<li>A user calls the <code>mergeUtxos</code> function and returns an array of merged UTXOs.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="splitting-utxos"></a><a href="#splitting-utxos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Splitting UTXOs</h2>
+<p>A user may also want to <em>split</em> UTXOs if one would like to exit an amount smaller than the value of any UTXO one owns. For example:</p>
+<ul>
+<li>Alice owns 1 UTXO worth 5 ETH.</li>
+<li>Alice wants to withdraw 2 ETH back onto the root chain and keep 3 ETH on the child chain.</li>
+<li>Alice cannot exit 2 ETH unless she splits her UTXO.</li>
+</ul>
+<p>In the above scenario, Alice can split her UTXO to withdraw 2 ETH.</p>
+<h3><a class="anchor" aria-hidden="true" id="implementation-1"></a><a href="#implementation-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Implementation</h3>
+<p>For splitting UTXO, a user needs to follow the same steps as <a href="/network/transfers">making a transaction</a> but using the following transaction format:</p>
+<ul>
+<li>The sender is specified as the recipient.</li>
+<li>The input consists of a single UTXO.</li>
+<li>The amount set in each payment object corresponds to the desired output value. In other words, the amount the user wants to split from the input UTXO.</li>
+</ul>
+<p>As a transaction can produce a maximum of <u>four</u> outputs, you can generally have up to <u>three</u> payment objects. Each one will produce an output, the value of the fourth output will correspond to the value remaining after the split(s). It is possible to have four payment objects only if their amounts add up to the exact value of the input UTXO.</p>
+<blockquote>
+<p>The splitting of UTXO process is the same for both ETH and ERC20. This method demonstrates splitting for ERC20 UTXO. If you want to split ETH UTXO, change the <code>currency</code> value to <code>OmgUtil.transaction.ETH_CURRENCY</code>.</p>
+</blockquote>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-160-tab-161" class="nav-link active" data-group="group_160" data-tab="tab-group-160-content-161">JavaScript (ESNext)</div></div><div class="tab-content"><div id="tab-group-160-content-161" class="tab-pane active" data-group="group_160" tabindex="-1"><div><span><pre><code class="hljs css language-js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">splitUtxo</span>(<span class="hljs-params"></span>) </span>{<br />  <span class="hljs-comment">// define payments objects that will represent new utxos</span><br />  <span class="hljs-keyword">const</span> payments = [<br />    {<br />      <span class="hljs-attr">owner</span>: <span class="hljs-string">"0x8CB0DE6206f459812525F2BA043b14155C2230C0"</span>,<br />      <span class="hljs-attr">currency</span>: <span class="hljs-string">"0xd74ef52053204c9887df4a0e921b1ae024f6fe31"</span>,<br />      <span class="hljs-attr">amount</span>: <span class="hljs-string">"120000000000000"</span>,<br />    },<br />    {<br />      <span class="hljs-attr">owner</span>: <span class="hljs-string">"0x8CB0DE6206f459812525F2BA043b14155C2230C0"</span>,<br />      <span class="hljs-attr">currency</span>: <span class="hljs-string">"0xd74ef52053204c9887df4a0e921b1ae024f6fe31"</span>,<br />      <span class="hljs-attr">amount</span>: <span class="hljs-string">"250000000000000"</span>,<br />    },<br />    {<br />      <span class="hljs-attr">owner</span>: <span class="hljs-string">"0x8CB0DE6206f459812525F2BA043b14155C2230C0"</span>,<br />      <span class="hljs-attr">currency</span>: <span class="hljs-string">"0xd74ef52053204c9887df4a0e921b1ae024f6fe31"</span>,<br />      <span class="hljs-attr">amount</span>: <span class="hljs-string">"250000000000000"</span>,<br />    },<br />  ];<br /><br />  <span class="hljs-comment">// create a transaction body</span><br />  <span class="hljs-keyword">const</span> transactionBody = <span class="hljs-keyword">await</span> childChain.createTransaction({<br />    <span class="hljs-attr">owner</span>: <span class="hljs-string">"0x8CB0DE6206f459812525F2BA043b14155C2230C0"</span>,<br />    payments,<br />    <span class="hljs-attr">fee</span>: {<br />      <span class="hljs-attr">currency</span>: <span class="hljs-string">"0xd74ef52053204c9887df4a0e921b1ae024f6fe31"</span>,<br />    },<br />  });<br /><br />  <span class="hljs-comment">// sanitize transaction into the correct typedData format</span><br />  <span class="hljs-comment">// the second parameter is the address of the RootChain contract</span><br />  <span class="hljs-keyword">const</span> typedData = OmgUtil.transaction.getTypedData(<br />    transactionBody.transactions[<span class="hljs-number">0</span>],<br />    <span class="hljs-string">"0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9"</span><br />  );<br /><br />  <span class="hljs-comment">// define private keys to use for transaction signing</span><br />  <span class="hljs-keyword">const</span> privateKeys = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<br />    transactionBody.transactions[<span class="hljs-number">0</span>].inputs.length<br />  ).fill(<span class="hljs-string">"0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"</span>);<br /><br />  <span class="hljs-comment">// locally sign typedData with passed private keys, useful for multiple different signatures</span><br />  <span class="hljs-keyword">const</span> signatures = childChain.signTransaction(typedData, privateKeys);<br /><br />  <span class="hljs-comment">// return encoded and signed transaction ready to be submitted</span><br />  <span class="hljs-keyword">const</span> signedTxn = childChain.buildSignedTransaction(typedData, signatures);<br /><br />  <span class="hljs-comment">// submit to the child chain</span><br />  <span class="hljs-keyword">return</span> childChain.submitTransaction(signedTxn);<br />}<br /><br /></code></pre>
+</span></div></div></div></div>
+<h3><a class="anchor" aria-hidden="true" id="lifecycle-1"></a><a href="#lifecycle-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Lifecycle</h3>
+<ol>
+<li>A user defines multiple <code>payments</code> objects that will generate new UTXOs. The sender is specified as the recipient.</li>
+<li>A user calls the <code>createTransaction</code> function to create a transaction that will split a single UTXO.</li>
+<li>A user signs, encodes, and submits the transaction's data to the child chain and the Watcher for validation.</li>
+<li>If the transaction is valid, the child chain server creates a transaction hash and adds the transaction to a pending block.</li>
+<li>The child chain bundles the transactions in the block into a Merkle tree and submits its root hash to the <code>Plasma Framework</code> contract.</li>
+<li>The Watcher receives a list of transactions from the child chain and recomputes the Merkle root to check for any inconsistency.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="network-considerations"></a><a href="#network-considerations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Network Considerations</h2>
+<p>Users are highly encouraged to merge UTXOs continuously as a way of mitigating the vulnerability of OMG Network funds in a mass exit event. Read more in the <a href="/faq#why-does-a-smaller-utxo-set-on-the-omg-network-reinforce-the-safety-of-user-funds-in-a-mass-exit-event">FAQ Section</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="demo-project"></a><a href="#demo-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Demo Project</h2>
+<p>This section provides a demo project that contains a detailed implementation of the tutorial. If you consider integrating with the OMG Network, you can use this sample to significantly reduce the time of development. It also provides step-by-step instructions and sufficient code guidance that is not covered on this page.</p>
+<h3><a class="anchor" aria-hidden="true" id="javascript"></a><a href="#javascript" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JavaScript</h3>
+<p>For running a full <code>omg-js</code> code sample for the tutorial, please use the following steps:</p>
+<ol>
+<li>Clone <a href="https://github.com/omgnetwork/omg-samples">OMG Samples</a> repository:</li>
+</ol>
+<pre><code class="hljs">git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/omgnetwork/omg-samples.git
+</code></pre>
+<ol start="2">
+<li><p>Create <code>.env</code> file and provide the <a href="https://github.com/omgnetwork/omg-samples/tree/master/omg-js#setup">required configuration values</a>.</p></li>
+<li><p>Run these commands:</p></li>
+</ol>
+<pre><code class="hljs"><span class="hljs-attr">cd</span> <span class="hljs-string">omg-js</span>
+<span class="hljs-attr">npm</span> <span class="hljs-string">install</span>
+<span class="hljs-attr">npm</span> <span class="hljs-string">run start</span>
+</code></pre>
+<ol start="6">
+<li><p>Open your browser at <a href="http://localhost:3000">http://localhost:3000</a>.</p></li>
+<li><p>Select <a href="https://github.com/omgnetwork/omg-samples/tree/master/omg-js/app/04-utxo-show"><code>Show UTXOs</code></a>, <a href="https://github.com/omgnetwork/omg-samples/tree/master/omg-js/app/04-utxo-merge"><code>Merge UTXOs</code></a> or <a href="https://github.com/omgnetwork/omg-samples/tree/master/omg-js/app/04-utxo-split"><code>Split UTXOs</code></a> on the left side, observe the logs on the right.</p></li>
+</ol>
+<blockquote>
+<p>Code samples for all tutorials use the same repository — <code>omg-samples</code>, thus you have to set up the project and install dependencies only one time.</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/network/process-exits"><span class="arrow-prev">← </span><span>Process an Exit</span></a><a class="docs-next button" href="/network/challenge-exits"><span>Challenge an Exit</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#merging-utxos">Merging UTXOs</a></li><li><a href="#implementation">Implementation</a><ul class="toc-headings"><li><a href="#1-install-omg-jshttpsgithubcomomgnetworkomg-js">1. Install <a href="https://github.com/omgnetwork/omg-js"><code>omg-js</code></a></a></li><li><a href="#2-import-dependencies">2. Import dependencies</a></li><li><a href="#3-merge-utxos">3. Merge UTXOs</a></li><li><a href="#lifecycle">Lifecycle</a></li></ul></li><li><a href="#splitting-utxos">Splitting UTXOs</a><ul class="toc-headings"><li><a href="#implementation-1">Implementation</a></li><li><a href="#lifecycle-1">Lifecycle</a></li></ul></li><li><a href="#network-considerations">Network Considerations</a></li><li><a href="#demo-project">Demo Project</a><ul class="toc-headings"><li><a href="#javascript">JavaScript</a></li></ul></li></ul></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a target="_blank" href="/contracts/morevp">MoreVP Architecture</a></span><span class="footer-item"><a target="_blank" href="/wallet/quick-start-webwallet">Web Wallet Quick Start</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/web-wallet">Web Wallet Code</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/omg-samples">OMG Samples</a></span></div><div class="footer-column"><span class="footer-title">API References</span><span class="footer-item"><a target="_blank" href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs">Watcher
+Informational API</a></span><span class="footer-item"><a target="_blank" href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
+Security Critical API</a></span><span class="footer-item"><a target="_blank" href="https://docs.omg.network/elixir-omg/docs-ui/">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Integration Docs</span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/elixir-omg/blob/master/README.md">Elixir-omg</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/omg-js/blob/master/README.md">Omg-js</a></span><span class="footer-item"><a target="_blank" href="/network/tutorials">Tutorials</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/plasma-contracts">Plasma Contracts</a></span></div><div class="footer-column"><span class="footer-title">Resources</span><span class="footer-item"><a target="_blank" href="https://omg.eco/blockexplorer">Block Explorer</a></span><span class="footer-item"><a target="_blank" href="https://www.omg.network">OMG Network</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork">Github</a></span></div><div class="footer-column"><span class="footer-title">Follow us</span><span class="footer-item"><a target="_blank" href="https://twitter.com/omgnetworkhq"><img src="/img/social/twitter.svg" alt="twitter" class="footer-social"/></a><a target="_blank" href="https://www.linkedin.com/company/omgnetwork/"><img src="/img/social/linkedin.svg" alt="linkedin" class="footer-social"/></a><a target="_blank" href="https://github.com/omgnetwork"><img src="/img/social/github.svg" alt="github" class="footer-social"/></a><br/> <br/><span class="footer-copyright">© 2019-present OMG Network.
+All rights reserved</span></span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+                indexName: 'omisego',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

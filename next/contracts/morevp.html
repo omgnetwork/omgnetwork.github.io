@@ -1,0 +1,523 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>MoreVP Technical Overview · OMG Network</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This page provides a technical description of More Viable Plasma (MoreVP)."/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="MoreVP Technical Overview · OMG Network"/><meta property="og:type" content="website"/><meta property="og:url" content="https://omgnetwork.github.io/"/><meta property="og:description" content="This page provides a technical description of More Viable Plasma (MoreVP)."/><meta property="og:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-154130721-1"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-154130721-1');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/><script type="text/javascript" src="js/typeform.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="js/intercom.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo/omg-white.svg" alt="OMG Network"/></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/next/welcome" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/next/api" target="_self">APIs</a></li><li class="siteNavGroupActive"><a href="/next/environments" target="_self">Environments</a></li><li class=""><a href="https://omg.network" target="_blank">Product</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Contracts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/welcome">About the OMG Network</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Network</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/network/start">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/next/network/balances">Retrieve Balances</a></li><li class="navListItem"><a class="navItem" href="/next/network/deposits">Deposit Funds</a></li><li class="navListItem"><a class="navItem" href="/next/network/transfers">Make a Transfer</a></li><li class="navListItem"><a class="navItem" href="/next/network/standard-exits">Start a Standard Exit</a></li><li class="navListItem"><a class="navItem" href="/next/network/in-flight-exits">Start an In-flight Exit</a></li><li class="navListItem"><a class="navItem" href="/next/network/process-exits">Process an Exit</a></li><li class="navListItem"><a class="navItem" href="/next/network/utxos">Merge or Split UTXO</a></li><li class="navListItem"><a class="navItem" href="/next/network/challenge-exits">Challenge an Exit</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Wallet</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/wallet/quick-start-webwallet">Web Wallet Quick Start</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contracts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/contracts/plasma-proposition">Plasma Proposition</a></li><li class="navListItem"><a class="navItem" href="/next/contracts/admin-accounts">Administrative Accounts</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/next/contracts/morevp">MoreVP Technical Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Watcher</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/watcher/run-watcher-locally">Run Watcher Locally</a></li><li class="navListItem"><a class="navItem" href="/next/watcher/run-watcher-vps">Run a Watcher on VPS</a></li><li class="navListItem"><a class="navItem" href="/next/watcher/manage-vps">Manage a VPS</a></li><li class="navListItem"><a class="navItem" href="/next/watcher/manage-watcher">Manage a Watcher</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Security</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/security/bug-bounty">Bug Bounty Program</a></li><li class="navListItem"><a class="navItem" href="/next/security/audits">Contracts Audits</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/network/blockchain-design">Blockchain Design</a></li><li class="navListItem"><a class="navItem" href="/next/network/byzantine-conditions">Byzantine Conditions</a></li><li class="navListItem"><a class="navItem" href="/next/network/network-architecture">Network Architecture</a></li><li class="navListItem"><a class="navItem" href="/next/network/challenge-period">Challenge Period</a></li><li class="navListItem"><a class="navItem" href="/next/network/exitbonds">Exit Bonds</a></li><li class="navListItem"><a class="navItem" href="/next/network/fees">Fees</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/glossary">Glossary</a></li><li class="navListItem"><a class="navItem" href="/next/faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/next/api">API References</a></li><li class="navListItem"><a class="navItem" href="/next/environments">Environments</a></li><li class="navListItem"><a class="navItem" href="/next/release-notes">Release Notes</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Migration Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/migration-0.2-0.3">0.2 to 0.3</a></li><li class="navListItem"><a class="navItem" href="/next/migration-0.3-0.4">0.3 to 0.4</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">MoreVP Technical Overview</h1></header><article><div><span><p>This page provides a technical description of More Viable Plasma (MoreVP).</p>
+<p><a href="https://ethresear.ch/t/minimal-viable-plasma/426">Minimal Viable Plasma</a> (Plasma MVP) describes a simple specification for a UTXO-based Plasma chain.</p>
+<p>More Viable Plasma (MoreVP) is a modification to the Plasma MVP exit protocol that removes the need for a second signature and generally improves user experience.</p>
+<blockquote>
+<p><em>This article is based on the original <a href="https://ethresear.ch/t/more-viable-plasma/2160/49">More Viable Plasma post</a> on Ethresearch.</em></p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>A key component of the Plasma MVP design is a protocol for exits where a user may withdraw back to the root chain any funds available to them on the Plasma chain.</p>
+<p>The protocol presented in the MVP specification requires that users sign two signatures for every transaction. Concerns over the poor user experience presented by this requirement motivated the search for an alternative exit protocol.</p>
+<p>This article describes More Viable Plasma (MoreVP), a modification to the Plasma MVP exit protocol that removes the need for a second signature and generally improves user experience.</p>
+<p>The MoreVP exit protocol ensures the security of assets for clients correctly following the protocol.</p>
+<p>This guide achieves the following:</p>
+<ul>
+<li>Presents the most basic form of the MoreVP protocol and provides insights towards its correctness.</li>
+<li>Formalizes certain requirements for Plasma MVP exit protocols and provides proof that this protocol satisfies these requirements.</li>
+<li>Presents an optimized version of the protocol to account for restrictions of the Ethereum Virtual Machine.</li>
+<li>Explains how the MoreVP exit protocol is only necessary for transactions that are in-flight when a Plasma chain becomes byzantine.</li>
+<li>Describes the attack vectors that exist in the protocol, how these vectors can be mitigated and isolated to a relatively small attack surface.</li>
+<li>Concludes that the design is safe under certain reasonable assumptions about user behavior. However, some points are highlighted for future consideration.</li>
+</ul>
+<p>It has been found that the MoreVP exit protocol is a significant improvement over the original Plasma MVP exit protocol. Additionally, it is possible to combine several optimizations to enhance user experience and to reduce costs for users.</p>
+<p>Future development work will focus on decreasing the implementation complexity of the design and minimizing contract gas usage.</p>
+<h2><a class="anchor" aria-hidden="true" id="basic-exit-mechanism"></a><a href="#basic-exit-mechanism" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic Exit Mechanism</h2>
+<p>This section describes the basic MoreVP exit mechanism and provides insights toward its correctness.</p>
+<blockquote>
+<p><em>Further technical details for the protocol can be found in Protocol Terminology.</em></p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="requirements-for-the-exit-mechanism"></a><a href="#requirements-for-the-exit-mechanism" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirements for the Exit Mechanism</h3>
+<p>The MoreVP exit protocol allows the owners of both inputs and outputs to transactions to attempt an exit.</p>
+<p>OMG Network intends to design a mechanism that allows withdrawal of inputs and outputs under the following conditions:</p>
+<p><strong>The owner of an input <code>in</code> to a transaction <code>tx</code> must prove that:</strong></p>
+<ol>
+<li><em>tx</em> is exitable</li>
+<li><em>tx</em> is non-canonical</li>
+<li><em>in</em> is not spent in any transaction other than <em>tx</em></li>
+</ol>
+<p><strong>The owner of output out to a transaction tx must prove that:</strong></p>
+<ol>
+<li><em>tx</em> is exitable</li>
+<li><em>tx</em> is canonical</li>
+<li><em>out</em> is not spent</li>
+</ol>
+<p>Since a transaction either is or is not canonical, only the transaction's inputs or outputs, and not both, may exit.</p>
+<h3><a class="anchor" aria-hidden="true" id="priority"></a><a href="#priority" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Priority</h3>
+<p>The above game correctly selects the inputs or outputs that are eligible to exit. However, invalid transactions can still be exitable. For this reason, it's necessary to enforce ordering on exits to ensure that all outputs created by valid transactions will be paid out before any output created by an invalid transaction. To do this, we order every exit by the position of the youngest input to the transaction referenced in each exit, regardless of whether an input or an output is being exited.</p>
+<h2><a class="anchor" aria-hidden="true" id="exit-protocol-specification"></a><a href="#exit-protocol-specification" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exit Protocol Specification</h2>
+<p>This section presents a more detailed specification for the exit protocol.</p>
+<p>The MoreVP mechanism is designed to be deployed to Ethereum and, as a result, some particulars of this specification take into account the limitations of the EVM.</p>
+<p>The basic exit mechanism described above guarantees that honest users will always be able to withdraw any funds they hold on the Plasma chain.
+However, we avoided describing how users prove the statements they’re required to prove.</p>
+<p>The MoreVP exit protocol is not required in all scenarios. We can use the Plasma MVP exit protocol without confirmation signatures for any transaction included before an invalid (or, in the case of withheld blocks, potentially invalid) transaction. Thus, we only need to make use of the MoreVP protocol for the set transactions that are in-flight when a Plasma chain becomes byzantine.</p>
+<p>The MoreVP protocol guarantees that if a transaction is exitable, then either the unspent inputs or unspent outputs can be withdrawn, depending on whether the transaction is canonical.
+However, in a scenario where MoreVP exits are required, users may not be aware that an in-flight transaction is non-canonical. This can occur when the owner of an input to an in-flight transaction is malicious and has signed a second transaction spending the same input.</p>
+<p>To account for this problem, we allow exits to be ambiguous about canonicity.
+Users can start MoreVP exits with the assumption that the referenced transaction is canonical. Other owners of inputs or outputs to the transaction can then “piggyback&quot; the exit.
+We add cryptoeconomic mechanisms that determine whether the transaction is canonical, and which of the inputs or outputs are unspent. This allows the correct determination of which inputs or outputs should be paid out.</p>
+<h3><a class="anchor" aria-hidden="true" id="time-period-for-exit"></a><a href="#time-period-for-exit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Time period for exit</h3>
+<p>The MoreVP exit protocol uses a challenge-response mechanism. It allows users to submit a challenge subject to a response that may invalidate the challenge. The exit process is split into two periods, which gives users enough time to respond to a challenge.</p>
+<p><strong>When challenges require a response ...</strong></p>
+<ul>
+<li>Challenges must be submitted before the end of the first exit period.</li>
+<li>Responses must be submitted before the end of the second exit period.</li>
+</ul>
+<p>Each period must have a length of half the minimum finalization period (MFP). Currently, MFP is set to 7 days, so each period has a length of 3.5 days.</p>
+<p>Watchers must validate the chain at least once every period (MFP/2).</p>
+<h3><a class="anchor" aria-hidden="true" id="start-the-exit"></a><a href="#start-the-exit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Start the exit</h3>
+<p>Any user may initiate an exit following such steps:</p>
+<ol>
+<li>Present a spend transaction.</li>
+<li>Prove that the transaction is exitable.</li>
+<li>Submit an exit bond to start the action. Later, the exit bond is used to cover the cost for other users to publish statements about the canonicity of the transaction in question.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="how-to-prove-that-a-spend-transaction-is-exitable"></a><a href="#how-to-prove-that-a-spend-transaction-is-exitable" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to prove that a spend transaction is exitable</h3>
+<p>Several mechanisms exist to prove that a spend transaction is exitable. This section describes two methods, starting with the method OMG Network has implemented.</p>
+<p><strong>Implemented exit proof method</strong></p>
+<ol>
+<li><p>User presents <code>tx</code> along with each of the <code>input_tx1, input_tx2, ... , input_txn</code> that created the inputs to the transaction, a Merkle proof of inclusion for each <code>input_tx</code>, and a signature over <code>tx</code> from the <code>newowner</code> of each <code>input_tx</code>.</p></li>
+<li><p>The contract validates the following:</p>
+<ul>
+<li>Transactions are correct</li>
+<li>Transactions are included in the chain</li>
+<li>Signatures are correct</li>
+<li>Exiting transaction is correctly formed</li>
+</ul></li>
+</ol>
+<p>This proves the exitability of the transaction.</p>
+<p><em>Key features of this method are the following:</em>
+This method was selected for implementation.</p>
+<ul>
+<li>The transaction is verified as exitable when the exit is started.</li>
+<li>Only a single exit on any given transaction can exist at any point in time.</li>
+<li>Lower communication cost and complexity.</li>
+<li>Higher up-front gas cost.</li>
+</ul>
+<p><strong>Alternative exit proof method</strong></p>
+<ol>
+<li>A user presents the transaction, along with signatures claimed as valid.</li>
+<li>The contract validates that the exiting transaction is correctly formed.</li>
+<li>Another user can challenge one of these signatures by presenting some transaction that created an input
+such that the true input owner did not sign the signature. The exit is blocked entirely and the challenging</li>
+<li>A user receives <code>exit bond</code>.</li>
+</ol>
+<p><em>Key features of this method are the following:</em></p>
+<ul>
+<li>Allows a user to claim that a transaction is exitable, but leaves the proof to a challenge-response game.</li>
+<li>Must permit multiple exits on the same transaction because some exits may provide invalid signatures.</li>
+<li>Cheaper up-front.</li>
+<li>Adds complexity.</li>
+</ul>
+<blockquote>
+<p>Other methods exist to prove a transaction is exitable. And there may be further ways to optimize the two methods described here. Further research is required to provide a deterministic ordering of exits by some priority. MoreVP exits are assigned a priority based on the position in the Plasma chain of the most recently included (newest) input to that transaction. Unlike the MVP protocol, each input and output to a transaction is assigned the same priority.
+This should be implemented by inserting a single “exit” object into a priority queue of exits and tracking a list of inputs or outputs to be paid out once the exit is processed.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="proving-canonicity"></a><a href="#proving-canonicity" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Proving canonicity</h3>
+<p>The canonicity of the referenced transaction (independent of any piggybacking by other users) determines whether unspent inputs or unspent outputs are paid out in an exit.</p>
+<p>Proving a transaction canonical is expensive. Thus, by default, we assume the referenced transaction is canonical, and it allows a series of challenges and responses to determine the true canonicity of the transaction.</p>
+<p>Determining canonicity involves a challenge-response game:</p>
+<ul>
+<li>In the first period of the exit any user may reveal a competing transaction that potentially makes the exiting transaction non-canonical.</li>
+<li>The competing transaction must be exitable and must share input with the exiting transaction, but does not have to be included in the Plasma chain.</li>
+<li>Multiple competing transactions can be revealed during this period, but only the oldest presented transaction is considered for a response.</li>
+<li>If any transactions are presented during the first period, any other user can respond to the challenge by proving that the exiting transaction is included in the chain before the oldest presented competing transaction.</li>
+<li>If the response is sent before the second period ends, the exiting transaction is considered canonical, and the responder receives the <code>exit bond</code> that was placed by the user who started the exit. Otherwise, the exiting transaction is considered non-canonical, and the challenger receives <code>exit bond</code>.</li>
+</ul>
+<blockquote>
+<p>This challenge means an honest user can lose the <code>exit bond</code> if they're not aware their transaction is non-canonical. If an in-flight exit is opened where some inputs were referenced in a standard exit, and these standard exits were finalized, the in-flight exit is flagged as non-canonical and further canonicity games can't change its status.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="piggyback-an-exit"></a><a href="#piggyback-an-exit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Piggyback an exit</h3>
+<p>Some participants in a transaction may not be aware that the transaction is non-canonical. Owners of both inputs and outputs to a transaction may want to start an exit to receive the funds from the exit.</p>
+<p>To void the gas cost of repeatedly publishing and proving statements about the same transaction, owners of inputs or outputs to a transaction are allowed to piggyback an existing exit that references the transaction.</p>
+<blockquote>
+<p>Important! You must piggyback an exit within the first period. While piggybacking an exit is not mandatory, users who choose not to piggyback an exit are choosing not to attempt a withdrawal of their funds. If the chain is byzantine and you don't piggyback, you could potentially lose your funds.</p>
+</blockquote>
+<p><strong>Perform these steps to piggyback an exit:</strong></p>
+<ol>
+<li>Input or output owner places a 'piggyback' bond that covers the cost of challenges allowing to show the input or output is spent.</li>
+<li>A successful challenge blocks the specified input or output from exiting.</li>
+<li>Challenges must be presented before the end of the second period.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="process-an-exit"></a><a href="#process-an-exit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Process an exit</h3>
+<p>An exit can be processed after the second period:</p>
+<ul>
+<li>If the referenced transaction is considered canonical, all remaining unchallenged piggybacked outputs are paid out.</li>
+<li>If the referenced transaction is considered non-canonical, all remaining unchallenged piggybacked inputs are paid out.</li>
+</ul>
+<p>Any paid out inputs or outputs should be saved in the contract so that any future exit referencing the same inputs or outputs may be challenged.</p>
+<h2><a class="anchor" aria-hidden="true" id="combining-morevp-and-plasma-mvp-protocols"></a><a href="#combining-morevp-and-plasma-mvp-protocols" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Combining MoreVP and Plasma MVP protocols</h2>
+<p>The MoreVP protocol can be combined with the Plasma MVP exit protocol in a way that simultaneously preserves the integrity of exits and minimizes gas cost.</p>
+<p>Although the two protocols determine exit priority differently, total ordering on exits is still required. Thus, regardless of the protocol used, every exit must be included in the same priority queue for processing.</p>
+<p>An honest user that enjoys data availability should be able to ignore in-flight exits that involve their outputs.
+Output owners on the Plasma chain should be able to start an exit via either mechanism, but not both.</p>
+<p>There are two approaches for ensuring that money can't be double-spent via the two protocols:</p>
+<ol>
+<li><p>Implemented solution:</p>
+<p>Two checks are performed, provided both types of exits use transaction hash as an exit ID:</p>
+<ul>
+<li><p>Contract verifies if other types of exits exist for particular output when a standard exit is submitted. In this case, the new exit is blocked.</p></li>
+<li><p>When an in-flight exit is added, the contract verifies whether the standard exit is either in progress or finalized. In this case, the in-flight exit is marked as one that can be exited only from inputs, and problematic inputs are marked as spent for piggybacking purposes.</p></li>
+</ul>
+<p>The coexistence of MVP and MoreVP protocols do not give rise to any additional interactive games.</p></li>
+<li><p>Alternative solution (reserved for future development)</p>
+<ul>
+<li>Introduce new types of challenges to reduce gas costs for honest participants.</li>
+<li>Piggybacks on outputs should be challenged by standard exits and vice-versa.</li>
+<li>Standard exits on UTXO seen as the input of an in-flight tx exit can be challenged using tx body.</li>
+<li>Canonicity of in-flight exit can be removed by pointing contract to finalized standard exit from in-flight exit inputs, marking particular input as spent.</li>
+</ul></li>
+</ol>
+<blockquote>
+<p>More information may be found in <a href="https://github.com/omgnetwork/elixir-omg/blob/master/docs/standard_vs_in_flight_exits_interaction.md">Standard vs In-flight Exits Interaction</a></p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="alice-bob-scenarios"></a><a href="#alice-bob-scenarios" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Alice-Bob Scenarios</h2>
+<h3><a class="anchor" aria-hidden="true" id="alice--bob-are-honest-and-cooperating"></a><a href="#alice--bob-are-honest-and-cooperating" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Alice &amp; Bob are honest and cooperating</h3>
+<ol>
+<li>Alice spends <code>UTXO1</code> in <code>TX1</code> to Bob, creating <code>UTXO2</code>.</li>
+<li><code>TX1</code> is in-flight.</li>
+<li>The operator begins withholding blocks while <code>TX1</code> is still in-flight.
+Neither Alice nor Bob knows if the transaction has been included in a block.</li>
+<li>Someone with access to <code>TX1</code> (Alice, Bob, or otherwise) starts an exit referencing <code>TX1</code> and places <code>exit bond</code>.</li>
+<li>Bob piggybacks onto the exit and places a <code>piggyback bond</code>.</li>
+<li>Alice is honest, so she hasn’t spent <code>UTXO1</code> in any transaction other than <code>TX1</code>.</li>
+<li>After period 2, Bob receives the value of <code>UTXO2</code>.</li>
+<li>All bonds are refunded.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="mallory-tries-to-exit-a-spent-output"></a><a href="#mallory-tries-to-exit-a-spent-output" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mallory tries to exit a spent output</h3>
+<ol>
+<li>Alice spends <code>UTXO1</code> in <code>TX1</code> to Mallory, creating <code>UTXO2</code>.</li>
+<li><code>TX1</code> is included in block <code>N</code>.</li>
+<li>Mallory spends <code>UTXO2</code> in <code>TX2</code>.</li>
+<li>Mallory starts an exit referencing <code>TX1</code> and places <code>exit bond</code>.</li>
+<li>Mallory piggybacks onto the exit and places <code>piggyback bond</code>.</li>
+<li>In period 2, someone reveals <code>TX2</code> spending <code>UTXO2</code>.
+This challenger receives Mallory’s <code>piggyback bond</code>.</li>
+<li>Alice is honest, so she hasn’t spent <code>UTXO1</code> in any transaction other than <code>TX1</code>.</li>
+<li>After period 2, Mallory’s <code>exit bond</code> is refunded, no one exits any UTXOs.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="mallory-double-spends-her-input"></a><a href="#mallory-double-spends-her-input" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mallory double-spends her input</h3>
+<ol>
+<li>Mallory spends <code>UTXO1</code> in <code>TX1</code> to Bob, creating <code>UTXO2</code>.</li>
+<li><code>TX1</code> is in-flight.</li>
+<li>The operator begins withholding blocks while <code>TX1</code> is still in-flight.
+Neither Mallory nor Bob knows whether the transaction has been included in a block.</li>
+<li>Mallory spends <code>UTXO1</code> in <code>TX2</code>.</li>
+<li><code>TX2</code> is included in a withheld block.
+<code>TX1</code> is not included in a block.</li>
+<li>Bob starts an exit referencing <code>TX1</code> and places <code>exit bond</code>.</li>
+<li>Bob piggybacks onto the exit and places a <code>piggyback bond</code>.</li>
+<li>In period 1, someone challenges the canonicity of <code>TX1</code> by revealing <code>TX2</code>.</li>
+<li>No one can respond to the challenge in period 2, so <code>TX1</code> is determined to be non-canonical.</li>
+<li>After period 2, Bob’s <code>piggyback bond</code> is refunded, no one exits any UTXOs.
+The challenger receives Bob’s <code>exit bond</code>.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="mallory-spends-her-input-again-later"></a><a href="#mallory-spends-her-input-again-later" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mallory spends her input again later</h3>
+<ol>
+<li>Mallory spends <code>UTXO1</code> in <code>TX1</code> to Bob, creating <code>UTXO2</code>.</li>
+<li><code>TX1</code> is included in block <code>N</code>.</li>
+<li>Mallory spends <code>UTXO1</code> in <code>TX2</code>.</li>
+<li><code>TX2</code> is included in block <code>N+M</code>.</li>
+<li>Mallory starts an exit referencing <code>TX1</code> and places <code>exit bond</code>.</li>
+<li>In period 1, someone challenges the canonicity of <code>TX1</code> by revealing <code>TX2</code>.</li>
+<li>In period 2, someone responds to the challenge by proving that <code>TX1</code> was included before <code>TX2</code>.</li>
+<li>After period 2, the user who responded to the challenge receives Mallory’s <code>exit bond</code>, no one exits any UTXOs.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="mallory-attempts-to-exit-a-spent-input"></a><a href="#mallory-attempts-to-exit-a-spent-input" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mallory attempts to exit a spent input</h3>
+<ol>
+<li>Mallory spends <code>UTXO1</code> and <code>UTXO2</code> in <code>TX1</code>.</li>
+<li>Mallory spends <code>UTXO1</code> in <code>TX2</code>.</li>
+<li><code>TX1</code> and <code>TX2</code> are in-flight.</li>
+<li>Mallory starts an exit referencing <code>TX1</code> and places <code>exit bond</code>.</li>
+<li>Mallory starts an exit referencing <code>TX2</code> and places <code>exit bond</code>.</li>
+<li>In period 1 of the exit for <code>TX1</code>, someone challenges the canonicity of <code>TX1</code> by revealing <code>TX2</code>.</li>
+<li>In period 1 of the exit for <code>TX2</code>, someone challenges the canonicity of <code>TX2</code> by revealing <code>TX1</code>.</li>
+<li>After period 2 of the exit for <code>TX1</code>, the challenger receives <code>exit bond</code>, no one exits any UTXOs.</li>
+<li>After period 2 of the exit for <code>TX2</code>, the challenger receives <code>exit bond</code>, no one exits any UTXOs.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="operator-attempts-to-steal-funds-from-an-included-transaction"></a><a href="#operator-attempts-to-steal-funds-from-an-included-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operator attempts to steal funds from an included transaction</h3>
+<ol>
+<li>Alice spends <code>UTXO1</code> in <code>TX1</code> to Bob, creating <code>UTXO2</code>.</li>
+<li><code>TX1</code> is included in (valid) block <code>N</code>.</li>
+<li>Operator creates invalid &lt;&lt;glossary:deposit&gt;&gt;, creating <code>UTXO3</code>.</li>
+<li>The operator spends <code>UTXO3</code> in <code>TX3</code>, creating <code>UTXO4</code>.</li>
+<li>The operator starts an exit referencing <code>TX3</code> and places <code>exit bond</code>.</li>
+<li>Operator piggybacks onto the exit and places <code>piggyback bond</code>.</li>
+<li>Bob starts a <em>standard</em> exit for <code>UTXO2</code>.</li>
+<li>The operator’s exit will have priority of position of <code>UTXO3</code>.
+Bob’s exit will have priority of position of <code>UTXO2</code>.</li>
+<li>Bob receives the value of <code>UTXO2</code> first, Operator receives the value of <code>UTXO4</code> second (ideally contract is empty by this point).
+All bonds are refunded.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="operator-attempts-to-steal-funds-from-an-in-flight-transaction"></a><a href="#operator-attempts-to-steal-funds-from-an-in-flight-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operator attempts to steal funds from an in-flight transaction</h3>
+<ol>
+<li>Alice spends <code>UTXO1</code> in <code>TX1</code> to Bob, creating <code>UTXO2</code>.</li>
+<li><code>TX1</code> is in-flight.</li>
+<li>Operator creates invalid &lt;&lt;glossary:deposit&gt;&gt;, creating <code>UTXO3</code>.</li>
+<li>The operator spends <code>UTXO3</code> in <code>TX3</code>, creating <code>UTXO4</code>.</li>
+<li>The operator starts an exit referencing <code>TX3</code> and places <code>exit bond</code>.</li>
+<li>Operator piggybacks onto the exit and places <code>piggyback bond</code>.</li>
+<li>Bob starts an exit referencing <code>TX1</code> and places <code>exit bond</code>.</li>
+<li>Bob piggybacks onto the exit and places a <code>piggyback bond</code>.</li>
+<li>Alice is honest, so she hasn’t spent <code>UTXO1</code> in any transaction other than <code>TX1</code>.</li>
+<li>The operator’s exit will have priority of position of <code>UTXO3</code>.
+Bob’s exit will have priority of position of <code>UTXO1</code>.</li>
+<li>Bob receives the value of <code>UTXO2</code> first, Operator receives the value of <code>UTXO4</code> second (ideally contract is empty by this point).
+All bonds are refunded.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="operator-attempts-to-steal-funds-from-a-multi-input-in-flight-transaction"></a><a href="#operator-attempts-to-steal-funds-from-a-multi-input-in-flight-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operator attempts to steal funds from a multi-input, in-flight transaction</h3>
+<ol>
+<li>Alice spends <code>UTXO1a</code>, Malory spends <code>UTXO1m</code> in <code>TX1</code> to Bob, creating <code>UTXO2</code>.</li>
+<li><code>TX1</code> is in-flight.</li>
+<li>Operator creates invalid &lt;&lt;glossary:deposit&gt;&gt;, creating <code>UTXO3</code>.</li>
+<li>The operator spends <code>UTXO3</code> in <code>TX3</code>, creating <code>UTXO4</code>.</li>
+<li>The operator starts an exit referencing <code>TX3</code> and places <code>exit bond</code>.</li>
+<li>Operator piggybacks onto the exit and places <code>piggyback bond</code></li>
+<li>Malory starts an exit referencing <code>TX1</code> and places <code>exit bond</code>.</li>
+<li>Bob piggybacks onto the exit and places a <code>piggyback bond</code>.</li>
+<li>Alice piggybacks onto the exit and places a <code>piggyback bond</code>.</li>
+<li>Mallory double-spends <code>UTXO1m</code> in <code>TX2</code> and broadcasts.</li>
+<li>Operator includes <code>TX2</code> and submits as a competitor to <code>TX1</code> rendering it non-canonical</li>
+<li>The operator's exit of <code>TX3</code> will have priority of position of <code>UTXO3</code>.
+Alice-Mallory exit will have priority of position of <code>UTXO1</code>.</li>
+<li>Alice receives the value of <code>UTXO1a</code> first, Operator receives the value of <code>UTXO4</code> second (ideally contract is empty by this point).
+Bob receives nothing.
+Mallory's <code>exit bond</code> goes to the Operator.
+Mallory's <code>TX2</code> is canonical and owners of outputs can attempt to exit them.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="honest-receiver-should-not-start-in-flight-exits"></a><a href="#honest-receiver-should-not-start-in-flight-exits" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Honest receiver should not start in-flight exits</h3>
+<p>An honest user obtaining knowledge about an in-flight transaction <strong>crediting</strong> them <strong>should not</strong> start an exit, otherwise risks having their exit bond slashed.</p>
+<p>The out-of-band process in such an event should always put the burden of starting in-flight exits <strong>on the sender</strong>.</p>
+<p>The following scenario demonstrates an attack that is <strong>possible if receivers are too eager to start in-flight exits</strong>:</p>
+<ol>
+<li>Mallory spends <code>UTXO1</code> in <code>TX1</code> to Bob, creating <code>UTXO2</code>.</li>
+<li><code>TX1</code> is in-flight.</li>
+<li>The operator begins withholding blocks while <code>TX1</code> is still in-flight.</li>
+<li>Bob <strong>eaglerly</strong> starts an exit referencing <code>TX1</code> and places <code>exit bond</code>.</li>
+<li>Mallory spends <code>UTXO1</code> in <code>TX2</code>.</li>
+<li>In period 1 of the exit for <code>TX1</code>, Mallory challenges the canonicity of <code>TX1</code> by revealing <code>TX2</code>.</li>
+<li>No one can respond to the challenge in period 2, so <code>TX1</code> is determined to be non-canonical.</li>
+<li>After period 2, Mallory receives Bob’s <code>exit bond</code>, no one exits any UTXOs.</li>
+</ol>
+<p>Mallory has therefore caused Bob to lose <code>exit bond</code>, even though Bob was acting honestly.</p>
+<h2><a class="anchor" aria-hidden="true" id="attack-vectors"></a><a href="#attack-vectors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Attack vectors</h2>
+<h3><a class="anchor" aria-hidden="true" id="honest-exit-bond-slashing"></a><a href="#honest-exit-bond-slashing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Honest Exit Bond Slashing</h3>
+<p>An honest user can start an exit and have their exit bond slashed.
+This can occur if one of the inputs to a transaction is malicious and signs a second transaction spending the same input.</p>
+<p>The following scenario demonstrates this attack:</p>
+<ol>
+<li>Mallory spends <code>UTXO1m</code> and Alice spends <code>UTXO1a</code> in <code>TX1</code> to Bob, creating <code>UTXO2</code>.</li>
+<li><code>TX1</code> is in-flight.</li>
+<li>The operator begins withholding blocks while <code>TX1</code> is still in-flight.</li>
+<li>Alice starts an exit referencing <code>TX1</code> and places <code>exit bond</code>.</li>
+<li>Alice piggybacks onto the exit and places a <code>piggyback bond</code>.</li>
+<li>Mallory spends <code>UTXO1m</code> in <code>TX2</code>.</li>
+<li>In period 1 of the exit for <code>TX1</code>, Mallory challenges the canonicity of <code>TX1</code> by revealing <code>TX2</code>.</li>
+<li>No one can respond to the challenge in period 2, so <code>TX1</code> is determined to be non-canonical.</li>
+<li>After period 2, Mallory receives Alice's <code>exit bond</code>, Alice receives <code>UTXO1a</code> and <code>piggyback bond</code>.</li>
+</ol>
+<p>Mallory has therefore caused Alice to lose <code>exit bond</code>, even though Alice was acting honestly.
+We want to mitigate the impact of this attack as much as possible so that this does not prevent users from receiving funds.</p>
+<blockquote>
+<p>In the scenarios where Mallory double-spends her input, she doesn't get to successfully piggyback, unless the operator includes and makes canonical her double-spending transaction. In this case, she may lose more than she's getting from stolen <code>exit bonds</code>.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="honest-transaction-retries-attack"></a><a href="#honest-transaction-retries-attack" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Honest transaction retries attack</h3>
+<p>Under MoreVP, it is not safe to retry a transaction that has failed for a trivial reason.</p>
+<p>Consider the following scenario:</p>
+<ol>
+<li>Honest Alice creates/signs/submits a transaction <code>tx1</code>.</li>
+<li>This fails, either loudly (error response from child chain server) or quietly (no response) - <code>tx1</code> doesn't get included in a block.</li>
+<li>Alice is forced to in-flight exit, even if she just made a trivial mistake (e.g. incorrect fee).</li>
+<li>If instead Alice retries with amended <code>tx2</code>, then she opens an attack on her funds:</li>
+</ol>
+<ul>
+<li>If the child chain is good, <code>tx2</code> is included in a valid, non-withheld block, and all is well.</li>
+<li>If the child chain goes rogue, Alice is left defenseless, because she double-spent her input, i.e. she can no longer in-flight exit <code>tx1</code> or <code>tx2</code>.</li>
+</ul>
+<blockquote>
+<p>See section <a href="#Timeouts">Timeouts</a> for details about one more possible mitigation. However, due to the uncertainty of timeouts in MoreVP, other mitigations for the retry problem might be necessary.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="mitigations-for-honest-exit-bond-slashing"></a><a href="#mitigations-for-honest-exit-bond-slashing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mitigations for honest exit bond slashing</h2>
+<p>This section describes the mitigations against Honest Exit Bond Slashing.</p>
+<h3><a class="anchor" aria-hidden="true" id="bond-sharing"></a><a href="#bond-sharing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bond sharing</h3>
+<p>One way to partially mitigate this attack is for each user who piggybacks to cover some portion of an <code>exit bond</code>.
+This cuts the per-person value of <code>exit bond</code> proportionally to the number of users who have piggybacked.
+Note that this is stronger mitigation the more users are piggybacking on the exit and would not have any impact if only a single user starts the exit/piggybacks.</p>
+<h3><a class="anchor" aria-hidden="true" id="small-exit-bond"></a><a href="#small-exit-bond" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Small Exit Bond</h3>
+<p>The result of the above attack is that users may not exit from an in-flight transaction if the gas cost of exiting plus the value of <code>exit bond</code> is greater than the value of their input or output.
+We can reduce the impact of this attack by minimizing the gas cost of exiting and the value of an <code>exit bond</code>.
+Gas cost should be highly optimized in any case, so the value of <code>exit bond</code> is of more importance.</p>
+<p><code>Exit bond</code> is necessary to incentivize challenges.
+However, we believe that challenges can be sufficiently incentivized if the <code>exit bond</code> simply covers the gas cost of challenging.
+Observations from the Bitcoin and Ethereum ecosystems suggest that sufficiently many nodes will verify transactions without a direct in-protocol incentive to do so.
+Our system requires only a single node to be properly incentivized to challenge, and it’s likely that many node operators will have strong external incentives.
+Modeling the “correct” size of the exit bond is an ongoing area of research.</p>
+<h3><a class="anchor" aria-hidden="true" id="timeouts"></a><a href="#timeouts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Timeouts</h3>
+<p>Timeouts can be added to each transaction (must be included in the chain by block X) to:</p>
+<ul>
+<li>reduce the number of transactions vulnerable to <a href="#Honest-Exit-Bond-Slashing"><strong>Honest Exit Bond Slashing</strong></a> point in time.</li>
+<li>alleviate <a href="#Honest-transaction-retries-attack"><strong>Honest transaction retries attack</strong></a>, allowing Alice to just wait for the timeout and retry
+This will probably also be necessary from a user experience point of view, as we don’t want users to accidentally sign a double-spend simply because the first transaction hasn’t been processed yet.</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> It is unconfirmed how the timeouts scheme would modify MoreVP and whether it's feasible at all.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="transactions-and-morevp-protocol"></a><a href="#transactions-and-morevp-protocol" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transactions and MoreVP protocol</h2>
+<p>This section provides further technical details for the MoreVP protocol and transactions and explains transaction-related concepts, such as plasma chain, competing and canonical transactions, and unspent / double-spent transaction inputs.</p>
+<h3><a class="anchor" aria-hidden="true" id="functions"></a><a href="#functions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Functions</h3>
+<h4><a class="anchor" aria-hidden="true" id="transactions"></a><a href="#transactions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transactions</h4>
+<p>$TX$ is the transaction space, where each transaction has $inputs$ and $outputs.
+For simplicity, each input and output is an integer that represents the position of that input or output in the Plasma chain.</p>
+<pre><code class="hljs">$$
+TX: ((I_1, I_2, … ,I_n), (O_1, O_2, … ,O_m))
+$$
+</code></pre>
+<p>For every transaction $t$ in $TX$ we define the “inputs” and “outputs” functions:</p>
+<pre><code class="hljs">$$
+I(t) = (I_1, I_2, …, I_n)
+O(t) = (O_1, O_2, …, O_m)
+$$
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="plasma-chain"></a><a href="#plasma-chain" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Plasma chain</h4>
+<p>A plasma chain is composed of transactions.</p>
+<p>For each Plasma chain $T$, we define a mapping between each transaction position and the corresponding transaction at that position.</p>
+<pre><code class="hljs">$$
+T_n: [1, n] \rightarrow TX
+$$
+</code></pre>
+<p>We also define a shortcut to point to a specific transaction in the chain.</p>
+<pre><code class="hljs">$$
+t_i = T_n(i)
+$$
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="competing-transactions-and-competitors"></a><a href="#competing-transactions-and-competitors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Competing transactions and competitors</h4>
+<p>Two transactions are competing if they have at least one input in common.</p>
+<pre><code class="hljs">$$
+competing(t, t’) = I(t) \cap I(t’) \neq \varnothing
+$$
+</code></pre>
+<p>The set of competitors to a transaction is, therefore, every other transaction competing with the transaction in question.</p>
+<pre><code class="hljs">$$
+competitors(t) = \{ t_{i} : i \in (0, n], competing(t_{i}, t) \}
+$$
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="canonical-transaction"></a><a href="#canonical-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Canonical transaction</h4>
+<p>A transaction is referred to as canonical when it is the oldest of all its competitors.</p>
+<p>We define a function $first$ that determines which of a set $T$ of transactions is the oldest transaction.</p>
+<pre><code class="hljs">$$
+first(T) = t \in T : \forall t’ \in T, t \neq t’, min(O(t)) &lt; min(O(t’))
+$$
+</code></pre>
+<p>The set of canonical transactions is any transaction that is the first of all its competitors.</p>
+<pre><code class="hljs">$$
+canonical(t) = (first(competitors(t)) \stackrel{?}{=} t)
+$$
+</code></pre>
+<p>For convenience, we define $reality$ as the set of all canonical transactions for a given chain.</p>
+<pre><code class="hljs">$$
+reality(T_{n}) = \{ canonical(t_{i}) : i \in [1, n] \}
+$$
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="unspent-and-double-spent"></a><a href="#unspent-and-double-spent" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unspent and double-spent</h4>
+<p>We define two helper functions $unspent$ and $double_spent$.</p>
+<p>$unspent$ takes a set of transactions and returns the list of transaction outputs that haven't been spent.
+$double_spent$ takes a list of transactions and returns any outputs that have been used as inputs to more than one transaction.</p>
+<p>First, we define a function $txo$ that takes a transaction and returns a list of its inputs and outputs.</p>
+<pre><code class="hljs">$$
+txo(t) = O(t) \cup I(t)
+$$
+</code></pre>
+<p>Next, we define a function $TXO$ that lists all inputs and outputs for an entire set of transactions:</p>
+<pre><code class="hljs">$$
+TXO(T_{n}) = \bigcup_{i = 1}^{n} txo(t_{i})
+$$
+</code></pre>
+<p>Now we can define $unspent$ and $double_spent$:</p>
+<pre><code class="hljs">$$
+unspent(T) = \{ o \in TXO(T) : \forall t \in T, o \not\in I(t) \}
+$$
+
+$$
+double\_spent(T) = \{ o \in TXO(T) : \exists t,t' \in T, t \neq t', o \in I(t) \wedge o \in I(t') \}
+$$</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/next/contracts/admin-accounts"><span class="arrow-prev">← </span><span>Administrative Accounts</span></a><a class="docs-next button" href="/next/watcher/run-watcher-locally"><span>Run Watcher Locally</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#basic-exit-mechanism">Basic Exit Mechanism</a><ul class="toc-headings"><li><a href="#requirements-for-the-exit-mechanism">Requirements for the Exit Mechanism</a></li><li><a href="#priority">Priority</a></li></ul></li><li><a href="#exit-protocol-specification">Exit Protocol Specification</a><ul class="toc-headings"><li><a href="#time-period-for-exit">Time period for exit</a></li><li><a href="#start-the-exit">Start the exit</a></li><li><a href="#how-to-prove-that-a-spend-transaction-is-exitable">How to prove that a spend transaction is exitable</a></li><li><a href="#proving-canonicity">Proving canonicity</a></li><li><a href="#piggyback-an-exit">Piggyback an exit</a></li><li><a href="#process-an-exit">Process an exit</a></li></ul></li><li><a href="#combining-morevp-and-plasma-mvp-protocols">Combining MoreVP and Plasma MVP protocols</a></li><li><a href="#alice-bob-scenarios">Alice-Bob Scenarios</a><ul class="toc-headings"><li><a href="#alice--bob-are-honest-and-cooperating">Alice &amp; Bob are honest and cooperating</a></li><li><a href="#mallory-tries-to-exit-a-spent-output">Mallory tries to exit a spent output</a></li><li><a href="#mallory-double-spends-her-input">Mallory double-spends her input</a></li><li><a href="#mallory-spends-her-input-again-later">Mallory spends her input again later</a></li><li><a href="#mallory-attempts-to-exit-a-spent-input">Mallory attempts to exit a spent input</a></li><li><a href="#operator-attempts-to-steal-funds-from-an-included-transaction">Operator attempts to steal funds from an included transaction</a></li><li><a href="#operator-attempts-to-steal-funds-from-an-in-flight-transaction">Operator attempts to steal funds from an in-flight transaction</a></li><li><a href="#operator-attempts-to-steal-funds-from-a-multi-input-in-flight-transaction">Operator attempts to steal funds from a multi-input, in-flight transaction</a></li><li><a href="#honest-receiver-should-not-start-in-flight-exits">Honest receiver should not start in-flight exits</a></li></ul></li><li><a href="#attack-vectors">Attack vectors</a><ul class="toc-headings"><li><a href="#honest-exit-bond-slashing">Honest Exit Bond Slashing</a></li><li><a href="#honest-transaction-retries-attack">Honest transaction retries attack</a></li></ul></li><li><a href="#mitigations-for-honest-exit-bond-slashing">Mitigations for honest exit bond slashing</a><ul class="toc-headings"><li><a href="#bond-sharing">Bond sharing</a></li><li><a href="#small-exit-bond">Small Exit Bond</a></li><li><a href="#timeouts">Timeouts</a></li></ul></li><li><a href="#transactions-and-morevp-protocol">Transactions and MoreVP protocol</a><ul class="toc-headings"><li><a href="#functions">Functions</a></li></ul></li></ul></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a target="_blank" href="/contracts/morevp">MoreVP Architecture</a></span><span class="footer-item"><a target="_blank" href="/wallet/quick-start-webwallet">Web Wallet Quick Start</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/web-wallet">Web Wallet Code</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/omg-samples">OMG Samples</a></span></div><div class="footer-column"><span class="footer-title">API References</span><span class="footer-item"><a target="_blank" href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs">Watcher
+Informational API</a></span><span class="footer-item"><a target="_blank" href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
+Security Critical API</a></span><span class="footer-item"><a target="_blank" href="https://docs.omg.network/elixir-omg/docs-ui/">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Integration Docs</span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/elixir-omg/blob/master/README.md">Elixir-omg</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/omg-js/blob/master/README.md">Omg-js</a></span><span class="footer-item"><a target="_blank" href="/network/tutorials">Tutorials</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork/plasma-contracts">Plasma Contracts</a></span></div><div class="footer-column"><span class="footer-title">Resources</span><span class="footer-item"><a target="_blank" href="https://omg.eco/blockexplorer">Block Explorer</a></span><span class="footer-item"><a target="_blank" href="https://www.omg.network">OMG Network</a></span><span class="footer-item"><a target="_blank" href="https://github.com/omgnetwork">Github</a></span></div><div class="footer-column"><span class="footer-title">Follow us</span><span class="footer-item"><a target="_blank" href="https://twitter.com/omgnetworkhq"><img src="/img/social/twitter.svg" alt="twitter" class="footer-social"/></a><a target="_blank" href="https://www.linkedin.com/company/omgnetwork/"><img src="/img/social/linkedin.svg" alt="linkedin" class="footer-social"/></a><a target="_blank" href="https://github.com/omgnetwork"><img src="/img/social/github.svg" alt="github" class="footer-social"/></a><br/> <br/><span class="footer-copyright">© 2019-present OMG Network.
+All rights reserved</span></span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+                indexName: 'omisego',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
