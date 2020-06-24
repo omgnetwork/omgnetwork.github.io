@@ -79,7 +79,7 @@ npm install @omisego/react-native-omg-js
 
 Merging UTXOs involves using 2 `omg-js` objects. Here's an example of how to instantiate them:
 
-```
+```js
 import Web3 from "web3";
 import { ChildChain, OmgUtil } from "@omisego/omg-js";
 

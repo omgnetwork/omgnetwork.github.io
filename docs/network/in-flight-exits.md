@@ -63,7 +63,7 @@ npm install @omisego/react-native-omg-js
 
 In-Flight exit involves using 3 `omg-js` objects. Here's an example of how to instantiate them:
 
-```
+```js
 import Web3 from "web3";
 import { ChildChain, RootChain, OmgUtil } from "@omisego/omg-js";
 

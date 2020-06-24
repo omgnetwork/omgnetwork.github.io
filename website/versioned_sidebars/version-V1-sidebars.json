@@ -4,7 +4,7 @@
       "version-V1-welcome"
     ],
     "Network": [
-      "version-V1-network/tutorials",
+      "version-V1-network/start",
       "version-V1-network/balances",
       "version-V1-network/deposits",
       "version-V1-network/transfers",

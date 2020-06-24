@@ -4,7 +4,7 @@
       "welcome"
     ],
     "Network": [
-      "network/tutorials",
+      "network/start",
       "network/balances",
       "network/deposits",
       "network/transfers",

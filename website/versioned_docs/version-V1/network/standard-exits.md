@@ -58,7 +58,7 @@ npm install @omisego/react-native-omg-js
 
 `omg-js` library has 3 main objects that are used during all of the code samples. Here's an example of how to instantiate them:
 
-```
+```js
 import Web3 from "web3";
 import { ChildChain, RootChain } from "@omisego/omg-js";
 

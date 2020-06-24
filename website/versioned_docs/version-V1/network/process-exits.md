@@ -56,7 +56,7 @@ npm install @omisego/react-native-omg-js
 
 Processing exits involves using 2 `omg-js` objects. Here's an example of how to instantiate them:
 
-```
+```js
 import Web3 from "web3";
 import { RootChain, OmgUtil } from "@omisego/omg-js";
 

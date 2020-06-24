@@ -56,7 +56,7 @@ npm install @omisego/react-native-omg-js
 
 Depositing funds to the OMG Network involves using 2 `omg-js` objects. Here's an example of how to instantiate them:
 
-```
+```js
 import Web3 from "web3";
 import { RootChain, OmgUtil } from "@omisego/omg-js";
 
@@ -165,7 +165,7 @@ async function makeDeposit () {
 2. The `Vault` in question creates a deposit block and submits it to the `PlasmaFramework` contract.
 3. The `Vault` in question emits a `DepositCreated` event.
 4. The child chain receives the `DepositCreated` and creates the corresponding UTXO.
-5. After a defined [finality period](glossary#deposit-finality-period) the UTXO is ready for transacting on the network.
+5. After a defined [finality period](/glossary#deposit-finality-period) the UTXO is ready for transacting on the network.
 
 ## Demo Project
 
