@@ -31,7 +31,7 @@ childChain.status()
 ## Challenging Standard Exits
 The following is a byzantine event reported by the Watcher on invalid standard exits and requires action by users.
 
-#### `invalid_exit`
+### `invalid_exit`
 
 Indicates that an invalid standard exit is occurring. It should be challenged.
 
@@ -67,12 +67,72 @@ Watcher reports an `invalid_exit`:
 
 **Implementation**
 
+#### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js)
+
+To access network features from your application, use our official libraries:
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Node -->
+
+Requires Node >= 8.11.3 < 13.0.0
+
+```js
+npm install @omisego/omg-js
+```
+
+<!-- Browser -->
+
+You can add `omg-js` to a website using a script tag:
+
+```js
+<script src="https://unpkg.com/@omisego/browser-omg-js"></script>
+```
+
+<!-- React Native -->
+
+You can easily integrate `omg-js` with React Native projects. First, add this postinstall script to your project's `package.json`:
+
+```js
+"scripts": {
+    "postinstall": "omgjs-nodeify"
+}
+```
+
+Then install the react native compatible library:
+
+```js
+npm install @omisego/react-native-omg-js
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- JavaScript (ESNext) -->
+
+### 2. Import dependencies
+
+Challenging exits involves using 3 `omg-js` objects. Here's an example of how to instantiate them:
+
+```js
+import Web3 from "web3";
+import { ChildChain, RootChain, OmgUtil } from "@omisego/omg-js";
+
+const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
+const rootChain = new RootChain({ web3, plasmaContractAddress });
+const childChain = new ChildChain({ watcherUrl });
+```
+
+> - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
+> - `plasmaContractAddress` - `CONTRACT_ADDRESS_PLASMA_FRAMEWORK` for defined [environment](/environments).
+> - `watcherUrl` - the Watcher Info URL for defined [environment](/environments) (personal or from OMG Network).
+
+#### 3. Challange invalid exit
+
 We can use the byzantine event information reported by the Watcher to retrieve the data required to challenge the exit. We then can make a call to the `Payment Exit Game` contract calling `challengeStandardExit()`. 
 
 In the example below, Bob has seen the reported `invalid_exit` event and proceeds to challenge the exit. He will receive Alice's posted bond if the challenge is successful.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript (ESNext) -->
 ```js
 async function challengeInvalidExit () {
   const challengeData = await childChain.getChallengeData(invalidExit.details.utxo_pos)
@@ -94,7 +154,7 @@ async function challengeInvalidExit () {
 ## Challenging In-Flight Exits
 The following are byzantine events reported by the Watcher on invalid in-flight exits and require action by users.
 
-#### `noncanonical_ife`
+### `noncanonical_ife`
 Indicates an in-flight exit of a non-canonical transaction has been started. It should be challenged.
 
 **Scenario**
@@ -126,25 +186,27 @@ Indicates an in-flight exit of a non-canonical transaction has been started. It 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
 ```js
-rootChain.challengeInFlightExitNonCanonical({
-  inputTx,
-  inputUtxoPos,
-  inFlightTx,
-  inFlightTxInputIndex,
-  competingTx,
-  competingTxInputIndex,
-  competingTxPos,
-  competingTxInclusionProof,
-  competingTxWitness,
-  txOptions: {
-    from: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
-    privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
-  }
-})
+function challengeInFlightExitNonCanonical () {
+  return rootChain.challengeInFlightExitNonCanonical({
+    inputTx,
+    inputUtxoPos,
+    inFlightTx,
+    inFlightTxInputIndex,
+    competingTx,
+    competingTxInputIndex,
+    competingTxPos,
+    competingTxInclusionProof,
+    competingTxWitness,
+    txOptions: {
+      from: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
+      privateKey: "0x1027c05dcc6dba6b8fb6bb6efc90e374fee7da73e1069279be61a2dcf533b856"
+    }
+  })
+}
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-#### `invalid_ife_challenge`
+### `invalid_ife_challenge`
 Indicates a canonical in-flight exit has been challenged. The challenge should be responded to.
 
 **Scenario**
@@ -193,7 +255,7 @@ async function respondToInvalidIFEChallenge () {
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-#### `invalid_piggyback`
+### `invalid_piggyback`
 Indicates an invalid piggyback is in process. Should be challenged.
 
 **Scenario**
