@@ -54,20 +54,9 @@ The following hardware is required to run a Watcher:
 
 ## Installation Process
 
-### 1. Create a Directory
+### 1. Check TCP Ports
 
-It's advised to create a local directory to hold the Watcher data.
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!-- Linux/macOS -->
-```
-mkdir watcher && cd watcher
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-### 2. Check TCP Ports
-
-#### 2.1 System Ports
+#### 1.1 System Ports
 
 Each of the ports is used for running one of the following containers:
 - 7434: `elixir-omg_watcher_1`, a light-weight Watcher to ensure the security of funds deposited into the child chain.
@@ -118,7 +107,7 @@ sudo kill $PID
 > - `$PORT` - a port to clear from other processes.
 > - `$PID` - process ID listening on a defined port.
 
-#### 2.2 Docker Ports
+#### 1.2 Docker Ports
 
 Additionally, you can check services that Docker is already using with the following command:
 
@@ -133,13 +122,13 @@ CONTAINER ID        IMAGE                    COMMAND                  CREATED   
 29641165a1be        omisego/ewallet:stable   "/init /entrypoint f…"   4 months ago        Up 7 hours             4369/tcp, 0.0.0.0:4000->4000/tcp, 6900-6909/tcp   omisego_ewallet_1
 ```
 
-### 3. Create and Enter a New Directory
+### 2. Create and Enter a New Directory
 
 ```
 mkdir watcher && cd watcher
 ```
 
-### 4. Set Up Configuration Files
+### 3. Set Up Configuration Files
 
 The Watcher consists from `watcher` and `watcher_info` services. You can run `watcher` separately, however `watcher_info` relies on Postgres database where it stores the network's data. All releases and corresponding Docker images (starting from `1.0.1`) can be found in our [`official repository`](https://github.com/omgnetwork/elixir-omg/releases).
 
@@ -147,7 +136,7 @@ The Watcher consists from `watcher` and `watcher_info` services. You can run `wa
 
 <!-- Docker Compose -->
 
-#### 4.1 Configure docker-compose-watcher.yml File
+#### 3.1 Configure docker-compose-watcher.yml File
 
 Docker Compose allows defining and running multi-container Docker applications. To launch a Watcher with Compose, first, create YAML file that will contain configurations for our services with `nano` or `vim` text editor:
 
@@ -157,7 +146,7 @@ nano docker-compose-watcher.yml
 
 Then, copy and paste the [required configs](https://gist.github.com/dmitrydao/c69a886e30f29d49f853975bf7237cd6), save the changes with `ctrl+o` (Linux/Windows) or `control+o` (macOS) and `Enter` to confirm the changes respectively. Then exit the file with `ctrl+x` or `control+x`.
 
-#### 4.2 Configure Environment File
+#### 3.2 Configure Environment File
 
 The YAML file has several values that have to be configured in `.env` file. To edit them, open `.env` with `nano` or `vim` text editor and paste the following values:
 
@@ -184,53 +173,7 @@ Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-If you're using one of the Ethereum infrastructure providers, the connection setting `ETHEREUM_RPC_URL` may have the following format:
-
-#### Ropsten:
-<!--DOCUSAURUS_CODE_TABS-->
-<!-- Infura -->
-```
-https://ropsten.infura.io/v3/${KEY}
-```
-<!-- QuickNode -->
-```
-https://falling-delicate-sunset.ropsten.quiknode.pro/${KEY}
-```
-<!-- Rivet -->
-```
-https://${KEY}.eth.ropsten.rpc.rivet.cloud
-```
-<!-- Fiews -->
-```
-https://cl-ropsten.fiews.io/v1/${KEY}
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-#### Mainnet:
-<!--DOCUSAURUS_CODE_TABS-->
-<!-- Infura -->
-```
-https://mainnet.infura.io/v3/${KEY}
-```
-<!-- QuickNode -->
-```
-https://falling-delicate-sunset.mainnet.quiknode.pro/${KEY}
-```
-<!-- Rivet -->
-```
-https://${KEY}.eth.rpc.rivet.cloud
-```
-<!-- Fiews -->
-```
-https://cl-main.fiews.io/v1/{$KEY}
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-> ${KEY} - the environment/project/account key from your infrastructure provider.
-> 
-> Note, the URL paths may change by providers in the future.
-
-### 5. Run a Watcher Instance
+### 4. Run a Watcher Instance
 
 To run a Watcher instance, you need to start the required Docker containers. The parameter `-d` allows running containers in the background.
 
@@ -263,11 +206,11 @@ If you want to exit the logs without stopping containers, use `ctrl+c` or `contr
 
 > Depending on your hardware and internet connection, the entire process can take up to an hour.
 
-### 6. Verify You're Synced 
+### 5. Verify You're Synced 
 
 To verify that you're fully synced, check the status of Watcher and Watcher Info:
 
-#### 6.1 Watcher
+#### 5.1 Watcher
 
 ```
 curl -X POST "http://localhost:7434/status.get"
@@ -306,7 +249,7 @@ Example output:
 }
 ```
 
-#### 6.2 Watcher Info
+#### 5.2 Watcher Info
 
 ```
 curl -X POST "http://localhost:7534/stats.get"
@@ -341,7 +284,7 @@ Notice, the server may not respond until the following line appears in the `watc
 watcher_info_1   | 2020-05-30 06:13:36.445 [info] module=Phoenix.Endpoint.CowboyAdapter function=start_link/3 ⋅Running OMG.WatcherRPC.Web.Endpoint with cowboy 1.1.2 at :::7434 (http)⋅
 ```
 
-### 7. Test Your Watcher
+### 6. Test Your Watcher
 
 The last step is to test that your Watcher is working properly. There are two ways to do that:
 1. Use `http://localhost:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omgnetwork/omg-samples). 
