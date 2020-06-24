@@ -4,7 +4,7 @@ title: Merge or Split UTXO
 sidebar_label: Merge or Split UTXO
 ---
 
-[UTXOs](glossary#utxo) are core to the logic of the OMG Network.
+[UTXOs](/glossary#utxo) are core to the logic of the OMG Network.
 
 ## Merging UTXOs
 
@@ -30,18 +30,72 @@ A transaction can have a maximum of <u>4 inputs</u> but a user may not own four 
 
 In the above scenario, Alice can merge her UTXOs to send the desired amount to Bob in a single transaction.
 
-### Implementation
+## Implementation
 
-1. Get all available UTXOs for a defined wallet.
-2. Filter UTXOs based on the desired token.
-3. Merge UTXOs.
+### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js)
 
-> The merging UTXOs process is the same for both ETH and ERC20. This method demonstrates merging for ETH UTXOs. If you want to merge ERC20 tokens, change the `currency` value to a corresponding smart contract address.
+To access network features from your application, use our official libraries:
 
-#### Example 
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Node -->
+
+Requires Node >= 8.11.3 < 13.0.0
+
+```js
+npm install @omisego/omg-js
+```
+
+<!-- Browser -->
+
+You can add `omg-js` to a website using a script tag:
+
+```js
+<script src="https://unpkg.com/@omisego/browser-omg-js"></script>
+```
+
+<!-- React Native -->
+
+You can easily integrate `omg-js` with React Native projects. First, add this postinstall script to your project's `package.json`:
+
+```js
+"scripts": {
+    "postinstall": "omgjs-nodeify"
+}
+```
+
+Then install the react native compatible library:
+
+```js
+npm install @omisego/react-native-omg-js
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
+
+### 2. Import dependencies
+
+Merging UTXOs involves using 2 `omg-js` objects. Here's an example of how to instantiate them:
+
+```
+import Web3 from "web3";
+import { ChildChain, OmgUtil } from "@omisego/omg-js";
+
+const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
+const childChain = new ChildChain({ watcherUrl });
+```
+
+> - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
+> - `watcherUrl` - the Watcher Info URL for defined [environment](/environments) (personal or from OMG Network).
+
+### 3. Merge UTXOs
+
+Note, the minimum number of UTXOs to merge is 2, the maximum — 4. You also can't mix ETH and ERC20 UTXOs while performing merging.
+
+> The merging UTXOs process is the same for both ETH and ERC20. This method demonstrates merging for ETH UTXOs. If you want to merge ERC20 tokens, change the `currency` value to a corresponding smart contract address.
+
 ```js
 async function mergeUtxo() {
   // retrieve all utxos
@@ -94,8 +148,6 @@ For splitting UTXO, a user needs to follow the same steps as [making a transacti
 As a transaction can produce a maximum of <u>four</u> outputs, you can generally have up to <u>three</u> payment objects. Each one will produce an output, the value of the fourth output will correspond to the value remaining after the split(s). It is possible to have four payment objects only if their amounts add up to the exact value of the input UTXO.
 
 > The splitting of UTXO process is the same for both ETH and ERC20. This method demonstrates splitting for ERC20 UTXO. If you want to split ETH UTXO, change the `currency` value to `OmgUtil.transaction.ETH_CURRENCY`.
-
-#### Example
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
@@ -165,7 +217,7 @@ async function splitUtxo() {
 
 ## Network Considerations
 
-Users are highly encouraged to merge UTXOs continuously as a way of mitigating the vulnerability of OMG Network funds in a mass exit event. Read more in the [FAQ Section](faq#why-does-a-smaller-utxo-set-on-the-omg-network-reinforce-the-safety-of-user-funds-in-a-mass-exit-event).
+Users are highly encouraged to merge UTXOs continuously as a way of mitigating the vulnerability of OMG Network funds in a mass exit event. Read more in the [FAQ Section](/faq#why-does-a-smaller-utxo-set-on-the-omg-network-reinforce-the-safety-of-user-funds-in-a-mass-exit-event).
 
 ## Demo Project
 
