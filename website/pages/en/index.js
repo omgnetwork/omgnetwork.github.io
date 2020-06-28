@@ -100,7 +100,7 @@ class Index extends React.Component {
           title: "Tutorials",
           content:
             "Learn technical implementation of the OMG Network features.",
-          url: "tutorials",
+          url: "/network/start",
           imageLink: `${baseUrl}img/icons/receipt.svg`,
         },
         {
