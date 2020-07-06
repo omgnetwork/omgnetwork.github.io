@@ -135,23 +135,16 @@ Transactions are signed using the [EIP-712](https://github.com/ethereum/EIPs/blo
 }
 ```
 
-Note, the child chain server collects fees for sending a transaction. The fee can be paid in a variety of supported tokens by the network. To get more details on how the fees are defined, please refer to [Fees](/network/fees).
+The child chain server collects fees for sending a transaction. The fee can be paid in a variety of supported tokens by the network, the fee amount is automatically calculated by the child chain. To get more details on how the fees are defined, please refer to [Fees](/network/fees). Note, testnet and mainnet might support different currencies for fees.
 
 #### 3.1 Method A
 
-The most "granular" implementation of transfer includes fetching fees, creating, typing, signing and submitting the transaction. Such an approach will have the following structure of the code:
+The most "granular" implementation of transfer includes creating, typing, signing and submitting the transaction. Such an approach will have the following structure of the code:
 
 > This method demonstrates a transfer made in ETH. If you want to make an ERC20 transfer, change the `currency` value to a corresponding smart contract address. 
 
 ```js
 async function transfer() {
-  // fetch ETH fee amount from the Watcher
-  const allFees = await childChain.getFees();
-  const feesForTransactions = allFees["1"];
-  const { amount: feeAmount } = feesForTransactions.find(
-    (i) => i.currency === OmgUtil.transaction.ETH_CURRENCY
-  );
-
   // construct a transaction body
   const transactionBody = await childChain.createTransaction({
     owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
@@ -163,8 +156,7 @@ async function transfer() {
       },
     ],
     fee: {
-      currency: OmgUtil.transaction.ETH_CURRENCY,
-      amount: feeAmount,
+      currency: OmgUtil.transaction.ETH_CURRENCY
     },
     metadata: "data",
   });
