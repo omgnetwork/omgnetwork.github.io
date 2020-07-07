@@ -124,9 +124,9 @@ class Index extends React.Component {
           imageLink: `${baseUrl}img/icons/dev02.svg`,
         },
         {
-          title: "OMG Samples",
-          content: "Browse and run locally various code samples.",
-          url: "https://github.com/omgnetwork/omg-samples",
+          title: "omg-js samples",
+          content: "Browse and run locally omg-js code samples.",
+          url: "https://github.com/omgnetwork/omg-js-samples",
           imageLink: `${baseUrl}img/icons/collecting.svg`,
         },
       ],
@@ -175,7 +175,7 @@ class Index extends React.Component {
     const ImagedCard = (props) => {
       return (
         <div className="col-12 col-md-4 mb-3">
-          <a href={props.url} target="_blank">
+          <a href={props.url}>
             <div className="row box">
               <div className="col-3 d-none d-lg-block align-self-center">
                 <img
@@ -197,7 +197,7 @@ class Index extends React.Component {
     const CalloutCard = (props) => {
       return (
         <div className="col-12 col-md-4 mb-3">
-          <a href={props.url} target="_blank">
+          <a href={props.url}>
             <div className="row box callout callout-primary">
               <div className="col-12 pb-2">
                 <h3>{props.title}</h3>

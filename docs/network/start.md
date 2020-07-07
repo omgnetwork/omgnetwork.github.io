@@ -8,7 +8,7 @@ This section aims to give a deeper technical explanation and code implementation
 
 ## Code Samples
 
-The majority of tutorials have sufficient code as a part of a larger [OMG Samples](https://github.com/omgnetwork/omg-samples) project. This project contains code samples in multiple programming languages. You may find a full implementation of a chosen tutorial for your preferred language in the respective folder (e.g. `omg-js` for Javascript).
+The majority of tutorials have sufficient code as a part of a larger [OMG Samples](https://github.com/omgnetwork/omg-js-samples) project. This project contains code samples in multiple programming languages. You may find a full implementation of a chosen tutorial for your preferred language in the respective folder (e.g. `omg-js` for Javascript).
  
 > Currently, all code samples are implemented in Javascript as a part of [omg-js](https://github.com/omgnetwork/omg-js) library.
 

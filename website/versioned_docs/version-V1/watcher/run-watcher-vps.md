@@ -356,7 +356,7 @@ watcher_info_1   | 2020-05-30 06:13:36.445 [info] module=Phoenix.Endpoint.Cowboy
 ### 9. Test Your Watcher
 
 There are two ways to test that your Watcher is working properly:
-1. Use `http://$REMOTE_SERVER:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omgnetwork/omg-samples). 
+1. Use `http://$REMOTE_SERVER:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [OMG Samples](https://github.com/omgnetwork/omg-js-samples). 
 2. Make a transaction or another operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
 
 > - `$REMOTE_SERVER` - an IP address of your remote server.
