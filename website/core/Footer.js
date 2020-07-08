@@ -25,8 +25,8 @@ class Footer extends React.Component {
           url: "https://github.com/omgnetwork/web-wallet",
         },
         {
-          content: "OMG Samples",
-          url: "https://github.com/omgnetwork/omg-samples",
+          content: "omg-js samples",
+          url: "https://github.com/omgnetwork/omg-js-samples",
         },
       ],
       api: [
@@ -54,7 +54,7 @@ class Footer extends React.Component {
         },
         {
           content: "Tutorials",
-          url: "/network/tutorials",
+          url: "/network/start",
         },
         {
           content: "Plasma Contracts",
@@ -125,7 +125,7 @@ class Footer extends React.Component {
     const FooterItem = (props) => {
       return (
         <span className="footer-item">
-          <a target="_blank" href={props.href}>
+          <a href={props.href}>
             {props.content}
           </a>
         </span>
@@ -134,7 +134,7 @@ class Footer extends React.Component {
 
     const FooterItemSocial = (props) => {
       return (
-        <a target="_blank" href={props.href}>
+        <a href={props.href}>
           <img src={props.src} alt={props.alt} className="footer-social" />
         </a>
       );

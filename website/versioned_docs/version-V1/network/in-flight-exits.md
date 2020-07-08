@@ -248,24 +248,23 @@ This section provides a demo project that contains a detailed implementation of 
 
 For running a full `omg-js` code sample for the tutorial, please use the following steps:
 
-1. Clone [OMG Samples](https://github.com/omgnetwork/omg-samples) repository:
+1. Clone [omg-js-samples](https://github.com/omgnetwork/omg-js-samples) repository:
 
 ```
-git clone https://github.com/omgnetwork/omg-samples.git
+git clone https://github.com/omgnetwork/omg-js-samples.git
 ```
 
-2. Create `.env` file and provide the [required configuration values](https://github.com/omgnetwork/omg-samples/tree/master/omg-js#setup).
+2. Create `.env` file and provide the [required configuration values](https://github.com/omgnetwork/omg-js-samples/tree/master/omg-js#setup).
 
 3. Run these commands:
 
 ```
-cd omg-js
 npm install
 npm run start
 ```
 
 4. Open your browser at [http://localhost:3000](http://localhost:3000). 
 
-5. Select [`Start an In-flight ETH Exit`](https://github.com/omgnetwork/omg-samples/tree/master/omg-js/app/05-exit-inflight-eth) on the left side, observe the logs on the right.
+5. Select [`Start an In-flight ETH Exit`](https://github.com/omgnetwork/omg-js-samples/tree/master/app/05-exit-inflight-eth) on the left side, observe the logs on the right.
 
-> Code samples for all tutorials use the same repository — `omg-samples`, thus you have to set up the project and install dependencies only one time.
+> Code samples for all tutorials use the same repository — `omg-js-samples`, thus you have to set up the project and install dependencies only one time.
