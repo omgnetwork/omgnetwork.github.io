@@ -194,7 +194,7 @@ For running a full `omg-js` code sample for the tutorial, please use the followi
 git clone https://github.com/omgnetwork/omg-js-samples.git
 ```
 
-2. Create `.env` file and provide the [required configuration values](https://github.com/omgnetwork/omg-js-samples/tree/master/omg-js#setup).
+2. Create `.env` file and provide the [required configuration values](https://github.com/omgnetwork/omg-js-samples/tree/master#setup).
 
 3. Run these commands:
 
