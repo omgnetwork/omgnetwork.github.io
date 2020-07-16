@@ -102,13 +102,6 @@ async function startInflightExit() {
     });
   }
 
-  // fetch ETH fee amount from the Watcher
-  const allFees = await childChain.getFees();
-  const feesForTransactions = allFees["1"];
-  const { amount: feeAmount } = feesForTransactions.find(
-    (i) => i.currency === OmgUtil.transaction.ETH_CURRENCY
-  );
-
   // construct a transaction body
   const transactionBody = await childChain.createTransaction({
     owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
