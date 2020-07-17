@@ -32,6 +32,9 @@
       "security/bug-bounty",
       "security/audits"
     ],
+    "3-rd Parties": [
+      "3rd-parties/metamask"
+    ],
     "Concepts": [
       "network/blockchain-design",
       "network/byzantine-conditions",

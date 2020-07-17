@@ -32,6 +32,9 @@
       "version-V1-security/bug-bounty",
       "version-V1-security/audits"
     ],
+    "3-rd Parties": [
+      "version-V1-3rd-parties/metamask"
+    ],
     "Concepts": [
       "version-V1-network/blockchain-design",
       "version-V1-network/byzantine-conditions",
