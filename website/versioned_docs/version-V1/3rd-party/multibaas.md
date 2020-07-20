@@ -5,12 +5,6 @@ sidebar_label: MultiBaas
 original_id: multibaas
 ---
 
----
-id: multibaas
-title: MultiBaas by Curvegrid
-sidebar_label: MultiBaas
----
-
 *By the end of the guide you should know how to interact with Ethereum smart contracts using MultiBaas tool provided by [Curvegrid](https://curvegrid.com/).*
 
 ### Goals
