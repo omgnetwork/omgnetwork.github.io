@@ -14,7 +14,7 @@ original_id: migration-0.3-0.4
 - The fee amount must be correct as specified in `/fees.all`. Underpaying or Overpaying of fee in a transaction will result in a returned error.
 - Integrator can create a transaction with a valid fee amount via `/transaction.create` API endpoint by specifying fee tokens. Alternatively, a client can build the transaction with valid fee from scratch via a call to fees.all prior to transaction build process.
 - Currently, the fees are statically set per each environment. This is expected to change once a more dynamic fee model has been applied, however, consuming fee API is expected to stay the same from integration’s point of view.
-- Refer to our guide to transaction fee for more example: https://docs.omg.network/fees
+- Refer to our guide to [transaction fee](/network/fees) for more example.
 
 ### Watcher vs. WatcherInfo
 Two flavors of the watcher are now available: Watcher and WatcherInfo.

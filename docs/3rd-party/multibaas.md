@@ -177,7 +177,7 @@ After the confirmation, you'll see a success message:
 
 ![](/img/multibaas/24.png)
 
-4. Verify that your tokens have been deposited to the OMG Network with a web wallet of the [corresponding environment](environments#tools):
+4. Verify that your tokens have been deposited to the OMG Network with a web wallet of the [corresponding environment](/environments#tools):
 
 ![](/img/multibaas/25.png)
 
