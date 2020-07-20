@@ -140,19 +140,12 @@ Note, the child chain server collects fees for sending a transaction. The fee ca
 
 #### 3.1 Method A
 
-The most "granular" implementation of transfer includes fetching fees, creating, typing, signing and submitting the transaction. Such an approach will have the following structure of the code:
+The most "granular" implementation of transfer includes creating, typing, signing and submitting the transaction. Such an approach will have the following structure of the code:
 
 > This method demonstrates a transfer made in ETH. If you want to make an ERC20 transfer, change the `currency` value to a corresponding smart contract address. 
 
 ```js
 async function transfer() {
-  // fetch ETH fee amount from the Watcher
-  const allFees = await childChain.getFees();
-  const feesForTransactions = allFees["1"];
-  const { amount: feeAmount } = feesForTransactions.find(
-    (i) => i.currency === OmgUtil.transaction.ETH_CURRENCY
-  );
-
   // construct a transaction body
   const transactionBody = await childChain.createTransaction({
     owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
@@ -164,8 +157,7 @@ async function transfer() {
       },
     ],
     fee: {
-      currency: OmgUtil.transaction.ETH_CURRENCY,
-      amount: feeAmount,
+      currency: OmgUtil.transaction.ETH_CURRENCY
     },
     metadata: "data",
   });
