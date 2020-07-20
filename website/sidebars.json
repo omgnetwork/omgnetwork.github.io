@@ -32,7 +32,7 @@
       "security/bug-bounty",
       "security/audits"
     ],
-    "3-rd Parties": [
+    "3-rd Party": [
       "3rd-party/metamask",
       "3rd-party/multibaas"
     ],

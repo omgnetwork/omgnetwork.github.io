@@ -5,6 +5,12 @@ sidebar_label: MultiBaas
 original_id: multibaas
 ---
 
+---
+id: multibaas
+title: MultiBaas by Curvegrid
+sidebar_label: MultiBaas
+---
+
 *By the end of the guide you should know how to interact with Ethereum smart contracts using MultiBaas tool provided by [Curvegrid](https://curvegrid.com/).*
 
 ### Goals
@@ -32,7 +38,13 @@ This guide demonstrates how users/admins can use the latter option to manage ERC
 
 To issue ERC20 tokens using MultiBaas use the following steps:
 
-1. Create a [Curvegrid account](https://console.curvegrid.com/signup).
+1. Create a [Curvegrid account](https://console.curvegrid.com/signup). 
+
+During the sign up you will need to choose the Ethereum network you want to work with:
+- Ropsten/Rinkeby - the Ethereum testnets. All of the transactions that happen on these networks are for test purposes only. The funds used on Ropsten or Rinkeby are not real.
+- Mainnet - the Ethereum mainnet. All of the transactions that happen on this network are for production purposes. The funds used on this network are real, so make sure you don't lose access to them.
+- Curvegrid - the network created by Curvegrid, won't be covered during this guide.
+
 2. Select `CONTRACTS -> Contracts` menu and choose `Mlti Token` contract:
 
 ![](/img/multibaas/01.png)
@@ -117,3 +129,94 @@ After confirming a transaction, you will see the following confirmation message:
 You can verify the result by checking token's details on [Etherscan](https://etherscan.io/) or your MultiBaas page:
 
 ![](/img/multibaas/16.png)
+
+### Link OMG Network Contracts
+
+Interacting with the OMG Network via MultiBass requires to link several smart contracts. You can find the corresponding values of your network in the [Environments page](/environments). The values should be defined as follows:
+- Erc20vault: `CONTRACT_ADDRESS_ERC20_VAULT`
+- Eth Vault: `CONTRACT_ADDRESS_ETH_VAULT`
+- Plasma Framework: `CONTRACT_ADDRESS_PLASMA_FRAMEWORK`
+- Payment Exit Game: `CONTRACT_ADDRESS_PAYMENT_EXIT_GAME`
+
+The steps below will cover how to link `Erc20Vault` but it can be applied to any contract. Also, the example demonstrates how to work on the Ropsten network (testnet). Make sure to set up the Mainnet instance on the Curvegrid admin panel first if you need to work with the real funds.
+
+1. Select the defined contract (e.g. `Erc20 Vault`) on the left sidebar, and click `DEPLOY / LINK CONTRACT` as follows:
+
+![](/img/multibaas/18.png)
+
+2. Copy the value of the defined contract (e.g. `Erc20 Vault`):
+
+![](/img/multibaas/19.png)
+
+3. Paste the value into `Contract Address` field and press `LINK` as follows:
+
+![](/img/multibaas/20.png)
+
+You should see a success confirmation after you linked the contract.
+
+4. Go to the contract and verify that you retrieve contract's events:
+
+![](/img/multibaas/21.png)
+
+5. Repeat steps 1-4 for all OMG Network's contracts (mentioned at the beginning of this section).
+
+### Deposit ERC20 Tokens to the OMG Network
+
+To make transfers on the OMG Network, you need to deposit funds from the Ethereum network first. You may follow the [Web Wallet Quickstart](/wallet/quick-start-webwallet#13-make-an-erc20-deposit), however, you can achieve the same result with MultiBaas too.
+
+> Note, it's required to [link smart contracts](#link-omg-network-contracts) first before proceeding.
+
+To deposit ERC20 tokens to the OMG Network, use the following steps:
+
+1. Select the OMG Network Helper under the `MODULES` section as follows:
+
+![](/img/multibaas/22.png)
+
+2. Scroll to the `Methods` block, select the `DEPOSIT` tab and choose the `Deposit ERC20` contract. 
+
+3. Put the number of tokens you want to deposit and click the `SEND METHOD` button as follows:
+
+![](/img/multibaas/23.png)
+
+This will prompt a popup that you need to confirm. If the token hasn't been used on the OMG Network before, you need to confirm two transactions: approval and deposit. Otherwise, you'll have to confirm only a deposit transaction.
+
+After the confirmation, you'll see a success message:
+
+![](/img/multibaas/24.png)
+
+4. Verify that your tokens have been deposited to the OMG Network with a web wallet of the [corresponding environment](environments#tools):
+
+![](/img/multibaas/25.png)
+
+You may also verify the deposited tokens on the MultiBaas panel in the `Erc20 Vault` `Events` section:
+
+![](/img/multibaas/26.png)
+
+### Make an ERC20 Transaction on the OMG Network
+
+MultiBaas provides a simple way to do transactions on the OMG Network. To make a transfer, use the following steps:
+
+> Note, it's required to [link smart contracts](#link-omg-network-contracts) first before proceeding.
+
+1. Open the OMG Network Helper, scroll to the `Methods` section, and choose a `TRANSACT` tab:
+
+![](/img/multibaas/27.png)
+
+2. Fill in the required fields:
+
+- `Payable amount in wei` - the amount of tokens you want to send to another user
+- `Currency` - the token's smart contract
+- `Receiver` - an Ethereum wallet address of the receiver of funds
+- `Metadata` - an optional comment or extra information you want to state about this transaction (e.g. `Present`, `Invoice`, etc.)
+
+3. Click `SEND METHOD`, and `SIGN` a transaction in the opened popup as follows:
+
+![](/img/multibaas/28.png)
+
+4. Verify the result (optional).
+
+You can verify the transaction by copying its hash to the [Block Explorer](http://localhost:3000/next/environments#tools) of the corresponding network, or check your Web Wallet:
+
+![](/img/multibaas/29.png)
+
+![](/img/multibaas/30.png)
