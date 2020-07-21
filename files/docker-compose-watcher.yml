@@ -1,0 +1,87 @@
+version: "2.3"
+services:
+  postgres:
+    image: postgres:9.6.13-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: omisego_dev
+      POSTGRES_PASSWORD: omisego_dev
+      POSTGRES_DB: omisego_dev
+    healthcheck:
+      test: pg_isready -U omisego_dev
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  watcher:
+    image: ${WATCHER_IMAGE}
+    command: "full_local"
+    environment:
+      - ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
+      - CHILD_CHAIN_URL=${CHILD_CHAIN_URL}
+      - ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
+      - AUTHORITY_ADDRESS=${AUTHORITY_ADDRESS}
+      - TXHASH_CONTRACT=${TXHASH_CONTRACT}
+      - CONTRACT_ADDRESS_PLASMA_FRAMEWORK=${CONTRACT_ADDRESS_PLASMA_FRAMEWORK}
+      - CONTRACT_ADDRESS_ETH_VAULT=${CONTRACT_ADDRESS_ETH_VAULT}
+      - CONTRACT_ADDRESS_ERC20_VAULT=${CONTRACT_ADDRESS_ERC20_VAULT}
+      - CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=${CONTRACT_ADDRESS_PAYMENT_EXIT_GAME}
+      - DATABASE_URL=postgres://omisego_dev:omisego_dev@postgres:5432/omisego_dev
+      - PORT=7434
+      - DD_DISABLED=true
+      - DB_PATH=/app/.omg/data
+      - ETHEREUM_EVENTS_CHECK_INTERVAL_MS=8000
+      - ETHEREUM_STALLED_SYNC_THRESHOLD_MS=300000
+      - ETHEREUM_BLOCK_TIME_SECONDS=15
+      - EXIT_PROCESSOR_SLA_MARGIN=5520
+      - EXIT_PROCESSOR_SLA_MARGIN_FORCED=TRUE
+      - LOGGER_BACKEND=console
+      - DD_HOSTNAME=datadog
+      - APP_ENV=local-development
+    restart: always
+    ports:
+      - "7434:7434"
+    healthcheck:
+      test: curl watcher:7434
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  watcher_info:
+    image: ${WATCHER_INFO_IMAGE}
+    command: "full_local"
+    environment:
+      - ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
+      - CHILD_CHAIN_URL=${CHILD_CHAIN_URL}
+      - ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
+      - AUTHORITY_ADDRESS=${AUTHORITY_ADDRESS}
+      - TXHASH_CONTRACT=${TXHASH_CONTRACT}
+      - CONTRACT_ADDRESS_PLASMA_FRAMEWORK=${CONTRACT_ADDRESS_PLASMA_FRAMEWORK}
+      - CONTRACT_ADDRESS_ETH_VAULT=${CONTRACT_ADDRESS_ETH_VAULT}
+      - CONTRACT_ADDRESS_ERC20_VAULT=${CONTRACT_ADDRESS_ERC20_VAULT}
+      - CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=${CONTRACT_ADDRESS_PAYMENT_EXIT_GAME}
+      - DATABASE_URL=postgres://omisego_dev:omisego_dev@postgres:5432/omisego_dev
+      - PORT=7534
+      - DD_DISABLED=true
+      - DB_PATH=/app/.omg/data
+      - ETHEREUM_EVENTS_CHECK_INTERVAL_MS=8000
+      - ETHEREUM_STALLED_SYNC_THRESHOLD_MS=300000
+      - ETHEREUM_BLOCK_TIME_SECONDS=15
+      - EXIT_PROCESSOR_SLA_MARGIN=5520
+      - EXIT_PROCESSOR_SLA_MARGIN_FORCED=TRUE
+      - LOGGER_BACKEND=console
+      - DD_HOSTNAME=datadog
+      - APP_ENV=local-development
+    restart: always
+    ports:
+      - "7534:7534"
+    healthcheck:
+      test: curl watcher_info:7534
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    depends_on:
+      postgres:
+        condition: service_healthy
