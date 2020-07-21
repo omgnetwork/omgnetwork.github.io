@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>MultiBaas by Curvegrid · OMG Network</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="*By the end of the guide you should know how to interact with Ethereum smart contracts using MultiBaas tool provided by [Curvegrid](https://curvegrid.com/).*"/><meta name="docsearch:version" content="V1"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="MultiBaas by Curvegrid · OMG Network"/><meta property="og:type" content="website"/><meta property="og:url" content="https://omgnetwork.github.io/"/><meta property="og:description" content="*By the end of the guide you should know how to interact with Ethereum smart contracts using MultiBaas tool provided by [Curvegrid](https://curvegrid.com/).*"/><meta property="og:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-154130721-1"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-154130721-1');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/><script type="text/javascript" src="js/typeform.js"></script><script type="text/javascript" src="js/g-tag.js"></script><script type="text/javascript" src="js/h-jar.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="js/intercom.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo/omg-white.svg" alt="OMG Network"/></a><a href="/versions"><h3>V1</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/welcome" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/api" target="_self">APIs</a></li><li class="siteNavGroupActive"><a href="/environments" target="_self">Environments</a></li><li class=""><a href="https://omg.network" target="_blank">Product</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>3-rd Party</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/welcome">About the OMG Network</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Network</h3><ul class=""><li class="navListItem"><a class="navItem" href="/network/start">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/network/balances">Retrieve Balances</a></li><li class="navListItem"><a class="navItem" href="/network/deposits">Deposit Funds</a></li><li class="navListItem"><a class="navItem" href="/network/transfers">Make a Transfer</a></li><li class="navListItem"><a class="navItem" href="/network/standard-exits">Start a Standard Exit</a></li><li class="navListItem"><a class="navItem" href="/network/in-flight-exits">Start an In-flight Exit</a></li><li class="navListItem"><a class="navItem" href="/network/process-exits">Process an Exit</a></li><li class="navListItem"><a class="navItem" href="/network/utxos">Manage UTXOs</a></li><li class="navListItem"><a class="navItem" href="/network/challenge-exits">Challenge an Exit</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Wallet</h3><ul class=""><li class="navListItem"><a class="navItem" href="/wallet/quick-start-webwallet">Web Wallet Quick Start</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contracts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/contracts/plasma-proposition">Plasma Proposition</a></li><li class="navListItem"><a class="navItem" href="/contracts/admin-accounts">Administrative Accounts</a></li><li class="navListItem"><a class="navItem" href="/contracts/morevp">MoreVP Technical Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Watcher</h3><ul class=""><li class="navListItem"><a class="navItem" href="/watcher/run-watcher-locally">Run Watcher Locally</a></li><li class="navListItem"><a class="navItem" href="/watcher/run-watcher-vps">Run a Watcher on VPS</a></li><li class="navListItem"><a class="navItem" href="/watcher/manage-vps">Manage a VPS</a></li><li class="navListItem"><a class="navItem" href="/watcher/manage-watcher">Manage a Watcher</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Security</h3><ul class=""><li class="navListItem"><a class="navItem" href="/security/bug-bounty">Bug Bounty Program</a></li><li class="navListItem"><a class="navItem" href="/security/audits">Contracts Audits</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">3-rd Party</h3><ul class=""><li class="navListItem"><a class="navItem" href="/3rd-party/metamask">MetaMask</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/3rd-party/multibaas">MultiBaas</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/network/blockchain-design">Blockchain Design</a></li><li class="navListItem"><a class="navItem" href="/network/byzantine-conditions">Byzantine Conditions</a></li><li class="navListItem"><a class="navItem" href="/network/network-architecture">Network Architecture</a></li><li class="navListItem"><a class="navItem" href="/network/challenge-period">Challenge Period</a></li><li class="navListItem"><a class="navItem" href="/network/exitbonds">Exit Bonds</a></li><li class="navListItem"><a class="navItem" href="/network/fees">Fees</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/glossary">Glossary</a></li><li class="navListItem"><a class="navItem" href="/faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/api">API References</a></li><li class="navListItem"><a class="navItem" href="/environments">Environments</a></li><li class="navListItem"><a class="navItem" href="/release-notes">Release Notes</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Migration Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/migration-0.2-0.3">0.2 to 0.3</a></li><li class="navListItem"><a class="navItem" href="/migration-0.3-0.4">0.3 to 0.4</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">MultiBaas by Curvegrid</h1></header><article><div><span><p><em>By the end of the guide you should know how to interact with Ethereum smart contracts using MultiBaas tool provided by <a href="https://curvegrid.com/">Curvegrid</a>.</em></p>
+<h3><a class="anchor" aria-hidden="true" id="goals"></a><a href="#goals" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Goals</h3>
+<p>You should use this guide if you need to accomplish one of the following goals:</p>
+<ul>
+<li>Mint (issue / generate) ERC20 tokens.</li>
+<li>Burn (destroy) ERC20 tokens.</li>
+<li>Deposit ERC20 tokens to the OMG Network.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="prerequisites"></a><a href="#prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequisites</h3>
+<ol>
+<li>Chrome or Brave browser.</li>
+<li><a href="https://MetaMask.io/download.html">MetaMask</a> wallet extension with $5-$10 worth of ETH.</li>
+<li>Basic understanding of Ethereum blockchain.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h3>
+<p>Traditionally, minting and managing ERC20 tokens involves help from a blockchain engineer that understands smart contracts. However, the goal of the OMG Network is to eliminate this barrier and deliver a product that can be used by any enterprise client.</p>
+<p>That's why we partnered with <a href="https://www.curvegrid.com/">Curvegrid</a> to provide an easy solution for software companies that plan on working with the Ethereum blockchain and the OMG Network. Curvegrid platform offers a rich REST API for developers, as well as an intuitive administrative panel to manage various smart contracts for regular users.</p>
+<p>This guide demonstrates how users/admins can use the latter option to manage ERC20 tokens.</p>
+<h3><a class="anchor" aria-hidden="true" id="issue-erc20-tokens"></a><a href="#issue-erc20-tokens" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Issue ERC20 Tokens</h3>
+<p>To issue ERC20 tokens using MultiBaas use the following steps:</p>
+<ol>
+<li>Create a <a href="https://console.curvegrid.com/signup">Curvegrid account</a>.</li>
+</ol>
+<p>During the sign up you will need to choose the Ethereum network you want to work with:</p>
+<ul>
+<li>Ropsten/Rinkeby - the Ethereum testnets. All of the transactions that happen on these networks are for test purposes only. The funds used on Ropsten or Rinkeby are not real.</li>
+<li>Mainnet - the Ethereum mainnet. All of the transactions that happen on this network are for production purposes. The funds used on this network are real, so make sure you don't lose access to them.</li>
+<li>Curvegrid - the network created by Curvegrid, won't be covered during this guide.</li>
+</ul>
+<ol start="2">
+<li>Select <code>CONTRACTS -&gt; Contracts</code> menu and choose <code>Mlti Token</code> contract:</li>
+</ol>
+<p><img src="/img/multibaas/01.png" alt=""></p>
+<ol start="3">
+<li>Select <code>DEPLOY / LINK CONTRACT</code>:</li>
+</ol>
+<p><img src="/img/multibaas/02.png" alt=""></p>
+<ol start="4">
+<li>Fill the parameters for your new token.</li>
+</ol>
+<p>The values of the Parameters have the following descriptions:</p>
+<ul>
+<li>Label - an internal label inside of the MultiBaas panel of the current contract. You may leave a default option or change it to the name of your token.</li>
+<li>Owner - a public address (public key) of the owner of the Ethereum wallet that will issue and manage the tokens later.</li>
+<li>Name - the name of your token (e.g. Morty).</li>
+<li>Symbol - a short symbol of your token, usually it's 3-5 capitalized characters (e.g. MRTY or MRT).</li>
+<li>Decimals - token's precision after a comma. You can put up to 18 decimal points (used by default). We do recommend to use this option only if you're planning to send smaller amounts of tokens (e.g if you put 2 decimals, you will have a chance to send 4.25 tokens).</li>
+</ul>
+<p><img src="/img/multibaas/03.png" alt=""></p>
+<ol start="5">
+<li>Select an address to sign your transaction.</li>
+</ol>
+<p>When you're using MultiBaas the first time, you need to add a public key of the MetaMask wallet you will use to sign all of the transactions for your token. If you haven't set up a MetaMask wallet yet, feel free to use <a href="/3rd-party/metamask#install-metamask">this guide</a>.</p>
+<p>To sign a transaction, click <code>select an address</code> on the right side of the <code>DEPLOY</code> button. This will automatically offer a public key of the currently used MetaMask wallet. If the address is correct, press the <code>+</code> button as follows:</p>
+<p><img src="/img/multibaas/04.png" alt=""></p>
+<p>Then, add a label for your wallet (e.g. admin, moderator, core, test, etc):</p>
+<p><img src="/img/multibaas/05.png" alt=""></p>
+<ol start="6">
+<li>Deploy the contract.</li>
+</ol>
+<p>Finally, select the address that you've just added, and click the <code>DEPLOY</code>. This will prompt a MetaMask popup. Press <code>Confirm</code> and wait for a few seconds:</p>
+<p><img src="/img/multibaas/07.png" alt=""></p>
+<p>If a transaction is successful, you will see the following confirmation message:</p>
+<p><img src="/img/multibaas/08.png" alt=""></p>
+<ol start="7">
+<li>Verify the result.</li>
+</ol>
+<p>Congratulations, you've just created your first ERC20 token. To verify that the token was created, copy the contract address and paste it into <a href="https://etherscan.io">Etherescan</a>.</p>
+<ol start="8">
+<li>Change the total supply of your token.</li>
+</ol>
+<p>The last step is to change the total supply of your token. First, select Mlti Token contract on the left sidebar and choose your token as follows:</p>
+<p><img src="/img/multibaas/09.png" alt=""></p>
+<p>Then, scroll to the <code>Mint</code> method, enter the number of tokens you want to issue, and click <code>SEND METHOD</code>. This will prompt a MetaMask pop up that you need to confirm:</p>
+<p><img src="/img/multibaas/10.png" alt=""></p>
+<p>After confirming a transaction, you will see the following confirmation message:</p>
+<p><img src="/img/multibaas/11.png" alt=""></p>
+<p>To verify that the total supply was changed, copy a transaction hash to the <a href="https://etherscan.io/">Etherscan</a>, and select the token name to view its details as follows:</p>
+<p><img src="/img/multibaas/12.png" alt=""></p>
+<blockquote>
+<p>Note, you need to choose the correct network when working with the blockchain explorer. This guide demonstrates the token issuance on the Ropsten network.</p>
+</blockquote>
+<p>You can also check the total supply in the MultiBaas account of the Mlti Token page:</p>
+<p><img src="/img/multibaas/13.png" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="burn-erc20-tokens"></a><a href="#burn-erc20-tokens" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Burn ERC20 Tokens</h3>
+<p>Burning tokens event takes a defined number of tokens out of circulation. The procedure is similar to tokens' issuing.</p>
+<p>First, open the <code>Mltitoken</code> page and select your token. Then, enter the number of tokens to burn, and press <code>SEND METHOD</code>. This will prompt a MetaMask popup that you need to confirm:</p>
+<p><img src="/img/multibaas/14.png" alt=""></p>
+<p>After confirming a transaction, you will see the following confirmation message:</p>
+<p><img src="/img/multibaas/15.png" alt=""></p>
+<p>You can verify the result by checking token's details on <a href="https://etherscan.io/">Etherscan</a> or your MultiBaas page:</p>
+<p><img src="/img/multibaas/16.png" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="link-omg-network-contracts"></a><a href="#link-omg-network-contracts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Link OMG Network Contracts</h3>
+<p>Interacting with the OMG Network via MultiBass requires to link several smart contracts. You can find the corresponding values of your network in the <a href="/environments">Environments page</a>. The values should be defined as follows:</p>
+<ul>
+<li>Erc20vault: <code>CONTRACT_ADDRESS_ERC20_VAULT</code></li>
+<li>Eth Vault: <code>CONTRACT_ADDRESS_ETH_VAULT</code></li>
+<li>Plasma Framework: <code>CONTRACT_ADDRESS_PLASMA_FRAMEWORK</code></li>
+<li>Payment Exit Game: <code>CONTRACT_ADDRESS_PAYMENT_EXIT_GAME</code></li>
+</ul>
+<p>The steps below will cover how to link <code>Erc20Vault</code> but it can be applied to any contract. Also, the example demonstrates how to work on the Ropsten network (testnet). Make sure to set up the Mainnet instance on the Curvegrid admin panel first if you need to work with the real funds.</p>
+<ol>
+<li>Select the defined contract (e.g. <code>Erc20 Vault</code>) on the left sidebar, and click <code>DEPLOY / LINK CONTRACT</code> as follows:</li>
+</ol>
+<p><img src="/img/multibaas/18.png" alt=""></p>
+<ol start="2">
+<li>Copy the value of the defined contract (e.g. <code>Erc20 Vault</code>):</li>
+</ol>
+<p><img src="/img/multibaas/19.png" alt=""></p>
+<ol start="3">
+<li>Paste the value into <code>Contract Address</code> field and press <code>LINK</code> as follows:</li>
+</ol>
+<p><img src="/img/multibaas/20.png" alt=""></p>
+<p>You should see a success confirmation after you linked the contract.</p>
+<ol start="4">
+<li>Go to the contract and verify that you retrieve contract's events:</li>
+</ol>
+<p><img src="/img/multibaas/21.png" alt=""></p>
+<ol start="5">
+<li>Repeat steps 1-4 for all OMG Network's contracts (mentioned at the beginning of this section).</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="deposit-erc20-tokens-to-the-omg-network"></a><a href="#deposit-erc20-tokens-to-the-omg-network" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deposit ERC20 Tokens to the OMG Network</h3>
+<p>To make transfers on the OMG Network, you need to deposit funds from the Ethereum network first. You may follow the <a href="/wallet/quick-start-webwallet#13-make-an-erc20-deposit">Web Wallet Quickstart</a>, however, you can achieve the same result with MultiBaas too.</p>
+<blockquote>
+<p>Note, it's required to <a href="#link-omg-network-contracts">link smart contracts</a> first before proceeding.</p>
+</blockquote>
+<p>To deposit ERC20 tokens to the OMG Network, use the following steps:</p>
+<ol>
+<li>Select the OMG Network Helper under the <code>MODULES</code> section as follows:</li>
+</ol>
+<p><img src="/img/multibaas/22.png" alt=""></p>
+<ol start="2">
+<li><p>Scroll to the <code>Methods</code> block, select the <code>DEPOSIT</code> tab and choose the <code>Deposit ERC20</code> contract.</p></li>
+<li><p>Put the number of tokens you want to deposit and click the <code>SEND METHOD</code> button as follows:</p></li>
+</ol>
+<p><img src="/img/multibaas/23.png" alt=""></p>
+<p>This will prompt a popup that you need to confirm. If the token hasn't been used on the OMG Network before, you need to confirm two transactions: approval and deposit. Otherwise, you'll have to confirm only a deposit transaction.</p>
+<p>After the confirmation, you'll see a success message:</p>
+<p><img src="/img/multibaas/24.png" alt=""></p>
+<ol start="4">
+<li>Verify that your tokens have been deposited to the OMG Network with a web wallet of the <a href="/environments#tools">corresponding environment</a>:</li>
+</ol>
+<p><img src="/img/multibaas/25.png" alt=""></p>
+<p>You may also verify the deposited tokens on the MultiBaas panel in the <code>Erc20 Vault</code> <code>Events</code> section:</p>
+<p><img src="/img/multibaas/26.png" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="make-an-erc20-transaction-on-the-omg-network"></a><a href="#make-an-erc20-transaction-on-the-omg-network" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Make an ERC20 Transaction on the OMG Network</h3>
+<p>MultiBaas provides a simple way to do transactions on the OMG Network. To make a transfer, use the following steps:</p>
+<blockquote>
+<p>Note, it's required to <a href="#link-omg-network-contracts">link smart contracts</a> first before proceeding.</p>
+</blockquote>
+<ol>
+<li>Open the OMG Network Helper, scroll to the <code>Methods</code> section, and choose a <code>TRANSACT</code> tab:</li>
+</ol>
+<p><img src="/img/multibaas/27.png" alt=""></p>
+<ol start="2">
+<li>Fill in the required fields:</li>
+</ol>
+<ul>
+<li><code>Payable amount in wei</code> - the amount of tokens you want to send to another user</li>
+<li><code>Currency</code> - the token's smart contract</li>
+<li><code>Receiver</code> - an Ethereum wallet address of the receiver of funds</li>
+<li><code>Metadata</code> - an optional comment or extra information you want to state about this transaction (e.g. <code>Present</code>, <code>Invoice</code>, etc.)</li>
+</ul>
+<ol start="3">
+<li>Click <code>SEND METHOD</code>, and <code>SIGN</code> a transaction in the opened popup as follows:</li>
+</ol>
+<p><img src="/img/multibaas/28.png" alt=""></p>
+<ol start="4">
+<li>Verify the result (optional).</li>
+</ol>
+<p>You can verify the transaction by copying its hash to the <a href="http://localhost:3000/next/environments#tools">Block Explorer</a> of the corresponding network, or check your Web Wallet:</p>
+<p><img src="/img/multibaas/29.png" alt=""></p>
+<p><img src="/img/multibaas/30.png" alt=""></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/3rd-party/metamask"><span class="arrow-prev">← </span><span class="function-name-prevnext">MetaMask</span></a><a class="docs-next button" href="/network/blockchain-design"><span>Blockchain Design</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a href="/contracts/morevp">MoreVP Architecture</a></span><span class="footer-item"><a href="/wallet/quick-start-webwallet">Web Wallet Quick Start</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/web-wallet">Web Wallet Code</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/omg-js-samples">omg-js samples</a></span></div><div class="footer-column"><span class="footer-title">API References</span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs">Watcher
+Informational API</a></span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
+Security Critical API</a></span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Integration Docs</span><span class="footer-item"><a href="https://github.com/omgnetwork/elixir-omg/blob/master/README.md">Elixir-omg</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/omg-js/blob/master/README.md">Omg-js</a></span><span class="footer-item"><a href="/network/start">Tutorials</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/plasma-contracts">Plasma Contracts</a></span></div><div class="footer-column"><span class="footer-title">Resources</span><span class="footer-item"><a href="https://omg.eco/blockexplorer">Block Explorer</a></span><span class="footer-item"><a href="https://www.omg.network">OMG Network</a></span><span class="footer-item"><a href="https://github.com/omgnetwork">Github</a></span></div><div class="footer-column"><span class="footer-title">Follow us</span><span class="footer-item"><a href="https://twitter.com/omgnetworkhq"><img src="/img/social/twitter.svg" alt="twitter" class="footer-social"/></a><a href="https://www.linkedin.com/company/omgnetwork/"><img src="/img/social/linkedin.svg" alt="linkedin" class="footer-social"/></a><a href="https://github.com/omgnetwork"><img src="/img/social/github.svg" alt="github" class="footer-social"/></a><br/> <br/><span class="footer-copyright">© 2019-present OMG Network.
+All rights reserved</span></span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+                indexName: 'omisego',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

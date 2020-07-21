@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>MetaMask · OMG Network</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="*By the end of the guide you should know how to install and manage MetaMask, a digital wallet for ETH and ERC20 tokens.*"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="MetaMask · OMG Network"/><meta property="og:type" content="website"/><meta property="og:url" content="https://omgnetwork.github.io/"/><meta property="og:description" content="*By the end of the guide you should know how to install and manage MetaMask, a digital wallet for ETH and ERC20 tokens.*"/><meta property="og:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-154130721-1"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-154130721-1');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/><script type="text/javascript" src="js/typeform.js"></script><script type="text/javascript" src="js/g-tag.js"></script><script type="text/javascript" src="js/h-jar.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="js/intercom.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo/omg-white.svg" alt="OMG Network"/></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/next/welcome" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/next/api" target="_self">APIs</a></li><li class="siteNavGroupActive"><a href="/next/environments" target="_self">Environments</a></li><li class=""><a href="https://omg.network" target="_blank">Product</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>3-rd Party</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/welcome">About the OMG Network</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Network</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/network/start">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/next/network/balances">Retrieve Balances</a></li><li class="navListItem"><a class="navItem" href="/next/network/deposits">Deposit Funds</a></li><li class="navListItem"><a class="navItem" href="/next/network/transfers">Make a Transfer</a></li><li class="navListItem"><a class="navItem" href="/next/network/standard-exits">Start a Standard Exit</a></li><li class="navListItem"><a class="navItem" href="/next/network/in-flight-exits">Start an In-flight Exit</a></li><li class="navListItem"><a class="navItem" href="/next/network/process-exits">Process an Exit</a></li><li class="navListItem"><a class="navItem" href="/next/network/utxos">Merge or Split UTXO</a></li><li class="navListItem"><a class="navItem" href="/next/network/challenge-exits">Challenge an Exit</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Wallet</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/wallet/quick-start-webwallet">Web Wallet Quick Start</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contracts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/contracts/plasma-proposition">Plasma Proposition</a></li><li class="navListItem"><a class="navItem" href="/next/contracts/admin-accounts">Administrative Accounts</a></li><li class="navListItem"><a class="navItem" href="/next/contracts/morevp">MoreVP Technical Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Watcher</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/watcher/run-watcher-locally">Run Watcher Locally</a></li><li class="navListItem"><a class="navItem" href="/next/watcher/run-watcher-vps">Run a Watcher on VPS</a></li><li class="navListItem"><a class="navItem" href="/next/watcher/manage-vps">Manage a VPS</a></li><li class="navListItem"><a class="navItem" href="/next/watcher/manage-watcher">Manage a Watcher</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Security</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/security/bug-bounty">Bug Bounty Program</a></li><li class="navListItem"><a class="navItem" href="/next/security/audits">Contracts Audits</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">3-rd Party</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/next/3rd-party/metamask">MetaMask</a></li><li class="navListItem"><a class="navItem" href="/next/3rd-party/multibaas">MultiBaas</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/network/blockchain-design">Blockchain Design</a></li><li class="navListItem"><a class="navItem" href="/next/network/byzantine-conditions">Byzantine Conditions</a></li><li class="navListItem"><a class="navItem" href="/next/network/network-architecture">Network Architecture</a></li><li class="navListItem"><a class="navItem" href="/next/network/challenge-period">Challenge Period</a></li><li class="navListItem"><a class="navItem" href="/next/network/exitbonds">Exit Bonds</a></li><li class="navListItem"><a class="navItem" href="/next/network/fees">Fees</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/glossary">Glossary</a></li><li class="navListItem"><a class="navItem" href="/next/faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/next/api">API References</a></li><li class="navListItem"><a class="navItem" href="/next/environments">Environments</a></li><li class="navListItem"><a class="navItem" href="/next/release-notes">Release Notes</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Migration Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/next/migration-0.2-0.3">0.2 to 0.3</a></li><li class="navListItem"><a class="navItem" href="/next/migration-0.3-0.4">0.3 to 0.4</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">MetaMask</h1></header><article><div><span><p><em>By the end of the guide you should know how to install and manage MetaMask, a digital wallet for ETH and ERC20 tokens.</em></p>
+<h2><a class="anchor" aria-hidden="true" id="prerequisites"></a><a href="#prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequisites</h2>
+<ul>
+<li>Chrome or Brave browser</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="install-metamask"></a><a href="#install-metamask" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install MetaMask</h3>
+<p><a href="https://MetaMask.io/">MetaMask</a> offers a mobile wallet and a browser extension. This guide will focus on the latter because it's the most used form of interaction with the application.</p>
+<p>The installation process is similar to installing any other browser extension. You can find the latest version on the <a href="https://MetaMask.io/download.html">official website</a> or the Chrome Webstore. Click <code>Add to Chrome</code> button and confirm as follows:</p>
+<p><img src="/img/MetaMask/m2.png" alt="MetaMask-"></p>
+<h3><a class="anchor" aria-hidden="true" id="create-your-first-wallet"></a><a href="#create-your-first-wallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create Your First Wallet</h3>
+<p>After installing the MetaMask extension, you will be prompted to get started. Follow the instructions and create your first wallet by clicking on the <code>Create a Wallet</code> button.</p>
+<p><img src="/img/MetaMask/m3.png" width="500"></p>
+<p>Then, agree with the privacy policy and generate a secure password you will use to work with the application as follows:</p>
+<p><img src="/img/MetaMask/m4.png" width="500"></p>
+<p>The last step is to save and verify your backup phrase. This is a mechanism to make sure you can always restore your funds if you lose access to the laptop or mobile device where the wallet is currently used.</p>
+<p><img src="/img/MetaMask/m5.png" width="500"></p>
+<p>Make sure to save this phrase in a secure place offline, and never share it with anybody. After you copied the secret words, you'll need to enter them in the exact sequence as they were presented to you before.</p>
+<p>As a result, you can finally access your Ethereum wallet as follows:</p>
+<p><img src="/img/MetaMask/m6.png" width="500"></p>
+<h3><a class="anchor" aria-hidden="true" id="add-erc20-tokens"></a><a href="#add-erc20-tokens" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add ERC20 Tokens</h3>
+<p>Working with the Ethereum network implies working with ERC20 tokens. Each token is defined by its smart contract address that you can find on <a href="https://etherscan.io/">Etherescan</a> or other blockchain explorers:</p>
+<p><img src="/img/MetaMask/m7.png" alt=""></p>
+<p>After you copied the contract address, open your MetaMask wallet, and add a custom token as follows:</p>
+<p><img src="/img/MetaMask/m8.png" alt=""></p>
+<p>Note, the tokens in your wallet will appear immediately only if you're the issuer of this token. Otherwise, you won't see any tokens in your wallet until somebody sends them to you.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/next/security/audits"><span class="arrow-prev">← </span><span>Contracts Audits</span></a><a class="docs-next button" href="/next/3rd-party/multibaas"><span class="function-name-prevnext">MultiBaas</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#prerequisites">Prerequisites</a><ul class="toc-headings"><li><a href="#install-metamask">Install MetaMask</a></li><li><a href="#create-your-first-wallet">Create Your First Wallet</a></li><li><a href="#add-erc20-tokens">Add ERC20 Tokens</a></li></ul></li></ul></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a href="/contracts/morevp">MoreVP Architecture</a></span><span class="footer-item"><a href="/wallet/quick-start-webwallet">Web Wallet Quick Start</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/web-wallet">Web Wallet Code</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/omg-js-samples">omg-js samples</a></span></div><div class="footer-column"><span class="footer-title">API References</span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs">Watcher
+Informational API</a></span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
+Security Critical API</a></span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Integration Docs</span><span class="footer-item"><a href="https://github.com/omgnetwork/elixir-omg/blob/master/README.md">Elixir-omg</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/omg-js/blob/master/README.md">Omg-js</a></span><span class="footer-item"><a href="/network/start">Tutorials</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/plasma-contracts">Plasma Contracts</a></span></div><div class="footer-column"><span class="footer-title">Resources</span><span class="footer-item"><a href="https://omg.eco/blockexplorer">Block Explorer</a></span><span class="footer-item"><a href="https://www.omg.network">OMG Network</a></span><span class="footer-item"><a href="https://github.com/omgnetwork">Github</a></span></div><div class="footer-column"><span class="footer-title">Follow us</span><span class="footer-item"><a href="https://twitter.com/omgnetworkhq"><img src="/img/social/twitter.svg" alt="twitter" class="footer-social"/></a><a href="https://www.linkedin.com/company/omgnetwork/"><img src="/img/social/linkedin.svg" alt="linkedin" class="footer-social"/></a><a href="https://github.com/omgnetwork"><img src="/img/social/github.svg" alt="github" class="footer-social"/></a><br/> <br/><span class="footer-copyright">© 2019-present OMG Network.
+All rights reserved</span></span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+                indexName: 'omisego',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
