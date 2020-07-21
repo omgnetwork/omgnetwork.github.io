@@ -136,7 +136,7 @@ Transactions are signed using the [EIP-712](https://github.com/ethereum/EIPs/blo
 }
 ```
 
-The child chain server collects fees for sending a transaction. The fee can be paid in a variety of supported tokens by the network, the fee amount is automatically calculated by the child chain. To get more details on how the fees are defined, please refer to [Fees](/network/fees). Note, testnet and mainnet might support different currencies for fees.
+Note, the child chain server collects fees for sending a transaction. The fee can be paid in a variety of supported tokens by the network. To get more details on how the fees are defined, please refer to [Fees](/network/fees).
 
 #### 3.1 Method A
 

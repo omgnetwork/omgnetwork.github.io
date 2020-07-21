@@ -212,7 +212,7 @@ Once an in-flight exit is initiated, the Watcher emits a `piggyback_available` e
 
 This means that a user can `piggyback` onto the in-flight exit. This requires placing a `piggyback bond` on a UTXO from the available set in order to claim ownership and receive it on the root chain once the exit is finalized.
 
-To successfully withdraw an output `out` to a transaction `tx`, a transaction `tx` must prove that transaction is both [exitable](glossary#exitable-transaction) and [canonical](glossary#canonical-transaction).
+To successfully withdraw an output `out` to a transaction `tx`, a transaction `tx` must prove that transaction is both [exitable](/glossary#exitable-transaction) and [canonical](/glossary#canonical-transaction).
 
 There are specific scenarios when a user wants to exit the inputs in a **non-canonical** transaction. It must be established that the transaction is indeed non-canonical for this to be successful. Because a transaction is either canonical or non-canonical, you can withdraw either its inputs or outputs, not both.
 
