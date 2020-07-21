@@ -1,7 +1,7 @@
 ---
 id: version-V1-run-watcher-locally
-title: How to Run Watcher Locally
-sidebar_label: Run Watcher Locally
+title: How to Run a Watcher Locally
+sidebar_label: Run a Watcher Locally
 original_id: run-watcher-locally
 ---
 
@@ -144,7 +144,7 @@ Docker Compose allows defining and running multi-container Docker applications. 
 nano docker-compose-watcher.yml
 ```
 
-Then, copy and paste the [required configs](https://gist.github.com/dmitrydao/c69a886e30f29d49f853975bf7237cd6), save the changes with `ctrl+o` (Linux/Windows) or `control+o` (macOS) and `Enter` to confirm the changes respectively. Then exit the file with `ctrl+x` or `control+x`.
+Then, copy and paste the [required configs](/files/docker-compose-watcher.yml), save the changes with `ctrl+o` (Linux/Windows) or `control+o` (macOS) and `Enter` to confirm the changes respectively. Then exit the file with `ctrl+x` or `control+x`.
 
 #### 3.2 Configure Environment File
 
