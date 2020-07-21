@@ -81,7 +81,7 @@ If a transaction is successful, you will see the following confirmation message:
 
 7. Verify the result.
 
-Congratulations, you've just created your first ERC20 token. To verify that the token was created, copy the contract address and paste it into [Etherescan](https://etherscan.io). 
+Congratulations, you've just created your first ERC20 token. To verify that the token was created, copy the contract address and paste it into [Etherscan](https://etherscan.io). 
 
 8. Change the total supply of your token.
 
@@ -208,7 +208,7 @@ MultiBaas provides a simple way to do transactions on the OMG Network. To make a
 
 4. Verify the result (optional).
 
-You can verify the transaction by copying its hash to the [Block Explorer](http://localhost:3000/next/environments#tools) of the corresponding network, or check your Web Wallet:
+You can verify the transaction by copying its hash to the [Block Explorer](/environments#tools) of the corresponding network, or check your Web Wallet:
 
 ![](/img/multibaas/29.png)
 
