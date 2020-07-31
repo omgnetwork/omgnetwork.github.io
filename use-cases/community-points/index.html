@@ -1,0 +1,594 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Community Points Engine · OMG Network</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Table of Contents"/><meta name="docsearch:version" content="V1"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Community Points Engine · OMG Network"/><meta property="og:type" content="website"/><meta property="og:url" content="https://omgnetwork.github.io/"/><meta property="og:description" content="## Table of Contents"/><meta property="og:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-154130721-1"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-154130721-1');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/><script type="text/javascript" src="js/typeform.js"></script><script type="text/javascript" src="js/g-tag.js"></script><script type="text/javascript" src="js/h-jar.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="js/intercom.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo/omg-white.svg" alt="OMG Network"/></a><a href="/versions"><h3>V1</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/welcome" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/api" target="_self">APIs</a></li><li class="siteNavGroupActive"><a href="/environments" target="_self">Environments</a></li><li class=""><a href="https://omg.network" target="_blank">Product</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Use Cases</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/welcome">About the OMG Network</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Network</h3><ul class=""><li class="navListItem"><a class="navItem" href="/network/start">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/network/balances">Retrieve Balances</a></li><li class="navListItem"><a class="navItem" href="/network/deposits">Deposit Funds</a></li><li class="navListItem"><a class="navItem" href="/network/transfers">Make a Transfer</a></li><li class="navListItem"><a class="navItem" href="/network/standard-exits">Start a Standard Exit</a></li><li class="navListItem"><a class="navItem" href="/network/in-flight-exits">Start an In-flight Exit</a></li><li class="navListItem"><a class="navItem" href="/network/process-exits">Process an Exit</a></li><li class="navListItem"><a class="navItem" href="/network/utxos">Manage UTXOs</a></li><li class="navListItem"><a class="navItem" href="/network/challenge-exits">Challenge an Exit</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Use Cases</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/use-cases/community-points">Community Points Engine</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Wallet</h3><ul class=""><li class="navListItem"><a class="navItem" href="/wallet/quick-start-webwallet">Web Wallet Quick Start</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contracts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/contracts/plasma-proposition">Plasma Proposition</a></li><li class="navListItem"><a class="navItem" href="/contracts/admin-accounts">Administrative Accounts</a></li><li class="navListItem"><a class="navItem" href="/contracts/morevp">MoreVP Technical Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Watcher</h3><ul class=""><li class="navListItem"><a class="navItem" href="/watcher/run-watcher-locally">Run a Watcher Locally</a></li><li class="navListItem"><a class="navItem" href="/watcher/run-watcher-vps">Run a Watcher on VPS</a></li><li class="navListItem"><a class="navItem" href="/watcher/manage-vps">Manage a VPS</a></li><li class="navListItem"><a class="navItem" href="/watcher/manage-watcher">Manage a Watcher</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Security</h3><ul class=""><li class="navListItem"><a class="navItem" href="/security/bug-bounty">Bug Bounty Program</a></li><li class="navListItem"><a class="navItem" href="/security/audits">Contracts Audits</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">3-rd Party</h3><ul class=""><li class="navListItem"><a class="navItem" href="/3rd-party/metamask">MetaMask</a></li><li class="navListItem"><a class="navItem" href="/3rd-party/multibaas">MultiBaas</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/network/blockchain-design">Blockchain Design</a></li><li class="navListItem"><a class="navItem" href="/network/byzantine-conditions">Byzantine Conditions</a></li><li class="navListItem"><a class="navItem" href="/network/network-architecture">Network Architecture</a></li><li class="navListItem"><a class="navItem" href="/network/challenge-period">Challenge Period</a></li><li class="navListItem"><a class="navItem" href="/network/exitbonds">Exit Bonds</a></li><li class="navListItem"><a class="navItem" href="/network/fees">Fees</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/glossary">Glossary</a></li><li class="navListItem"><a class="navItem" href="/faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/api">API References</a></li><li class="navListItem"><a class="navItem" href="/environments">Environments</a></li><li class="navListItem"><a class="navItem" href="/release-notes">Release Notes</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Migration Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/migration-0.2-0.3">0.2 to 0.3</a></li><li class="navListItem"><a class="navItem" href="/migration-0.3-0.4">0.3 to 0.4</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Community Points Engine</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="table-of-contents"></a><a href="#table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table of Contents</h2>
+<ul>
+<li><a href="#1-introduction">1. Introduction</a>
+<ul>
+<li><a href="#11-overview">1.1 Overview</a></li>
+<li><a href="#12-glossary--terminology">1.2 Glossary / Terminology</a></li>
+<li><a href="#13-product-requirements">1.3 Product Requirements</a></li>
+<li><a href="#14-requirements">1.4 Requirements</a></li>
+</ul></li>
+<li><a href="#2-proposed-solution--design">2. Proposed Solution / Design</a>
+<ul>
+<li><a href="#21-demo-application-architecture">2.1 Demo Application Architecture</a>
+<ul>
+<li><a href="#211-application-flow--diagrams">2.1.1 Application Flow &amp; Diagrams</a></li>
+<li><a href="#212-server">2.1.2 Server</a></li>
+<li><a href="#213-client">2.1.3 Client</a></li>
+</ul></li>
+<li><a href="#22-proposed-contracts-design">2.2 Proposed Contracts Design</a>
+<ul>
+<li><a href="#221-smart-contracts">2.2.1 Smart Contracts</a></li>
+<li><a href="#222-user-flow">2.2.2 User Flow</a></li>
+<li><a href="#223-claim-transaction-demo">2.2.3 Claim Transaction Demo</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#3-further-considerations">3. Further Considerations</a>
+<ul>
+<li><a href="#31-an-alternative-claim-transaction-design">3.1 An Alternative Claim Transaction Design</a></li>
+<li><a href="#32-third-party-services">3.2 Third-party Services</a></li>
+<li><a href="#33-cost-and-performance">3.3 Cost and Performance</a>
+<ul>
+<li><a href="#331-throughput-performance">3.3.1 Throughput Performance</a></li>
+<li><a href="#332-cost">3.3.2 Cost</a></li>
+</ul></li>
+<li><a href="#33-security-considerations">3.3 Security Considerations</a></li>
+</ul></li>
+<li><a href="#4-resources">4. Resources</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-introduction"></a><a href="#1-introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Introduction</h2>
+<h3><a class="anchor" aria-hidden="true" id="11-overview"></a><a href="#11-overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.1 Overview</h3>
+<p>The main goal of the product is to give communities a means to create scalable points and rewards systems in a trustless manner. Due to technical limitations, the public blockchain infrastructure such as Ethereum cannot handle the required load of the modern points applications, thus a corresponding scaling solution should be introduced.</p>
+<p>Community Points Engine (CPE) is a working proof of concept application that utilizes OMG Network as a trustless, high throughput settlement rail for community points transactions. The full demonstration consists of a working application and this document which contains details on how special claim, burn, and subscription transactions can be implemented on the network. We demonstrate a full picture of how end users can have true ownership of community points and transact them in a manner that is fast, fee-less, trustless, and usable. All with the security guarantee offered by Ethereum blockchain.</p>
+<p>The demonstration consist of 3 different components:</p>
+<ol>
+<li>Community Points Client: a chrome plugin that simulates client application that demonstrates Web2.0 usability</li>
+<li>Community Points Server: a fee relayer server that absorbs transaction fees for users</li>
+<li>Community Points Contracts: a set of smart contracts that govern ERC20 Tokens</li>
+<li>Community Points Claim demo: a script that demonstrates claim transaction</li>
+<li>Community Points Admin Dashboard: a MultiBaaS dashboard that gives administrator/moderator simple access to make transactions and treasury management.</li>
+</ol>
+<p>The working application doesn't inlude the following components:</p>
+<ol>
+<li>Design blueprint for complete implementation</li>
+<li>25,000 subscriptions: due to time constraints, we were not able to demonstrate subscription transaction. However, we have proposed 2 designs for how this functionality could be implemented</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="12-glossary--terminology"></a><a href="#12-glossary--terminology" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.2 Glossary / Terminology</h3>
+<p><strong>CPE</strong> - Community Points Engine.</p>
+<p><strong>Community Points system</strong> - a general term for particular community points, rewards, or tipping system.</p>
+<p><strong>Community Points platform</strong> - a platform where Community Points system is being hosted, such as Reddit.</p>
+<p><strong>Community Points server</strong> - a server that allows performing fee-less transactions for users of a given Community Points platform.</p>
+<p><strong>OMG Network</strong> - a Layer 2 scaling solution for the Ethereum network.</p>
+<p><strong>Rootchain</strong> - the Ethereum network.</p>
+<p><strong>Childchain</strong> - the OMG Network.</p>
+<p><strong>Plasma</strong> - the name of a scaling solution of the OMG Network.</p>
+<p><strong>Smart contract</strong> - a self-executing contract that is running on a blockchain network, such as Ethereum.</p>
+<p><strong>Mint/minting</strong> - an event of issuing/creating new tokens on the Ethereum network.</p>
+<p><strong>KARMA</strong> - a reputation token that can be distributed by the Community Points platform to users on the OMG Network. These tokens allow users to claim points of a given community.</p>
+<p><strong>ROCK</strong> - a community point token for r/OMGnetwork.</p>
+<p><strong>Burn/burning</strong> - an event of eliminating existing tokens out of circulation on the Ethereum or OMG Network. This event implies that the tokens are sent to the non-recoverable address.</p>
+<p><strong>Fee Relay</strong> - a method to allow for a third party wallet application to absorb transaction fee for an end-user.</p>
+<p><strong>TCO</strong> - total cost of ownership</p>
+<h3><a class="anchor" aria-hidden="true" id="13-product-requirements"></a><a href="#13-product-requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.3 Product Requirements</h3>
+<h4><a class="anchor" aria-hidden="true" id="user-personas"></a><a href="#user-personas" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Personas</h4>
+<ol>
+<li>Customers/community members (e.g. subreddit community) - participants of a given Community Points system, service, network, website, portal, app, or forum who want to receive rewards, prizes, or discounts to stay more engaged.</li>
+<li>Moderator or admin (e.g. subreddit moderator) - a person(s) who creates rules, coordinates users' activity, helps to solve problems within a particular Community Points system.</li>
+<li>Management team (e.g. Reddit Community Points team) - a group of people who manage technical and operational requirements for a given Community Points system.</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="user-stories"></a><a href="#user-stories" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Stories</h4>
+<ol>
+<li>As a user, I can send tokens to another user via OMG Network in my browser while engaging with my community.</li>
+<li>As a user, I can see the balance of my tokens and my username in the browser while engaging with my community.</li>
+<li>As a user, I can view the history of transactions while engaging with my community.</li>
+<li>As a user, I can purchase various digital items while engaging with my community.</li>
+<li>As a moderator, I can mint, distribute, and burn tokens.</li>
+<li>As a management team, I can absorb transaction fees for users.</li>
+<li>As a management team, I'm sure that my production service can run on the OMG Network with an expected load.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="14-requirements"></a><a href="#14-requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.4 Requirements</h3>
+<p>The proposal fulfils all the below requirements.</p>
+<h4><a class="anchor" aria-hidden="true" id="scaling"></a><a href="#scaling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scaling</h4>
+<p>Over a 5 day period, your scaling PoC should be able to handle:</p>
+<ul>
+<li>100,000 point claims (minting &amp; distributing points)</li>
+<li>75,000 one-off points burning</li>
+<li>100,000 transfers</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="decentralization"></a><a href="#decentralization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Decentralization</h4>
+<p>The solution takes numerous trade-offs in having a central point of control, but still maintain trustlessness ownership of user funds.</p>
+<h4><a class="anchor" aria-hidden="true" id="usability"></a><a href="#usability" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usability</h4>
+<ul>
+<li>Transactions complete in a reasonable amount of time (seconds or minutes, not hours or days)</li>
+<li>Free to use for end users (no gas fees, or fixed/minimal fees that Reddit can pay on their behalf)</li>
+<li>Bonus points:
+<ul>
+<li>Users should be able to view their balances &amp; transactions via a blockchain explorer-style interface</li>
+<li>Exiting is fast &amp; simple</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="interoperability"></a><a href="#interoperability" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interoperability</h4>
+<ul>
+<li>Scaling solution should be extensible and allow third parties to build on top of it</li>
+<li>APIs should be well documented and stable</li>
+<li>Documentation should be clear and complete</li>
+<li>Third-party permissionless integrations should be possible &amp; straightforward</li>
+<li>Simple is better. Learning an uncommon or proprietary language should not be necessary. Advanced knowledge of mathematics, cryptography, or L2 scaling should not be required. Compatibility with common utilities &amp; toolchains is expected.</li>
+<li>Bonus Points:
+<ul>
+<li>Build an extra use case for Community Points.</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="security"></a><a href="#security" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Security</h4>
+<p>The proposed solution fulfills the following security criteria:</p>
+<ul>
+<li>Balances and transactions cannot be forged, manipulated, or blocked by Reddit or anyone else</li>
+<li>Users should own their points and be able to get on-chain ERC20 tokens without permission from anyone else</li>
+<li>Points should be recoverable to on-chain ERC20 tokens even if all third-parties involved go offline</li>
+<li>A public, third-party review attesting to the soundness of the design should be available</li>
+<li>Bonus points:
+<ul>
+<li>Public, third-party implementation review available or in progress</li>
+<li>Compatibility with HSMs &amp; hardware wallets</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="2-proposed-solution--design"></a><a href="#2-proposed-solution--design" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Proposed Solution / Design</h2>
+<h3><a class="anchor" aria-hidden="true" id="21-demo-application-architecture"></a><a href="#21-demo-application-architecture" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1 Demo Application Architecture</h3>
+<p><img src="/img/community-points/01.png" alt=""></p>
+<h4><a class="anchor" aria-hidden="true" id="community-points-client"></a><a href="#community-points-client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Community Points Client</h4>
+<p>We are utilizing the Web Browser as the user interface for this demonstration due to the simplicity of integration with current ecosystem tooling. The currently supported browsers are Brave and Chrome. Here are different components to the interface:</p>
+<ul>
+<li><p>r/OMGnetwork: the application is designed to work while the user is interacting in a specific community, in this case, it is <code>r/OMGnetwork</code>. This is also a way to introduce the product in a seamless manner and not risking breaking the experience of the Community Points platform.</p></li>
+<li><p>Web3 provider: any Web3 provider that injects Web3 object into the DOM, exposes the current user's Ethereum account balance and supports EIP712 transaction signing. Because we are reliant on a non-custodial solution, users will have full ownership of funds. For the demonstration, we push the responsibility for Web3 and wallet provider to MetaMask.</p></li>
+<li><p>Community Points extension: the user interface and core business logic for the user. It interacts with a few different services including the public Reddit API, Web3 provider, and fee relayer service. It currently offers multiple functionalities:</p>
+<ol>
+<li>Transact community points without fee tokens</li>
+<li>Purchase items (e.g. Flair) with community points token</li>
+<li>Address identity via community usernames</li>
+<li>View balance, and transaction history</li>
+</ol></li>
+</ul>
+<p>A browser extension is the easiest way to deploy and develop as a PoC. The Community Points client could be running on any other platform including natively on desktop and mobile as long as wallet signing APIs are provided.</p>
+<p>Our extension demonstrates how Community Points functionality can be introduced in a manner that is abstracted away from typical Blockchain usability, thus allows end-user to retain the same experience as community points transactions on regular Web2.0</p>
+<h4><a class="anchor" aria-hidden="true" id="community-points-platform-reddit"></a><a href="#community-points-platform-reddit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Community Points Platform: Reddit</h4>
+<p>The Community Points Engine runs on top of an existing Community Points platform. In our case, we leverage Reddit's public API for the following functions:</p>
+<ol>
+<li><p><em>User identity</em>: to reduce complexity around maintaining usernames and wallet address relation, we rely on the Community Platform's API as the sole identity provider. However, a more robust or trustless identity approach could be introduced.</p></li>
+<li><p><em>Online items purchases</em>: we rely on authenticated API to fetch and redeem online items of each user. This allows a user on our platform to burn points in exchange for premium flair.</p></li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="community-points-server"></a><a href="#community-points-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Community Points Server</h4>
+<p>The server-side of the Community Points Engine is where most of the complexity is handled. The server consists of multiple horizontally scaled Node.js services connected to a relational database. The services can perform the following features:</p>
+<ol>
+<li><p><em>Fee-relayed transactions</em>: the clients of the CPE can make fee-less transactions. From the usability perspective, it means that the user can make transactions on the network without paying transaction costs. This is also a useful abstraction for user onboarding without requiring additional ERC20 tokens and ETH. Fee-relay transactions is a design pattern and can be implemented natively on the OMG Network's UTXO transaction model.</p></li>
+<li><p><em>Serve multiple concurrent client transactions</em>: we utilize different services as a way of handling complex UTXO management. This means that the higher load on the network will not deteriorate the experience of other users. More client applications may transact with Points at the same time. This service meets the requirements for better transactional scalability and usability while preserving Plasma security.</p></li>
+<li><p><em>Cloud-based HSM module</em>: Given that compromised private keys can have catastrophic consequences for operators, we ensure that different key management approaches and standards are possible. High throughput hot wallet transactors like fee relayers are best managed on a Cloud-based hardware security module to be compliant with enterprise best practices. This implementation utilizes the MultiBaaS module along with Azure Vault.</p></li>
+</ol>
+<p>We support modern operational standards and run this application inside Docker container, orchestrated on Kubernetes with Google Cloud as the deployment target. However, infrastructure requirements can change based on the client's demand.</p>
+<h4><a class="anchor" aria-hidden="true" id="adminmoderator-dashboard"></a><a href="#adminmoderator-dashboard" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Admin/Moderator Dashboard</h4>
+<p>Treasury and funds management are difficult to achieve on a public blockchain, especially for platform administrators and moderators who are non-crypto native. We show that we can provide a highly usable abstraction for back-office operations via an admin dashboard provided on the MultiBaaS.</p>
+<p>Our community moderators can sign in via role-based access (RBAC) to make deposits, transactions, and Community Points distribution right on the dashboard without prior Web3 experience. They can have a choice to choose between non-custodial wallets such as MetaMask and Cloud HSM.</p>
+<h4><a class="anchor" aria-hidden="true" id="blockchain-infrastructure"></a><a href="#blockchain-infrastructure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Blockchain Infrastructure</h4>
+<p>This is the settlement layer of community points transactions as well as how the Community Points Engine maintains its trustlessness guarantees. You can read more about the Plasma protocol <a href="https://docs.omg.network/network/blockchain-design">here</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="211-application-flow--diagrams"></a><a href="#211-application-flow--diagrams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.1 Application Flow &amp; Diagrams</h3>
+<h4><a class="anchor" aria-hidden="true" id="swimlane-diagrams"></a><a href="#swimlane-diagrams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Swimlane Diagrams</h4>
+<ol>
+<li><em>Display username and balance</em></li>
+</ol>
+<p><img src="/img/community-points/02.png" alt=""></p>
+<ol start="2">
+<li><em>Make a fee-less transaction</em></li>
+</ol>
+<p><img src="/img/community-points/03.png" alt=""></p>
+<h4><a class="anchor" aria-hidden="true" id="application-flow"></a><a href="#application-flow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Application Flow</h4>
+<p>The overall flow using such architecture involves the following steps:</p>
+<ol>
+<li>A user opens a browser and installs the Community Points extension.</li>
+<li>A user goes to a subreddit that supports community points (e.g. <code>r/OMGnetwork</code>).</li>
+<li>An extension verifies that the user is located on a supported subreddit and prompts a signature request to connect via a Web3 wallet (e.g. MetaMask).</li>
+<li>A user confirms the signature and appears on the main screen of the extension.</li>
+<li>An extension fetches the user’s data from the Reddit Public API and presents this info to the extension interface.</li>
+<li>A user fills the amount and recipient username and initiates the transaction request to a fee relayer via an extension.</li>
+<li>An extension fetches and takes spendable user’s UTXO(s) that can cover the defined amount in the transaction.</li>
+<li>An extension makes a POST request <code>/create-relayed-tx</code> to create a relayed transaction.</li>
+<li>A fee relayer fetches its UTXO that can cover the transaction fee, and creates a transaction based on the user’s UTXO(s) and fee relayer’s UTXO.</li>
+<li>A fee relayer requests a user to sign a relayed transaction.</li>
+<li>A user signs a transaction with a Web3 wallet. If a user doesn’t sign a transaction, the extension cancels it by sending a POST request <code>/cancel-relayed-tx</code> to a fee relayer.</li>
+<li>An extension sends a POST request <code>/submit-relayed-tx</code> to a fee relayer to submit a transaction.</li>
+<li>A fee relayer signs the transaction and submits it to the OMG Network via the Watcher service. If you want the fee relayer to sign a transaction via HSM, you need to make a request to a MultiBaas platform first.</li>
+<li>Childchain operator creates a block on the OMG Network and submits it to the Ethereum network.</li>
+<li>After the transaction is confirmed, the user receives a notification and can view the transaction in the Block Explorer.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="212-server"></a><a href="#212-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.2 Server</h3>
+<h4><a class="anchor" aria-hidden="true" id="fee-relayer-api"></a><a href="#fee-relayer-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fee Relayer API</h4>
+<p>This section demonstrates a general overview of the Fee Relayer API. For more details, please refer to <a href="https://github.com/omgnetwork/community-points/blob/master/fee-relayer/swagger/swagger.yaml">Community Points Swagger document</a>.</p>
+<h5><a class="anchor" aria-hidden="true" id="create-a-relayed-transaction"></a><a href="#create-a-relayed-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a Relayed Transaction</h5>
+<pre><code class="hljs"><span class="hljs-string">POST </span>/<span class="hljs-built_in">create-relayed-tx</span>
+</code></pre>
+<p>Constructs a relayed transaction.</p>
+<p><em>Attributes:</em></p>
+<table>
+<thead>
+<tr><th style="text-align:left">Name</th><th style="text-align:left">Type</th><th style="text-align:left">Required</th><th style="text-align:left">Description</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">utxos</td><td style="text-align:left">[tx_input]</td><td style="text-align:left">Yes</td><td style="text-align:left">Transaction UTXOs</td></tr>
+<tr><td style="text-align:left">amount</td><td style="text-align:left">BigNum, string, int</td><td style="text-align:left">Yes</td><td style="text-align:left">Amount of tokens to send</td></tr>
+<tr><td style="text-align:left">to</td><td style="text-align:left">string</td><td style="text-align:left">Yes</td><td style="text-align:left">Receiver address</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="submit-a-relayed-transaction"></a><a href="#submit-a-relayed-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Submit a Relayed Transaction</h5>
+<pre><code class="hljs"><span class="hljs-symbol">POST</span> /<span class="hljs-keyword">submit-relayed-tx
+</span></code></pre>
+<p>Submits a relayed transaction.</p>
+<p><em>Attributes:</em></p>
+<table>
+<thead>
+<tr><th style="text-align:left">Name</th><th style="text-align:left">Type</th><th style="text-align:left">Required</th><th style="text-align:left">Description</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">tx</td><td style="text-align:left">tx</td><td style="text-align:left">Yes</td><td style="text-align:left">Transaction body</td></tr>
+<tr><td style="text-align:left">signatures</td><td style="text-align:left">[string]</td><td style="text-align:left">Yes</td><td style="text-align:left">A list of signatures to sign a transaction</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="cancel-a-relayed-transaction"></a><a href="#cancel-a-relayed-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cancel a Relayed Transaction</h5>
+<pre><code class="hljs">POST <span class="hljs-string">/cancel-relayed-tx</span>
+</code></pre>
+<p>Cancels a transaction</p>
+<p><em>Attributes:</em></p>
+<table>
+<thead>
+<tr><th style="text-align:left">Name</th><th style="text-align:left">Type</th><th style="text-align:left">Required</th><th style="text-align:left">Description</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">tx</td><td style="text-align:left">tx</td><td style="text-align:left">Yes</td><td style="text-align:left">Transaction body</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="213-client"></a><a href="#213-client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.3 Client</h3>
+<h4><a class="anchor" aria-hidden="true" id="views"></a><a href="#views" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Views</h4>
+<h5><a class="anchor" aria-hidden="true" id="main-view"></a><a href="#main-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Main View</h5>
+<p>The main view displays the name of the community points page (e.g. subreddit), the wallet address, and the current balance of the token that represents this particular Community Points system. A user should be able to copy the address by selecting it or clicking the copy button near the address.</p>
+<p>Additionally, the view contains <code>Transfer</code>, <code>History</code>, and <code>Merch</code> tabs that represent corresponding data or actions. By default, a selected tab is set to <code>Transfer</code>.</p>
+<h5><a class="anchor" aria-hidden="true" id="transfer-view"></a><a href="#transfer-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transfer View</h5>
+<p>Each user should be able to transfer funds to another user. One should put an amount and a recipient address that can represent a username (e.g. subreddit account name) or an Ethereum address, and confirm the transaction with a <code>Transfer</code> button. The username should be searchable.</p>
+<h5><a class="anchor" aria-hidden="true" id="history-view"></a><a href="#history-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>History View</h5>
+<p>The History View contains a list of transaction history for a token that represents a defined points system, in which the user is currently located (e.g. r/OMGnetwork subreddit).</p>
+<p>Each transaction item includes:</p>
+<ul>
+<li>An icon that represents sending or receiving of funds</li>
+<li><code>Sent</code> or <code>Received</code> message for a corresponding transaction type</li>
+<li>Transaction status: <code>Pending</code> or <code>Confirmed</code></li>
+<li>A wallet address of recipient or sender (depending on transaction type)</li>
+<li>The amount and token symbol</li>
+<li>A copy button that copies recipient or sender</li>
+</ul>
+<p>Also, each item should be clickable and refer to a blockchain explorer of the network used during a transaction (Rinkeby, Ropsten, or Mainnet). If history becomes too long, a user should see only the first few items, and retrieve the rest by clicking on the <code>Load more</code> button.</p>
+<h5><a class="anchor" aria-hidden="true" id="merch-view"></a><a href="#merch-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Merch View</h5>
+<p>The Merch View contains a list of digital goods (e.g. flair) a user can purchase. Each item should have its own icon and price. Each purchase is associated with certain metadata that defines a possessed item and implies the burning of tokens (sending tokens to non-recoverable address).</p>
+<h5><a class="anchor" aria-hidden="true" id="notification-views"></a><a href="#notification-views" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Notification Views</h5>
+<p>An extension should notify users in the following scenarios:</p>
+<ul>
+<li>When an extension is loading</li>
+<li>When a user is located on unsupported community points page (e.g. subreddit)</li>
+<li>When a user doesn't have a MetaMask extension</li>
+<li>When a user is not logged in with the MetaMask extension</li>
+<li>When user’s MetaMask is connected to the wrong network (e.g. Ropsten, instead of Mainnet)</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="mockups"></a><a href="#mockups" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mockups</h4>
+<h5><a class="anchor" aria-hidden="true" id="main--transfer-views"></a><a href="#main--transfer-views" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Main &amp; Transfer Views</h5>
+<p><img src="/img/community-points/04.png" alt=""></p>
+<h5><a class="anchor" aria-hidden="true" id="history-views"></a><a href="#history-views" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>History Views</h5>
+<p><img src="/img/community-points/05.png" alt=""></p>
+<h5><a class="anchor" aria-hidden="true" id="merch-views"></a><a href="#merch-views" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Merch Views</h5>
+<p><img src="/img/community-points/06.png" alt=""></p>
+<h5><a class="anchor" aria-hidden="true" id="notification-views-1"></a><a href="#notification-views-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Notification Views</h5>
+<p><img src="/img/community-points/07.png" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="22-proposed-contracts-design"></a><a href="#22-proposed-contracts-design" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.2 Proposed Contracts Design</h3>
+<p>We try to balance implementation complexity with the necessary trustlessness requirement as outlined in the specs. However, tokenomics is a complex topic that requires a substantial amount of iterative design process. For the purpose of this application, we will treat the subscription process as a black box, while offering 2 design choices that Community Points can take into production with sample code for demonstration purposes. Each solution design makes tradeoffs in cost, complexity, and feature requirements.</p>
+<p>The proposed solutions to facilitate claims and subscriptions include:</p>
+<ol>
+<li>Simple Claim and Subscription with full compatibility with current OMG Network V1.</li>
+<li>Claim and Subscription as special OMG Plasma Framework transaction types.</li>
+</ol>
+<p>The following section describes the first approach. The latter one will be outlined in the <a href="#31-claim-transaction-design-improvements">third section</a>.</p>
+<h4><a class="anchor" aria-hidden="true" id="221-smart-contracts"></a><a href="#221-smart-contracts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.2.1 Smart Contracts</h4>
+<p>The current design consists of 4 contracts:</p>
+<ul>
+<li>Distribution</li>
+<li>Subreddit Point</li>
+<li>Karma token</li>
+<li>Subscription Token</li>
+</ul>
+<h5><a class="anchor" aria-hidden="true" id="distribution-contract"></a><a href="#distribution-contract" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Distribution contract</h5>
+<p>This contract holds the main logic to decide how many community points (e.g. subreddit points) should be distributed on each round. This contract mints the community points according to the formula in this contract.</p>
+<p>For each round, it records the <code>baseSupply</code> and <code>availablePoints</code>. <code>baseSupply</code> is an integer that decreases a certain percentage on each round. The <code>availablePoints</code> is the amount of points that can be distributed on a certain round. <code>availablePoints</code> equals to <code>baseSupply</code> + 50% of the burned points on the previous round.</p>
+<h5><a class="anchor" aria-hidden="true" id="subreddit-point-contract"></a><a href="#subreddit-point-contract" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Subreddit Point contract</h5>
+<p>This is an ERC20 contract for the subreddit points. It should enable the <code>Distribution contract</code> to mint community points on each round.</p>
+<blockquote>
+<p>Note, this contract was designed specifically for a Reddit use case. It may have a different name for another Community Points platform.</p>
+</blockquote>
+<h5><a class="anchor" aria-hidden="true" id="karma-token-contract"></a><a href="#karma-token-contract" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Karma Token contract</h5>
+<p>This is a representative of Karma. It is an ERC20 token that can be distributed by the Community Points platform (e.g. Reddit) to users on the OMG Network. Users can use the received Karma to create a &quot;Claim&quot; transaction to receive points of a given community (e.g. subreddit points).</p>
+<h5><a class="anchor" aria-hidden="true" id="subscription-token-contract"></a><a href="#subscription-token-contract" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Subscription Token contract</h5>
+<p>Instead of having an expiration date on each subscription, we use a simpler design where a subscription token represents the subscription status of a certain period. For instance, there can be a subscription token representing the subscription of January 2020. Proof of ownership of the token shows the subscription status.</p>
+<p>This simplifies the timing issue on Layer 1 and Layer 2. Also, this enables the possibility of using an ERC20 token to represent subscription and do it on the current version of the OMG Network.</p>
+<h4><a class="anchor" aria-hidden="true" id="222-user-flow"></a><a href="#222-user-flow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.2.2 User Flow</h4>
+<p><img src="/img/community-points/08.png" alt=""></p>
+<h5><a class="anchor" aria-hidden="true" id="initiate-next-distribution-round"></a><a href="#initiate-next-distribution-round" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initiate next distribution round</h5>
+<p>This flow would be initiated by the community owner. It should call a <code>Distribution</code> contract to start the next round. Inside the <code>Distribution</code> contract it will auto call the <code>SubredditPoint</code> contract to mint the token according to the total available points of the next round.</p>
+<h5><a class="anchor" aria-hidden="true" id="distribute-karma-to-user"></a><a href="#distribute-karma-to-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Distribute Karma to user</h5>
+<p>Community Points platform (e.g. Reddit) should from time to time (or on-demand) mint Karma token (ERC20) on the Ethereum and deposit it to the OMG Network. Community Points platform should send karma to its users according to their activities on the platform.</p>
+<h5><a class="anchor" aria-hidden="true" id="user-claiming-community-points"></a><a href="#user-claiming-community-points" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Claiming community points</h5>
+<p>With the Karma given by Community Points platform, the user can ask for an atomic swap transaction as the claim of the community points. The server generating the transaction would provide the transaction with the community points according to the percentage of the amount Karma and the total Karma of the distribution round.</p>
+<p>After the transaction is generated, both the user and the Community Points server would sign the transaction then submit it to the OMG Network.</p>
+<h5><a class="anchor" aria-hidden="true" id="user-subscribes-to-a-periodical-eg-monthly-subscription"></a><a href="#user-subscribes-to-a-periodical-eg-monthly-subscription" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User subscribes to a periodical (e.g. monthly) subscription</h5>
+<p>The community owner would deploy and mint the subscription token contract every certain period. After that, the subscription token would be deposited to the OMG Network. For the user to subscribe, the user can ask for an atomic swap transaction that swaps the community points to the subscription token.</p>
+<h4><a class="anchor" aria-hidden="true" id="223-claim-transaction-demo"></a><a href="#223-claim-transaction-demo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.2.3 Claim Transaction Demo</h4>
+<p>The current implementation is based on the design outlined above. The demo represents a script that mints KARMA and RCP tokens (community points), deposits them to the OMG Network, and performs an atomic swap allowing a user to claim RCP.</p>
+<h5><a class="anchor" aria-hidden="true" id="actors"></a><a href="#actors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Actors</h5>
+<p>The current demo includes the following actors:</p>
+<ul>
+<li>Distributor - an address responsible for KARMA and RCP tokens distribution.</li>
+<li>User - an address that wants to claim community points (RCP tokens) in exchange for KARMA tokens.</li>
+<li>Community Points server (e.g. subreddit server) - a server that handles claim transactions.</li>
+</ul>
+<h5><a class="anchor" aria-hidden="true" id="application-flow-1"></a><a href="#application-flow-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Application Flow</h5>
+<p>The overall flow using the demo involves the following steps:</p>
+<ol>
+<li>Distributor mints a defined amount of KARMA and RCP tokens from the smart contracts</li>
+<li>Distributor deposits ETH on the OMG Network to cover the fee costs.</li>
+<li>Distributor approves KARMA and RCP tokens of defined amount to make a deposit.</li>
+<li>Distributor deposits KARMA and RCP tokens of defined amount on the OMG Network.</li>
+<li>Distributor transfers a defined amount of KARMA tokens to the user on the OMG Network.</li>
+<li>Distributor transfers a defined amount of RCP tokens to the Community Points server on the OMG Network.</li>
+<li>User submits a signed (atomic swap) transaction to claim the RCP tokens.</li>
+<li>Community Points server and Distributor sign the transaction.</li>
+<li>Transaction is submitted to the OMG Network.</li>
+<li>User receives a defined amount of RCP tokens.</li>
+</ol>
+<h5><a class="anchor" aria-hidden="true" id="atomic-swap-description"></a><a href="#atomic-swap-description" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Atomic Swap Description</h5>
+<p>The current demo uses an atomic swap to claim the community points based on the amount of KARMA tokens sent to its address during the distribution period. On a high-level, the swap represents an exchange of the same amount of RCP and KARMA tokens between a user and a Community Points server.</p>
+<p>The claim transaction requires 3 signatures to be successful. Each token has to be signed by the corresponding owner:
+User - signs an input for KARMA token.
+Distributor - signs an input for a fee token (ETH or OMG).
+Community Points server - signs an input for RCP token.</p>
+<p>Here’s <a href="https://blockexplorer.ropsten.v1.omg.network/transaction/0xb394002ceeb80df2e05f12e21aad720a683343646a986ddc9e03981f017fc6fb">an example</a> of a claim transaction:</p>
+<p><img src="/img/community-points/09.png" alt=""></p>
+<h5><a class="anchor" aria-hidden="true" id="production-considerations"></a><a href="#production-considerations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Production Considerations</h5>
+<p>There are a few things to consider if you want to convert this proof of concept into a production service.</p>
+<ul>
+<li>For simplicity purposes, the Karma and RCP tokens can be minted by anyone. In production, KARMA tokens should be minted by the contract owner only, Community Points tokens (e.g. RCP tokens) may be minted by the correspondent Community Points moderator (e.g. subreddit admin). This can be changed in configurations.</li>
+<li>The keys for Community Points engine and users (e.g. Subreddit server) are generated within the application, which is sufficient only for demo purposes.</li>
+<li>The amount in UTXO(s) used for KARMA and RCP inputs should match the exact amount of tokens you want to swap. This is due to the limitation of 4 inputs and 4 outputs on the OMG Network. In production, you should merge or split UTXO(s) to get the exact amount needed in the claim atomic swap.</li>
+<li>The demo mints KARMA and RCP tokens on demand when the script is starting. In production, the owner of the corresponding tokens may mint tokens beforehand.</li>
+<li>The demo was tested on Ropsten and Rinkeby environments due to the Ethereum network gas price on Mainnet.</li>
+<li>The demo includes a deposit of a fee token to the OMG Network to cover the fee costs for the distributor. Note, the fee token on the Mainnet is OMG, on Ropsten and Rinkeby - ETH.</li>
+<li>The KARMA/RCP exchange rate is hard-coded at 1:1, whereas this will vary in real life.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="3-further-considerations"></a><a href="#3-further-considerations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Further Considerations</h2>
+<h3><a class="anchor" aria-hidden="true" id="31-an-alternative-claim-transaction-design"></a><a href="#31-an-alternative-claim-transaction-design" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 An Alternative Claim Transaction Design</h3>
+<p>The proposed implementation of claim transactions is one of the approaches to handle claim transactions. An alternative solution could be using special transaction types on the OMG Network. You can read a high-level overview of the potential implementation in <a href="https://github.com/omgnetwork/community-points/wiki/Reddit-point-on-ALD">this document</a>. Note, this is only a theoretical concept and hasn't been tested on any environment yet.</p>
+<h3><a class="anchor" aria-hidden="true" id="32-third-party-services"></a><a href="#32-third-party-services" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Third-party Services</h3>
+<p>To run any OMG Network application it's required to use the following services:</p>
+<ul>
+<li>Ethereum node: to sync with the rootchain. You can run your own node or use one of the infrastructure providers, such as <a href="https://infura.io/">Infura</a>.</li>
+<li>Web3 wallet: to sign transactions. It's recommended to use <a href="https://metamask.io/">MetaMask</a> browser extension.</li>
+</ul>
+<p>Additionally, you may consider using <a href="https://docs.omg.network/3rd-party/multibaas">MultiBaas</a> to access an intuitive administration panel that allows the following:</p>
+<ul>
+<li>Issuing, approving, and burning ERC20 tokens</li>
+<li>Managing deposits, transfers, and exits on the OMG Network</li>
+<li>Signing transactions with a hardware security module (HSM)</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="33-cost-and-performance"></a><a href="#33-cost-and-performance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Cost and Performance</h3>
+<p>Threre are various ways to determine cost and performance on OMG network in the context of community points. Many blockchain projects develop benchmarks on a widely different basis that negates the practicality of having direct comparisons. We try to take the most pragmatic approach to cost and throughput assumptions with the business needs in mind, while trying to be transparent whenever possible.</p>
+<p>Listed below are a few dimensions of cost and performance metrics, their definitions, and associated figures to achieve an objective reasoning about network viability.</p>
+<h4><a class="anchor" aria-hidden="true" id="331-throughput-performance"></a><a href="#331-throughput-performance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3.1 Throughput Performance</h4>
+<h5><a class="anchor" aria-hidden="true" id="maximum-theoretical-throughput"></a><a href="#maximum-theoretical-throughput" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Maximum Theoretical Throughput</h5>
+<p>Many projects will quote theoretical throughput. It is possible to judge a layer 2 performance based on its maximum throughput achievable by its design.</p>
+<p>If we were to compare to other projects in this dimension, the maximum block size for a Plasma block is at 65,536 (as limited by Merkle tree). Given a 12 seconds Ethereum block, the maximum block throughput would be 5,461 TPS.</p>
+<p>Although we could try to manually fabricate 65K Transactions and submit them into a Plasma block and forego the rest of the tech stack, our point of view is that this approach has not taken into account how real world business transactions work, nor is it reflective of bottlenecks faced by real software and therefore should not be taken as a definitive figure for performance comparison. It is a non-productive benchmark for serious applications.</p>
+<h5><a class="anchor" aria-hidden="true" id="real-application-transaction-throughput"></a><a href="#real-application-transaction-throughput" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Real Application Transaction Throughput</h5>
+<p>We wanted to demonstrate the capabilities of our system for the suitability of managing the Reddit Community Points ecosystem. As part of this bakeoff application process we've simulated transactions that align with Reddit's use cases on our public blockchain. We elected to use our public Integration environment on Ropsten for this as the gas prices on the production Ethereum network are high.</p>
+<p>Our stack is built and managed using IaC (Infrastructure as Code), with our smart contracts, Terraform modules, Helm charts, and applications all versioned with SemVer. We have confidence in consistency of environments and the ability to serve this from our Mainnet environment.</p>
+<p>We use the acronym <code>ST4R</code> to mean &quot;Stress Test For Reddit&quot;.</p>
+<p><strong>100,000 Point Claims (Minting &amp; Distributing points)</strong></p>
+<p>We performed an exchange of KARMA and Community Points in one transaction, as described in the smart contract section. However, the transactions here are missing a fee relayer and the execution is done in atomic swap with only 2 wallets.</p>
+<p>We use transaction metadata <code>ST4R CLAIM</code> encoded into hex as <code>0x000000000000000000000000000000000000000000005354345220434c41494d</code> for these transactions. We performed 119130 transactions over two hours.</p>
+<p>To verify use the Block Explorer at <a href="https://blockexplorer.ropsten.v1.omg.network/">https://blockexplorer.ropsten.v1.omg.network/</a> or</p>
+<pre><code class="hljs">curl --location --request POST 'https://watcher-info.ropsten.v1.omg.network/transaction.all' \          
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--data-raw '{
+    "metadata": "0x<span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00535434522043</span>4c<span class="hljs-number">4149</span>4d"
+}'
+</code></pre>
+<p>The response is limited to 200 transactions and is paginated.</p>
+<p><strong>25,000 Subscriptions</strong></p>
+<p>Due to time constraints we were unable to complete this part of the request for the Proof of Concept. We do have two proposals that we believe satisfy this requirement which are documented <a href="https://github.com/omgnetwork/community-points/wiki/Reddit-point-on-ALD">here</a>.</p>
+<p><strong>5000 One-off Points Burning</strong></p>
+<p>For the points burning capability demonstration we sent 81341 transactions to a <code>0x</code> address for which there is no owner. This simulates the burning of real points. We used the metadata field again so that the transactions can be verified with <code>ST4R BURN</code> encoded into hex as <code>0x000000000000000000000000000000000000000000000053543452204255524e</code> for these transactions. We performed  transactions over an hour.</p>
+<p>To verify use the Block Explorer at <a href="https://blockexplorer.ropsten.v1.omg.network/">https://blockexplorer.ropsten.v1.omg.network/</a> or</p>
+<pre><code class="hljs">curl --location --request POST 'https://watcher-info.ropsten.v1.omg.network/transaction.all' \          
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--data-raw '{
+    "metadata": "0x<span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00005354345220</span><span class="hljs-number">425552</span>4e"
+}'
+</code></pre>
+<p>The response is limited to 200 transactions and is paginated.</p>
+<p><strong>100,000 Transfers</strong></p>
+<p>We minted ROCK tokens which are points that can be used with the <code>r/OMGnetwork</code> subreddit. These tokens were then deposited into the Plasma smart contracts and could be used to distribute as points on our layer 2 chain.</p>
+<p>We performed 121461 transactions over the course of a four hours to demonstrate that the OMG Network is capable of handling this load. We used the metadata field of the transaction populated with <code>ST4R</code> to use as a filter for independent verification of the transaction volume. The hex value for this is <code>0000000000000000000000000000000000000000000000000000000053543452</code> and it's possible to view these transactions in our Block Explorer at <a href="https://blockexplorer.ropsten.v1.omg.network/">https://blockexplorer.ropsten.v1.omg.network/</a></p>
+<p>Alternatively you can query the Watcher for these transactions via: <a href="https://blockexplorer.ropsten.v1.omg.network/">https://blockexplorer.ropsten.v1.omg.network/</a></p>
+<pre><code class="hljs">curl --location --request POST 'https://watcher-info.ropsten.v1.omg.network/transaction.all' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--data-raw '{
+    "metadata": "0x<span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">53543452</span>"
+}'
+</code></pre>
+<p>The response is limited to 200 transactions and is paginated.</p>
+<h4><a class="anchor" aria-hidden="true" id="332-cost"></a><a href="#332-cost" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3.2 Cost</h4>
+<p>There is always a cost associated with operating a system. Although cost optimization may make for a better business sense, a near-zero cost networks will rarely achieve full trustlessness. We believe cost and security goes hand in hand. A project picking a trustless solution on the basis of lower cost should seriously consider the degree in which they may require Blockchain level of security guarantees. The risk and reward is highly dependent on the type of businesses and applications.</p>
+<p>As with performance, cost per transaction cannot be derived or compared in a trivial manner without taking in considerations multiple other factors eg. number of transactions per block, Ethereum gas price, gas usage.</p>
+<h5><a class="anchor" aria-hidden="true" id="gas-usage-per-number-of-transactions"></a><a href="#gas-usage-per-number-of-transactions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gas usage per number of transactions.</h5>
+<p>Due to the nature of Plasma block submission, the gas amount usage is constant for any number of transactions in a Plasma block, due to the fact that Plasma block stores the Merkle root on Ethereum with data running off-chain. The Merkle root hash is a 32 byte string no matter how many transactions are included.</p>
+<table>
+<thead>
+<tr><th>Number of transactions per block</th><th>Gas used per block</th><th>Gas cost per transaction</th></tr>
+</thead>
+<tbody>
+<tr><td>100</td><td>73,269</td><td>732.69</td></tr>
+<tr><td>500</td><td>73,269</td><td>146.538</td></tr>
+<tr><td>1000</td><td>73,269</td><td>73.269</td></tr>
+<tr><td>5000</td><td>73,269</td><td>14.6538</td></tr>
+<tr><td>10000</td><td>73,269</td><td>7.3269</td></tr>
+<tr><td>30000</td><td>73,269</td><td>2.4423</td></tr>
+<tr><td>60000</td><td>73,269</td><td>1.22115</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="gas-cost-per-transactions-in-a-block"></a><a href="#gas-cost-per-transactions-in-a-block" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gas cost per transactions in a block</h5>
+<p>Gas cost per transaction is dependent on multiple variables, including current gas market on Ethereum as well as the price of ETH. We have the table that shows the gas cost per Plasma transaction based on the current gas price of 49 Gwei with current ETH price of $332.53.</p>
+<p>The formula is <code>ETH Price * Gas price * Gas used / Number of transactions in a block</code></p>
+<table>
+<thead>
+<tr><th>Number of transactions per block</th><th>TPS (12 seconds block time)</th><th>Gas cost per tx in $</th></tr>
+</thead>
+<tbody>
+<tr><td>100</td><td>8.333333333</td><td>0.01193842888</td></tr>
+<tr><td>500</td><td>41.66666667</td><td>0.002387685776</td></tr>
+<tr><td>1000</td><td>83.33333333</td><td>0.001193842888</td></tr>
+<tr><td>5000</td><td>416.6666667</td><td>0.0002387685776</td></tr>
+<tr><td>10000</td><td>833.3333333</td><td>0.0001193842888</td></tr>
+<tr><td>30000</td><td>2500</td><td>0.00003979476293</td></tr>
+<tr><td>60000</td><td>5000</td><td>0.00001989738147</td></tr>
+</tbody>
+</table>
+<p>Note that this is the cost in relation to an Ethereum transaction that submits a Plasma block. The cost incurred by Reddit for handling user transactions on the platform are discussed below.</p>
+<h5><a class="anchor" aria-hidden="true" id="transaction-fee-charged-by-omg-and-the-operator-model"></a><a href="#transaction-fee-charged-by-omg-and-the-operator-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transaction fee charged by OMG and the operator model</h5>
+<p>Three considerations for running an application on an operator-led Layer 2 are:</p>
+<ol>
+<li>How the operator bears the cost of the transaction.</li>
+<li>The algorithm for block submission.</li>
+<li>The number of transactions in a given block and frequency of submissions.</li>
+</ol>
+<p>Currently OMG Network charges transaction fees to end users in a form of OMG tokens. The fee charged is 3x cheaper compared to the average Ethereum ERC20 transaction gas price. This is due to the performance optimization that is in place for the child chain service to submit a block every time there is at least 1 transaction. Even under low volume, the cost is fixed for the operator as described in the previous section.</p>
+<p>However, with higher transaction numbers per Plasma block, we can expect the transaction fees to be an order of magnitude cheaper than the current 3x cost saving. This is because the higher a Plasma block is filled the greater the overall savings are compared to transacting directly on Ethereum. The transactions generated by a business on OMG will have a net positive affects to the wider ecosystem. You may refer to the above figure to get an idea of how this may look like.</p>
+<p>The unit economics for being a layer 2 service provider should always be taken into account for determining the TCO of the solution.</p>
+<h3><a class="anchor" aria-hidden="true" id="33-security-considerations"></a><a href="#33-security-considerations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.3 Security Considerations</h3>
+<h4><a class="anchor" aria-hidden="true" id="trustlessness-vs-decentralization"></a><a href="#trustlessness-vs-decentralization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Trustlessness vs decentralization</h4>
+<p>Although the network is reliant on the child chain operator to aggregate transactions into blocks and submit the Merkle root to Ethereum, the users do not need to put trust in the operator for the security of their funds. At any point users can leave the network in the case that the operator is compromised. You can learn more about the basics of Plasma fraud proofs and the benefits for users of the system <a href="https://docs.omg.network/contracts/morevp">here</a>.</p>
+<h4><a class="anchor" aria-hidden="true" id="what-are-the-potential-threats-and-liabilities"></a><a href="#what-are-the-potential-threats-and-liabilities" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What are the potential threats and liabilities?</h4>
+<p>The potential threats for Community Points include the following:</p>
+<ol>
+<li><p>Byzantine events that can happen on the OMG Network: <a href="https://docs.omg.network/network/byzantine-conditions#unchallenged_exit">Unchallenged exit</a>, <a href="https://docs.omg.network/network/byzantine-conditions#invalid_block">Invalid block</a>, <a href="https://docs.omg.network/network/byzantine-conditions#block_withholding">Block withholding</a>, <a href="https://docs.omg.network/network/challenge-exits#invalid_exit">Invalid exit</a>, <a href="https://docs.omg.network/network/challenge-exits#noncanonical_ife">Non-canonical in-flight exit</a>, <a href="https://docs.omg.network/network/challenge-exits#invalid_ife_challenge">Invalid in-flight exit challenge</a>, <a href="https://docs.omg.network/network/challenge-exits#invalid_piggyback">Invalid Piggyback</a>. The events can either be challenged by another user or in the worst case the users need to leave the chain as it has become unsafe. These events are not specific to this particular use case but are worth mentioning due to the technical implementation of the network.</p></li>
+<li><p>The moderator starts manipulating token's governance. Any moderator can behave maliciously and manage community points irresponsibly, e.g. issue more tokens than needed, send a large number of tokens to their friends, purchase a limited number of digital items, etc.</p></li>
+<li><p>The user loses the seed phrase or the private key to a Web3 wallet. The way to manage funds on the Ethereum or any other blockchain network is quite different from traditional banking services, thus security education should be one of the main priorities for Web3 wallets and similar applications.</p></li>
+<li><p>A spam attack on a fee relayer. A group of people can coordinate a spam attack of transactions until the funds that are dedicated to paying for users' fees are depleted, thus it won't be possible to have free transactions using the client. This attack vector can be mitigated though by leveraging the Reddit account system to whitelist users who should be able to send transactions and also control the volume that can be sent.</p></li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="how-will-they-be-mitigated-or-responded-to"></a><a href="#how-will-they-be-mitigated-or-responded-to" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How will they be mitigated or responded to?</h4>
+<ol>
+<li><p>The occurrence of any unchallenged byzantine event should notify users to exit their funds from the OMG Network. Backend services could be introduced in a manner that automatically gets the clients to sign an exit transaction, requiring no manual operation from users themselves. All of the transactions that happen on the OMG Network are verifiable on the Ethereum network allowing any user to withdraw their funds back safely at any point in time.</p></li>
+<li><p>Mitigation for moderator abuse is to enforce a multisig transaction on the Community Points platform. This way, a transaction must be signed by <code>M of N</code> signatures of all moderators. This means the problem of security for a particular community is offloaded to community governance. Other mitigations can be introduced by protocol enforcement via special transaction types.</p></li>
+<li><p>The OMG Network doesn't have control over users' funds and can't verify the safety measures used by each user. Our team is doing our best to cover the best security practices in various guides and during the onboarding process of all of our services. The current demo application doesn't store any funds, thus reduces the risk of losing your tokens.</p></li>
+<li><p>To prevent funds depletion the following measures are introduced:</p></li>
+</ol>
+<ul>
+<li>The wallet used to cover the fees will be refilled regularly based on a certain threshold.</li>
+<li>If the fee relayer account doesn't have enough UTXO(s), it will split up the fee change output of the relay transaction.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="do-the-end-users-have-to-be-concerned-with-data-availability-or-monitor-the-chain-for-byzantine-events"></a><a href="#do-the-end-users-have-to-be-concerned-with-data-availability-or-monitor-the-chain-for-byzantine-events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Do the end-users have to be concerned with data availability or monitor the chain for byzantine events?</h4>
+<p>It is recommended that each entity that does not wish to trust OMG as a chain operator should run their own <a href="https://docs.omg.network/watcher/run-watcher-vps">Watcher service</a>.</p>
+<p>OMG Network offers a Watcher instance on Mainnet as a public service that anyone can use. The Watcher can also be managed by the community platform provider like Reddit itself, a Blockchain node service provider, or self-hosted via the core community members.</p>
+<h2><a class="anchor" aria-hidden="true" id="4-resources"></a><a href="#4-resources" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Resources</h2>
+<ul>
+<li><a href="/security/audits">Contracts Audits</a></li>
+<li><a href="#real-application-transaction-throughput">Load Test Results</a></li>
+<li>Tests: <a href="https://github.com/omgnetwork/community-points/tree/master/contracts/test">contracts</a>, <a href="https://github.com/omgnetwork/community-points/tree/master/fee-relayer/test">fee-relayer</a></li>
+<li><a href="https://github.com/omgnetwork/community-points/wiki/FAQ">FAQ</a></li>
+<li><a href="https://github.com/omgnetwork/community-points/wiki/User-Guide">User Guide</a></li>
+<li><a href="https://github.com/omgnetwork/community-points/wiki/Moderator-Guide">Moderator Guide</a></li>
+<li><a href="https://github.com/omgnetwork/community-points/tree/master/client">Deployment Guide</a></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/network/challenge-exits"><span class="arrow-prev">← </span><span>Challenge an Exit</span></a><a class="docs-next button" href="/wallet/quick-start-webwallet"><span>Web Wallet Quick Start</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#table-of-contents">Table of Contents</a></li><li><a href="#1-introduction">1. Introduction</a><ul class="toc-headings"><li><a href="#11-overview">1.1 Overview</a></li><li><a href="#12-glossary--terminology">1.2 Glossary / Terminology</a></li><li><a href="#13-product-requirements">1.3 Product Requirements</a></li><li><a href="#14-requirements">1.4 Requirements</a></li></ul></li><li><a href="#2-proposed-solution--design">2. Proposed Solution / Design</a><ul class="toc-headings"><li><a href="#21-demo-application-architecture">2.1 Demo Application Architecture</a></li><li><a href="#211-application-flow--diagrams">2.1.1 Application Flow &amp; Diagrams</a></li><li><a href="#212-server">2.1.2 Server</a></li><li><a href="#213-client">2.1.3 Client</a></li><li><a href="#22-proposed-contracts-design">2.2 Proposed Contracts Design</a></li></ul></li><li><a href="#3-further-considerations">3. Further Considerations</a><ul class="toc-headings"><li><a href="#31-an-alternative-claim-transaction-design">3.1 An Alternative Claim Transaction Design</a></li><li><a href="#32-third-party-services">3.2 Third-party Services</a></li><li><a href="#33-cost-and-performance">3.3 Cost and Performance</a></li><li><a href="#33-security-considerations">3.3 Security Considerations</a></li></ul></li><li><a href="#4-resources">4. Resources</a></li></ul></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a href="/contracts/morevp">MoreVP Architecture</a></span><span class="footer-item"><a href="/wallet/quick-start-webwallet">Web Wallet Quick Start</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/web-wallet">Web Wallet Code</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/omg-js-samples">omg-js samples</a></span></div><div class="footer-column"><span class="footer-title">API References</span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs">Watcher
+Informational API</a></span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
+Security Critical API</a></span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Integration Docs</span><span class="footer-item"><a href="https://github.com/omgnetwork/elixir-omg/blob/master/README.md">Elixir-omg</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/omg-js/blob/master/README.md">Omg-js</a></span><span class="footer-item"><a href="/network/start">Tutorials</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/plasma-contracts">Plasma Contracts</a></span></div><div class="footer-column"><span class="footer-title">Resources</span><span class="footer-item"><a href="https://omg.eco/blockexplorer">Block Explorer</a></span><span class="footer-item"><a href="https://www.omg.network">OMG Network</a></span><span class="footer-item"><a href="https://github.com/omgnetwork">Github</a></span></div><div class="footer-column"><span class="footer-title">Follow us</span><span class="footer-item"><a href="https://twitter.com/omgnetworkhq"><img src="/img/social/twitter.svg" alt="twitter" class="footer-social"/></a><a href="https://www.linkedin.com/company/omgnetwork/"><img src="/img/social/linkedin.svg" alt="linkedin" class="footer-social"/></a><a href="https://github.com/omgnetwork"><img src="/img/social/github.svg" alt="github" class="footer-social"/></a><br/> <br/><span class="footer-copyright">© 2019-present OMG Network.
+All rights reserved</span></span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+                indexName: 'omisego',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
