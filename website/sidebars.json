@@ -14,6 +14,9 @@
       "network/utxos",
       "network/challenge-exits"
     ],
+    "Use Cases": [
+      "use-cases/community-points"
+    ],
     "Wallet": [
       "wallet/quick-start-webwallet"
     ],
