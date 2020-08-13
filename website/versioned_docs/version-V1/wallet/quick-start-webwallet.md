@@ -27,7 +27,7 @@ By the end of the guide, you will achieve the following:
 
 > Keep your tokens safe. Please ensure you understand how to store and send tokens without compromising security, always double-check the recipient`s address, never send private keys to anyone unless you want to lose your funds.
 
-> The quick start guide uses a hosted Web Wallet application. To run it yourself, check the installation instructions in [Github repository](https://omg.eco/webwallet).
+> The quick start guide uses a hosted Web Wallet application. To run it yourself, check the installation instructions in [Github repository](https://github.com/omgnetwork/web-wallet).
 
 ## Wallet Configuration
 There are two options to work with the OMG network:
