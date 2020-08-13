@@ -27,7 +27,7 @@ By the end of the guide, you will achieve the following:
 
 > Keep your tokens safe. Please ensure you understand how to store and send tokens without compromising security, always double-check the recipient`s address, never send private keys to anyone unless you want to lose your funds.
 
-> The quick start guide uses a hosted application via [react-starter-kit](https://github.com/omgnetwork/react-starter-kit). To run it yourself, check the installation instructions in the repository.
+> The quick start guide uses a hosted Web Wallet application. To run it yourself, check the installation instructions in [Github repository](https://omg.eco/webwallet).
 
 ## Wallet Configuration
 There are two options to work with the OMG network:
@@ -47,7 +47,7 @@ Before transacting on the OMG Network, you need to have ETH tokens on the root c
 
 > In Plasma implementation root chain refers to the Ethereum Network. Child chain refers to OMG Network.
  
-* For working with testnet, you can get free tokens using [Ropsen faucet](https://faucet.metamask.io).
+* For working with testnet, you can get free tokens using [Ropsten faucet](https://faucet.metamask.io).
 * If you don't see your balance, make sure that your wallet points to the right network. Use [Wallet Configuration](#wallet-configuration) if you have any problems.
 * If everything is correct, your ETH root chain balance should be the same, as your balance in Metamask or another Web3 wallet you are using.
 

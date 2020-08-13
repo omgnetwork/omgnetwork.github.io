@@ -271,7 +271,7 @@ In a blockchain, a transaction is an exchange of value between two wallets. Tran
 While this is not a typical technical glossary term, it's important to clarify what we mean when we say that the OMG Network is 'Unstoppable'. We use this term to characterize the OMG Network because even if OMG Network (the company) ceased to exist and our servers were shut down, the OMG Network can be restarted. All software required to run the network is open source and freely available, and anyone could restart the OMG Network. Additionally, OMG Network does not control the OMG token; the token cannot be withdrawn from circulation because the authority key for the contract was destroyed. 
 
 ## UTXO
-Short for Unspent Transaction Output. See: https://bitcoin.org/en/glossary/unspent-transaction-output.
+Short for Unspent Transaction Output. For more details, refer to the [technical explanation](https://en.wikipedia.org/wiki/Unspent_transaction_output).
 
 ## Valid transaction
 
