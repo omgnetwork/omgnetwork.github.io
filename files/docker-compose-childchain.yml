@@ -1,0 +1,43 @@
+version: "2.3"
+services:
+  childchain:
+    image: ${CHILD_CHAIN_IMAGE}
+    command: "full_local"
+    container_name: childchain
+    environment:
+      - ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
+      - ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
+      - AUTHORITY_ADDRESS=${AUTHORITY_ADDRESS}
+      - TXHASH_CONTRACT=${TXHASH_CONTRACT}
+      - CONTRACT_ADDRESS_PLASMA_FRAMEWORK=${CONTRACT_ADDRESS_PLASMA_FRAMEWORK}
+      - CONTRACT_ADDRESS_ETH_VAULT=${CONTRACT_ADDRESS_ETH_VAULT}
+      - CONTRACT_ADDRESS_ERC20_VAULT=${CONTRACT_ADDRESS_ERC20_VAULT}
+      - CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=${CONTRACT_ADDRESS_PAYMENT_EXIT_GAME}
+      - DB_PATH=/data
+      - ETHEREUM_EVENTS_CHECK_INTERVAL_MS=800
+      - ETHEREUM_STALLED_SYNC_THRESHOLD_MS=20000
+      - FEE_CLAIMER_ADDRESS=0x000000000000000000000000000000000000dEaD
+      - FEE_ADAPTER=file
+      - STORED_FEE_UPDATE_INTERVAL_MINUTES=1
+      - FEE_CHANGE_TOLERANCE_PERCENT=5
+      - FEE_SPECS_FILE_PATH=/dev-artifacts/fee_specs.dev.json
+      - FEE_BUFFER_DURATION_MS=30000
+      - DD_HOSTNAME=datadog
+      - DD_DISABLED=true
+      - LOGGER_BACKEND=console
+      - APP_ENV=local_docker_development
+    restart: always
+    ports:
+      - "9656:9656"
+    expose:
+      - "9656"
+    volumes:
+      - ./data:/data
+      - ./priv/dev-artifacts:/dev-artifacts
+    healthcheck:
+      test: curl localhost:9656
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
