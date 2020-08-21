@@ -65,165 +65,93 @@
 <ul>
 <li>Learn about the OMG Network interface.</li>
 <li>Interact with the OMG Network from end to end.</li>
-<li>Make a deposit, the first transaction, and exit with ETH and ERC20 token via the OMG network.</li>
+<li>Make a deposit, the first transaction, and exit with ETH and ERC20 token via the OMG Network.</li>
 <li>Understand and apply the concepts behind Plasma and MoreVP.</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="who-is-this-guide-for"></a><a href="#who-is-this-guide-for" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Who is this guide for?</h2>
 <ul>
-<li>OMG clients and integration partners.</li>
+<li>OMG Network clients and integration partners.</li>
 <li>Exchanges, wallets, and blockchain services.</li>
 <li>Ethereum Dapps that want cheaper fees and more transactions.</li>
 <li>Cryptocurrency enthusiasts or white hackers who enjoy testing new blockchain products.</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="pre-requisites"></a><a href="#pre-requisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pre-requisites</h2>
+<h2><a class="anchor" aria-hidden="true" id="prerequisites"></a><a href="#prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequisites</h2>
 <ul>
 <li>Chrome browser. Other browsers, such as Brave, may have compatibility issues with Web3 wallets.</li>
 <li>Web3 wallet, preferably <a href="https://metamask.io">MetaMask</a>.</li>
 <li>Basic knowledge of blockchain, <a href="https://ethereum.org">Ethereum</a> and <a href="/faq#what-is-plasma">Plasma</a>.</li>
 </ul>
-<blockquote>
-<p>Keep your tokens safe. Please ensure you understand how to store and send tokens without compromising security, always double-check the recipient`s address, never send private keys to anyone unless you want to lose your funds.</p>
-</blockquote>
-<blockquote>
-<p>The quick start guide uses a hosted Web Wallet application. To run it yourself, check the installation instructions in <a href="https://github.com/omgnetwork/web-wallet">Github repository</a>.</p>
-</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="notes"></a><a href="#notes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Notes</h2>
+<ul>
+<li>Keep your tokens safe. Please ensure you understand how to store and send tokens without compromising security, always double-check the recipient`s address, never send private keys to anyone unknown unless you want to lose your funds.</li>
+<li>The quick start guide uses a hosted Web Wallet application. To run it yourself, check the installation instructions in the <a href="https://github.com/omgnetwork/web-wallet">Github repository</a>.</li>
+<li>The current guide displays how to work with OMG Web Wallet on <a href="https://webwallet.ropsten.v1.omg.network/">Ropsten</a> environment. However, the same steps can be applied to the <a href="https://webwallet.mainnet.v1.omg.network/">Mainnet</a> version of the wallet.</li>
+</ul>
 <h2><a class="anchor" aria-hidden="true" id="wallet-configuration"></a><a href="#wallet-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Wallet Configuration</h2>
-<p>There are two options to work with the OMG network:</p>
+<p>The Web Wallet currently supports two environments:</p>
 <ul>
-<li><em>Ropsen Testnet</em> (testnet) - the latest Ethereum test network. The purpose of such an environment is to demonstrate all of the features without using or losing real funds and to find critical bugs before the main launch of the software.</li>
-<li><em>Main Ethereum Network</em> (mainnet) - the latest Ethereum live network. It is recommended to use this option after you've already tried the testnet and are confident in working with a particular wallet.</li>
+<li><em>Ropsten Testnet</em> (testnet) - the latest Ethereum test network. The purpose of such an environment is to demonstrate all of the features without using or losing real funds and to find critical bugs before launching a software into production. This option is mostly used by developers.</li>
+<li><em>Main Ethereum Network</em> (mainnet) - the latest Ethereum live network. It is recommended to use this option after you've already tried the testnet and are confident in working with a particular wallet. This option is mostly used by customers.</li>
 </ul>
-<p>You can set the preferred configuration in your Web3 wallet. Below you can see an example of Metamask:</p>
-<p><img src="/img/webwallet/metamask-example.png" width="300"></p>
-<h2><a class="anchor" aria-hidden="true" id="1-make-a-deposit"></a><a href="#1-make-a-deposit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Make a Deposit</h2>
+<p>You can configure the preferred environment in your Web3 wallet as follows:</p>
+<p><img src="/img/webwallet/config-01.png" alt=""></p>
+<p>There are 3 methods to connect with the Web Wallet. Feel free to use the one you prefer the most:</p>
+<p><img src="/img/webwallet/config-02.png" alt=""></p>
+<h2><a class="anchor" aria-hidden="true" id="1-deposit-funds"></a><a href="#1-deposit-funds" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Deposit Funds</h2>
+<h3><a class="anchor" aria-hidden="true" id="11-fund-ethereum-wallet"></a><a href="#11-fund-ethereum-wallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.1 Fund Ethereum Wallet</h3>
+<p>Before transacting on the OMG Network, you need to have ETH tokens on the rootchain.</p>
 <blockquote>
-<p>The current Web Wallet is deployed against the OMG Network v1 Testnet.</p>
+<p>In Plasma implementation rootchain refers to the Ethereum network, childchain refers to the OMG Network.</p>
 </blockquote>
-<h3><a class="anchor" aria-hidden="true" id="11-fund-root-chain-wallet"></a><a href="#11-fund-root-chain-wallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.1 Fund Root Chain Wallet</h3>
-<p>Before transacting on the OMG Network, you need to have ETH tokens on the root chain.</p>
-<blockquote>
-<p>In Plasma implementation root chain refers to the Ethereum Network. Child chain refers to OMG Network.</p>
-</blockquote>
+<p>There are several ways to fund your ETH wallet:</p>
 <ul>
-<li>For working with testnet, you can get free tokens using <a href="https://faucet.metamask.io">Ropsten faucet</a>.</li>
-<li>If you don't see your balance, make sure that your wallet points to the right network. Use <a href="#wallet-configuration">Wallet Configuration</a> if you have any problems.</li>
-<li>If everything is correct, your ETH root chain balance should be the same, as your balance in Metamask or another Web3 wallet you are using.</li>
+<li>Purchase ETH with your credit card or bank account on one of the exchanges</li>
+<li>Exchange ETH for cash with somebody who has it</li>
+<li>Ask your friends who work in the blockchain industry to send you some</li>
+<li>Use Ethereum faucets/games to win free ETH</li>
+<li>Use <a href="https://faucet.metamask.io">Ropsten faucet</a> if you're planning to work with Ropsten</li>
 </ul>
-<p><img src="/img/webwallet/quick-start-account-balance.png" alt="account-balance"></p>
+<p>After you fund your Web3 wallet, your ETH rootchain balance in the Web Wallet should be the same, as your balance in MetaMask or another Web3 wallet you are using:</p>
+<p><img src="/img/webwallet/deposit-01.png" alt=""></p>
 <h3><a class="anchor" aria-hidden="true" id="12-make-an-eth-deposit"></a><a href="#12-make-an-eth-deposit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.2 Make an ETH Deposit</h3>
-<ol>
-<li>Click <strong>Deposit</strong>.</li>
-<li>Define the amount to deposit in ETH. It is recommended to have more funds in your root chain wallet to cover gas costs.</li>
-<li>Click <strong>Deposit</strong>. You will see a confirmation popup in your Web3 wallet. Notice, this example defaults the gas limit to <code>6000000</code> wei.</li>
-</ol>
-<p><img src="/img/webwallet/quick-start-sign-deposit.png" alt="sign-deposit"></p>
-<ol start="4">
-<li>Click <strong>Confirm</strong>. By doing that, you are signing the transaction with your private key and sending it to the OMG Network. The confirmation process may take a few seconds.</li>
-<li>After deposit confirmation, click the <code>Deposits</code> tab to see the progress of your deposit. You have to wait for the <a href="/glossary#deposit-finality-period">deposit finality period</a> (currently 10 blocks) before your funds are accepted into the OMG Network. You can click on the transaction to see further details on <a href="https://etherscan.io">Etherscan</a>.</li>
-</ol>
-<p><img src="/img/webwallet/quick-start-deposit-pending.png" width="500"></p>
-<ol start="6">
-<li>Your child chain balance should be updated in case of a successful deposit. This will also create a deposit UTXO validating that you have ETH on the OMG Network.</li>
-</ol>
-<p><img src="/img/webwallet/quick-start-deposit-confirmed.png" width="500"></p>
+<p>To make an ETH deposit, click the <code>DEPOSIT</code> button and fill in the amount as follows:</p>
+<p><img src="/img/webwallet/deposit-02.png" alt=""></p>
+<p>Next, press <code>DEPOSIT</code> and confirm the transaction in the opened popup. After it's confirmed you should see a pending deposit in your <code>Deposits</code> history as follows:</p>
+<p><img src="/img/webwallet/deposit-03.png" alt=""></p>
+<p>Deposits on the OMG Network require to pass a <a href="/glossary#deposit-finality-period">deposit finality period</a> (currently 10 blocks) before the funds are accepted and can be used on the network safely. After a successful deposit, your childchain balance should be updated. This will also create a deposit UTXO validating that you have ETH on the OMG Network.</p>
 <h3><a class="anchor" aria-hidden="true" id="13-make-an-erc20-deposit"></a><a href="#13-make-an-erc20-deposit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.3 Make an ERC20 Deposit</h3>
-<p>The process for depositing ERC20 into the OMG Network is very similar to an ETH deposit. For this example, we will use <code>WETH</code> token.</p>
-<ol>
-<li>Click <strong>Deposit</strong>.</li>
-<li>Click on the <code>ERC20</code> tab and define the amount and the address of the token you are depositing (in our case the address for <code>WETH</code>).</li>
-</ol>
-<p><img src="/img/webwallet/quick-start-deposit-erc20.png" width="500"></p>
-<ol start="3">
-<li>Click <strong>Deposit</strong>. This step will differ from the ETH deposit, as your Web3 wallet will pop up twice. The first popup will ask you to approve the deposit, the second — to confirm the actual deposit transaction.</li>
-</ol>
-<p><img src="/img/webwallet/quick-start-deposit-erc20-confirm.png" alt="approve-erc20-deposit"></p>
-<ol start="4">
-<li>Click <strong>Confirm</strong> for both popups. The confirmation process may take a few seconds.</li>
-<li>After deposit confirmation, click the <code>Deposits</code> tab to see the progress of your deposit. You have to wait for the <a href="/glossary#deposit-finality-period">deposit finality period</a> (currently 10 blocks) before your funds are accepted into the OMG Network. You can click on the transaction to see further details on <a href="https://etherscan.io">Etherscan</a>.</li>
-</ol>
-<p><img src="/img/webwallet/quick-start-deposit-erc20-pending.png" width="500"></p>
-<ol start="6">
-<li>Your child chain balance should be updated in case of a successful deposit. This will also create a deposit UTXO validating that you have ERC20 tokens on the OMG Network.</li>
-</ol>
-<p><img src="/img/webwallet/quick-start-deposit-erc20-confirmed.png" width="500"></p>
+<p>The process for depositing ERC20 into the OMG Network is very similar to an ETH deposit. For this example, we will use <a href="https://ropsten.etherscan.io/address/0x77b13a4090434be4bd931ff0f763048f86a1c732"><code>MRTY</code></a> token. To make a deposit, click the <code>DEPOSIT</code> button and choose the <code>ERC20</code> tab. Fill in the amount of tokens you want to deposit and a smart contract of a defined token as follows:</p>
+<p><img src="/img/webwallet/deposit-04.png" alt=""></p>
+<p>This step will differ from the ETH deposit, as your Web3 wallet will pop up twice. The first popup will ask you to approve the deposit, the second — to confirm the actual deposit transaction. After you confirm both of the popups, you should see a pending deposit in your <code>Deposits</code> history. If a deposit is successful, your childchain balance should be updated as follows:</p>
+<p><img src="/img/webwallet/deposit-05.png" alt=""></p>
+<p>To find the contract address of your token, use <a href="https://etherscan.io">Etherscan</a> or an alternative blockchain explorer.</p>
+<h2><a class="anchor" aria-hidden="true" id="2-make-a-transaction"></a><a href="#2-make-a-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Make a Transaction</h2>
+<p>Now that you have funds on the OMG Network, you can make your first transaction. First, click on the <code>Transfer</code> button and fill the recipient's address and the amount of ETH or ERC20 tokens you want to send as follows:</p>
+<p><img src="/img/webwallet/transfer-01.png" alt=""></p>
+<p>Second, press the <code>TRANSFER</code> button and confirm the transaction in the opened popup as follows:</p>
+<p><img src="/img/webwallet/transfer-02.png" alt=""></p>
+<p>Once the transaction is confirmed, you can view its details in the block explorer. After a successful deposit, your childchain balance should be updated.</p>
+<h2><a class="anchor" aria-hidden="true" id="3-withdraw-funds"></a><a href="#3-withdraw-funds" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Withdraw Funds</h2>
+<h3><a class="anchor" aria-hidden="true" id="31-submit-an-exit"></a><a href="#31-submit-an-exit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Submit an Exit</h3>
+<p>You've successfully deposited and made a transfer to the OMG Network. If you want to move your funds from the OMG Network back to the Ethereum network, you should start a standard exit.</p>
+<p>To start an exit, press the <code>EXIT</code> button and choose one of the UTXO you want to exit as follows:</p>
+<p><img src="/img/webwallet/exit-01.png" alt=""></p>
 <blockquote>
-<p>When you perform a deposit, you are sending funds to the <code>Plasma Framework</code> contract and creating a deposit UTXO for your account. The new UTXO allows transferring funds to the OMG Network. To understand UTXO better, please check <a href="/glossary#utxo">UTXO glossary</a>.</p>
+<p>Note, you can exit only 1 UTXO at a time. If you need to exit more funds that the value of a particular UTXO, you should merge them first.</p>
 </blockquote>
-<blockquote>
-<p>To learn more about deposits, please check <a href="/network/deposits"><code>Deposits</code></a> section.</p>
-</blockquote>
-<h2><a class="anchor" aria-hidden="true" id="2-send-a-transaction"></a><a href="#2-send-a-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Send a Transaction</h2>
-<p>Now that you have funds on the OMG Network, you can make your first transaction. To accomplish that, use the following steps:</p>
-<ol>
-<li>Click <strong>Transfer</strong>.</li>
-<li>Fill out the recipient's address, the amount and name of token you wish to transfer, the fee details, and optionally a message.</li>
-</ol>
-<p><img src="/img/webwallet/quick-start-transfer-create.png" width="500"></p>
-<ol start="3">
-<li>Click <strong>Transfer</strong>. You will see a confirmation popup in your Web3 wallet.</li>
-<li>Verify the inputs and outputs of your transactions to ensure they're correct.</li>
-</ol>
-<p><img src="/img/webwallet/quick-start-transfer-sign.png" alt="transfer-sign"></p>
-<ol start="5">
-<li>Click <strong>Sign</strong>.</li>
-<li>Click on the <code>Transactions</code> tab to view the state of your transaction.</li>
-</ol>
-<p><img src="/img/webwallet/quick-start-transfer-pending.png" width="500"></p>
-<ol start="7">
-<li>Once the transaction is confirmed, you can click on it to view its details in the block explorer. Your child chain balance should be updated in case of a successful transaction.</li>
-</ol>
-<p><img src="/img/webwallet/quick-start-transfer-success.png" width="500"></p>
-<ol start="8">
-<li>Congratulate yourself. You've just sent your first transaction on the OMG Network!</li>
-</ol>
-<blockquote>
-<p>To learn more about transactions, please check <a href="/network/transfers"><code>Transfers</code></a> section.</p>
-</blockquote>
-<h2><a class="anchor" aria-hidden="true" id="3-exit-funds"></a><a href="#3-exit-funds" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Exit Funds</h2>
-<h3><a class="anchor" aria-hidden="true" id="31-submitting-an-exit"></a><a href="#31-submitting-an-exit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.1 Submitting an Exit</h3>
-<p>You've successfully deposited and made a transfer to the OMG Network. If you want to move your funds from the OMG Network back to Ethereum network, you can do this with a standard exit using the following steps:</p>
-<ol>
-<li>Click <strong>Exit</strong>.</li>
-<li>Select the UTXO that you want to exit. The example below shows an exit worth <code>890 wei</code>.</li>
-</ol>
-<p><img src="/img/webwallet/exit-create.png" width="500"></p>
-<ol start="3">
-<li>Click <strong>Submit Exit</strong>. You will see a confirmation popup in your Web3 wallet.</li>
-</ol>
-<p><img src="/img/webwallet/exit-sign.png" alt="exit-sign"></p>
-<ol start="4">
-<li>Click <strong>Confirm</strong>. The confirmation process may take a few seconds.</li>
-<li>If the transaction is successful, you will see the status of your exit under the <code>Exits</code> section. You will be temporarily blocked from making other transactions and exits while this transaction is pending.</li>
-</ol>
-<p><img src="/img/webwallet/exit-status.png" width="500"></p>
-<ol start="6">
-<li>To prevent any malicious activity on the network, each exit goes through the <a href="/network/challenge-period"><code>Challenge Period</code></a>. This allows other users to challenge your exit on validity and trust. You will find the date of your exit approval below the transaction id. You will have to wait until this time passes, before being able to <a href="/network/process-exits">process your exit</a>.</li>
-</ol>
-<p><img src="/img/webwallet/exit-challenge.png" width="500"></p>
-<blockquote>
-<p>To learn more about standard exits, please check <a href="/network/standard-exits"><code>Standard Exits</code></a> section.</p>
-</blockquote>
-<h3><a class="anchor" aria-hidden="true" id="32-processing-an-exit"></a><a href="#32-processing-an-exit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Processing an Exit</h3>
-<p>After the challenge period has passed, you can process your exit to release your funds back to the root chain. Such a stage means that your exit is honest and nobody has challenged it. To process your exit properly, please follow these steps:</p>
-<ol>
-<li>Click <strong>Process Exit</strong> next to the UTXO you want to process.</li>
-</ol>
-<p><img src="/img/webwallet/process-exits-start.png" width="500"></p>
-<ol start="2">
-<li>Fill out the number of exits you want to process based on the information provided in the modal. In the example, our exit was placed 7th in the ETH exit queue. We will need to process the 6 exits before ours, as well as our exit to release funds immediately. If you process a number less than your position in the queue, your exit will not be processed.</li>
-</ol>
-<p><img src="/img/webwallet/process-exits-create.png" width="500"></p>
-<ol start="3">
-<li>Click <strong>Process</strong>. You will see a confirmation popup in your Web3 wallet.</li>
-</ol>
-<p><img src="/img/webwallet/process-exits-confirm.png" alt="exit-sign"></p>
-<ol start="4">
-<li>A successful transaction means that your exit along with the other 6 exits was processed. You can now check your balance on Metamask to ensure you received the funds back.</li>
-</ol>
-<p><img src="/img/webwallet/process-exits-confirmed.png" width="500"></p>
-<p>Congratulations! You've performed an end-to-end process of transacting on the OMG Network. If you would like to learn more, continue to the <a href="/network/tutorials"><code>Tutorials</code></a> section.</p>
-<p>To learn more about process exits, please check <a href="/network/process-exits"><code>Process Exits</code></a> section.</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/use-cases/community-points"><span class="arrow-prev">← </span><span>Community Points Engine</span></a><a class="docs-next button" href="/contracts/plasma-proposition"><span>Plasma Proposition</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#goals">Goals</a></li><li><a href="#who-is-this-guide-for">Who is this guide for?</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#wallet-configuration">Wallet Configuration</a></li><li><a href="#1-make-a-deposit">1. Make a Deposit</a><ul class="toc-headings"><li><a href="#11-fund-root-chain-wallet">1.1 Fund Root Chain Wallet</a></li><li><a href="#12-make-an-eth-deposit">1.2 Make an ETH Deposit</a></li><li><a href="#13-make-an-erc20-deposit">1.3 Make an ERC20 Deposit</a></li></ul></li><li><a href="#2-send-a-transaction">2. Send a Transaction</a></li><li><a href="#3-exit-funds">3. Exit Funds</a><ul class="toc-headings"><li><a href="#31-submitting-an-exit">3.1 Submitting an Exit</a></li><li><a href="#32-processing-an-exit">3.2 Processing an Exit</a></li></ul></li></ul></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a href="/contracts/morevp">MoreVP Architecture</a></span><span class="footer-item"><a href="/wallet/quick-start-webwallet">Web Wallet Quick Start</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/web-wallet">Web Wallet Code</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/omg-js-samples">omg-js samples</a></span></div><div class="footer-column"><span class="footer-title">API References</span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs">Watcher
+<p>If a defined token hasn't been exited before, you'll need to add it to the exit queue as follows:</p>
+<p><img src="/img/webwallet/exit-02.png" alt=""></p>
+<p>Next, press <code>SUBMIT EXIT</code> and confirm the transaction in the opened popup as follows:</p>
+<p><img src="/img/webwallet/exit-03.png" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="32-process-an-exit"></a><a href="#32-process-an-exit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.2 Process an Exit</h3>
+<p>To prevent any malicious activity on the network, each exit goes through the <a href="/network/challenge-period"><code>Challenge Period</code></a>. This allows other users to challenge your exit on validity and trust. You can find also find a date when you can process your exit below the transaction id. After the challenge period has passed, you can process your exit to send your funds back to the Ethereum network.</p>
+<p>To start an exit, press the <code>Process Exit</code> button near exit id as follows:</p>
+<p><img src="/img/webwallet/exit-04.png" alt=""></p>
+<p>After, confirm the transaction in the opened popup as follows:</p>
+<p><img src="/img/webwallet/exit-05.png" alt=""></p>
+<p>Most of the time, you're not the first to exit a defined token. That's why you may need to select the number of exits you want to process before you process your exit. As a general rule, use the maximum number that is offered to you. Otherwise, your exit may not be processed.</p>
+<p>Congratulations! You've performed an end-to-end process of transacting on the OMG Network.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/use-cases/community-points"><span class="arrow-prev">← </span><span>Community Points Engine</span></a><a class="docs-next button" href="/contracts/plasma-proposition"><span>Plasma Proposition</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#goals">Goals</a></li><li><a href="#who-is-this-guide-for">Who is this guide for?</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#notes">Notes</a></li><li><a href="#wallet-configuration">Wallet Configuration</a></li><li><a href="#1-deposit-funds">1. Deposit Funds</a><ul class="toc-headings"><li><a href="#11-fund-ethereum-wallet">1.1 Fund Ethereum Wallet</a></li><li><a href="#12-make-an-eth-deposit">1.2 Make an ETH Deposit</a></li><li><a href="#13-make-an-erc20-deposit">1.3 Make an ERC20 Deposit</a></li></ul></li><li><a href="#2-make-a-transaction">2. Make a Transaction</a></li><li><a href="#3-withdraw-funds">3. Withdraw Funds</a><ul class="toc-headings"><li><a href="#31-submit-an-exit">3.1 Submit an Exit</a></li><li><a href="#32-process-an-exit">3.2 Process an Exit</a></li></ul></li></ul></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a href="/contracts/morevp">MoreVP Architecture</a></span><span class="footer-item"><a href="/wallet/quick-start-webwallet">Web Wallet Quick Start</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/web-wallet">Web Wallet Code</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/omg-js-samples">omg-js samples</a></span></div><div class="footer-column"><span class="footer-title">API References</span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs">Watcher
 Informational API</a></span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
 Security Critical API</a></span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Integration Docs</span><span class="footer-item"><a href="https://github.com/omgnetwork/elixir-omg/blob/master/README.md">Elixir-omg</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/omg-js/blob/master/README.md">Omg-js</a></span><span class="footer-item"><a href="/network/start">Tutorials</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/plasma-contracts">Plasma Contracts</a></span></div><div class="footer-column"><span class="footer-title">Resources</span><span class="footer-item"><a href="https://omg.eco/blockexplorer">Block Explorer</a></span><span class="footer-item"><a href="https://www.omg.network">OMG Network</a></span><span class="footer-item"><a href="https://github.com/omgnetwork">Github</a></span></div><div class="footer-column"><span class="footer-title">Follow us</span><span class="footer-item"><a href="https://twitter.com/omgnetworkhq"><img src="/img/social/twitter.svg" alt="twitter" class="footer-social"/></a><a href="https://www.linkedin.com/company/omgnetwork/"><img src="/img/social/linkedin.svg" alt="linkedin" class="footer-social"/></a><a href="https://github.com/omgnetwork"><img src="/img/social/github.svg" alt="github" class="footer-social"/></a><br/> <br/><span class="footer-copyright">© 2019-present OMG Network.
 All rights reserved</span></span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
