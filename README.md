@@ -61,7 +61,7 @@ npm run start
 
 The project uses GitHub pages to deploy a website. The current project is an organization repository, the script below will deploy static files to the `master` branch.
 
-All documentation is stored in the `docsdocsdocs` branch. The `master` is used strictly for deployment. To learn more info about deployment, refer to [Docusaurus docs](https://github.com/facebook/docusaurus/blob/master/docs/getting-started-publishing.md#using-github-pages). 
+All documentation is stored in the `gh-pages` branch. The `master` is used strictly for deployment. To learn more info about deployment, refer to [Docusaurus docs](https://github.com/facebook/docusaurus/blob/master/docs/getting-started-publishing.md#using-github-pages). 
 
 It's possible to deploy the project on multiple platforms. Enter `/website` directory and run the corresponding script:
 
@@ -70,14 +70,14 @@ It's possible to deploy the project on multiple platforms. Enter `/website` dire
 ```js
 GIT_USER=<GIT_USER> \ 
   USE_SSH=true \
-  CURRENT_BRANCH=docsdocsdocs \
+  CURRENT_BRANCH=gh-pages \
   npm run publish-gh-pages
 ```
 
 #### Windows
 
 ```js
-cmd /C "set "GIT_USER=<GIT_USER>" && set CURRENT_BRANCH=docsdocsdocs && set USE_SSH=true && yarn deploy"
+cmd /C "set "GIT_USER=<GIT_USER>" && set CURRENT_BRANCH=gh-pages && set USE_SSH=true && yarn deploy"
 ```
 
 > `<GIT_USER>` - a GitHub account with push access to this repository.

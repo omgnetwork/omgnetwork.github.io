@@ -63,10 +63,10 @@ Please provide any other information below, and attach a screenshot if possible.
 git clone https://github.com/omgnetwork/omgnetwork.github.io.git
 ```
 
-2. Checkout to `docsdocsdocs` branch that contains the project's source code:
+2. Checkout to `gh-pages` branch that contains the project's source code:
 
 ```
-git checkout docsdocsdocs
+git checkout gh-pages
 ```
 
 3. Checkout to a new branch with `<GIT_USERNAME>/<FEATURE>` name:
@@ -76,7 +76,7 @@ git checkout -b <GIT_USERNAME>/<FEATURE>
 ```
 
 4. Make changes according to the [Documentation Guidelines](#documentation-guidelines).
-5. Submit the PR to the `docsdocsdocs` branch for review. Don't submit the PR to the `master` branch, it's strictly for deployment.
+5. Submit the PR to the `gh-pages` branch for review. Don't submit the PR to the `master` branch, it's strictly for deployment.
 6. When your PR is approved, please use the `Squash and merge` option to maintain more clear commit history.
 7. After your PR is merged, you can safely delete your branch and pull the changes from the main (upstream) repository.
 
