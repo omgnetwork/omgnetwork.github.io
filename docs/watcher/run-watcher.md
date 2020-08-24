@@ -4,7 +4,7 @@ title: How to Run a Watcher
 sidebar_label: Run a Watcher
 ---
 
-*By the end of this guide you should know how to run a Watcher on your local machine, on VPS or a bare-metal server. The guide is useful for enterprise clients who want to integrate with the OMG Network.*
+*By the end of this guide, you should know how to run a Watcher on your local machine, on VPS, or a bare-metal server. The guide is useful for enterprise clients who want to integrate with the OMG Network.*
 
 ## Goals
 
@@ -53,9 +53,9 @@ Before installing Watcher service on a server or your local machine, you should 
 
 ### 1. Log in to Your Server
 
-If you're planning to install a Watcher on remote server (VPS or bare-metal), make sure to have an active session open before before proceeding with the guide.
+If you're planning to install a Watcher on a remote server (VPS or bare-metal), make sure to have an active session open before proceeding with the guide.
 
-Configuration process takes a significant amount of time and may require help from your DevOps team. This step is fully covered in the [Manage VPS](/watcher/manage-vps) guide.
+The configuration process takes a significant amount of time and may require help from your DevOps team. This step is fully covered in the [Manage VPS](/watcher/manage-vps) guide.
 
 You can log in using the following command from your terminal or command prompt:
 
@@ -104,18 +104,9 @@ If you're using Ubuntu-based system, make sure to update your packages:
 sudo apt-get update
 ```
 
-### 4. Create a Directory to Store Data
-
-This step is optional but you may want to create a separate directory to store your data:
-
-```
-mkdir watcher 
-cd watcher
-```
-
 ## Install
 
-Running a Watcher locally is recommended for testing purposes only. For production you should use VPS or bare-metal server. This allows to increase uptime, reduce latency, and configure advanced security measures for your instance.
+Running a Watcher locally is recommended for testing purposes only. For production, you should use VPS or bare-metal server. This allows to increase uptime, reduce latency, and configure advanced security measures for your instance.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -125,12 +116,20 @@ Running a Watcher locally is recommended for testing purposes only. For producti
 
 #### 1.1 Install Erlang and Elixir
 
+The current guide shows how to install Erland and Elixir using [`asdf`](https://asdf-vm.com) to allow managing multiple runtime versions. Asdf relies on several libraries that you may need to install first:
+
 ```
-apt-get update
+sudo apt-get install libssl-dev make automake autoconf libncurses5-dev gcc unzip
+```
+
+If you've used these libraries before, you may proceed to `asdf` installation as follows:
+
+```
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.4
 echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bash_profile
 echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bash_profile
 source ~/.bash_profile
+
 asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
 asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
 
@@ -142,7 +141,9 @@ asdf global elixir 1.10.2
 mix do local.hex --force, local.rebar --force
 ```
 
-### 1.2 Install PostgreSQL
+#### 1.2 Install PostgreSQL
+
+PostgreSQL is required to store Watcher's data, such as deposits, transactions, exits, and byzantine events.
 
 ```
 apt-get install postgresql postgresql-contrib
@@ -155,23 +156,38 @@ EOF
 
 ### 2. Compile the Watcher
 
-```
-git clone git@github.com:omgnetwork/elixir-omg.git
-cd elixir-omg
-sh bin/setup # This step will take a long time, i.e. 30 mins on $5 digital ocean instance
+#### 2.1 Clone [`elixir-omg`](https://github.com/omgnetwork/elixir-omg) Repository
 
+```
+git clone https://github.com/omgnetwork/elixir-omg.git
+```
+
+#### 2.2 Setup the Project
+
+```
+cd elixir-omg
+sh bin/setup
+```
+
+> This step may take up to 30 minutes.
+
+#### 2.3 Build the Watcher
+
+```
 make install-hex-rebar
 make build-watcher_info-prod
 ```
 
 ### 3. Configure the Watcher
 
-Save the content below to a file called `env`:
+#### 3.1 Configure an Environment File
+
+There are several environmental variables the Watcher uses to run its service. To configure them, run the following command in your terminal:
 
 ```
-export ETHEREUM_NETWORK=MAINNET
+echo "export ETHEREUM_NETWORK=MAINNET
 export ETH_NODE=geth
-export ETHEREUM_RPC_URL=https://mainnet.infura.io/v3/485372a7dd5f4be4a92f0ce2d227f376
+export ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
 export CHILD_CHAIN_URL=https://childchain.mainnet.v1.omg.network
 export AUTHORITY_ADDRESS=0x22405c1782913fb676bc74ef54a60727b0e1026f
 export TXHASH_CONTRACT=0x1c29b67acc33eba0d26f52a1e4d26625f52b53e6fbb0a4db915aeb052f7ec849
@@ -188,47 +204,107 @@ export PORT=7534
 export DB_PATH=./data
 export APP_ENV=local-development
 export DD_DISABLED=true
-export LOGGER_BACKEND=console
+export LOGGER_BACKEND=console" > ~/elixir-omg/env
 ```
 
-Then run `source ./env` for the environment variables to take effect. Note that these values live within your current shell's context. So you need to run `source ./env` again on system restart, exiting the shell, etc. To permanently set these values, see: https://unix.stackexchange.com/questions/117467/how-to-permanently-set-environmental-variables
+> - `$ETHEREUM_RPC_URL` - a full Ethereum node URL
 
-Review all the configurations at https://github.com/omgnetwork/elixir-omg/blob/master/docs/deployment_configuration.md
+Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments).
+
+#### 3.2 Apply Environment Variables
+
+For the environment variables to take effect, run the command as follows:
+```
+source ./env
+```
+
+Note, these values live within your current shell's context. So you need to run this command again on system restart, exiting the shell, etc. To permanently set these values, check [the following thread](https://unix.stackexchange.com/questions/117467/how-to-permanently-set-environmental-variables). 
+
+If you want to set up additional configurations, refer to [deployment configuration document](https://github.com/omgnetwork/elixir-omg/blob/master/docs/deployment_configuration.md).
 
 
 ### 4. Install the Watcher
+
+#### 4.1 Create a Directory for Geth
+
+```
+mkdir data && chmod 777 data 
+```
+
+#### 4.2 Initialize Database
 
 ```
 _build/prod/rel/watcher_info/bin/watcher_info eval "OMG.DB.ReleaseTasks.InitKeyValueDB.run()"
 ```
 
-You should see the message: `The database at "/app/.omg/data/watcher_info" has been created`
+Example output:
 
+```
+2020-08-21 07:02:48.428 [info] module=OMG.DB.ReleaseTasks.InitKeyValueDB function=process/1 ⋅Creating database at "./data/watcher_info"⋅
+2020-08-21 07:02:48.534 [info] module=OMG.DB.ReleaseTasks.InitKeyValueDB function=init_kv_db/1 ⋅The database at "./data/watcher_info" has been created⋅
+```
+
+#### 4.3 Migrate Database Tables
 
 ```
 _build/prod/rel/watcher_info/bin/watcher_info eval "OMG.WatcherInfo.ReleaseTasks.InitPostgresqlDB.migrate()"
 ```
 
-You should see a stream of logs with tables and columns inserted.
+Example output:
+
+```
+2020-08-21 07:03:36.968 [info] module=Ecto.Migration.Runner function=log/2 ⋅create table blocks⋅
+2020-08-21 07:03:37.008 [info] module=Ecto.Migration.Runner function=log/2 ⋅== Migrated 20180813131000 in 0.0s⋅
+2020-08-21 07:03:37.081 [info] module=Ecto.Migration.Runner function=log/2 ⋅== Running 20180813131706 OMG.WatcherInfo.Repo.Migrations.CreateTransactionTable.change/0 forward⋅
+2020-08-21 07:03:37.081 [info] module=Ecto.Migration.Runner function=log/2 ⋅create table transactions⋅
+2020-08-21 07:03:37.115 [info] module=Ecto.Migration.Runner function=log/2 ⋅create index unq_transaction_blknum_txindex⋅
+2020-08-21 07:03:37.125 [info] module=Ecto.Migration.Runner function=log/2 ⋅== Migrated 20180813131706 in 0.0s⋅
+2020-08-21 07:03:37.140 [info] module=Ecto.Migration.Runner function=log/2 ⋅== Running 20180813133000 OMG.WatcherInfo.Repo.Migrations.CreateEtheventTable.change/0 forward⋅
+2020-08-21 07:03:37.141 [info] module=Ecto.Migration.Runner function=log/2 ⋅create table ethevents⋅
+2020-08-21 07:03:37.171 [info] module=Ecto.Migration.Runner function=log/2 ⋅== Migrated 20180813133000 in 0.0s⋅
+2020-08-21 07:03:37.188 [info] module=Ecto.Migration.Runner function=log/2 ⋅== Running 20180813143343 OMG.WatcherInfo.Repo.Migrations.CreateTxoutputTable.change/0 forward⋅
+```
+
+#### 4.4 Run Ethereum Tasks
 
 ```
 _build/prod/rel/watcher_info/bin/watcher_info eval "OMG.WatcherInfo.ReleaseTasks.EthereumTasks.run()"
 ```
 
-You should see the message: `Running Ethereum tasks`
+Example output:
 
+```
+2020-08-21 07:06:57.631 [info] module=OMG.WatcherInfo.ExitConsumer function=init/1 ⋅Started OMG.WatcherInfo.ExitConsumer, listen to {:watcher, "InFlightExitOutputWithdrawn"}⋅
+2020-08-21 07:06:57.655 [info] module=OMG.WatcherInfo.ReleaseTasks.EthereumTasks function=run/0 ⋅Running Ethereum tasks.⋅
+2020-08-21 07:06:57.713 [info] module=OMG.WatcherInfo.ReleaseTasks.EthereumTasks.AddEthereumHeightToEthEvents function=run/0 ⋅Running: Add `eth_height` to `eth_events`⋅
+```
 
 ### 5. Run the Watcher
 
-```
-# Starts the watcher_info
-_build/prod/rel/watcher_info/bin/watcher_info start
+You can start a Watcher as follows:
 
-# Or to start in the background, run the command below instead
+```
 _build/prod/rel/watcher_info/bin/watcher_info start
 ```
 
-You should see a stream block downloads: `Child chain seen at block #1227000. Downloading blocks [1000]`
+But it's recommended to run this service in the background:
+
+```
+_build/prod/rel/watcher_info/bin/watcher_info daemon
+```
+
+Example output:
+
+```
+2020-08-21 08:17:33.195 [info] module=OMG.Watcher.BlockGetter function=handle_continue/2 ⋅Applied block: #2618000, from eth height: 10700384 with 2 txs⋅
+2020-08-21 08:17:33.335 [info] module=OMG.Watcher.BlockGetter function=handle_continue/2 ⋅Applied block: #2619000, from eth height: 10700468 with 2 txs⋅
+2020-08-21 08:17:33.465 [info] module=OMG.Watcher.BlockGetter function=handle_continue/2 ⋅Applied block: #2620000, from eth height: 10700476 with 2 txs⋅
+2020-08-21 08:17:33.596 [info] module=OMG.Watcher.BlockGetter function=handle_continue/2 ⋅Applied block: #2621000, from eth height: 10700562 with 2 txs⋅
+2020-08-21 08:17:33.721 [info] module=OMG.Watcher.BlockGetter function=handle_continue/2 ⋅Applied block: #2622000, from eth height: 10700609 with 2 txs⋅
+2020-08-21 08:17:33.854 [info] module=OMG.Watcher.BlockGetter function=handle_continue/2 ⋅Applied block: #2623000, from eth height: 10700637 with 2 txs⋅
+2020-08-21 08:17:33.986 [info] module=OMG.Watcher.BlockGetter function=handle_continue/2 ⋅Applied block: #2624000, from eth height: 10700810 with 2 txs⋅
+2020-08-21 08:17:34.084 [info] module=OMG.WatcherInfo.DB.Block function=insert_from_pending_block/1 ⋅Block #2618000 persisted in WatcherDB, done in 15.402ms⋅
+```
 
 <!-- Docker Compose -->
 
@@ -276,7 +352,7 @@ docker-compose version 1.25.5, build 8a1c60f6
 
 ### 2. Set Up Configuration Files
 
-The Watcher consists from `watcher` and `watcher_info` services. You can run `watcher` separately, however `watcher_info` relies on PostgreSQL database where it stores the network's data. All releases and corresponding Docker images (starting from `1.0.1`) can be found in our [`official repository`](https://github.com/omgnetwork/elixir-omg/releases).
+The Watcher consists of `watcher` and `watcher_info` services. You can run `watcher` separately, however, `watcher_info` relies on the PostgreSQL database where it stores the network's data. All releases and corresponding Docker images (starting from `1.0.1`) can be found in our [`official repository`](https://github.com/omgnetwork/elixir-omg/releases).
 
 #### 2.1 Configure docker-compose-watcher.yml File
 
@@ -288,12 +364,12 @@ nano docker-compose-watcher.yml
 
 Then, copy and paste the [required configs](/files/docker-compose-watcher.yml), save the changes with `ctrl+o` (Linux/Windows) or `control+o` (macOS) and `Enter` to confirm the changes respectively. Then exit the file with `ctrl+x` or `control+x`.
 
-#### 2.2 Configure Environment File
+#### 2.2 Configure an Environment File
 
-The YAML file has several values that have to be configured in `.env` file. To edit them, open `.env` with `nano` or `vim` text editor and paste the following values:
+The YAML file has several values that have to be configured in `.env` file as follows::
 
 ```
-WATCHER_IMAGE=${WATCHER_IMAGE}
+echo "WATCHER_IMAGE=${WATCHER_IMAGE}
 WATCHER_INFO_IMAGE=${WATCHER_INFO_IMAGE}
 ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
 ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
@@ -303,13 +379,13 @@ TXHASH_CONTRACT=0x1c29b67acc33eba0d26f52a1e4d26625f52b53e6fbb0a4db915aeb052f7ec8
 CONTRACT_ADDRESS_PLASMA_FRAMEWORK=0x0d4c1222f5e839a911e2053860e45f18921d72ac
 CONTRACT_ADDRESS_ETH_VAULT=0x3eed23ea148d356a72ca695dbce2fceb40a32ce0
 CONTRACT_ADDRESS_ERC20_VAULT=0x070cb1270a4b2ba53c81cef89d0fd584ed4f430b
-CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=0x48d7a6bbc428bca019a560cf3e8ea5364395aad3
+CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=0x48d7a6bbc428bca019a560cf3e8ea5364395aad3" > ~/elixir-omg/env
 ```
 
-> - `$ETHEREUM_RPC_URL` - a full Ethereum node URL.
+> - `$ETHEREUM_RPC_URL` - a full Ethereum node URL
 > - `$ETHEREUM_NETWORK` - an Ethereum network, all caps values: `RINKEBY`,`ROPSTEN`, `MAINNET`, etc.
-> - `${WATCHER_IMAGE}` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.1`).
-> - `${WATCHER_INFO_IMAGE}` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.1`).
+> - `${WATCHER_IMAGE}` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.1`)
+> - `${WATCHER_INFO_IMAGE}` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.1`)
 
 Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments).
 
@@ -358,7 +434,7 @@ To verify that you're fully synced, check the status of Watcher and Watcher Info
 curl -X POST "http://$REMOTE_SERVER:7534/status.get"
 ```
 
-> - `$REMOTE_SERVER` - an IP address of your remote server. If you run the Watcher on you local machine, replace the value with `localhost`.
+> - `$REMOTE_SERVER` - an IP address of your remote server. If you run the Watcher on your local machine, replace the value with `localhost`.
 
 Example output:
 ```
@@ -448,7 +524,7 @@ watcher_info_1   | 2020-05-30 06:13:36.445 [info] module=Phoenix.Endpoint.Cowboy
 curl -X POST "http://$REMOTE_SERVER:7434/status.get"
 ```
 
-> - `$REMOTE_SERVER` - an IP address of your remote server. If you run the Watcher on you local machine, replace the value with `localhost`.
+> - `$REMOTE_SERVER` - an IP address of your remote server. If you run the Watcher on your local machine, replace the value with `localhost`.
 
 Example output:
 ```
@@ -532,4 +608,4 @@ There are two ways to test that your Watcher is working properly:
 1. Use `http://$REMOTE_SERVER:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [omg-js samples](https://github.com/omgnetwork/omg-js-samples). 
 2. Make a transaction or another operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
 
-> - `$REMOTE_SERVER` - an IP address of your remote server. If you run the Watcher on you local machine, replace the value with `localhost`.
+> - `$REMOTE_SERVER` - an IP address of your remote server. If you run the Watcher on your local machine, replace the value with `localhost`.
