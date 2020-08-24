@@ -97,9 +97,9 @@ If you're already using Docker, verify these ports are free too:
 docker ps
 ```
 
-### 3. Update Ubuntu Packages
+### 3. Update Packages
 
-If you're using Ubuntu-based system, make sure to update your packages:
+If you're using Linux-based system, make sure to update your packages:
 
 ```
 sudo apt-get update
@@ -360,7 +360,7 @@ The Watcher consists of `watcher` and `watcher_info` services. You can run `watc
 Docker Compose allows defining and running multi-container Docker applications. To launch a Watcher with Compose, first, create YAML file that will contain configurations for our services with `nano` or `vim` text editor:
 
 ```
-nano docker-compose-watcher.yml
+mkdir watcher && cd watcher && nano docker-compose-watcher.yml
 ```
 
 Then, copy and paste the [required configs](/files/docker-compose-watcher.yml), save the changes with `ctrl+o` (Linux/Windows) or `control+o` (macOS) and `Enter` to confirm the changes respectively. Then exit the file with `ctrl+x` or `control+x`.
@@ -373,18 +373,17 @@ The YAML file has several values that have to be configured in `.env` file as fo
 echo "WATCHER_IMAGE=$WATCHER_IMAGE
 WATCHER_INFO_IMAGE=$WATCHER_INFO_IMAGE
 ETHEREUM_RPC_URL=$ETHEREUM_RPC_URL
-ETHEREUM_NETWORK=$ETHEREUM_NETWORK
+ETHEREUM_NETWORK=MAINNET
 CHILD_CHAIN_URL=https://childchain.mainnet.v1.omg.network
 AUTHORITY_ADDRESS=0x22405c1782913fb676bc74ef54a60727b0e1026f
 TXHASH_CONTRACT=0x1c29b67acc33eba0d26f52a1e4d26625f52b53e6fbb0a4db915aeb052f7ec849
 CONTRACT_ADDRESS_PLASMA_FRAMEWORK=0x0d4c1222f5e839a911e2053860e45f18921d72ac
 CONTRACT_ADDRESS_ETH_VAULT=0x3eed23ea148d356a72ca695dbce2fceb40a32ce0
 CONTRACT_ADDRESS_ERC20_VAULT=0x070cb1270a4b2ba53c81cef89d0fd584ed4f430b
-CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=0x48d7a6bbc428bca019a560cf3e8ea5364395aad3" > ~/elixir-omg/env
+CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=0x48d7a6bbc428bca019a560cf3e8ea5364395aad3" > ~/watcher/.env
 ```
 
 > - `$ETHEREUM_RPC_URL` - a full Ethereum node URL
-> - `$ETHEREUM_NETWORK` - an Ethereum network, all caps values: `RINKEBY`,`ROPSTEN`, `MAINNET`, etc.
 > - `$WATCHER_IMAGE` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.1`)
 > - `$WATCHER_INFO_IMAGE` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.1`)
 
@@ -422,6 +421,102 @@ watcher_info_1  | 2020-05-15 06:53:43.230 [info] module=OMG.Watcher.BlockGetter 
 > Depending on the server's hardware and internet connection, the entire process can take up to an hour.
 
 If you want to exit the logs without stopping containers, use `ctrl+c` or `control+c`.
+
+<!-- Docker Compose (macOS) -->
+
+This method should be used only on your local machine.
+
+### 1. Install Dependencies
+
+#### 1.1 Install Brew
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+
+#### 1.2 Install Docker and Docker-Machine
+
+Docker daemon uses Linux-specific kernel features, therefore you can’t run Docker natively on macOS. You'll have to install docker-machine in order to create VM and attach to it.
+
+```
+brew update && brew install docker docker-machine
+```
+
+#### 1.2 Install Docker-Machine Dependencies
+
+Docker-machine relies on VirtualBox, so you have to install it as well:
+
+```
+brew cask install virtualbox
+```
+
+If the installation fails, you'll see the `Security & Privacy` window opened. Unlock the settings and enable an extension by Oracle as follows:
+
+![](/img/watcher/11.png)
+
+#### 1.3 Create a Default Docker-Machine
+
+Next, you'll have to create a default machine, specificy the name of machine that Docker will use to execute commands, and connect your shell to the new machine. 
+
+```
+docker-machine create --driver virtualbox defaul && docker-machine env default && eval "$(docker-machine env default)"
+```
+
+You can verify that your machine was created as follows:
+
+```
+docker-machine ls
+```
+
+Example output:
+
+```
+NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER     ERRORS
+default   *        virtualbox   Running   tcp://192.168.xxx.xxx:xxxx           v18.09.5
+```
+
+#### 1.4 Install Docker Compose
+
+The current guide will demonstrate how to setup and manage a Watcher via Docker Compose tooling due to simplicity of running this on your laptop/PC.
+
+```
+curl -L https://github.com/docker/compose/releases/download/1.26.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose && exit
+```
+
+To verify the installed Docker and Compose, use the following commands:
+
+```
+docker -v && docker-compose -v
+```
+
+Example output:
+
+```
+Docker version 19.03.12, build 48a6621
+docker-compose version 1.26.0, build d4451659
+```
+
+#### 1.5 Install PostgreSQL
+
+```
+brew install postgresql
+```
+
+To make sure the PostgreSQL launches during the startup, run the following commands:
+
+```
+mkdir -p ~/Library/LaunchAgents && ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents && launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+```
+
+Lastly, start the PostgreSQL as follows:
+
+```
+brew services start postgresql
+```
+
+### 2. Configure and Run the Watcher Instance
+
+The rest of the steps are the same as described in Docker Compose guide for Linux-based systems. Proceed to `2. Set Up Configuration Files` of `Docker Compose` tab to finish the installation.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
