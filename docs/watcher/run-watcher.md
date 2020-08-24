@@ -187,7 +187,7 @@ There are several environmental variables the Watcher uses to run its service. T
 ```
 echo "export ETHEREUM_NETWORK=MAINNET
 export ETH_NODE=geth
-export ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
+export ETHEREUM_RPC_URL=$ETHEREUM_RPC_URL
 export CHILD_CHAIN_URL=https://childchain.mainnet.v1.omg.network
 export AUTHORITY_ADDRESS=0x22405c1782913fb676bc74ef54a60727b0e1026f
 export TXHASH_CONTRACT=0x1c29b67acc33eba0d26f52a1e4d26625f52b53e6fbb0a4db915aeb052f7ec849
@@ -369,10 +369,10 @@ Then, copy and paste the [required configs](/files/docker-compose-watcher.yml), 
 The YAML file has several values that have to be configured in `.env` file as follows::
 
 ```
-echo "WATCHER_IMAGE=${WATCHER_IMAGE}
-WATCHER_INFO_IMAGE=${WATCHER_INFO_IMAGE}
-ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
-ETHEREUM_NETWORK=${ETHEREUM_NETWORK}
+echo "WATCHER_IMAGE=$WATCHER_IMAGE
+WATCHER_INFO_IMAGE=$WATCHER_INFO_IMAGE
+ETHEREUM_RPC_URL=$ETHEREUM_RPC_URL
+ETHEREUM_NETWORK=$ETHEREUM_NETWORK
 CHILD_CHAIN_URL=https://childchain.mainnet.v1.omg.network
 AUTHORITY_ADDRESS=0x22405c1782913fb676bc74ef54a60727b0e1026f
 TXHASH_CONTRACT=0x1c29b67acc33eba0d26f52a1e4d26625f52b53e6fbb0a4db915aeb052f7ec849
@@ -384,8 +384,8 @@ CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=0x48d7a6bbc428bca019a560cf3e8ea5364395aad3" >
 
 > - `$ETHEREUM_RPC_URL` - a full Ethereum node URL
 > - `$ETHEREUM_NETWORK` - an Ethereum network, all caps values: `RINKEBY`,`ROPSTEN`, `MAINNET`, etc.
-> - `${WATCHER_IMAGE}` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.1`)
-> - `${WATCHER_INFO_IMAGE}` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.1`)
+> - `$WATCHER_IMAGE` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.1`)
+> - `$WATCHER_INFO_IMAGE` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.1`)
 
 Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments).
 
