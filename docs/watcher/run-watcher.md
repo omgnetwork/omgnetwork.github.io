@@ -11,7 +11,7 @@ sidebar_label: Run a Watcher
 You should use this guide if you need to accomplish one of the following goals:
 - Rely on a personal Watcher to verify transactions and receive network's events
 - Host a redundant Watcher node to secure the network
-- Have an ability to challenge UTXOs
+- Be an active participant of the network
 
 ## Prerequisites
 
@@ -19,13 +19,14 @@ You should use this guide if you need to accomplish one of the following goals:
 2. A laptop/PC, a Linux-based VPS, or a bare-metal server
 3. A fully synced Ethereum client
 
-Ethereum client is required to synchronize transactions on the OMG Network with the Ethereum Network. The easiest way to have a full ETH client is to use one of the Ethereum infrastructure providers: [Infura](https://infura.io), [QuickNode](https://www.quiknode.io/), [Fiews](https://fiews.io/), [Rivet](https://rivet.cloud/), etc.
+Ethereum client is required to synchronize transactions on the OMG Network with the Ethereum Network. The easiest way to have a full ETH client is to use one of the Ethereum infrastructure providers. Our team has tried [Infura](https://infura.io) and [Geth](https://geth.ethereum.org/) but other providers may work too.
 
 ## Supported Platforms
 
 The Watcher has been tested on the following environments:
 - Ubuntu 16.04
 - Ubuntu 18.04
+- Alpine 3.11
 - macOS 11.0.0 (local usage only)
 
 > Note, it might be possible to run a Watcher on other environments. Above are provided the systems that have been tested.
