@@ -1,7 +1,8 @@
 ---
-id: run-watcher
+id: version-V1-run-watcher
 title: How to Run a Watcher
 sidebar_label: Run a Watcher
+original_id: run-watcher
 ---
 
 *By the end of this guide, you should know how to run a Watcher on your local machine, on VPS, or a bare-metal server. The guide is useful for enterprise clients who want to integrate with the OMG Network.*

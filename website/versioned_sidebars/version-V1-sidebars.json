@@ -26,6 +26,7 @@
       "version-V1-contracts/morevp"
     ],
     "Watcher": [
+      "version-V1-watcher/run-watcher",
       "version-V1-watcher/manage-vps",
       "version-V1-watcher/manage-watcher"
     ],
