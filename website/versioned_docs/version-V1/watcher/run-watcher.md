@@ -339,17 +339,9 @@ Make sure to install the latest version of Docker Compose from the [official rep
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-#### 1.3 Install PostgreSQL
-
-Some Linux servers don't have pre-installed PostgreSQL. You might need to install it manually as follows:
-
-```
-sudo apt update && sudo apt install postgresql postgresql-contrib
-```
-
 You will have to log out from a server for installed dependencies to take an affect.
 
-#### 1.4 Verify
+#### 1.3 Verify
 
 To verify the installed dependencies, use the following commands:
 
@@ -506,24 +498,6 @@ Example output:
 ```
 Docker version 19.03.12, build 48a6621
 docker-compose version 1.26.0, build d4451659
-```
-
-#### 1.6 Install PostgreSQL
-
-```
-brew install postgresql
-```
-
-To make sure the PostgreSQL launches during the startup, run the following commands:
-
-```
-mkdir -p ~/Library/LaunchAgents && ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents && launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-```
-
-Lastly, start the PostgreSQL as follows:
-
-```
-brew services start postgresql
 ```
 
 ### 2. Configure and Run the Watcher Instance
