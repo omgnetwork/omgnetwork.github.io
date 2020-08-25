@@ -111,13 +111,15 @@ Running a Watcher locally is recommended for testing purposes only. For producti
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!-- Bare-metal Release -->
+<!-- Bare-metal (Ubuntu) -->
+
+This method shows how to install and run a Watcher from a bare-metal release of the [`elixir-omg`](https://github.com/docker/compose/releases) repository. It is a recommended approach for production use. You can run it on VPS, dedicated, or bare-metal server on one of the [supported environments](/watcher/run-watcher#supported-platforms).
 
 ### 1. Install Dependencies
 
 #### 1.1 Install Erlang and Elixir
 
-The current guide shows how to install Erland and Elixir using [`asdf`](https://asdf-vm.com) to allow managing multiple runtime versions. Asdf relies on several libraries that you may need to install first:
+The currne timplementation is built with Erland and Elixir, and uses [`asdf`](https://asdf-vm.com) to manage multiple runtime versions. Asdf relies on several libraries that you may need to install first:
 
 ```
 sudo apt-get install libssl-dev make automake autoconf libncurses5-dev gcc unzip
@@ -314,11 +316,11 @@ Frequently there will be updates that you need to apply to your Watcher. First, 
 git pull
 ```
 
-Then, repeat the steps starting from [here](/next/watcher/run-watcher#22-setup-the-project).
+Then, repeat the steps starting from [here](/watcher/run-watcher#22-setup-the-project).
 
-<!-- Docker Compose -->
+<!-- Docker Compose (Ubuntu) -->
 
-This method shows how to install and run Watcher and auxiliary services via Docker tooling.
+This method shows how to setup and run a Watcher via Docker Compose tooling. You can run it on your local machine, VPS, dedicated, or bare-metal server on one of the [supported environments](/watcher/run-watcher#supported-platforms).
 
 ### 1. Install Dependencies
 
@@ -427,7 +429,7 @@ If you want to exit the logs without stopping containers, use `ctrl+c` or `contr
 
 <!-- Docker Compose (macOS) -->
 
-This method should be used only on your local machine.
+This method shows how to setup and run a Watcher via Docker Compose tooling, and should be used only on your local macOS machine.
 
 ### 1. Install Dependencies
 
