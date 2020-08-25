@@ -71,9 +71,9 @@ ssh $USER@$REMOTE_SERVER -p $PORT
 ### 2. Check TCP ports
 
 Make sure you have don't have any of the services running on one of the following ports: 7434, 7534, 5432. The ports are used as follows:
-- 7434: `elixir-omg_watcher_1`, a light-weight Watcher to ensure the security of funds deposited into the childchain
-- 7534: `elixir-omg_watcher_info_1`, a convenient and performant API to the child chain data
-- 5432: `elixir-omg_postgres_1`, a PostgreSQL database that stores transactions and contains data needed for challenges and exits
+- 7434: `watcher`, a light-weight Watcher to ensure the security of funds deposited into the childchain
+- 7534: `watcher_info`, a convenient and performant API to the child chain data
+- 5432: `postgres`, a PostgreSQL database that stores transactions and contains data needed for challenges and exits
 
 You can use `lsof`, `netstat` or other alternatives to check occupied ports:
 
@@ -205,7 +205,7 @@ export PORT=7534
 export DB_PATH=./data
 export APP_ENV=local-development
 export DD_DISABLED=true
-export LOGGER_BACKEND=console" > ~/elixir-omg/env
+export LOGGER_BACKEND=console" > ./env
 ```
 
 > - `$ETHEREUM_RPC_URL` - a full Ethereum node URL
@@ -229,7 +229,7 @@ If you want to set up additional configurations, refer to [deployment configurat
 #### 4.1 Create a Directory for Geth
 
 ```
-mkdir data && chmod 777 data 
+mkdir data
 ```
 
 #### 4.2 Initialize Database
@@ -307,6 +307,16 @@ Example output:
 2020-08-21 08:17:34.084 [info] module=OMG.WatcherInfo.DB.Block function=insert_from_pending_block/1 ⋅Block #2618000 persisted in WatcherDB, done in 15.402ms⋅
 ```
 
+### 6. Update the Watcher
+
+Frequently there will be updates that you need to apply to your Watcher. First, pull the changes from the repo as follows:
+
+```
+git pull
+```
+
+Then, repeat the steps starting from [here](/next/watcher/run-watcher#22-setup-the-project).
+
 <!-- Docker Compose -->
 
 This method shows how to install and run Watcher and auxiliary services via Docker tooling.
@@ -337,7 +347,7 @@ Some Linux servers don't have pre-installed PostgreSQL. You might need to instal
 sudo apt update && sudo apt install postgresql postgresql-contrib
 ```
 
-#### 1.5 Verify
+#### 1.4 Verify
 
 To verify the installed dependencies, use the following commands:
 
@@ -384,8 +394,8 @@ CONTRACT_ADDRESS_PAYMENT_EXIT_GAME=0x48d7a6bbc428bca019a560cf3e8ea5364395aad3" >
 ```
 
 > - `$ETHEREUM_RPC_URL` - a full Ethereum node URL
-> - `$WATCHER_IMAGE` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.1`)
-> - `$WATCHER_INFO_IMAGE` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.1`)
+> - `$WATCHER_IMAGE` - the latest stable [`watcher`](https://hub.docker.com/r/omisego/watcher/tags) image (e.g. `omisego/watcher:1.0.3`)
+> - `$WATCHER_INFO_IMAGE` - the latest stable [`watcher_info`](https://hub.docker.com/r/omisego/watcher_info/tags) image (e.g. `omisego/watcher_info:1.0.3`)
 
 Above are provided the values for `OMG NETWORK MAINNET BETA V1`. If you want to work with another environment, please refer to [`environments`](/environments).
 
@@ -442,7 +452,7 @@ Docker daemon uses Linux-specific kernel features, therefore you can’t run Doc
 brew update && brew install docker docker-machine
 ```
 
-#### 1.2 Install Docker-Machine Dependencies
+#### 1.3 Install Docker-Machine Dependencies
 
 Docker-machine relies on VirtualBox, so you have to install it as well:
 
@@ -454,7 +464,7 @@ If the installation fails, you'll see the `Security & Privacy` window opened. Un
 
 ![](/img/watcher/11.png)
 
-#### 1.3 Create a Default Docker-Machine
+#### 1.4 Create a Default Docker-Machine
 
 Next, you'll have to create a default machine, specificy the name of machine that Docker will use to execute commands, and connect your shell to the new machine. 
 
@@ -475,7 +485,7 @@ NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DO
 default   *        virtualbox   Running   tcp://192.168.xxx.xxx:xxxx           v18.09.5
 ```
 
-#### 1.4 Install Docker Compose
+#### 1.5 Install Docker Compose
 
 The current guide will demonstrate how to setup and manage a Watcher via Docker Compose tooling due to simplicity of running this on your laptop/PC.
 
@@ -496,7 +506,7 @@ Docker version 19.03.12, build 48a6621
 docker-compose version 1.26.0, build d4451659
 ```
 
-#### 1.5 Install PostgreSQL
+#### 1.6 Install PostgreSQL
 
 ```
 brew install postgresql
