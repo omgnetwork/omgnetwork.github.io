@@ -26,8 +26,7 @@
       "contracts/morevp"
     ],
     "Watcher": [
-      "watcher/run-watcher-locally",
-      "watcher/run-watcher-vps",
+      "watcher/run-watcher",
       "watcher/manage-vps",
       "watcher/manage-watcher"
     ],
