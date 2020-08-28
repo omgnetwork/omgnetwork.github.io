@@ -1,0 +1,136 @@
+---
+id: exchange
+title: Exchange Use Case
+sidebar_label: Exchange
+---
+*By the end of this guide you should know how an exchange can integrate with the OMG Network.*
+
+- [1. Introduction](#1-introduction)
+  * [1.1 Overview](#11-overview)
+  * [1.2 Requirements](#12-requirements)
+    + [User Personas](#user-personas)
+    + [User Stories](#user-stories)
+- [2. Proposed Design](#2-proposed-design)
+  * [2.1 Integration Scope](#21-integration-scope)
+    + [2.1.1 Generate ETH Addresses](#211-generate-eth-addresses)
+    + [2.1.2 Query Blockchain](#212-query-blockchain)
+    + [2.1.3 Make Deposits](#213-make-deposits)
+    + [2.1.4 Make Withdrawals](#214-make-withdrawals)
+    + [2.1.5 Merge UTXO](#215-merge-utxo)
+    + [2.1.6 Setup a Watcher](#216-setup-a-watcher)
+    + [2.1.7 Deposit Funds to the OMG Network](#217-deposit-funds-to-the-omg-network)
+    + [2.1.8 Rebalance Wallets](#218-rebalance-wallets)
+  * [2.2 Integration UI](#22-integration-ui)
+
+## 1. Introduction
+
+### 1.1 Overview
+
+The main goal of this document is to demonstrate how a stablecoin issuer or an exchange can add an OMG Network as one of the options to deposit and withdraw a particular ERC20 token (e.g. USDt).
+
+The integration with the OMG Network can significantly help the entire Ethereum ecosystem to offload a certain volume from the rootchain, as well as introduce faster and cheaper transactions with the same security guarantees as to Ethereum network.
+
+### 1.2 Requirements
+
+#### User Personas
+
+1. Customers - participants and active users/traders of a given exchange.
+2. Integrator - a development and management team within an exchange that evaluates the requirements and delivers the integration with the OMG Network.
+3. OMG Network - a technical and management team within the OMG Network that supports the Integrator during the integration process.
+
+#### User Stories
+
+1. As a customer, I can deposit ERC20 tokens (e.g. USDt) from the OMG Network wallet (web or mobile) to my exchange account.
+2. As a customer, I can use deposited funds to make trades on a given exchange.
+3. As a customer, I can withdraw ERC20 tokens from my exchange account into the OMG Network wallet (web or mobile).
+
+## 2. Proposed Design
+
+The proposed design includes improvements to an existing exchange platform. However, there are no strict requirements one has to follow due to the distinct nature of given exchange infrastructure, development approach, UI/UX design, etc.
+
+### 2.1 Integration Scope
+
+The scope for integrating with the OMG Network by a given exchange includes the following steps:
+
+#### 2.1.1 Generate ETH Addresses
+
+As an exchange, you need to be able to generate new Ethereum addresses for your customers. The OMG Network reflects the same addresses as the Ethereum network, thus you don't need to implement extra logic for your platform's wallet. If you already have Ethereum supported, you shouldn't have any issues.
+
+Otherwise, you can create a new public/private key pair using [`web3.eth.accounts.create`](https://web3js.readthedocs.io/en/v1.2.0/web3-eth-accounts.html#create) function provided by the web3 library. 
+
+> This document doesn't cover best practices for managing and storing keys due to a variety of methods different exchanges use to achieve a high level of security guarantees on their platform.
+
+#### 2.1.2 Query Blockchain
+
+It's important to understand how to query data from the OMG Network. There are several things that might be important for any exchange:
+- Transaction details - use `getTransaction(id)` function by the [`omg-js`](https://docs.omg.network/omg-js/)
+- Block details - use `getTransactions(filters)` function by the [`omg-js`](https://docs.omg.network/omg-js/)
+- Address balance - use `getBalance(address)` function by the [`omg-js`](https://docs.omg.network/omg-js/). For more details, check [`Retrieve Balances`](https://docs.omg.network/network/balances) guide
+- Network fees - use `getFees` function by the [`omg-js`](https://docs.omg.network/omg-js/)
+
+You can find more details about these functions using the following resources:
+- [omg-js library](https://github.com/omgnetwork/omg-js) - the official JavaScript library that allows to implement the required functionality
+- [omg-js documentation](https://docs.omg.network/omg-js/) - a list of all functions of the omg-js library
+- [omg-js tutorials](https://docs.omg.network/network/start) - installation process, code samples, and various tips for using the omg-js library
+- [omg-js-samples](https://github.com/omgnetwork/omg-js-samples) - a JavaScript project that contains implementation for the core features of the OMG Network
+- [blockchain explorer](https://docs.omg.network/environments) - a tool that allows to view transactions and blocks that happen on the network
+
+#### 2.1.3 Make Deposits
+
+The `Deposit` terminology for an exchange has a different meaning from a deposit on the OMG Network. It's very important to distinguish between those two:
+1. OMG Network deposit - represents an ETH transaction to the corresponding `Vault` smart contract on the Ethereum network. This creates a new deposit on the OMG Network and allows the use of these funds until a user decides to withdraw them back to Ethereum.
+2. Exchange deposit - represents a standard transaction on the OMG Network. A safe number of confirmations for a given exchange should equal to a safe number of confirmations on the Ethereum network. This is known as [`deposit finality period`](https://docs.omg.network/glossary#deposit-finality-period) and is currently set to 10 blocks. The confirmations are counted on the Ethereum because the OMG Network relies on rootchain (Ethereum) security and creates blocks only when new transactions are being formed (i.e. on-demand). 
+
+While implementing a deposit functionality on a given exchange, you should refer to the latter definition. You can implement this step using [`Make a Transfer`](https://docs.omg.network/network/transfers) guide.
+
+Note, all of the code samples on the developer portal use Ropsten testnet as an example. The production version on the mainnet will have the same logic, except for the fees:
+- Ropsten - uses ETH as a fee
+- Mainnet - uses OMG token as a fee
+
+You can replace the `fee` object when constructing a transaction body with the OMG contract as follows:
+
+```
+fee: {
+  currency: O0xd26114cd6ee289accf82350c8d8487fedb8a0c07
+}
+```
+
+#### 2.1.4 Make Withdrawals
+
+Withdrawals on a given exchange also represent a standard transaction on the OMG Network. Therefore, you can use the step above.
+
+#### 2.1.5 Merge UTXO
+
+The OMG Network uses the UTXO-based model for keeping track of balances on its chain. Each transaction can have up to 4 UTXO as inputs and can create up to 4 UTXO as outputs. This means that depositing smaller amounts of funds will create UTXO of low value, and may create potential issues during funds withdrawal. Due to this, every exchange client should be merging UTXO more frequently, or even automated as a background service. This operation is free because it benefits the network.
+
+You can implement this functionality by following [Merging UTXO guide](https://docs.omg.network/network/utxos#merging-utxos). This is mostly due to 4 inputs limitation
+
+#### 2.1.6 Setup a Watcher
+
+Watcher is a service that guarantees data availability, secures the network, and allows to maintain the trustlessness of the OMG Network. It's recommended for every client to run a separate Watcher instance to rely on their own information source about the incoming deposits, transactions, exits, and byzantine events that happen on the OMG Network.
+
+There are several ways to deploy a Watcher. You can use the one you prefer the most via [this guide](https://docs.omg.network/watcher/run-watcher).
+
+#### 2.1.7 Deposit Funds to the OMG Network
+
+After the core integration is done, you should deposit some funds to the OMG Network. This will allow customers to withdraw funds from an exchange account to the OMG Network wallet (web or mobile).
+
+You can deposit funds using the [`Deposit Funds`](https://docs.omg.network/network/deposits) guide or via one of our supported wallets. Refer to [`Environments`](https://docs.omg.network/environments) to find the list of wallets you can work with right now.
+
+#### 2.1.8 Rebalance Wallets
+
+Lastly, you need to understand how to rebalance the corresponding hot and cold wallets. You can do this by sending funds to another wallet directly or withdraw funds back to the Ethereum network first. This step is fully covered in [`Start a Standart Exit`](https://docs.omg.network/network/standard-exits) guide, as well as in [`Web Wallet Quick Start`](https://docs.omg.network/wallet/quick-start-webwallet#3-withdraw-funds).
+
+### 2.2 Integration UI
+
+Each exchange maintains a specific set of design principles, brand book, color palette, etc. Therefore, it's recommended to follow the established user flow and UX principles the users are already familiar with.
+
+Here's an example of the integration by one of our clients:
+
+*Deposit View*
+
+![](/img/exchange/01.png)
+
+*Withdrawal View*
+
+![](/img/exchange/02.png)
