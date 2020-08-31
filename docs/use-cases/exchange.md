@@ -131,6 +131,8 @@ Here's an example of the integration by one of our clients:
 
 ![](/img/exchange/01.png)
 
+![](/img/exchange/02.png)
+
 *Withdrawal View*
 
-![](/img/exchange/02.png)
+![](/img/exchange/03.png)
