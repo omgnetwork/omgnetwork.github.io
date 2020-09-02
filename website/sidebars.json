@@ -15,7 +15,8 @@
       "network/challenge-exits"
     ],
     "Use Cases": [
-      "use-cases/community-points"
+      "use-cases/community-points",
+      "use-cases/exchange"
     ],
     "Wallet": [
       "wallet/quick-start-webwallet"

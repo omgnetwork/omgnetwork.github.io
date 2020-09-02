@@ -115,19 +115,31 @@ class Index extends React.Component {
           url: "https://github.com/omgnetwork/elixir-omg",
           imageLink: `${baseUrl}img/icons/remotely.svg`,
         },
-      ],
-      codeSamples: [
+        {
+          title: "omg-js samples",
+          content: "Browse and run locally omg-js code samples.",
+          url: "https://github.com/omgnetwork/omg-js-samples",
+          imageLink: `${baseUrl}img/icons/collecting.svg`,
+        },
         {
           title: "Web Wallet Code",
           content: "Interact with the OMG Network from your browser.",
           url: "https://github.com/omgnetwork/web-wallet",
           imageLink: `${baseUrl}img/icons/dev02.svg`,
         },
+      ],
+      useCases: [
         {
-          title: "omg-js samples",
-          content: "Browse and run locally omg-js code samples.",
-          url: "https://github.com/omgnetwork/omg-js-samples",
-          imageLink: `${baseUrl}img/icons/collecting.svg`,
+          title: "Community Points Engine",
+          content: "Scale rewards system for your community.",
+          url: `${baseUrl}use-cases/community-points`,
+          imageLink: `${baseUrl}img/icons/community.svg`,
+        },
+        {
+          title: "Exchange",
+          content: "Move ERC20 tokens between exchanges faster.",
+          url: `${baseUrl}use-cases/exchange`,
+          imageLink: `${baseUrl}img/icons/wallet.svg`,
         },
       ],
       apiDocs: [
@@ -226,8 +238,8 @@ class Index extends React.Component {
               );
             })}
           </CardsContainer>
-          <CardsContainer blockTitle="Integration Tools">
-            {state.integrationTools.map((item, key) => {
+          <CardsContainer blockTitle="Use Cases">
+            {state.useCases.map((item, key) => {
               return (
                 <ImagedCard
                   title={item.title}
@@ -239,8 +251,8 @@ class Index extends React.Component {
               );
             })}
           </CardsContainer>
-          <CardsContainer blockTitle="Code Samples">
-            {state.codeSamples.map((item, key) => {
+          <CardsContainer blockTitle="Integration Tools">
+            {state.integrationTools.map((item, key) => {
               return (
                 <ImagedCard
                   title={item.title}
