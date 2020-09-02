@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Exchange Use Case · OMG Network</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="*By the end of this guide you should know how an exchange can integrate with the OMG Network.*"/><meta name="docsearch:version" content="V1"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Exchange Use Case · OMG Network"/><meta property="og:type" content="website"/><meta property="og:url" content="https://omgnetwork.github.io/"/><meta property="og:description" content="*By the end of this guide you should know how an exchange can integrate with the OMG Network.*"/><meta property="og:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://omgnetwork.github.io/img/logo/omg-blue.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-154130721-1"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-154130721-1');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/><script type="text/javascript" src="js/typeform.js"></script><script type="text/javascript" src="js/g-tag.js"></script><script type="text/javascript" src="js/h-jar.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="js/intercom.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo/omg-white.svg" alt="OMG Network"/></a><a href="/versions"><h3>V1</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/welcome" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/api" target="_self">APIs</a></li><li class="siteNavGroupActive"><a href="/environments" target="_self">Environments</a></li><li class=""><a href="https://omg.network" target="_blank">Product</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Use Cases</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/welcome">About the OMG Network</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Network</h3><ul class=""><li class="navListItem"><a class="navItem" href="/network/start">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/network/balances">Retrieve Balances</a></li><li class="navListItem"><a class="navItem" href="/network/deposits">Deposit Funds</a></li><li class="navListItem"><a class="navItem" href="/network/transfers">Make a Transfer</a></li><li class="navListItem"><a class="navItem" href="/network/standard-exits">Start a Standard Exit</a></li><li class="navListItem"><a class="navItem" href="/network/in-flight-exits">Start an In-flight Exit</a></li><li class="navListItem"><a class="navItem" href="/network/process-exits">Process an Exit</a></li><li class="navListItem"><a class="navItem" href="/network/utxos">Manage UTXOs</a></li><li class="navListItem"><a class="navItem" href="/network/challenge-exits">Challenge an Exit</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Use Cases</h3><ul class=""><li class="navListItem"><a class="navItem" href="/use-cases/community-points">Community Points Engine</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/use-cases/exchange">Exchange</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Wallet</h3><ul class=""><li class="navListItem"><a class="navItem" href="/wallet/quick-start-webwallet">Web Wallet Quick Start</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contracts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/contracts/plasma-proposition">Plasma Proposition</a></li><li class="navListItem"><a class="navItem" href="/contracts/admin-accounts">Administrative Accounts</a></li><li class="navListItem"><a class="navItem" href="/contracts/morevp">MoreVP Technical Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Watcher</h3><ul class=""><li class="navListItem"><a class="navItem" href="/watcher/run-watcher">Run a Watcher</a></li><li class="navListItem"><a class="navItem" href="/watcher/manage-vps">Manage a VPS</a></li><li class="navListItem"><a class="navItem" href="/watcher/manage-watcher">Manage a Watcher</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Security</h3><ul class=""><li class="navListItem"><a class="navItem" href="/security/bug-bounty">Bug Bounty Program</a></li><li class="navListItem"><a class="navItem" href="/security/audits">Contracts Audits</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">3-rd Party</h3><ul class=""><li class="navListItem"><a class="navItem" href="/3rd-party/metamask">MetaMask</a></li><li class="navListItem"><a class="navItem" href="/3rd-party/multibaas">MultiBaas</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/network/blockchain-design">Blockchain Design</a></li><li class="navListItem"><a class="navItem" href="/network/byzantine-conditions">Byzantine Conditions</a></li><li class="navListItem"><a class="navItem" href="/network/network-architecture">Network Architecture</a></li><li class="navListItem"><a class="navItem" href="/network/challenge-period">Challenge Period</a></li><li class="navListItem"><a class="navItem" href="/network/exitbonds">Exit Bonds</a></li><li class="navListItem"><a class="navItem" href="/network/fees">Fees</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/glossary">Glossary</a></li><li class="navListItem"><a class="navItem" href="/faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/api">API References</a></li><li class="navListItem"><a class="navItem" href="/environments">Environments</a></li><li class="navListItem"><a class="navItem" href="/release-notes">Release Notes</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Migration Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/migration-0.2-0.3">0.2 to 0.3</a></li><li class="navListItem"><a class="navItem" href="/migration-0.3-0.4">0.3 to 0.4</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Exchange Use Case</h1></header><article><div><span><p><em>By the end of this guide you should know how an exchange can integrate with the OMG Network.</em></p>
+<ul>
+<li><a href="#1-introduction">1. Introduction</a>
+<ul>
+<li><a href="#11-overview">1.1 Overview</a></li>
+<li><a href="#12-requirements">1.2 Requirements</a>
+<ul>
+<li><a href="#user-personas">User Personas</a></li>
+<li><a href="#user-stories">User Stories</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#2-proposed-design">2. Proposed Design</a>
+<ul>
+<li><a href="#21-integration-scope">2.1 Integration Scope</a>
+<ul>
+<li><a href="#211-generate-eth-addresses">2.1.1 Generate ETH Addresses</a></li>
+<li><a href="#212-query-blockchain">2.1.2 Query Blockchain</a></li>
+<li><a href="#213-make-deposits">2.1.3 Make Deposits</a></li>
+<li><a href="#214-make-withdrawals">2.1.4 Make Withdrawals</a></li>
+<li><a href="#215-merge-utxo">2.1.5 Merge UTXO</a></li>
+<li><a href="#216-setup-a-watcher">2.1.6 Setup a Watcher</a></li>
+<li><a href="#217-deposit-funds-to-the-omg-network">2.1.7 Deposit Funds to the OMG Network</a></li>
+<li><a href="#218-rebalance-wallets">2.1.8 Rebalance Wallets</a></li>
+</ul></li>
+<li><a href="#22-integration-ui">2.2 Integration UI</a></li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="1-introduction"></a><a href="#1-introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Introduction</h2>
+<h3><a class="anchor" aria-hidden="true" id="11-overview"></a><a href="#11-overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.1 Overview</h3>
+<p>The main goal of this document is to demonstrate how a stablecoin issuer or an exchange can add an OMG Network as one of the options to deposit and withdraw a particular ERC20 token (e.g. USDt).</p>
+<p>The integration with the OMG Network can significantly help the entire Ethereum ecosystem to offload a certain volume from the rootchain, as well as introduce faster and cheaper transactions with the same security guarantees as to Ethereum network.</p>
+<h3><a class="anchor" aria-hidden="true" id="12-requirements"></a><a href="#12-requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.2 Requirements</h3>
+<h4><a class="anchor" aria-hidden="true" id="user-personas"></a><a href="#user-personas" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Personas</h4>
+<ol>
+<li>Customers - participants and active users/traders of a given exchange.</li>
+<li>Integrator - a development and management team within an exchange that evaluates the requirements and delivers the integration with the OMG Network.</li>
+<li>OMG Network - a technical and management team within the OMG Network that supports the Integrator during the integration process.</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="user-stories"></a><a href="#user-stories" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Stories</h4>
+<ol>
+<li>As a customer, I can deposit ERC20 tokens (e.g. USDt) from the OMG Network compatible wallet to my exchange account.</li>
+<li>As a customer, I can use deposited funds to make trades on a given exchange.</li>
+<li>As a customer, I can withdraw ERC20 tokens from my exchange account into the OMG Network wallet (web or mobile).</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="2-proposed-design"></a><a href="#2-proposed-design" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Proposed Design</h2>
+<p>The proposed design includes improvements to an existing exchange platform. However, there are no strict requirements one has to follow due to the distinct nature of given exchange infrastructure, development approach, UI/UX design, etc.</p>
+<h3><a class="anchor" aria-hidden="true" id="21-integration-scope"></a><a href="#21-integration-scope" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1 Integration Scope</h3>
+<p>The scope for integrating with the OMG Network by a given exchange includes the following steps:</p>
+<h4><a class="anchor" aria-hidden="true" id="211-generate-eth-addresses"></a><a href="#211-generate-eth-addresses" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.1 Generate ETH Addresses</h4>
+<p>As an exchange, you need to be able to generate new Ethereum addresses for your customers. The OMG Network reflects the same addresses as the Ethereum network, thus you don't need to implement extra logic for your platform's wallet. If you already have Ethereum supported, you shouldn't have any issues.</p>
+<p>Otherwise, you can create a new public/private key pair using <a href="https://web3js.readthedocs.io/en/v1.2.0/web3-eth-accounts.html#create"><code>web3.eth.accounts.create</code></a> function provided by the web3 library. Note, if the keys are generated by a third-party provider such as a custodian, the integrator must be able to sign a transaction for it with <a href="https://eips.ethereum.org/EIPS/eip-712">EIP-712 signature</a> via <code>signTypedData_v3()</code> or <code>personalSign()</code>. See <a href="https://github.com/MetaMask/eth-sig-util"><code>eth-sig-util</code></a> for reference.</p>
+<blockquote>
+<p>This document doesn't cover best practices for managing and storing keys due to a variety of methods different exchanges use to achieve a high level of security guarantees on their platform.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="212-query-blockchain"></a><a href="#212-query-blockchain" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.2 Query Blockchain</h4>
+<p>It's important to understand how to query data from the OMG Network. There are several things that might be important for any exchange:</p>
+<ul>
+<li>Transaction details - use <code>getTransaction(id)</code> function by the <a href="https://docs.omg.network/omg-js/"><code>omg-js</code></a></li>
+<li>Transactions details filtered by an address, block number, or metadata - use <code>getTransactions(filters)</code> function by the <a href="https://docs.omg.network/omg-js/"><code>omg-js</code></a></li>
+<li>Address balance - use <code>getBalance(address)</code> function by the <a href="https://docs.omg.network/omg-js/"><code>omg-js</code></a>. For more details, check <a href="https://docs.omg.network/network/balances"><code>Retrieve Balances</code></a> guide</li>
+<li>Network fees - use <code>getFees</code> function by the <a href="https://docs.omg.network/omg-js/"><code>omg-js</code></a></li>
+</ul>
+<p>You can find more details about these functions using the following resources:</p>
+<ul>
+<li><a href="https://github.com/omgnetwork/omg-js">omg-js library</a> - the official JavaScript library that allows implementing the required functionality</li>
+<li><a href="https://docs.omg.network/omg-js/">omg-js documentation</a> - a list of all functions of the omg-js library</li>
+<li><a href="https://docs.omg.network/network/start">omg-js tutorials</a> - installation process, code samples, and various tips for using the omg-js library</li>
+<li><a href="https://github.com/omgnetwork/omg-js-samples">omg-js-samples</a> - a JavaScript project that contains implementation for the core features of the OMG Network</li>
+<li><a href="https://docs.omg.network/environments">blockchain explorer</a> - a tool that allows viewing transactions and blocks that happen on the network</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="213-make-deposits"></a><a href="#213-make-deposits" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.3 Make Deposits</h4>
+<p>The <code>Deposit</code> terminology for an exchange has a different meaning from a deposit on the OMG Network. It's very important to distinguish between those two:</p>
+<ol>
+<li>OMG Network deposit - represents an ETH transaction to the corresponding <code>Vault</code> smart contract on the Ethereum network. This creates a new deposit on the OMG Network and allows the depositor to transact on the network until a user decides to withdraw them back to Ethereum.</li>
+<li>Exchange deposit - represents a standard transaction on the OMG Network. A safe number of confirmations for a given exchange should equal to a safe number of confirmations on the Ethereum network. This is known as <a href="https://docs.omg.network/glossary#deposit-finality-period"><code>deposit finality period</code></a> and is currently set to 10 blocks. The confirmations are counted on the Ethereum because the OMG Network relies on rootchain (Ethereum) security and creates blocks only when new transactions are being formed (i.e. on-demand).</li>
+</ol>
+<p>While implementing a deposit functionality on a given exchange, you should refer to the latter definition. You can implement this step using <a href="https://docs.omg.network/network/transfers"><code>Make a Transfer</code></a> guide.</p>
+<p>Note, all of the code samples on the developer portal use Ropsten testnet as an example. The production version on the mainnet will have the same logic, except for the fees:</p>
+<ul>
+<li>Ropsten - uses ETH as a fee</li>
+<li>Mainnet - uses OMG token as a fee</li>
+</ul>
+<p>You can replace the <code>fee</code> object when constructing a transaction body with the OMG contract as follows:</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">fee</span>: {
+  <span class="hljs-attribute">currency</span>: <span class="hljs-number">0</span>xd26114cd6ee289accf82350c8d8487fedb8a0c07
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="214-make-withdrawals"></a><a href="#214-make-withdrawals" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.4 Make Withdrawals</h4>
+<p>Withdrawals on a given exchange also represent a standard transaction on the OMG Network. Therefore, you can use the step above.</p>
+<h4><a class="anchor" aria-hidden="true" id="215-merge-utxo"></a><a href="#215-merge-utxo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.5 Merge UTXO</h4>
+<p>The OMG Network uses the UTXO-based model for keeping track of balances on its chain. Each transaction can have up to 4 UTXO as inputs and can create up to 4 UTXO as outputs. This means that depositing smaller amounts of funds will create UTXO of low value, and may cause potential issues during funds withdrawal due to the following:</p>
+<p>The first two outputs are used to cover the transferred value and transaction fee change, leaving only two outputs. Considering that it's very unlikely a user will withdraw the amount that equals to a single available UTXO value, there will be another change output created. This means that the total number of UTXO you can use for a single withdrawal is 2. Therefore, it's recommended to check that your hot wallet has multiple UTXO of higher value during each withdrawal from an exchange.</p>
+<p>In general, we suggest every exchange client merge UTXO more frequently or even automate this process as a background service. Merge operations are free because they benefit the network.</p>
+<p>You can implement this functionality by following <a href="https://docs.omg.network/network/utxos#merging-utxos">Merging UTXO guide</a>.</p>
+<h4><a class="anchor" aria-hidden="true" id="216-setup-a-watcher"></a><a href="#216-setup-a-watcher" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.6 Setup a Watcher</h4>
+<p>Watcher is a service that guarantees data availability, secures the network, and allows to maintain the trustlessness of the OMG Network. It's recommended for every client to run a separate Watcher instance to rely on their own information source about the incoming deposits, transactions, exits, and byzantine events that happen on the OMG Network.</p>
+<p>It also means you fully trust the OMG Network operator with everything that occurs on the network. Running your own Watcher ensures that only valid transactions and blocks are created and confirmed by the childchain operator.</p>
+<p>There are several ways to deploy a Watcher. You can use the one you prefer the most via <a href="https://docs.omg.network/watcher/run-watcher">this guide</a>.</p>
+<h4><a class="anchor" aria-hidden="true" id="217-deposit-funds-to-the-omg-network"></a><a href="#217-deposit-funds-to-the-omg-network" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.7 Deposit Funds to the OMG Network</h4>
+<p>After the core integration is done, you should deposit some funds to the OMG Network. This will allow customers to withdraw funds from an exchange account to the OMG Network wallet (web or mobile).</p>
+<p>You can deposit funds using the <a href="https://docs.omg.network/network/deposits"><code>Deposit Funds</code></a> guide or via one of our supported wallets. Refer to <a href="https://docs.omg.network/environments"><code>Environments</code></a> to find the list of wallets you can work with right now.</p>
+<h4><a class="anchor" aria-hidden="true" id="218-rebalance-wallets"></a><a href="#218-rebalance-wallets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.1.8 Rebalance Wallets</h4>
+<p>Lastly, you need to understand how to rebalance the corresponding hot and cold wallets. You can do this by sending funds to another wallet directly or withdraw funds back to the Ethereum network first. This step is fully covered in <a href="https://docs.omg.network/network/standard-exits"><code>Start a Standart Exit</code></a> guide, as well as in <a href="https://docs.omg.network/wallet/quick-start-webwallet#3-withdraw-funds"><code>Web Wallet Quick Start</code></a>.</p>
+<p>Each withdrawal from the OMG Network requires to pass an exit period before you can retrieve your funds safely. Note, the exit period differs for each <a href="/environments">environment</a>:</p>
+<ul>
+<li>Ropsten - 86400 seconds (1 day)</li>
+<li>Mainnet - 604800 seconds (1 week)</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="22-integration-ui"></a><a href="#22-integration-ui" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.2 Integration UI</h3>
+<p>Each exchange maintains a specific set of design principles, brand book, color palette, etc. Therefore, it's recommended to follow the established user flow and UX principles the users are already familiar with.</p>
+<p>Here's an example of the integration by one of our clients:</p>
+<p><em>Deposit View</em></p>
+<p><img src="/img/exchange/01.png" alt=""></p>
+<p><img src="/img/exchange/02.png" alt=""></p>
+<p><em>Withdrawal View</em></p>
+<p><img src="/img/exchange/03.png" alt=""></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/use-cases/community-points"><span class="arrow-prev">← </span><span>Community Points Engine</span></a><a class="docs-next button" href="/wallet/quick-start-webwallet"><span>Web Wallet Quick Start</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-introduction">1. Introduction</a><ul class="toc-headings"><li><a href="#11-overview">1.1 Overview</a></li><li><a href="#12-requirements">1.2 Requirements</a></li></ul></li><li><a href="#2-proposed-design">2. Proposed Design</a><ul class="toc-headings"><li><a href="#21-integration-scope">2.1 Integration Scope</a></li><li><a href="#22-integration-ui">2.2 Integration UI</a></li></ul></li></ul></nav></div><div class="footer-content"><div class="footer-wrapper"><div class="footer-column"><span class="footer-title">Getting Started</span><span class="footer-item"><a href="/contracts/morevp">MoreVP Architecture</a></span><span class="footer-item"><a href="/wallet/quick-start-webwallet">Web Wallet Quick Start</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/web-wallet">Web Wallet Code</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/omg-js-samples">omg-js samples</a></span></div><div class="footer-column"><span class="footer-title">API References</span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs">Watcher
+Informational API</a></span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Fsecurity_critical_api_specs">Watcher
+Security Critical API</a></span><span class="footer-item"><a href="https://docs.omg.network/elixir-omg/docs-ui/">Child Chain API</a></span></div><div class="footer-column"><span class="footer-title">Integration Docs</span><span class="footer-item"><a href="https://github.com/omgnetwork/elixir-omg/blob/master/README.md">Elixir-omg</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/omg-js/blob/master/README.md">Omg-js</a></span><span class="footer-item"><a href="/network/start">Tutorials</a></span><span class="footer-item"><a href="https://github.com/omgnetwork/plasma-contracts">Plasma Contracts</a></span></div><div class="footer-column"><span class="footer-title">Resources</span><span class="footer-item"><a href="https://omg.eco/blockexplorer">Block Explorer</a></span><span class="footer-item"><a href="https://www.omg.network">OMG Network</a></span><span class="footer-item"><a href="https://github.com/omgnetwork">Github</a></span></div><div class="footer-column"><span class="footer-title">Follow us</span><span class="footer-item"><a href="https://twitter.com/omgnetworkhq"><img src="/img/social/twitter.svg" alt="twitter" class="footer-social"/></a><a href="https://www.linkedin.com/company/omgnetwork/"><img src="/img/social/linkedin.svg" alt="linkedin" class="footer-social"/></a><a href="https://github.com/omgnetwork"><img src="/img/social/github.svg" alt="github" class="footer-social"/></a><br/> <br/><span class="footer-copyright">© 2019-present OMG Network.
+All rights reserved</span></span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'af8e7b1e7bcb8af0f31e1c3aca2f8d16',
+                indexName: 'omisego',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
