@@ -225,6 +225,15 @@ async function transfer() {
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+#### Additional Notes
+
+The current technical implementation of `createTransaction` function can return two possible responses:
+
+1. If your transfer can be covered with four inputs or less, you'll create a payment transaction with `"result": "complete"` response.
+2. If your transfer can be covered but with more than four inputs, you'll create a [merge transaction](/network/utxos#merging-utxos) with `"result": "intermediate"` response.
+
+This is a temporary issue and will be fixed over time, however you still need to be aware of this behavior and create an additional check for `result` status after calling the `createTransaction` function. Note, that `"result": "intermediate"` response doesn't re-create a payment transaction in this scenario, thus you'll need to initiate your original transaction again after the merge transaction is confirmed.
+
 ## Lifecycle
 
 1. A user calls the `createTransaction` function to create a transaction.
