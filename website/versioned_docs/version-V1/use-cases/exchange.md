@@ -32,6 +32,8 @@ The main goal of this document is to demonstrate how a token issuer or an exchan
 
 The integration with the OMG Network can significantly help the entire Ethereum ecosystem to offload a certain volume from the rootchain, as well as introduce faster and cheaper transactions with the same security guarantees as to the Ethereum network.
 
+This document doesn't cover how exchange customers can deposit funds to the OMG Network. Please refer to the `Web Wallet Quick Start` for more details on this issue.
+
 ### 1.2 Requirements
 
 #### User Personas
