@@ -67,17 +67,26 @@ Otherwise, you can create a new public/private key pair using [web3.eth.accounts
 #### 2.1.2 Query Blockchain
 
 It's important to understand how to query data from the OMG Network. There are several things that might be important for any exchange:
-- Transaction details - use `getTransaction(id)` function by the [omg-js](https://docs.omg.network/omg-js/)
-- Transactions details filtered by an address, block number, or metadata - use `getTransactions(filters)` function by the [`omg-js`](https://docs.omg.network/omg-js/)
-- Address balance - use `getBalance(address)` function by the [omg-js](https://docs.omg.network/omg-js/). For more details, check [`Retrieve Balances`](https://docs.omg.network/network/balances) guide
-- Network fees - use `getFees` function by the [omg-js](https://docs.omg.network/omg-js/)
+
+##### Query transactions
+- Transaction details - use `getTransaction(id)` function by the [omg-js](https://docs.omg.network/omg-js/) or `/transaction.get` endpoint of the [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs#/Transaction/transaction_get).
+- Transactions details filtered by an address, block number, or metadata - use `getTransactions(filters)` function by the [omg-js](https://docs.omg.network/omg-js/) or `/transaction.all` endpoint of the [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs#/Transaction/transactions_all).
+
+##### Query accounts
+- Account balance - use `getBalance(address)` function by the [omg-js](https://docs.omg.network/omg-js/) or `/account.get_balance` endpoint of the [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs#/Account/account_get_balance). For more details, check [Retrieve Balances](https://docs.omg.network/network/balances) guide.
+- Account UTXO - use `getUtxos(address)` function by the [omg-js](https://docs.omg.network/omg-js/) or `/account.get_utxos` endpoint of the [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs#/Account/account_get_utxos). 
+- Account transactions - use `getTransactions(filters)` function by the [omg-js](https://docs.omg.network/omg-js/) or `/account.get_transactions` endpoint of the [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs#/Account/account_get_transactions).
+
+##### Query network data
+- Network fees - use `getFees` function by the [omg-js](https://docs.omg.network/omg-js/) or `/fees.all` endpoint of the [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs#/Fees/fees_all).
 
 You can find more details about these functions using the following resources:
 - [omg-js library](https://github.com/omgnetwork/omg-js) - the official JavaScript library that allows implementing the required functionality
 - [omg-js documentation](https://docs.omg.network/omg-js/) - a list of all functions of the omg-js library
-- [omg-js tutorials](https://docs.omg.network/network/start) - installation process, code samples, and various tips for using the omg-js library
 - [omg-js-samples](https://github.com/omgnetwork/omg-js-samples) - a JavaScript project that contains implementation for the core features of the OMG Network
-- [blockchain explorer](https://docs.omg.network/environments) - a tool that allows viewing transactions and blocks that happen on the network
+- [Tutorials](https://docs.omg.network/network/start) - installation process, code samples, and various tips for using the omg-js library
+- [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs) - an API specification of the Watcher's Informational Service
+- [Blockchain Explorer](https://docs.omg.network/environments) - a tool that allows viewing transactions and blocks that happen on the network
 
 #### 2.1.3 Make Deposits
 
@@ -99,7 +108,7 @@ fee: {
 }
 ```
 
-Also, make sure to check for response type before signing a transaction. The existing implementation has two possible responses, one of them creates a merge transaction. You can find more details [here](https://docs.omg.network/network/transfers#additional-notes).
+Also, make sure to check for response type before signing a transaction. The existing implementation has two possible responses, one of them creates a merge transaction. You can find more details [here](https://docs.omg.network/network/transfers#additional-notes). The same limitation applies to `/transaction.create` endpoint of the [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs).
 
 #### 2.1.4 Make Withdrawals
 
@@ -127,7 +136,7 @@ There are several ways to deploy a Watcher. You can use the one you prefer the m
 
 After the core integration is done, you should deposit some funds to the OMG Network. This will allow customers to withdraw funds from an exchange account to the OMG Network compatible wallet.
 
-You can deposit funds using the [`Deposit Funds`](https://docs.omg.network/network/deposits) guide or via one of our supported wallets. Refer to [`Environments`](https://docs.omg.network/environments) to find the list of wallets you can work with right now.
+You can deposit funds using the [Deposit Funds](https://docs.omg.network/network/deposits) guide or via one of our supported wallets. Refer to [Environments](https://docs.omg.network/environments) to find the list of wallets you can work with right now.
 
 #### 2.1.8 Rebalance Wallets
 
