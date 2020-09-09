@@ -4,6 +4,8 @@ title: Community Points Engine
 sidebar_label: Community Points Engine
 ---
 
+*By the end of this document you should know how to create a scalable points or rewards system for a given community using the OMG Network.*
+
 ## Table of Contents
 
 - [1. Introduction](#1-introduction)
