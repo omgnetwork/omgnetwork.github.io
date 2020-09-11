@@ -35,18 +35,18 @@ sidebar_label: Community Points Engine
 
 The main goal of the product is to give communities a means to create scalable points and rewards systems in a trustless manner. Due to technical limitations, the public blockchain infrastructure such as Ethereum cannot handle the required load of the modern points applications, thus a corresponding scaling solution should be introduced.
 
-Community Points Engine (CPE) is a working proof of concept application that utilizes OMG Network as a trustless, high throughput settlement rail for community points transactions. The full demonstration consists of a working application and this document which contains details on how special claim, burn, and subscription transactions can be implemented on the network. We demonstrate a full picture of how end users can have true ownership of community points and transact them in a manner that is fast, fee-less, trustless, and usable. All with the security guarantee offered by Ethereum blockchain.
+Community Points Engine (CPE) is a working proof of concept application that utilizes OMG Network as a trustless, high throughput settlement rail for community points transactions. The full demonstration consists of a working application, and this document which contains details on how special claim, burn, and subscription transactions can be implemented on the network. We demonstrate a full picture of how end users can have true ownership of community points and transact them in a manner that is fast, fee-less, trustless, and usable. All with the security guarantee offered by Ethereum blockchain.
 
-The demonstration consist of 3 different components:
-1. Community Points Client: a chrome plugin that simulates client application that demonstrates Web2.0 usability
+The demonstration consists of 5 different components:
+1. Community Points Client: a chrome plugin that simulates client application that demonstrates Web 2.0 usability
 2. Community Points Server: a fee relayer server that absorbs transaction fees for users
 3. Community Points Contracts: a set of smart contracts that govern ERC20 Tokens
 4. Community Points Claim demo: a script that demonstrates claim transaction
-5. Community Points Admin Dashboard: a MultiBaaS dashboard that gives administrator/moderator simple access to make transactions and treasury management.
+5. Community Points Admin Dashboard: a MultiBaaS dashboard that gives an administrator/moderator simple access to make transactions and treasury management
 
-The working application doesn't inlude the following components:
+The working application doesn't include the following components:
 1. Design blueprint for complete implementation 
-2. 25,000 subscriptions: due to time constraints, we were not able to demonstrate subscription transaction. However, we have proposed 2 designs for how this functionality could be implemented
+2. 25,000 subscriptions: due to time constraints, we were not able to demonstrate subscription transactions. However, we have proposed 2 designs for how this functionality could be implemented
 
 ### 1.2 Glossary / Terminology
 
@@ -54,7 +54,7 @@ The working application doesn't inlude the following components:
 
 **Community Points system** - a general term for particular community points, rewards, or tipping system.
 
-**Community Points platform** - a platform where Community Points system is being hosted, such as Reddit.
+**Community Points platform** - a platform where the Community Points system is being hosted, such as Reddit.
 
 **Community Points server** - a server that allows performing fee-less transactions for users of a given Community Points platform.
 
@@ -62,11 +62,11 @@ The working application doesn't inlude the following components:
 
 **Rootchain** - the Ethereum network.
 
-**Childchain** - the OMG Network.
+**Child chain** - the OMG Network.
 
 **Plasma** - the name of a scaling solution of the OMG Network.
 
-**Smart contract** - a self-executing contract that is running on a blockchain network, such as Ethereum.
+**Smart contract** - a self-executing contract that is running on a blockchain network, such as Ethereum.
 
 **Mint/minting** - an event of issuing/creating new tokens on the Ethereum network.
 
@@ -76,9 +76,9 @@ The working application doesn't inlude the following components:
 
 **Burn/burning** - an event of eliminating existing tokens out of circulation on the Ethereum or OMG Network. This event implies that the tokens are sent to the non-recoverable address.
 
-**Fee Relay** - a method to allow for a third party wallet application to absorb transaction fee for an end-user.
+**Fee Relay** - a method to allow for a third party wallet application to absorb the transaction fee for an end-user.
 
-**TCO** - total cost of ownership
+**TCO** - a total cost of ownership.
 
 ### 1.3 Product Requirements
 
@@ -100,7 +100,7 @@ The working application doesn't inlude the following components:
 
 ### 1.4 Requirements
 
-The proposal fulfils all the below requirements. 
+The proposal fulfills all the below requirements. 
 
 #### Scaling
 
@@ -111,12 +111,12 @@ Over a 5 day period, your scaling PoC should be able to handle:
 
 #### Decentralization
 
-The solution takes numerous trade-offs in having a central point of control, but still maintain trustlessness ownership of user funds.
+The solution takes numerous trade-offs in having a central point of control, but still maintains trustless ownership of user funds.
 
 #### Usability
 
 - Transactions complete in a reasonable amount of time (seconds or minutes, not hours or days)
-- Free to use for end users (no gas fees, or fixed/minimal fees that Reddit can pay on their behalf)
+- Free to use for end-users (no gas fees, or fixed/minimal fees that Reddit can pay on their behalf)
 - Bonus points:
     - Users should be able to view their balances & transactions via a blockchain explorer-style interface
     - Exiting is fast & simple
@@ -151,11 +151,11 @@ The proposed solution fulfills the following security criteria:
 
 #### Community Points Client
 
-We are utilizing the Web Browser as the user interface for this demonstration due to the simplicity of integration with current ecosystem tooling. The currently supported browsers are Brave and Chrome. Here are different components to the interface: 
+We are utilizing the web browser as the user interface for this demonstration due to the simplicity of integration with current ecosystem tooling. The currently supported browsers are Brave and Chrome. Here are different components to the interface: 
 
-- r/OMGnetwork: the application is designed to work while the user is interacting in a specific community, in this case, it is `r/OMGnetwork`. This is also a way to introduce the product in a seamless manner and not risking breaking the experience of the Community Points platform.
+- r/OMGnetwork: the application is designed to work while the user is interacting in a specific community, in this case, it is `r/OMGnetwork`. This is also a way to introduce the product in a seamless manner and not risk breaking the experience of the Community Points platform.
 
-- Web3 provider: any Web3 provider that injects Web3 object into the DOM, exposes the current user's Ethereum account balance and supports EIP712 transaction signing. Because we are reliant on a non-custodial solution, users will have full ownership of funds. For the demonstration, we push the responsibility for Web3 and wallet provider to MetaMask.
+- Web3 provider: any Web3 provider that injects a Web3 object into the DOM, exposes the current user's Ethereum account balance, and supports EIP712 transaction signing. Because we are reliant on a non-custodial solution, users will have full ownership of funds. For the demonstration, we push the responsibility of Web3 and wallet provider to MetaMask.
 
 - Community Points extension: the user interface and core business logic for the user. It interacts with a few different services including the public Reddit API, Web3 provider, and fee relayer service. It currently offers multiple functionalities:
 
@@ -166,7 +166,7 @@ We are utilizing the Web Browser as the user interface for this demonstration du
 
 A browser extension is the easiest way to deploy and develop as a PoC. The Community Points client could be running on any other platform including natively on desktop and mobile as long as wallet signing APIs are provided. 
 
-Our extension demonstrates how Community Points functionality can be introduced in a manner that is abstracted away from typical Blockchain usability, thus allows end-user to retain the same experience as community points transactions on regular Web2.0
+Our extension demonstrates how Community Points functionality can be introduced in a manner that is abstracted away from typical blockchain usability thus allowing the end-user to retain the same experience as community points transactions on regular Web 2.0
     
 #### Community Points Platform: Reddit
 
@@ -186,11 +186,11 @@ The server-side of the Community Points Engine is where most of the complexity i
 
 3. *Cloud-based HSM module*: Given that compromised private keys can have catastrophic consequences for operators, we ensure that different key management approaches and standards are possible. High throughput hot wallet transactors like fee relayers are best managed on a Cloud-based hardware security module to be compliant with enterprise best practices. This implementation utilizes the MultiBaaS module along with Azure Vault.
 
-We support modern operational standards and run this application inside Docker container, orchestrated on Kubernetes with Google Cloud as the deployment target. However, infrastructure requirements can change based on the client's demand.
+We support modern operational standards and run this application inside a Docker container, orchestrated on Kubernetes with Google Cloud as the deployment target. However, infrastructure requirements can change based on the client's demand.
 
 #### Admin/Moderator Dashboard
 
-Treasury and funds management are difficult to achieve on a public blockchain, especially for platform administrators and moderators who are non-crypto native. We show that we can provide a highly usable abstraction for back-office operations via an admin dashboard provided on the MultiBaaS. 
+Treasury and fund management are difficult to achieve on a public blockchain, especially for platform administrators and moderators who are non-crypto natives. We show that we can provide a highly usable abstraction for back-office operations via an admin dashboard provided on the MultiBaaS. 
 
 Our community moderators can sign in via role-based access (RBAC) to make deposits, transactions, and Community Points distribution right on the dashboard without prior Web3 experience. They can have a choice to choose between non-custodial wallets such as MetaMask and Cloud HSM.
 
@@ -226,7 +226,7 @@ The overall flow using such architecture involves the following steps:
 11. A user signs a transaction with a Web3 wallet. If a user doesn’t sign a transaction, the extension cancels it by sending a POST request `/cancel-relayed-tx` to a fee relayer.
 12. An extension sends a POST request `/submit-relayed-tx` to a fee relayer to submit a transaction.
 13. A fee relayer signs the transaction and submits it to the OMG Network via the Watcher service. If you want the fee relayer to sign a transaction via HSM, you need to make a request to a MultiBaas platform first.
-14. Childchain operator creates a block on the OMG Network and submits it to the Ethereum network.
+14. Child chain operator creates a block on the OMG Network and submits it to the Ethereum network.
 15. After the transaction is confirmed, the user receives a notification and can view the transaction in the Block Explorer.
 
 ### 2.1.2 Server
@@ -296,9 +296,9 @@ Each transaction item includes:
 - An icon that represents sending or receiving of funds
 - `Sent` or `Received` message for a corresponding transaction type
 - Transaction status: `Pending` or `Confirmed`
-- A wallet address of recipient or sender (depending on transaction type)
+- A wallet address of the recipient or sender (depending on transaction type)
 - The amount and token symbol
-- A copy button that copies recipient or sender
+- A copy button that copies the recipient or sender
 
 Also, each item should be clickable and refer to a blockchain explorer of the network used during a transaction (Rinkeby, Ropsten, or Mainnet). If history becomes too long, a user should see only the first few items, and retrieve the rest by clicking on the `Load more` button.
 
@@ -310,10 +310,10 @@ The Merch View contains a list of digital goods (e.g. flair) a user can purchase
 
 An extension should notify users in the following scenarios:
 - When an extension is loading
-- When a user is located on unsupported community points page (e.g. subreddit)
+- When a user is located on an unsupported community points page (e.g. subreddit)
 - When a user doesn't have a MetaMask extension
 - When a user is not logged in with the MetaMask extension
-- When user’s MetaMask is connected to the wrong network (e.g. Ropsten, instead of Mainnet)
+- When the user’s MetaMask is connected to the wrong network (e.g. Ropsten, instead of Mainnet)
 
 #### Mockups
 
@@ -348,8 +348,8 @@ The following section describes the first approach. The latter one will be outli
 The current design consists of 4 contracts:
 - Distribution
 - Subreddit Point
-- Karma token
-- Subscription Token
+- KARMA token
+- Subscription token
 
 ##### Distribution contract
 This contract holds the main logic to decide how many community points (e.g. subreddit points) should be distributed on each round. This contract mints the community points according to the formula in this contract.
@@ -361,10 +361,10 @@ This is an ERC20 contract for the subreddit points. It should enable the `Distri
 
 > Note, this contract was designed specifically for a Reddit use case. It may have a different name for another Community Points platform.
 
-##### Karma Token contract
-This is a representative of Karma. It is an ERC20 token that can be distributed by the Community Points platform (e.g. Reddit) to users on the OMG Network. Users can use the received Karma to create a "Claim" transaction to receive points of a given community (e.g. subreddit points).
+##### Karma token contract
+This is a representative of KARMA. It is an ERC20 token that can be distributed by the Community Points platform (e.g. Reddit) to users on the OMG Network. Users can use the received KARMA to create a "Claim" transaction to receive points of a given community (e.g. subreddit points).
 
-##### Subscription Token contract
+##### Subscription token contract
 Instead of having an expiration date on each subscription, we use a simpler design where a subscription token represents the subscription status of a certain period. For instance, there can be a subscription token representing the subscription of January 2020. Proof of ownership of the token shows the subscription status.
 
 This simplifies the timing issue on Layer 1 and Layer 2. Also, this enables the possibility of using an ERC20 token to represent subscription and do it on the current version of the OMG Network.
@@ -377,13 +377,13 @@ This simplifies the timing issue on Layer 1 and Layer 2. Also, this enables the 
 
 This flow would be initiated by the community owner. It should call a `Distribution` contract to start the next round. Inside the `Distribution` contract it will auto call the `SubredditPoint` contract to mint the token according to the total available points of the next round.
 
-##### Distribute Karma to user
+##### Distribute KARMA to user
 
-Community Points platform (e.g. Reddit) should from time to time (or on-demand) mint Karma token (ERC20) on the Ethereum and deposit it to the OMG Network. Community Points platform should send karma to its users according to their activities on the platform.
+Community Points platform (e.g. Reddit) should from time to time (or on-demand) mint KARMA token (ERC20) on the Ethereum and deposit it to the OMG Network. Community Points platform should send KARMA to its users according to their activities on the platform.
 
-##### User Claiming community points
+##### User claiming community points
 
-With the Karma given by Community Points platform, the user can ask for an atomic swap transaction as the claim of the community points. The server generating the transaction would provide the transaction with the community points according to the percentage of the amount Karma and the total Karma of the distribution round.
+With the KARMA given by Community Points platform, the user can ask for an atomic swap transaction as the claim of the community points. The server generating the transaction would provide the transaction with the community points according to the percentage of the KARMA amount and the total KARMA of the distribution round.
 
 After the transaction is generated, both the user and the Community Points server would sign the transaction then submit it to the OMG Network.
 
@@ -405,7 +405,7 @@ The current demo includes the following actors:
 ##### Application Flow
 
 The overall flow using the demo involves the following steps:
-1. Distributor mints a defined amount of KARMA and RCP tokens from the smart contracts
+1. Distributor mints a defined amount of KARMA, and RCP tokens from the smart contracts
 2. Distributor deposits ETH on the OMG Network to cover the fee costs.
 3. Distributor approves KARMA and RCP tokens of defined amount to make a deposit.
 4. Distributor deposits KARMA and RCP tokens of defined amount on the OMG Network.
@@ -432,8 +432,8 @@ Here’s [an example](https://blockexplorer.ropsten.v1.omg.network/transaction/0
 ##### Production Considerations
 
 There are a few things to consider if you want to convert this proof of concept into a production service. 
-- For simplicity purposes, the Karma and RCP tokens can be minted by anyone. In production, KARMA tokens should be minted by the contract owner only, Community Points tokens (e.g. RCP tokens) may be minted by the correspondent Community Points moderator (e.g. subreddit admin). This can be changed in configurations.
-- The keys for Community Points engine and users (e.g. Subreddit server) are generated within the application, which is sufficient only for demo purposes.
+- For simplicity purposes, the Karma and RCP tokens can be minted by anyone. In production, KARMA tokens should be minted by the contract owner only. Community Points tokens (e.g. RCP tokens) may be minted by the correspondent Community Points moderator (e.g. subreddit admin). This can be changed in configurations.
+- The keys for the Community Points engine and users (e.g. Subreddit server) are generated within the application, which is sufficient only for demo purposes.
 - The amount in UTXO(s) used for KARMA and RCP inputs should match the exact amount of tokens you want to swap. This is due to the limitation of 4 inputs and 4 outputs on the OMG Network. In production, you should merge or split UTXO(s) to get the exact amount needed in the claim atomic swap.
 - The demo mints KARMA and RCP tokens on demand when the script is starting. In production, the owner of the corresponding tokens may mint tokens beforehand.
 - The demo was tested on Ropsten and Rinkeby environments due to the Ethereum network gas price on Mainnet.
@@ -444,11 +444,11 @@ There are a few things to consider if you want to convert this proof of concept 
 
 ### 3.1 An Alternative Claim Transaction Design
 
-The proposed implementation of claim transactions is one of the approaches to handle claim transactions. An alternative solution could be using special transaction types on the OMG Network. You can read a high-level overview of the potential implementation in [this document](https://github.com/omgnetwork/community-points/wiki/Reddit-point-on-ALD). Note, this is only a theoretical concept and hasn't been tested on any environment yet.
+The proposed implementation is one of the approaches to handle claim transactions. An alternative solution could be using special transaction types on the OMG Network. You can read a high-level overview of the potential implementation in [this document](https://github.com/omgnetwork/community-points/wiki/Reddit-point-on-ALD). Note, this is only a theoretical concept and hasn't been tested on any environment yet.
 
 ### 3.2 Third-party Services
 
-To run any OMG Network application it's required to use the following services:
+To run any OMG Network application, it's required to use the following services:
 - Ethereum node: to sync with the rootchain. You can run your own node or use one of the infrastructure providers, such as [Infura](https://infura.io/).
 - Web3 wallet: to sign transactions. It's recommended to use [MetaMask](https://metamask.io/) browser extension.
 
@@ -459,35 +459,35 @@ Additionally, you may consider using [MultiBaas](https://docs.omg.network/3rd-pa
 
 ### 3.3 Cost and Performance
 
-Threre are various ways to determine cost and performance on OMG network in the context of community points. Many blockchain projects develop benchmarks on a widely different basis that negates the practicality of having direct comparisons. We try to take the most pragmatic approach to cost and throughput assumptions with the business needs in mind, while trying to be transparent whenever possible.
+There are various ways to determine cost and performance on the OMG Network in the context of community points. Many blockchain projects develop benchmarks on a widely different basis that negates the practicality of having direct comparisons. We try to take the most pragmatic approach to cost and throughput assumptions with the business needs in mind while trying to be transparent whenever possible.
 
-Listed below are a few dimensions of cost and performance metrics, their definitions, and associated figures to achieve an objective reasoning about network viability.
+Listed below are a few dimensions of cost and performance metrics, their definitions, and associated figures to achieve objective reasoning about network viability.
 
 #### 3.3.1 Throughput Performance
 
 ##### Maximum Theoretical Throughput
 
-Many projects will quote theoretical throughput. It is possible to judge a layer 2 performance based on its maximum throughput achievable by its design.
+Many projects will quote theoretical throughput. It is possible to judge a Layer 2 performance based on its maximum throughput achievable by its design.
 
-If we were to compare to other projects in this dimension, the maximum block size for a Plasma block is at 65,536 (as limited by Merkle tree). Given a 12 seconds Ethereum block, the maximum block throughput would be 5,461 TPS.
+If we were to compare to other projects in this dimension, the maximum block size for a Plasma block is at 65,536 (as limited by Merkle tree). Given a 12 second Ethereum block, the maximum block throughput would be 5,461 TPS.
 
-Although we could try to manually fabricate 65K Transactions and submit them into a Plasma block and forego the rest of the tech stack, our point of view is that this approach has not taken into account how real world business transactions work, nor is it reflective of bottlenecks faced by real software and therefore should not be taken as a definitive figure for performance comparison. It is a non-productive benchmark for serious applications.
+Although we could try to manually fabricate 65K Transactions and submit them into a Plasma block and forego the rest of the tech stack, our point of view is that this approach has not taken into account how real-world business transactions work, nor is it reflective of bottlenecks faced by real software and therefore should not be taken as a definitive figure for performance comparison. It is a non-productive benchmark for serious applications.
 
 ##### Real Application Transaction Throughput
 
-We wanted to demonstrate the capabilities of our system for the suitability of managing the Reddit Community Points ecosystem. As part of this bakeoff application process we've simulated transactions that align with Reddit's use cases on our public blockchain. We elected to use our public Integration environment on Ropsten for this as the gas prices on the production Ethereum network are high. 
+We wanted to demonstrate the capabilities of our system for the suitability of managing the Reddit Community Points ecosystem. As part of this bakeoff application process, we've simulated transactions that align with Reddit's use cases on our public blockchain. We elected to use our public Integration environment on Ropsten for this as the gas prices on the production Ethereum network are high. 
 
-Our stack is built and managed using IaC (Infrastructure as Code), with our smart contracts, Terraform modules, Helm charts, and applications all versioned with SemVer. We have confidence in consistency of environments and the ability to serve this from our Mainnet environment.
+Our stack is built and managed using IaC (Infrastructure as Code), with our smart contracts, Terraform modules, Helm charts, and applications all versioned with SemVer. We have confidence in the consistency of environments and the ability to serve this from our Mainnet environment.
 
 We use the acronym `ST4R` to mean "Stress Test For Reddit". 
 
 **100,000 Point Claims (Minting & Distributing points)**
 
-We performed an exchange of KARMA and Community Points in one transaction, as described in the smart contract section. However, the transactions here are missing a fee relayer and the execution is done in atomic swap with only 2 wallets.
+We performed an exchange of KARMA and Community Points in one transaction, as described in the smart contract section. However, the transactions here are missing a fee relayer and the execution is done via an atomic swap with only 2 wallets.
 
 We use transaction metadata `ST4R CLAIM` encoded into hex as `0x000000000000000000000000000000000000000000005354345220434c41494d` for these transactions. We performed 119130 transactions over two hours.
 
-To verify use the Block Explorer at https://blockexplorer.ropsten.v1.omg.network/ or
+To verify, use the Block Explorer at https://blockexplorer.ropsten.v1.omg.network/ or
 
 ```
 curl --location --request POST 'https://watcher-info.ropsten.v1.omg.network/transaction.all' \          
@@ -502,11 +502,11 @@ The response is limited to 200 transactions and is paginated.
 
 **25,000 Subscriptions**
 
-Due to time constraints we were unable to complete this part of the request for the Proof of Concept. We do have two proposals that we believe satisfy this requirement which are documented [here](https://github.com/omgnetwork/community-points/wiki/Reddit-point-on-ALD).
+Due to time constraints, we were unable to complete this part of the request for the Proof of Concept. We do have two proposals that we believe satisfy this requirement. These are documented [here](https://github.com/omgnetwork/community-points/wiki/Reddit-point-on-ALD).
 
 **5000 One-off Points Burning**
 
-For the points burning capability demonstration we sent 81341 transactions to a `0x` address for which there is no owner. This simulates the burning of real points. We used the metadata field again so that the transactions can be verified with `ST4R BURN` encoded into hex as `0x000000000000000000000000000000000000000000000053543452204255524e` for these transactions. We performed  transactions over an hour.
+For the points burning capability demonstration, we sent 81341 transactions to a `0x` address for which there is no owner. This simulates the burning of real points. We used the metadata field again so that the transactions can be verified with `ST4R BURN` encoded into hex as `0x000000000000000000000000000000000000000000000053543452204255524e` for these transactions. We performed transactions over an hour.
 
 To verify use the Block Explorer at https://blockexplorer.ropsten.v1.omg.network/ or 
 
@@ -523,11 +523,11 @@ The response is limited to 200 transactions and is paginated.
 
 **100,000 Transfers**
 
-We minted ROCK tokens which are points that can be used with the `r/OMGnetwork` subreddit. These tokens were then deposited into the Plasma smart contracts and could be used to distribute as points on our layer 2 chain. 
+We minted ROCK tokens which are points that can be used with the `r/OMGnetwork` subreddit. These tokens were then deposited into the Plasma smart contracts and could be used to distribute as points on our Layer 2 chain. 
 
-We performed 121461 transactions over the course of a four hours to demonstrate that the OMG Network is capable of handling this load. We used the metadata field of the transaction populated with `ST4R` to use as a filter for independent verification of the transaction volume. The hex value for this is `0000000000000000000000000000000000000000000000000000000053543452` and it's possible to view these transactions in our Block Explorer at https://blockexplorer.ropsten.v1.omg.network/
+We performed 121461 transactions over the course of four hours to demonstrate that the OMG Network is capable of handling this load. We used the metadata field of the transaction populated with `ST4R` to use as a filter for independent verification of the transaction volume. The hex value for this is `0000000000000000000000000000000000000000000000000000000053543452` and it's possible to view these transactions in our Block Explorer at https://blockexplorer.ropsten.v1.omg.network/
 
-Alternatively you can query the Watcher for these transactions via: https://blockexplorer.ropsten.v1.omg.network/
+Alternatively, you can query the Watcher for these transactions via https://blockexplorer.ropsten.v1.omg.network/
 
 ```
 curl --location --request POST 'https://watcher-info.ropsten.v1.omg.network/transaction.all' \
@@ -542,13 +542,13 @@ The response is limited to 200 transactions and is paginated.
 
 #### 3.3.2 Cost
 
-There is always a cost associated with operating a system. Although cost optimization may make for a better business sense, a near-zero cost networks will rarely achieve full trustlessness. We believe cost and security goes hand in hand. A project picking a trustless solution on the basis of lower cost should seriously consider the degree in which they may require Blockchain level of security guarantees. The risk and reward is highly dependent on the type of businesses and applications.
+There is always a cost associated with operating a system. Although cost optimization may make for a better business sense, near-zero cost networks will rarely achieve full trustlessness. We believe cost and security go hand in hand. A project picking a trustless solution on the basis of lower cost should seriously consider the degree in which they may require blockchain level of security guarantees. The risk and reward are highly dependent on the type of businesses and applications.
 
-As with performance, cost per transaction cannot be derived or compared in a trivial manner without taking in considerations multiple other factors eg. number of transactions per block, Ethereum gas price, gas usage.
+As with performance, cost per transaction cannot be derived or compared in a trivial manner without taking into consideration multiple other factors e.g. number of transactions per block, Ethereum gas price, gas usage.
 
 ##### Gas usage per number of transactions.
 
-Due to the nature of Plasma block submission, the gas amount usage is constant for any number of transactions in a Plasma block, due to the fact that Plasma block stores the Merkle root on Ethereum with data running off-chain. The Merkle root hash is a 32 byte string no matter how many transactions are included.
+Due to the nature of Plasma block submission, the gas amount usage is constant for any number of transactions in a Plasma block, due to the fact that Plasma block stores the Merkle root on Ethereum with data running off-chain. The Merkle root hash is a 32-byte string no matter how many transactions are included.
 
 | Number of transactions per block | Gas used per block | Gas cost per transaction |
 | -------------------------------- | ------------------ | ------------------------ |
@@ -562,7 +562,7 @@ Due to the nature of Plasma block submission, the gas amount usage is constant f
 
 ##### Gas cost per transactions in a block
 
-Gas cost per transaction is dependent on multiple variables, including current gas market on Ethereum as well as the price of ETH. We have the table that shows the gas cost per Plasma transaction based on the current gas price of 49 Gwei with current ETH price of $332.53.
+Gas cost per transaction is dependent on multiple variables, including the current gas market on Ethereum as well as the price of ETH. We have the table that shows the gas cost per Plasma transaction based on the current gas price of 49 Gwei with a current ETH price of $332.53.
 
 The formula is `ETH Price * Gas price * Gas used / Number of transactions in a block`
 
@@ -576,7 +576,7 @@ The formula is `ETH Price * Gas price * Gas used / Number of transactions in a b
 | 30000                            | 2500                        | 0.00003979476293   |
 | 60000                            | 5000                        | 0.00001989738147   |
 
-Note that this is the cost in relation to an Ethereum transaction that submits a Plasma block. The cost incurred by Reddit for handling user transactions on the platform are discussed below.
+Note that this is the cost in relation to an Ethereum transaction that submits a Plasma block. The cost incurred by Reddit for handling user transactions on the platform is discussed below.
 
 ##### Transaction fee charged by OMG and the operator model
 
@@ -586,28 +586,28 @@ Three considerations for running an application on an operator-led Layer 2 are:
 2. The algorithm for block submission. 
 3. The number of transactions in a given block and frequency of submissions.
 
-Currently OMG Network charges transaction fees to end users in a form of OMG tokens. The fee charged is 3x cheaper compared to the average Ethereum ERC20 transaction gas price. This is due to the performance optimization that is in place for the child chain service to submit a block every time there is at least 1 transaction. Even under low volume, the cost is fixed for the operator as described in the previous section. 
+Currently, OMG Network charges transaction fees to end-users in the form of OMG tokens. The fee charged is 3x cheaper compared to the average Ethereum ERC20 transaction gas price. This is due to the performance optimization that is in place for the child chain service to submit a block every time there is at least 1 transaction. Even under low volume, the cost is fixed for the operator as described in the previous section. 
 
-However, with higher transaction numbers per Plasma block, we can expect the transaction fees to be an order of magnitude cheaper than the current 3x cost saving. This is because the higher a Plasma block is filled the greater the overall savings are compared to transacting directly on Ethereum. The transactions generated by a business on OMG will have a net positive affects to the wider ecosystem. You may refer to the above figure to get an idea of how this may look like.
+However, with higher transaction numbers per Plasma block, we can expect the transaction fees to be an order of magnitude cheaper than the current 3x cost saving. This is because the higher a Plasma block is filled the greater the overall savings are compared to transacting directly on Ethereum. The transactions generated by a business on OMG will have a net positive effect on the wider ecosystem. You may refer to the above figure to get an idea of how this may look like.
 
-The unit economics for being a layer 2 service provider should always be taken into account for determining the TCO of the solution. 
+The unit economics for being a Layer 2 service provider should always be taken into account for determining the TCO of the solution. 
 
 ### 3.3 Security Considerations
 
-#### Trustlessness vs decentralization
+#### Trustlessness vs Decentralization
 
-Although the network is reliant on the child chain operator to aggregate transactions into blocks and submit the Merkle root to Ethereum, the users do not need to put trust in the operator for the security of their funds. At any point users can leave the network in the case that the operator is compromised. You can learn more about the basics of Plasma fraud proofs and the benefits for users of the system [here](https://docs.omg.network/contracts/morevp).
+Although the network is reliant on the child chain operator to aggregate transactions into blocks and submit the Merkle root to Ethereum, the users do not need to put trust in the operator for the security of their funds. At any point, users can leave the network in the case that the operator is compromised. You can learn more about the basics of Plasma fraud proofs and the benefits for users of the system [here](https://docs.omg.network/contracts/morevp).
 
 #### What are the potential threats and liabilities?
 
 The potential threats for Community Points include the following:
-1. Byzantine events that can happen on the OMG Network: [Unchallenged exit](https://docs.omg.network/network/byzantine-conditions#unchallenged_exit), [Invalid block](https://docs.omg.network/network/byzantine-conditions#invalid_block), [Block withholding](https://docs.omg.network/network/byzantine-conditions#block_withholding), [Invalid exit](https://docs.omg.network/network/challenge-exits#invalid_exit), [Non-canonical in-flight exit](https://docs.omg.network/network/challenge-exits#noncanonical_ife), [Invalid in-flight exit challenge](https://docs.omg.network/network/challenge-exits#invalid_ife_challenge), [Invalid Piggyback](https://docs.omg.network/network/challenge-exits#invalid_piggyback). The events can either be challenged by another user or in the worst case the users need to leave the chain as it has become unsafe. These events are not specific to this particular use case but are worth mentioning due to the technical implementation of the network.
+1. Byzantine events that can happen on the OMG Network: [Unchallenged exit](https://docs.omg.network/network/byzantine-conditions#unchallenged_exit), [Invalid block](https://docs.omg.network/network/byzantine-conditions#invalid_block), [Block withholding](https://docs.omg.network/network/byzantine-conditions#block_withholding), [Invalid exit](https://docs.omg.network/network/challenge-exits#invalid_exit), [Non-canonical in-flight exit](https://docs.omg.network/network/challenge-exits#noncanonical_ife), [Invalid in-flight exit challenge](https://docs.omg.network/network/challenge-exits#invalid_ife_challenge), [Invalid Piggyback](https://docs.omg.network/network/challenge-exits#invalid_piggyback). The events can either be challenged by another user, or in the worst case, the users need to leave the chain as it has become unsafe. These events are not specific to this particular use case but are worth mentioning due to the technical implementation of the network.
 
-2. The moderator starts manipulating token's governance. Any moderator can behave maliciously and manage community points irresponsibly, e.g. issue more tokens than needed, send a large number of tokens to their friends, purchase a limited number of digital items, etc.
+2. The moderator starts manipulating token governance. Any moderator can behave maliciously and manage community points irresponsibly, e.g. issue more tokens than needed, send a large number of tokens to their friends, purchase a limited number of digital items, etc.
 
-3. The user loses the seed phrase or the private key to a Web3 wallet. The way to manage funds on the Ethereum or any other blockchain network is quite different from traditional banking services, thus security education should be one of the main priorities for Web3 wallets and similar applications.
+3. The user loses the seed phrase or the private key to a Web3 wallet. The way to manage funds on Ethereum or any other blockchain network is quite different from traditional banking services, thus security education should be one of the main priorities for Web3 wallets and similar applications.
 
-4. A spam attack on a fee relayer. A group of people can coordinate a spam attack of transactions until the funds that are dedicated to paying for users' fees are depleted, thus it won't be possible to have free transactions using the client. This attack vector can be mitigated though by leveraging the Reddit account system to whitelist users who should be able to send transactions and also control the volume that can be sent. 
+4. A spam attack on a fee relayer. A group of people can coordinate a spam attack of transactions until the funds that are dedicated to paying for users' fees are depleted, thus it won't be possible to have free transactions using the client. This attack vector can be mitigated by leveraging the Reddit account system to whitelist users who should be able to send transactions and also control the volume that can be sent. 
 
 #### How will they be mitigated or responded to?
 
@@ -625,7 +625,7 @@ The potential threats for Community Points include the following:
 
 It is recommended that each entity that does not wish to trust OMG as a chain operator should run their own [Watcher service](https://docs.omg.network/watcher/run-watcher-vps).
 
-OMG Network offers a Watcher instance on Mainnet as a public service that anyone can use. The Watcher can also be managed by the community platform provider like Reddit itself, a Blockchain node service provider, or self-hosted via the core community members. 
+OMG Network offers a Watcher instance on Mainnet as a public service that anyone can use. The Watcher can also be managed by the community platform provider like Reddit itself, a blockchain node service provider, or self-hosted via the core community members. 
 
 ## 4. Resources
 
