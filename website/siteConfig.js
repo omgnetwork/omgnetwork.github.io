@@ -1,9 +1,11 @@
 // See https://docusaurus.io/docs/site-config for more options
 
+const config = require("../config");
+
 const siteConfig = {
   docsSideNavCollapsible: true,
   disableHeaderTitle: true,
-  gaTrackingId: "UA-154130721-1",
+  gaTrackingId: config.gaTrackingId,
   gaGtag: true,
   title: "OMG Network",
   tagline: "Documentation for the OMG Network",
@@ -40,8 +42,8 @@ const siteConfig = {
   onPageNav: "separate",
   cleanUrl: true,
   algolia: {
-    apiKey: "af8e7b1e7bcb8af0f31e1c3aca2f8d16",
-    indexName: "omisego",
+    apiKey: config.algoliaApiKey,
+    indexName: config.algoliaIndexName,
   },
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
