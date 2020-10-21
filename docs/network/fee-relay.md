@@ -264,7 +264,7 @@ async function transactionRelay() {
 
   // check how many inputs do you use to cover payment
   if (senderUtxos.length !== 1) {
-    console.log("You can have maximum 3 out of 4 inputs to cover the payment. To proceed with transaction, please merge the selected inputs first.");
+    console.log("You can have up to 3 payment inputs to cover the payment. To proceed with transaction, please merge the selected inputs first.");
   } else {
     // construct a transaction body
     const transactionBody = createTransactionBody(
@@ -302,4 +302,22 @@ async function transactionRelay() {
   }
 }
 ```
+
+> NOTE, you can create a custom logic and include up to 3 payment inputs. This sample demonstrates the easiest option where you have only 1 payment input and 1 fee input.
+
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+## Lifecycle
+
+1. A user retrieves the fee amount for a defined fee currency.
+2. A user selects fee payer UTXOs usable for payment.
+3. A user selects sender UTXOs usable for payment.
+4. If the transaction can't be covered with 1 payment input, a user should merge the inputs first.
+5. A user constructs a custom transaction body for a fee relayer transfer.
+6. A user sanitizes the transaction into the correct typedData format.
+7. A user signs sender's and fee payer's inputs with corresponding private keys.
+8. A user collects signatures for sender and fee payer inputs.
+9. A user encodes and submits the transaction's data to the child chain and the Watcher for validation.
+10. If the transaction is valid, the child chain server creates a transaction hash and adds the transaction to a pending block.
+11. The child chain bundles the transactions in the block into a Merkle tree and submits its root hash to the `Plasma Framework` contract.
+12. The Watcher receives a list of transactions from the child chain and recomputes the Merkle root to check for any inconsistency.
