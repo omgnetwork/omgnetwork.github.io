@@ -120,7 +120,7 @@ const getFeeAmount = async (currency) => {
 
 ##### UTXO helper
 
-UTXO helper filters UTXOs that can be used during a transaction. Currently, the OMG Network has a limitation of only 4 inputs and 4 outputs, thus you can have a maximum of 2 payment inputs and 2 fee inputs. For simplicity purposes, we select UTXOs that have an amount that is greater or equal to the amount requested in a transaction.
+UTXO helper filters UTXOs that can be used during a transaction. Currently, the OMG Network has a limitation of only 4 inputs and 4 outputs, thus you can have a maximum of 3 payment inputs and reserve the last one for a fee input. For simplicity purposes, we select UTXOs that have an amount that is greater or equal to the amount requested in a transaction.
 
 ```js
 // get utxos that can be used for payment
@@ -158,7 +158,7 @@ const checkUtxoForChange = (address, utxo, amount, transactionBody) => {
     throw new Error(`No UTXO provided for ${address}`);
   }
   
-  if (transactionBody.outputs.lenght > 4) {
+  if (transactionBody.outputs.length > 4) {
     throw new Error(`The provided transaction body has 4 outputs. You need to have at least 1 spare output to proceed.`);
   }
 
@@ -188,7 +188,7 @@ const getSignatures = (typedData, sender, feePayer) => {
   return [senderSignature, feePayerSignature];
 }
 
-// retrieve a signature to sign a defined type of input
+// retrieve a signature to sign data
 const getSignature = (toSign, signer) => {
   const signature = ethUtil.ecsign(
     toSign,
@@ -263,8 +263,8 @@ async function transactionRelay() {
   );
 
   // check how many inputs do you use to cover payment
-  if (senderUtxos.length > 2) {
-    console.log("You can have only 2 out of 4 inputs to cover the payment. To proceed with transaction, please merge the selected inputs first.");
+  if (senderUtxos.length !== 1) {
+    console.log("You can have maximum 3 out of 4 inputs to cover the payment. To proceed with transaction, please merge the selected inputs first.");
   } else {
     // construct a transaction body
     const transactionBody = createTransactionBody(
