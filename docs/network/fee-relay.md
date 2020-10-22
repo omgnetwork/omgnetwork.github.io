@@ -264,7 +264,7 @@ async function transactionRelay() {
 
   // check how many inputs do you use to cover payment
   if (senderUtxos.length !== 1) {
-    console.log("You can have up to 3 payment inputs to cover the payment. To proceed with transaction, please merge the selected inputs first.");
+    console.log("This transaction only supports one payment input. To proceed with transaction, please merge the selected inputs first.");
   } else {
     // construct a transaction body
     const transactionBody = createTransactionBody(
