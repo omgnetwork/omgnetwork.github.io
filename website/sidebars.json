@@ -8,6 +8,7 @@
       "network/balances",
       "network/deposits",
       "network/transfers",
+      "network/fee-relay",
       "network/standard-exits",
       "network/in-flight-exits",
       "network/process-exits",
