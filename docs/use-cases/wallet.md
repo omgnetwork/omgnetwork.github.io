@@ -34,7 +34,7 @@ The proposed design is based on the lessons learned during the development of th
 
 ### 2.1 Integration scope
 
-The scope for integrating with the OMG Network by a given cryptocurrency wallet includes several steps. The current scope is very similar to the [Exchange Use Case Integration Scope](https://docs.omg.network/use-cases/exchange#21-integration-scope), thus some parts will be used as references to that use case to avoid redundant information.
+The scope for integrating with the OMG Network by a given cryptocurrency wallet includes several steps. The current scope is very similar to the [Exchange Use Case Integration Scope](/use-cases/exchange#21-integration-scope), thus some parts will be used as references to that use case to avoid redundant information.
 
 There are two ways a wallet can integrate with the OMG Network:
 1. Natively: separate implementations for Android and iOS using Java/Kotlin or Objective-C/Swift respectively.
@@ -46,33 +46,33 @@ We do provide React Native support for [omg-js](https://github.com/omgnetwork/om
 
 #### 2.1.1 Query blockchain
 
-Querying blockchain is the most basic thing every integrator needs to know how to do. A wallet provider might be interested in retrieving data about transactions, accounts, deposits, and exits. You can find the full list of commands for this step in the [Exchange Use Case](https://docs.omg.network/use-cases/exchange#212-query-blockchain).
+Querying blockchain is the most basic thing every integrator needs to know how to do. A wallet provider might be interested in retrieving data about transactions, accounts, deposits, and exits. You can find the full list of commands for this step in the [Exchange Use Case](/use-cases/exchange#212-query-blockchain).
 
 *Implementation details:*
 
-The information about the token and its price currently have to be retrieved from different sources (Ethereum node, such as Infura, and one of the public price feeds, such as ...), which makes it more difficult to display the full token details and the balance in different fiat currencies.
+The information about the token and its price currently have to be retrieved from different sources (Ethereum node, such as Infura, and one of the public price feeds, such as Coinmarketcap, Coingecko, AmberData, or your existing price source), which makes it more difficult to display the full token details and the balance in different fiat currencies.
 
 #### 2.1.2 Make Deposits
 
-It is required to have funds deposited into OMG Network first before making any transfer. You can implement this functionality by following [Deposit Funds guide](https://docs.omg.network/network/deposits).
+It is required to have funds deposited into OMG Network first before making any transfer. You can implement this functionality by following [Deposit Funds guide](/network/deposits).
 
 *Implementation details:*
 
-Each deposit has a [deposit finality period](https://docs.omg.network/glossary#deposit-finality-period) before it can be used on the network. Currently this period equals 10 Ethereum blocks. The confirmations are counted on the Ethereum because the OMG Network relies on rootchain (Ethereum) security and creates blocks only when new transactions are being formed (i.e. on-demand). You may use the `waitForChildchainBalance` function from [omg-js documentation](https://docs.omg.network/omg-js/) or implement your custom helper/service for polling the expected amount after the deposit.
+Each deposit has a [deposit finality period](/glossary#deposit-finality-period) before it can be used on the network. Currently this period equals 10 Ethereum blocks. The confirmations are counted on the Ethereum because the OMG Network relies on rootchain (Ethereum) security and creates blocks only when new transactions are formed (i.e. on-demand). You may use the `waitForChildchainBalance` function from [omg-js documentation](https://docs.omg.network/omg-js/) or implement your custom helper/service for polling the expected amount after the deposit.
 
 #### 2.1.3 Make Transfers
 
-Making transfers on the OMG Network has the same behavior as on other networks, blockchains, or payment systems. Currently, the network supports only payment transactions, more advanced types will be available in the future. This operation will occupy the majority of data load, thus should be treated with more focus. You can implement a standard transfer functionality using [Make a Transfer guide](https://docs.omg.network/network/transfers).
+Making transfers on the OMG Network has the same behavior as on other networks, blockchains, or payment systems. Currently, the network supports only payment transactions, more advanced types will be available in the future. This operation will occupy the majority of data load, thus should be treated with more focus. You can implement a standard transfer functionality using [Make a Transfer guide](/network/transfers).
 
 *Implementation details:*
 
-When you send a transaction, you will often use [`account/get_utxos`](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs#/Account/account_get_utxos) endpoint to get information about the latest UTXOs. Current implementation returns only confirmed UTXOs that are not used for the pending transaction. One of the ways to mitigate this limitation is to block/diable your wallet UI to prevent sending other transactions until the current transaction is confirmed. Otherwise, you may encounter `UTXO not found` issue. Alternatively, you can keep track of all of the UTXOs used for your transactions but this will create additional complexity for your application.
+When you send a transaction, you will often use [`account/get_utxos`](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs#/Account/account_get_utxos) endpoint to get information about the latest UTXOs. Current implementation returns only confirmed UTXOs that are not used for the pending transaction. One of the ways to mitigate this limitation is to block/disable your wallet UI to prevent sending other transactions until the current transaction is confirmed. Otherwise, you may encounter `UTXO not found` issue. Alternatively, you can keep track of all of the UTXOs used for your transactions but this will create additional complexity for your application.
 
 ![](/img/wallet/01.png)
 
 #### 2.1.4 Make Withdrawals (Exits)
 
-Using OMG Network as a value transfer layer offers a faster and cheaper alternative if your work requires frequent operations on the Ethereum network. Most of the time you will hold a certain amount of assets on the OMG Network, and periodically withdraw your funds back to Ethereum. This is the most complicated technical and UX flow. You can implement exits functionality using [Deposit Funds guide](https://docs.omg.network/network/deposits).
+Using OMG Network as a value transfer layer offers a faster and cheaper alternative if your work requires frequent operations on the Ethereum network. Most of the time you will hold a certain amount of assets on the OMG Network, and periodically withdraw your funds back to Ethereum. This is the most complicated technical and UX flow. You can implement exits functionality using [Start a Standard Exit guide](/network/standard-exits).
 
 *Implementation details:*
 
@@ -81,7 +81,7 @@ Using OMG Network as a value transfer layer offers a faster and cheaper alternat
 
 ### 2.2 Design Guideline
 
-Later 2 mobile UI and UX can be challenging and confusing, thus our job is to make user flows intuitive, appealing, and easy to navigate. Below you can see recommendations from our team.
+Layer 2 mobile UI and UX can be challenging and confusing, thus our job is to make user flows intuitive, appealing, and easy to navigate. Below you can see recommendations from our team.
 
 #### Network Distinction
 
@@ -95,11 +95,11 @@ It's a good practice to have a clear visual distinction between the Ethereum pat
 
 ![](/img/wallet/03.png)
 
-2. Deposit is not as frequent operation as transfer, thus you may not add it to the quick actions panel. However, it has to be easily accessible and people should be aware of this functionality through a dedicated menu, intuitive UX flows, or onboarding.
+2. Deposit is not as frequent operation as transfer, thus you may not need to add it to the quick actions panel. However, it has to be easily accessible and people should be aware of this functionality through a dedicated menu, intuitive UX flows, or onboarding.
 
 ![](/img/wallet/04.png)
 
-3. The OMG Network has a different fee amount for different types of operations, including deposit fee, transfer fee, exit fee, and exit bond. Make sure to be explicit about those, as well as mention if the fee has a flat rate or dynamic rate. You might also set a fee with the highest amount as a default option. Additionally, you may mention that transfer fee is charged in OMG token, the rest of the fees are in ETH.
+3. The OMG Network has a different [fee amount](/network/fees) for different types of operations, including deposit fee, transfer fee, exit fee, and [exit bond](/network/exitbonds). Make sure to be explicit about those, as well as mention if the fee has a flat rate or dynamic rate. You might also set a fee with the highest amount as a default option. Additionally, you may mention that transfer fee is charged in OMG token, the rest of the fees are in ETH.
 
 ![](/img/wallet/05.png)
 
@@ -127,7 +127,9 @@ It's a good practice to have a clear visual distinction between the Ethereum pat
 
 ![](/img/wallet/09.png)
 
-2. A good practice for Layer 2 UX is to notify users (via both UI and push notification) when the challenge period has already passed and you can withdraw your funds back to the Ethereum network.
+2. Each withdrawal has to be processed separately. That's why suggesting your users to merge UTXOs first is a great UX pattern. Note, you can't mix different ERC20 tokens during a single UTXO merge so plan your UI accordingly to match this behavior.
+
+3. A good practice for Layer 2 UX is to notify users (via both UI and push notification) when the challenge period has already passed and you can withdraw your funds back to the Ethereum network.
 
 ![](/img/wallet/10.png)
 
@@ -137,4 +139,4 @@ Watcher is a service that guarantees data availability, secures the network, and
 
 It also means you fully trust the OMG Network operator with everything that occurs on the network. Running your own Watcher ensures that only valid transactions and blocks are created and confirmed by the childchain operator.
 
-There are several ways to deploy a Watcher. You can use the one you prefer the most via [Run a Watcher guide](https://docs.omg.network/watcher/run-watcher).
+There are several ways to deploy a Watcher. You can use the one you prefer the most via [Run a Watcher guide](/watcher/run-watcher).
