@@ -4,9 +4,7 @@ title: Make an Atomic Swap
 sidebar_label: Make an Atomic Swap
 ---
 
-# Atomic Swap Transaction
-
-Atomic Swap transaction represents an exchange between 2 different tokens on the OMG Network. A standard exchange rate is 1:1 but you can set your own rate as well. Atomic swaps can be useful during trading operations, claiming tokenized community tokens, etc. 
+Atomic Swap transaction represents an exchange between 2 different tokens on the OMG Network. A standard exchange rate is 1:1 but you can set your own rate as well. Atomic swaps can be useful during trading operations, claiming community tokens, etc.
 
 ### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js), [`ethereumjs-util`](https://github.com/ethereumjs/ethereumjs-util), [`eth-sig-util`](https://github.com/MetaMask/eth-sig-util)
 
@@ -88,6 +86,8 @@ const feePayer = {
 
 const plasmaContractAddress = '0xb43f53394d86deab35bc2d8356d6522ced6429b5';
 ```
+
+> The above constants are defined for Rinkeby environment. If you want to work with the Mainnet, check the [Environments](/environments) page.
 
 ### 3. Create helpers
 
@@ -254,7 +254,7 @@ const createTransactionBody = (
 
 ### 4. Submit an atomic swap
 
-The process of submitting an atomic swap transaction is the same as submitting any other transaction, except you pass a custom transaction body created earlier. The transaction described below creates [an atomic swap](https://blockexplorer.rinkeby.v1.omg.network/transaction/0x879ecb82e49904152adac6764546177be666cedc42421f29c87f4e129c769bf6) of 400 TUSDT (with 6 decimals) into 100 OMG (18 decimals) with an exchange rate of 4:1.
+The process of submitting an atomic swap transaction is the same as submitting any other transaction, except you pass a custom transaction body created earlier. The transaction described below creates [an atomic swap](https://blockexplorer.rinkeby.v1.omg.network/transaction/0x879ecb82e49904152adac6764546177be666cedc42421f29c87f4e129c769bf6) of 400 [TUSDT](https://rinkeby.etherscan.io/address/0xd92e713d051c37ebb2561803a3b5fbabc4962431) (with 6 decimals) into 100 [OMG](https://rinkeby.etherscan.io/address/0x942f123b3587ede66193aa52cf2bf9264c564f87) (18 decimals) with an exchange rate of 4:1.
 
 ```js
 // create an atomic swap transaction
@@ -351,3 +351,22 @@ async function atomicSwap() {
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+## Lifecycle
+
+1. A user retrieves the fee amount for a defined fee currency.
+2. A user converts the sender's amount to swap into a BigNumber with corresponding decimal numbers.
+3. A user selects fee payer UTXOs usable for payment.
+4. A user selects sender UTXOs usable for payment.
+5. A user retrieves a swappable exchange rate for two tokens (e.g. 1:1, 4:1, etc).
+6. A user converts the receiver's amount to swap into a BigNumber with corresponding decimal numbers.
+7. A user selects receiver UTXOs usable for payment.
+8. If the transaction can't be covered with a defined number of inputs for the sender, receiver, and fee payer, a user should merge the corresponding inputs first.
+9. A user constructs a custom transaction body for an atomic swap.
+10. A user sanitizes the transaction into the correct typedData format.
+11. A user signs sender's, receiver's, and fee payer's inputs with corresponding private keys.
+12. A user collects signatures for the sender, receiver, and fee payer inputs.
+13. A user encodes and submits the transaction's data to the child chain and the Watcher for validation.
+14. If the transaction is valid, the child chain server creates a transaction hash and adds the transaction to a pending block.
+15. The child chain bundles the transactions in the block into a Merkle tree and submits its root hash to the `Plasma Framework` contract.
+16. The Watcher receives a list of transactions from the child chain and recomputes the Merkle root to check for any inconsistency.
