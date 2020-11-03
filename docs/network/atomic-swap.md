@@ -55,6 +55,7 @@ npm install @omisego/react-native-omg-js
 
 ```js
 import BN from "bn.js";
+import BigNumber from "bignumber.js";
 import { ChildChain, OmgUtil } from "@omisego/omg-js";
 const ethUtil = require('ethereumjs-util');
 const sigUtil = require('eth-sig-util');
@@ -68,19 +69,19 @@ const childChain = new ChildChain({
 // constants
 const sender = {
   address: '0x8CB0DE6206f459812525F2BA043b14155C2230C0',
-  privateKey: 'CD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7'
+  privateKey: 'CD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7',
   currency: OmgUtil.hexPrefix("0xd92e713d051c37ebb2561803a3b5fbabc4962431")
 }
 
 const receiver = {
-  address: '0xA9cc140410c2bfEB60A7260B3692dcF29665c254'
+  address: '0xA9cc140410c2bfEB60A7260B3692dcF29665c254',
   privateKey: 'E4F82A4822A2E6A28A6E8CE44490190B15000E58C7CBF62B4729A3FDC9515FD2',
   currency: OmgUtil.hexPrefix("0x2d453e2a14a00f4a26714a82abfc235c2b2094d5")
 }
 
 const feePayer = {
   address: '0x001ebfBd3C6D6855bF4EF1a2Ec7f2a779B1028C2',
-  privateKey: '5444fec49a972a1c6264745610ef3c8107980540ff3d732af4c5ddb87c5f03c2'
+  privateKey: '5444fec49a972a1c6264745610ef3c8107980540ff3d732af4c5ddb87c5f03c2',
   currency: OmgUtil.transaction.ETH_CURRENCY
 }
 
