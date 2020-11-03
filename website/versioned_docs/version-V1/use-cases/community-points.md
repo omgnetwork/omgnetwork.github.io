@@ -1,7 +1,7 @@
 ---
 id: version-V1-community-points
 title: Community Points Engine
-sidebar_label: Community Points Engine
+sidebar_label: Community Points
 original_id: community-points
 ---
 
