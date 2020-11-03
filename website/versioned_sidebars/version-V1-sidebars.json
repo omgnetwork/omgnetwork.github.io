@@ -8,6 +8,7 @@
       "version-V1-network/balances",
       "version-V1-network/deposits",
       "version-V1-network/transfers",
+      "version-V1-network/atomic-swap",
       "version-V1-network/fee-relay",
       "version-V1-network/standard-exits",
       "version-V1-network/in-flight-exits",
