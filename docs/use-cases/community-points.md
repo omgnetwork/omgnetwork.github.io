@@ -1,7 +1,7 @@
 ---
 id: community-points
 title: Community Points Engine
-sidebar_label: Community Points Engine
+sidebar_label: Community Points
 ---
 
 ## Table of Contents
