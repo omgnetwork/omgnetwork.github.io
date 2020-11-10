@@ -137,7 +137,7 @@ Depositing ERC20 tokens requires an approval of the corresponding `Vault` contra
 async function makeDeposit () {
   // approve ERC20 token
   await rootChain.approveToken({
-    erc20Address: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+    erc20Address: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
     amount: "13000000000000000000",
     txOptions: {
       from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
@@ -148,7 +148,7 @@ async function makeDeposit () {
   // deposit ERC20 funds
   return rootChain.deposit({
     amount: "13000000000000000000",
-    currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+    currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
     txOptions: {
       from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
       privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"

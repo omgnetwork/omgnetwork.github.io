@@ -83,18 +83,18 @@ For creating an in-flight exit, you need to create a new transaction that has be
 
 A transaction is considered to be _in-flight_ if it has been broadcasted but has not yet been included in the child chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block where the defined transaction is included.
 
-> The in-flight exit process is the same for both ETH and ERC20 UTXOs. The tutorial shows how to work with ERC20 tokens. For working with ETH, change `0xd74ef52053204c9887df4a0e921b1ae024f6fe31` (ERC20 contract) into `OmgUtil.transaction.ETH_CURRENCY`.
+> The in-flight exit process is the same for both ETH and ERC20 UTXOs. The tutorial shows how to work with ERC20 tokens. For working with ETH, change `0xd92e713d051c37ebb2561803a3b5fbabc4962431` (ERC20 contract) into `OmgUtil.transaction.ETH_CURRENCY`.
 
 ```js
 async function startInflightExit() {
   // check if the exit queue exists for a given token
   const hasToken = await rootChain.hasToken(
-    "0xd74ef52053204c9887df4a0e921b1ae024f6fe31"
+    "0xd92e713d051c37ebb2561803a3b5fbabc4962431"
   );
   if (!hasToken) {
     // add the exit queue for this token if it doesn't exist
     await rootChain.addToken({
-      token: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+      token: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
       txOptions: {
         from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
         privateKey:

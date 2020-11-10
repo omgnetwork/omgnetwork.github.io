@@ -198,7 +198,7 @@ async function transfer() {
     payments: [
       {
         owner: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
-        currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+        currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
         amount: "350000000000000",
       },
     ],

@@ -157,17 +157,17 @@ async function splitUtxo() {
   const payments = [
     {
       owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+      currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
       amount: "120000000000000",
     },
     {
       owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+      currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
       amount: "250000000000000",
     },
     {
       owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+      currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
       amount: "250000000000000",
     },
   ];
@@ -177,7 +177,7 @@ async function splitUtxo() {
     owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
     payments,
     fee: {
-      currency: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+      currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
     },
   });
 

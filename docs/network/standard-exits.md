@@ -78,18 +78,18 @@ You can exit only 1 UTXO at a time. Consider [merging multiple UTXOs](/network/u
 
 Every exit requires an extra fee called an [exit bond](/network/exitbonds) as an incentive mechanism for users of the OMG Network to exit honestly and challenge dishonest exits. The bond is currently fixed at an amount estimated to cover the gas cost of submitting a challenge. You can check the current gas cost at [ETH Gas Station](https://ethgasstation.info/).
 
-> The standard exit process is the same for both ETH and ERC20 UTXOs. The tutorial shows how to work with ERC20 tokens. For working with ETH, change `0xd74ef52053204c9887df4a0e921b1ae024f6fe31` value (ERC20 contract) into `OmgUtil.transaction.ETH_CURRENCY`.
+> The standard exit process is the same for both ETH and ERC20 UTXOs. The tutorial shows how to work with ERC20 tokens. For working with ETH, change `0xd92e713d051c37ebb2561803a3b5fbabc4962431` value (ERC20 contract) into `OmgUtil.transaction.ETH_CURRENCY`.
 
 ```js
 async function startStandardExit() {
   // check if the exit queue exists for a given token
   const queueForTokenExists = await rootChain.hasToken(
-    "0xd74ef52053204c9887df4a0e921b1ae024f6fe31"
+    "0xd92e713d051c37ebb2561803a3b5fbabc4962431"
   );
   if (!queueForTokenExists) {
     // add the exit queue for this token if it doesn't exist
     return rootChain.addToken({
-      token: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+      token: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
       txOptions: {
         from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
         privateKey:

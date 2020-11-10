@@ -73,7 +73,7 @@ const childChain = new ChildChain({ watcherUrl });
 
 There's no direct way to retrieve balances on both Ethereum and OMG networks. Instead, you first retrieve an [RLP encoded](https://github.com/ethereum/wiki/wiki/RLP) array of [BigNum](https://github.com/indutny/bn.js) balances, and then convert it to a preferred format.
 
-The amount in balance array is defined in WEI (e.g. `429903000000000000`), the smallest denomination of ether, ETH. The `currency` contains `0x0000000000000000000000000000000000000000` for ETH currency or a smart contract address (e.g. `0xd74ef52053204c9887df4a0e921b1ae024f6fe31`) for ERC20 tokens.
+The amount in balance array is defined in WEI (e.g. `429903000000000000`), the smallest denomination of ether, ETH. The `currency` contains `0x0000000000000000000000000000000000000000` for ETH currency or a smart contract address (e.g. `0xd92e713d051c37ebb2561803a3b5fbabc4962431`) for ERC20 tokens.
 
 #### 3.1 Retrieve child chain (OMG Network) balance
 
@@ -126,7 +126,7 @@ async function retrieveChildChainBalance() {
   const aliceChildchainBalance = alicesBalanceArray.map((i) => {
     return {
       currency:
-        i.currency === "0xd74ef52053204c9887df4a0e921b1ae024f6fe31"
+        i.currency === "0xd92e713d051c37ebb2561803a3b5fbabc4962431"
           ? "ERC20"
           : i.currency,
       amount: web3.utils.fromWei(String(i.amount)),
@@ -143,7 +143,7 @@ async function retrieveRootChainBalance() {
   const rootchainBalanceArray = await OmgUtil.getErc20Balance({
     web3,
     address: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-    erc20Address: "0xd74ef52053204c9887df4a0e921b1ae024f6fe31",
+    erc20Address: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
   });
   // map child chain array to a human-readable array of balances
   const aliceRootchainBalance = rootchainBalanceArray.map((i) => {
