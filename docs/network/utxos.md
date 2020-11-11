@@ -75,20 +75,35 @@ npm install @omisego/react-native-omg-js
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
 
-### 2. Import dependencies
+### 2. Import dependencies, define constants
 
 Merging UTXOs involves using 2 `omg-js` objects. Here's an example of how to instantiate them:
 
 ```js
-import Web3 from "web3";
 import { ChildChain, OmgUtil } from "@omisego/omg-js";
-
-const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
 const childChain = new ChildChain({ watcherUrl });
+
+// define constants
+const plasmaContractAddress = plasmaContractAddress;
+
+const utxoMerge = {
+  currency: OmgUtil.transaction.ETH_CURRENCY,
+  address: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+  privateKey: "CD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
+}
+
+const utxoSplit = {
+  amountA: new BigNumber("134000000"),
+  amountB: new BigNumber("300000000"),
+  address: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+  privateKey: "CD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
+  currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
+  feeCurrency: OmgUtil.transaction.ETH_CURRENCY
+}
 ```
 
-> - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
 > - `watcherUrl` - the Watcher Info URL for defined [environment](/environments) (personal or from OMG Network).
+> - `plasmaContractAddress` - `CONTRACT_ADDRESS_PLASMA_FRAMEWORK` for defined [environment](/environments).
 
 ### 3. Merge UTXOs
 
@@ -99,21 +114,21 @@ Note, the minimum number of UTXOs to merge is 2, the maximum — 4. You also can
 ```js
 async function mergeUtxo() {
   // retrieve all utxos
-  const aliceUtxosAll = await childChain.getUtxos("0x8CB0DE6206f459812525F2BA043b14155C2230C0");
+  const aliceUtxosAll = await childChain.getUtxos(utxoMerge.address);
   
   // filter utxos based on the token
   const aliceEthUtxos = aliceUtxosAll.filter(
-    (u) => u.currency === OmgUtil.transaction.ETH_CURRENCY
+    (u) => u.currency === utxoMerge.currency
   );
 
   // slice the array to only 4 utxos
   const utxosToMerge = aliceEthUtxos.slice(0, 4);
 
   // merge utxos
-  const utxo = await childChain.mergeUtxos({
+  const mergedUtxo = await childChain.mergeUtxos({
     utxos: utxosToMerge,
-    privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
-    verifyingContract: "0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9",
+    privateKey: utxoMerge.privateKey,
+    verifyingContract: plasmaContractAddress,
   });
 
   return utxo;
@@ -156,42 +171,43 @@ async function splitUtxo() {
   // define payments objects that will represent new utxos
   const payments = [
     {
-      owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
-      amount: "120000000000000",
+      owner: utxoSplit.address,
+      currency: utxoSplit.currency,
+      amount: utxoSplit.amountA,
     },
     {
-      owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
-      amount: "250000000000000",
+      owner: utxoSplit.address,
+      currency: utxoSplit.currency,
+      amount: utxoSplit.amountB,
     },
     {
-      owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
-      amount: "250000000000000",
+      owner: utxoSplit.address,
+      currency: utxoSplit.currency,
+      amount: utxoSplit.amountB,
     },
   ];
 
   // create a transaction body
   const transactionBody = await childChain.createTransaction({
-    owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+    owner: utxoSplit.address,
     payments,
     fee: {
-      currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
+      currency: utxoSplit.feeCurrency,
     },
+    metadata: "split utxo"
   });
 
   // sanitize transaction into the correct typedData format
   // the second parameter is the address of the RootChain contract
   const typedData = OmgUtil.transaction.getTypedData(
     transactionBody.transactions[0],
-    "0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9"
+    plasmaContractAddress
   );
 
   // define private keys to use for transaction signing
   const privateKeys = new Array(
     transactionBody.transactions[0].inputs.length
-  ).fill("0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7");
+  ).fill(utxoSplit.privateKey);
 
   // locally sign typedData with passed private keys, useful for multiple different signatures
   const signatures = childChain.signTransaction(typedData, privateKeys);
@@ -200,7 +216,8 @@ async function splitUtxo() {
   const signedTxn = childChain.buildSignedTransaction(typedData, signatures);
 
   // submit to the child chain
-  return childChain.submitTransaction(signedTxn);
+  const receipt = await childChain.submitTransaction(signedTxn);
+  return receipt;
 }
 
 ```
