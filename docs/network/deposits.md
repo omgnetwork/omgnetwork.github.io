@@ -51,7 +51,7 @@ npm install @omisego/react-native-omg-js
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
 
-### 2. Import dependencies
+### 2. Import dependencies, define constants
 
 Depositing funds to the OMG Network involves using 2 `omg-js` objects. Here's an example of how to instantiate them:
 
@@ -59,8 +59,24 @@ Depositing funds to the OMG Network involves using 2 `omg-js` objects. Here's an
 import Web3 from "web3";
 import { RootChain, OmgUtil } from "@omisego/omg-js";
 
+// instantiate omg-js and web3 objects
 const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
 const rootChain = new RootChain({ web3, plasmaContractAddress });
+
+// define constants
+// amount => 200 with 6 decimals (TUSDT) = 200000000
+const ethDeposit = {
+  amount: "200000000",
+  address: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+  privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
+}
+
+const erc20Deposit = {
+  amount: "200000000",
+  currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
+  address: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+  privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
+}
 ```
 
 > - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
@@ -74,11 +90,11 @@ Performing any operation on the OMG Network requires funds. Funds deposit happen
 async function makeDeposit () {
   // deposit ETH funds
   return rootChain.deposit({
-    amount: "50000000000000000",
+    amount: ethDeposit.amount,
     currency: OmgUtil.transaction.ETH_CURRENCY,
     txOptions: {
-      from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
+      from: ethDeposit.address,
+      privateKey: ethDeposit.privateKey
     }
   })
 }
@@ -137,21 +153,21 @@ Depositing ERC20 tokens requires an approval of the corresponding `Vault` contra
 async function makeDeposit () {
   // approve ERC20 token
   await rootChain.approveToken({
-    erc20Address: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
-    amount: "13000000000000000000",
+    erc20Address: erc20Deposit.currency,
+    amount: erc20Deposit.amount,
     txOptions: {
-      from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
+      from: erc20Deposit.address,
+      privateKey: erc20Deposit.privateKey
     }
   })
   
   // deposit ERC20 funds
   return rootChain.deposit({
-    amount: "13000000000000000000",
-    currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
+    amount: erc20Deposit.amount,
+    currency: erc20Deposit.currency,
     txOptions: {
-      from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
+      from: erc20Deposit.address,
+      privateKey: erc20Deposit.privateKey
     }
   })
 }
