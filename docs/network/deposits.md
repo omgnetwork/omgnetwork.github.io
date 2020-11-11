@@ -8,7 +8,7 @@ A deposit involves sending ETH or ERC-20 tokens to the `Vault` smart contract on
 
 ## Implementation
 
-### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js)
+### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js), [`web3`](https://github.com/ethereum/web3.js), [`bn.js`](https://github.com/indutny/bn.js)
 
 To access network features from your application, use our official libraries:
 
@@ -19,7 +19,7 @@ To access network features from your application, use our official libraries:
 Requires Node >= 8.11.3 < 13.0.0
 
 ```js
-npm install @omisego/omg-js
+npm install @omisego/omg-js web3 bn.js
 ```
 
 <!-- Browser -->
