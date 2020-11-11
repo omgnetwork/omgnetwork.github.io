@@ -8,7 +8,7 @@ A transfer involves one wallet sending tokens to another wallet on the OMG Netwo
 
 ## Implementation
 
-### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js)
+### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js), [`bn.js`](https://github.com/indutny/bn.js)
 
 To access network features from your application, use our official libraries:
 
@@ -19,12 +19,12 @@ To access network features from your application, use our official libraries:
 Requires Node >= 8.11.3 < 13.0.0
 
 ```js
-npm install @omisego/omg-js
+npm install @omisego/omg-js bn.js
 ```
 
 <!-- Browser -->
 
-You can add `omg-js` to a website using a script tag:
+You can add `omg-js` and `bn-js` to a website using a script tag:
 
 ```js
 <script src="https://unpkg.com/@omisego/browser-omg-js"></script>
@@ -51,20 +51,49 @@ npm install @omisego/react-native-omg-js
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
 
-### 2. Import dependencies
+### 2. Import dependencies, define constants
 
-Transferring funds to the OMG Network involves using 2 `omg-js` objects. Here's an example of how to instantiate them:
+Transferring funds to the OMG Network involves using ChildChain and OmgUtil `omg-js` objects. Here's an example of how to instantiate them:
 
 ```js
-import Web3 from "web3";
+import BigNumber from "bn.js";
 import { ChildChain, OmgUtil } from "@omisego/omg-js";
 
-const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
-const childChain = new ChildChain({ watcherUrl });
+const plasmaContractAddress = plasmaContractAddress;
+
+// instantiate omg-js objects
+const childChain = new ChildChain({
+  watcherUrl: watcherUrl,
+  watcherProxyUrl: '',
+  plasmaContractAddress: plasmaContractAddress
+});
+
+// define constants
+// amount => 0.012 with 18 decimals (ETH) = 12000000000000000
+const ethTransfer = {
+  sender: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+  senderPrivateKey: "CD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
+  receiver: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
+  currency: OmgUtil.transaction.ETH_CURRENCY,
+  feeCurrency: OmgUtil.transaction.ETH_CURRENCY,
+  amount: new BigNumber("12000000000000000"),
+  metadata: "eth transfer"
+}
+
+// amount => 3 with 6 decimals (TUSDT) = 3000000
+const erc20Transfer = {
+  sender: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+  senderPrivateKey: "CD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
+  receiver: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
+  currency: OmgUtil.hexPrefix("0xd92e713d051c37ebb2561803a3b5fbabc4962431"),
+  feeCurrency: OmgUtil.transaction.ETH_CURRENCY,
+  amount: new BigNumber("3000000"),
+  metadata: "TUSDT transfer"
+}
 ```
 
-> - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
 > - `watcherUrl` - the Watcher Info URL for defined [environment](/environments) (personal or from OMG Network).
+> - `plasmaContractAddress` - `CONTRACT_ADDRESS_PLASMA_FRAMEWORK` for defined [environment](/environments).
 
 There are several ways to send a transaction on the OMG Network. It's recommended to use the first method but you may want to choose another approach for your specific use case.
 
@@ -141,86 +170,45 @@ Note, the child chain server collects fees for sending a transaction. The fee ca
 
 The most "granular" implementation of transfer includes creating, typing, signing and submitting the transaction. Such an approach will have the following structure of the code:
 
-> This method demonstrates a transfer made in ETH. If you want to make an ERC20 transfer, change the `currency` value to a corresponding smart contract address. 
+> This method demonstrates a transfer made in ETH. If you want to make an ERC20 transfer, replace `erc20Transfer` with the corresponding `ethTransfer` values.
 
 ```js
 async function transfer() {
   // construct a transaction body
   const transactionBody = await childChain.createTransaction({
-    owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+    owner: erc20Transfer.sender,
     payments: [
       {
-        owner: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
-        currency: OmgUtil.transaction.ETH_CURRENCY,
-        amount: "350000000000000",
+        owner: erc20Transfer.receiver,
+        currency: erc20Transfer.currency,
+        amount: erc20Transfer.amount,
       },
     ],
     fee: {
-      currency: OmgUtil.transaction.ETH_CURRENCY
+      currency: erc20Transfer.feeCurrency,
     },
-    metadata: "data",
+    metadata: erc20Transfer.metadata,
   });
 
   // sanitize transaction into the correct typedData format
-  // the second parameter is the address of the RootChain contract
+  // the second parameter is the address of the Plasma RootChain contract
   const typedData = OmgUtil.transaction.getTypedData(
-    transactionBody.transactions[0],
-    "0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9"
-  );
+    transactionBody.transactions[0], plasmaContractAddress);
 
   // define private keys to use for transaction signing
   const privateKeys = new Array(
     transactionBody.transactions[0].inputs.length
-  ).fill("0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7");
+  ).fill(ethTransfer.senderPrivateKey);
 
   // locally sign typedData with passed private keys, useful for multiple different signatures
   const signatures = childChain.signTransaction(typedData, privateKeys);
 
   // return encoded and signed transaction ready to be submitted
-  const signedTxn = childChain.buildSignedTransaction(typedData, signatures);
+  const signedTypedData = childChain.buildSignedTransaction(typedData, signatures);
 
   // submit to the child chain
-  return childChain.submitTransaction(signedTxn);
-}
-```
-
-#### 3.2 Method B
-
-Another option relies on the child chain completely to create and send the transaction. Note that this method will choose the UTXO for you by using the largest UTXO of that specific currency. Also, you won't able to do 2 transactions in the same block using this method. 
-
-> This method demonstrates a transfer made in ERC20. If you want to make an ETH transfer, change the `currency` value to `OmgUtil.transaction.ETH_CURRENCY`.
-
-```js
-async function transfer() {
-  // construct a transaction body
-  const transactions = await childChain.createTransaction({
-    owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-    payments: [
-      {
-        owner: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
-        currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
-        amount: "350000000000000",
-      },
-    ],
-    fee: {
-      currency: OmgUtil.transaction.ETH_CURRENCY,
-    },
-    metadata: "data",
-  });
-
-  // define private keys to use for transaction signing
-  const privateKeys = new Array(transactions[0].inputs.length).fill(
-    "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
-  );
-
-  // locally sign a transaction
-  const signedTypedData = childchain.signTypedData(
-    transactions[0],
-    privateKeys
-  );
-
-  // submit the result of signTypedData
-  return childChain.submitTyped(signedTypedData);
+  const receipt = await childChain.submitTransaction(signedTypedData);
+  return receipt;
 }
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -233,6 +221,8 @@ The current technical implementation of `createTransaction` function can return 
 2. If your transfer can be covered but with more than four inputs, you'll create a [merge transaction](/network/utxos#merging-utxos) with `"result": "intermediate"` response.
 
 This is a temporary issue and will be fixed over time, however you still need to be aware of this behavior and create an additional check for `result` status after calling the `createTransaction` function. Note, that `"result": "intermediate"` response doesn't re-create a payment transaction in this scenario, thus you'll need to initiate your original transaction again after the merge transaction is confirmed.
+
+For more advanced types of transactions, please refer to [Make a Fee Relay Transfer](/network/fee-relay) or [Make an Atomic Swap](/network/atomic-swap).
 
 ## Lifecycle
 
