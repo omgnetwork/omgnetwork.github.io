@@ -8,7 +8,7 @@ Fee relay transfer allows creating a transaction with where fees are paid by ano
 
 ## Implementation
 
-### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js), [`ethereumjs-util`](https://github.com/ethereumjs/ethereumjs-util), [`eth-sig-util`](https://github.com/MetaMask/eth-sig-util)
+### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js), [`ethereumjs-util`](https://github.com/ethereumjs/ethereumjs-util), [`eth-sig-util`](https://github.com/MetaMask/eth-sig-util), [`bn.js`](https://github.com/indutny/bn.js)
 
 To access network features from your application, use our official libraries:
 
@@ -19,9 +19,7 @@ To access network features from your application, use our official libraries:
 Requires Node >= 8.11.3 < 13.0.0
 
 ```js
-npm install @omisego/omg-js
-npm install ethereumjs-util
-npm install eth-sig-util
+npm install @omisego/omg-js ethereumjs-util eth-sig-util bn.js
 ```
 
 <!-- Browser -->
@@ -58,7 +56,7 @@ npm install @omisego/react-native-omg-js
 Make a fee relay transaction on the OMG Network involves using ChildChain `omg-js` object. Here's an example of how to instantiate it:
 
 ```js
-import Web3 from "web3";
+import BN from "bn.js";
 import { ChildChain, OmgUtil } from "@omisego/omg-js";
 
 const childChain = new ChildChain({ watcherUrl });
