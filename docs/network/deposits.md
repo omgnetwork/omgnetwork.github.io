@@ -64,18 +64,19 @@ const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
 const rootChain = new RootChain({ web3, plasmaContractAddress });
 
 // define constants
-// amount => 200 with 6 decimals (TUSDT) = 200000000
+// amount => 0.1 with 18 decimals (ETH) = 100000000000000000
 const ethDeposit = {
-  amount: "200000000",
+  amount: new BigNumber("100000000000000000"),
   address: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-  privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
+  privateKey: OmgUtil.hexPrefix("CD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7")
 }
 
+// amount => 50 with 6 decimals (TUSDT) = 50000000
 const erc20Deposit = {
-  amount: "200000000",
-  currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
+  amount: new BigNumber("50000000"),
+  currency: OmgUtil.hexPrefix("0xd92e713d051c37ebb2561803a3b5fbabc4962431"),
   address: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-  privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
+  privateKey: OmgUtil.hexPrefix("CD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7")
 }
 ```
 
@@ -87,18 +88,21 @@ const erc20Deposit = {
 Performing any operation on the OMG Network requires funds. Funds deposit happens when a user sends ETH or ERC20 tokens to the `Vault` smart contract on Ethereum Network. A vault holds custody of tokens transferred to the Plasma Framework. Deposits increase the pool of funds held by the contract and also signals to the child chain server that the funds should be accessible on the child chain.
 
 ```js
-async function makeDeposit () {
-  // deposit ETH funds
-  return rootChain.deposit({
+async function makeEthDeposit () {
+  const deposit = await rootChain.deposit({
     amount: ethDeposit.amount,
     currency: OmgUtil.transaction.ETH_CURRENCY,
     txOptions: {
       from: ethDeposit.address,
-      privateKey: ethDeposit.privateKey
+      privateKey: ethDeposit.privateKey,
+      gas: gasLimit
     }
-  })
+  });
+  return deposit;
 }
 ```
+
+> - `gasLimit` - gas limit for your transaction. Please check the current data on [Gas Station](https://ethgasstation.info/calculatorTxV.php) or similar resources.
 
 > Deposit amount is defined in WEI, the smallest denomination of ether (ETH), the currency used on the Ethereum network. You can use [ETH converter](https://eth-converter.com) or alternative tool to know how much WEI you have to put as the `amount` value.
 
@@ -150,28 +154,32 @@ Depositing also involves forming a pseudo-block on the child chain. Such a block
 Depositing ERC20 tokens requires an approval of the corresponding `Vault` contract. You can deposit tokens only after this process is finished. 
 
 ```js
-async function makeDeposit () {
+async function makeErc20Deposit () {
   // approve ERC20 token
-  await rootChain.approveToken({
+  const approval = await rootChain.approveToken({
     erc20Address: erc20Deposit.currency,
     amount: erc20Deposit.amount,
     txOptions: {
       from: erc20Deposit.address,
       privateKey: erc20Deposit.privateKey
     }
-  })
+  });
   
   // deposit ERC20 funds
-  return rootChain.deposit({
+  const receipt = await rootChain.deposit({
     amount: erc20Deposit.amount,
     currency: erc20Deposit.currency,
     txOptions: {
       from: erc20Deposit.address,
-      privateKey: erc20Deposit.privateKey
+      privateKey: erc20Deposit.privateKey,
+      gas: gasLimit
     }
-  })
+  });
 }
 ```
+
+> - `gasLimit` - gas limit for your transaction. Please check the current data on [Gas Station](https://ethgasstation.info/calculatorTxV.php) or similar resources.
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Lifecycle
