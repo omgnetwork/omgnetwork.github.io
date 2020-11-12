@@ -16,7 +16,7 @@ The user can initiate an IFE regardless of whether the above is correct, but one
 
 ## Implementation
 
-### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js)
+### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js), [`web3`](https://github.com/ethereum/web3.js)
 
 To access network features from your application, use our official libraries:
 
@@ -27,7 +27,7 @@ To access network features from your application, use our official libraries:
 Requires Node >= 8.11.3 < 13.0.0
 
 ```js
-npm install @omisego/omg-js
+npm install @omisego/omg-js web3
 ```
 
 <!-- Browser -->
@@ -65,11 +65,32 @@ In-Flight exit involves using 3 `omg-js` objects. Here's an example of how to in
 
 ```js
 import Web3 from "web3";
+import BigNumber from "bn.js";
 import { ChildChain, RootChain, OmgUtil } from "@omisego/omg-js";
 
 const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
 const rootChain = new RootChain({ web3, plasmaContractAddress });
 const childChain = new ChildChain({ watcherUrl });
+
+// amount => 0.012 with 18 decimals (ETH) = 12000000000000000
+const ethExit = {
+  currency: OmgUtil.transaction.ETH_CURRENCY,
+  feeCurrency: OmgUtil.transaction.ETH_CURRENCY,
+  amount: new BigNumber("12000000000000000"),
+  sender: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+  senderPrivateKey: "CD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
+  receiver: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254"
+}
+
+// amount => 5 with 6 decimals (TUSDT) = 5000000
+const erc20Exit = {
+  currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
+  feeCurrency: OmgUtil.transaction.ETH_CURRENCY,
+  amount: new BigNumber("5000000"),
+  sender: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
+  senderPrivateKey: "E4F82A4822A2E6A28A6E8CE44490190B15000E58C7CBF62B4729A3FDC9515FD2",
+  receiver: "0x8CB0DE6206f459812525F2BA043b14155C2230C0" 
+}
 ```
 
 > - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
@@ -82,38 +103,36 @@ For creating an in-flight exit, you need to create a new transaction that has be
 
 A transaction is considered to be “in-flight” if it has been broadcasted but has not yet been included in the child chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block where the defined transaction is included.
 
-> The in-flight exit process is the same for both ETH and ERC20 UTXOs. The tutorial shows how to work with ERC20 tokens. For working with ETH, change `0xd92e713d051c37ebb2561803a3b5fbabc4962431` (ERC20 contract) into `OmgUtil.transaction.ETH_CURRENCY`.
+> The in-flight exit process is the same for both ETH and ERC20 UTXOs. The tutorial shows how to work with ERC20 tokens. For working with ETH, change `erc20Exit` into `ethExit` across the code sample.
 
 ```js
 async function startInflightExit() {
   // check if the exit queue exists for a given token
-  const hasToken = await rootChain.hasToken(
-    "0xd92e713d051c37ebb2561803a3b5fbabc4962431"
-  );
+  const hasToken = await rootChain.hasToken(erc20Exit.currency);
   if (!hasToken) {
     // add the exit queue for this token if it doesn't exist
     await rootChain.addToken({
-      token: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
+      token: erc20Exit.currency,
       txOptions: {
-        from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-        privateKey:
-          "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
+        from: erc20Exit.sender,
+        privateKey: erc20Exit.senderPrivateKey,
+        gas: 600000
       },
     });
   }
 
   // construct a transaction body
   const transactionBody = await childChain.createTransaction({
-    owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+    owner: erc20Exit.sender,
     payments: [
       {
-        owner: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
-        currency: OmgUtil.transaction.ETH_CURRENCY,
-        amount: "350000000000000",
+        owner: erc20Exit.receiver,
+        currency: erc20Exit.currency,
+        amount: erc20Exit.amount,
       },
     ],
     fee: {
-      currency: OmgUtil.transaction.ETH_CURRENCY,
+      currency: erc20Exit.feeCurrency
     },
   });
 
@@ -121,13 +140,13 @@ async function startInflightExit() {
   // the second parameter is the address of the RootChain contract
   const typedData = OmgUtil.transaction.getTypedData(
     transactionBody.transactions[0],
-    "0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9"
+    plasmaContractAddress
   );
 
   // define private keys to use for transaction signing
   const privateKeys = new Array(
     transactionBody.transactions[0].inputs.length
-  ).fill("0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7");
+  ).fill(erc20Exit.senderPrivateKey);
 
   // locally sign typedData with passed private keys, useful for multiple different signatures
   const signatures = childChain.signTransaction(typedData, privateKeys);
@@ -151,15 +170,15 @@ async function startInflightExit() {
     inputTxsInclusionProofs: exitData.input_txs_inclusion_proofs,
     inFlightTxSigs: exitData.in_flight_tx_sigs,
     txOptions: {
-      privateKey:
-        "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
-      from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+      from: erc20Exit.sender,
+      privateKey: erc20Exit.senderPrivateKey,
+      gas: gasLimit
     },
   });
 
   // decode the transaction to get the index of Alice's output
   const outputIndex = transactionBody.transactions[0].outputs.findIndex(
-    (e) => e.owner === "0x8CB0DE6206f459812525F2BA043b14155C2230C0"
+    (e) => e.owner === erc20Exit.sender
   );
 
   // piggyback onto the in-flight exit
@@ -167,16 +186,16 @@ async function startInflightExit() {
     inFlightTx: exitData.in_flight_tx,
     outputIndex: outputIndex,
     txOptions: {
-      privateKey:
-        "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
-      from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+      from: erc20Exit.sender,
+      privateKey: erc20Exit.senderPrivateKey
     },
   });
-
   return exitReceipt;
 }
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+> - `gasLimit` - gas limit for your transaction. Please check the current data on [Gas Station](https://ethgasstation.info/calculatorTxV.php) or similar resources.
 
 An in-flight exit creates an exit receipt. Each exit has an id that identifies it. After an in-flight exit starts, you'll have to wait a [challange period](/network/challenge-period) before you can process that exit and receive your funds back on Ethereum Network.
 
