@@ -145,9 +145,9 @@ A deposit generates a transaction receipt verifiable on Ethereum Network. A typi
 
 After the funds are confirmed on the rootchain, child chain server generates a transaction in a form of UTXO corresponding to the deposited amount. UTXO (unspent transaction output) is a model used to keep a track of balances on the OMG Network.
 
-If a transaction is successful, you will see a unique `transactionHash` that can be verified on Ethereum block explorer, such as [Etherescan](https://ropsten.etherscan.io/tx/0xbcb340775157d5f0d21ae8bd5b13d51b7dd62bf79737f8ceea1f46bf33ae4fbe). Copy the hash and paste it in the search box for transaction's details.
+If a transaction is successful, you will see a unique `transactionHash` that can be verified on Ethereum block explorer, such as [Etherscan](https://etherscan.io). Copy the hash and paste it in the search box for transaction's details.
 
-Depositing also involves forming a pseudo-block on the child chain. Such a block contains a single transaction with the deposited funds as a new UTXO. You can check a new block on [the OMG Block Explorer](https://blockexplorer.ropsten.v1.omg.network).
+Depositing also involves forming a pseudo-block on the child chain. Such a block contains a single transaction with the deposited funds as a new UTXO. You can check a new block on [the OMG Block Explorer](https://blockexplorer.rinkeby.v1.omg.network).
 
 ### 4. Make an ERC20 deposit
 

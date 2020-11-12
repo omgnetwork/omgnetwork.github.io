@@ -78,7 +78,6 @@ const ethExit = {
   address: "0xA9cc140410c2bfEB60A7260B3692dcF29665c254",
   privateKey: "E4F82A4822A2E6A28A6E8CE44490190B15000E58C7CBF62B4729A3FDC9515FD2"
 }
-
 ```
 
 > - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
@@ -93,28 +92,28 @@ You can exit only 1 UTXO at a time. Consider [merging multiple UTXOs](/network/u
 
 Every exit requires an extra fee called an [exit bond](/network/exitbonds) as an incentive mechanism for users of the OMG Network to exit honestly and challenge dishonest exits. The bond is currently fixed at an amount estimated to cover the gas cost of submitting a challenge. You can check the current gas cost at [ETH Gas Station](https://ethgasstation.info/).
 
-> The standard exit process is the same for both ETH and ERC20 UTXOs. The tutorial shows how to work with ERC20 tokens. For working with ETH, change `0xd92e713d051c37ebb2561803a3b5fbabc4962431` value (ERC20 contract) into `OmgUtil.transaction.ETH_CURRENCY`.
+> The standard exit process is the same for both ETH and ERC20 UTXOs. The tutorial shows how to work with ERC20 tokens. For working with ETH, change `erc20Exit` into `ethExit`.
 
 ```js
 async function startStandardExit() {
   // check if the exit queue exists for a given token
-  const queueForTokenExists = await rootChain.hasToken(ethExit.token);
+  const queueForTokenExists = await rootChain.hasToken(erc20Exit.token);
   if (!queueForTokenExists) {
     // add the exit queue for this token if it doesn't exist
     const addToken = await rootChain.addToken({
-      token: ethExit.token,
+      token: erc20Exit.token,
       txOptions: {
-        from: ethExit.address,
-        privateKey: ethExit.privateKey,
+        from: erc20Exit.address,
+        privateKey: erc20Exit.privateKey,
         gas: gaslLimit
       },
     });
   }
 
   // get utxo information
-  const aliceUtxos = await childChain.getUtxos(ethExit.address);
+  const aliceUtxos = await childChain.getUtxos(erc20Exit.address);
   const aliceUtxoToExit = aliceUtxos.find(
-    (i) => i.currency === ethExit.token
+    (i) => i.currency === erc20Exit.token
   );
   const exitData = await childChain.getExitData(aliceUtxoToExit);
 
@@ -124,8 +123,8 @@ async function startStandardExit() {
     outputTx: exitData.txbytes,
     inclusionProof: exitData.proof,
     txOptions: {
-      from: ethExit.address,
-      privateKey: ethExit.privateKey,
+      from: erc20Exit.address,
+      privateKey: erc20Exit.privateKey,
       gas: gaslLimit
     },
   });
