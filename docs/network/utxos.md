@@ -105,15 +105,15 @@ Note, the minimum number of UTXOs to merge is 2, the maximum — 4. You also can
 ```js
 async function mergeUtxo() {
   // retrieve all utxos
-  const aliceUtxosAll = await childChain.getUtxos(utxoMerge.address);
+  const addressUtxosAll = await childChain.getUtxos(utxoMerge.address);
   
   // filter utxos based on the token
-  const aliceEthUtxos = aliceUtxosAll.filter(
+  const addressUtxos = addressUtxosAll.filter(
     (u) => u.currency === utxoMerge.currency
   );
 
   // slice the array to only 4 utxos
-  const utxosToMerge = aliceEthUtxos.slice(0, 4);
+  const utxosToMerge = addressUtxos.slice(0, 4);
 
   // merge utxos
   const mergedUtxo = await childChain.mergeUtxos({
