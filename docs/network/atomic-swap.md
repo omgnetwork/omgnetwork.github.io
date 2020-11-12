@@ -83,7 +83,7 @@ const feePayer = {
   currency: OmgUtil.transaction.ETH_CURRENCY
 }
 
-const plasmaContractAddress = '0xb43f53394d86deab35bc2d8356d6522ced6429b5';
+const plasmaContractAddress = plasmaContractAddress;
 ```
 
 > - `watcherUrl` - the Watcher Info URL for defined [environment](/environments) (personal or from OMG Network).
