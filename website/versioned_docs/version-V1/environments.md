@@ -9,6 +9,8 @@ These are configuration values and tools you can use to deploy various component
 
 ## OMG Network V1
 
+> NOTE: Ropsten environment is deprecated! Use Rinkeby for development purposes.
+
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Rinkeby -->
 
