@@ -119,7 +119,7 @@ This method shows how to install and run a Watcher from a bare-metal release of 
 
 #### 1.1 Install Erlang and Elixir
 
-The currne timplementation is built with Erland and Elixir, and uses [`asdf`](https://asdf-vm.com) to manage multiple runtime versions. Asdf relies on several libraries that you may need to install first:
+The current implementation is built with Erland and Elixir, and uses [`asdf`](https://asdf-vm.com) to manage multiple runtime versions. Asdf relies on several libraries that you may need to install first:
 
 ```
 sudo apt-get install libssl-dev make automake autoconf libncurses5-dev gcc unzip
@@ -320,7 +320,7 @@ Then, repeat the steps starting from [here](/watcher/run-watcher#22-setup-the-pr
 
 <!-- Docker Compose (Ubuntu) -->
 
-This method shows how to setup and run a Watcher via Docker Compose tooling. You can run it on your local machine, VPS, dedicated, or bare-metal server on one of the [supported environments](/watcher/run-watcher#supported-platforms).
+This method shows how to set up and run a Watcher via Docker Compose tooling. You can run it on your local machine, VPS, dedicated, or bare-metal server on one of the [supported environments](/watcher/run-watcher#supported-platforms).
 
 ### 1. Install Dependencies
 
@@ -340,7 +340,7 @@ Make sure to install the latest version of Docker Compose from the [official rep
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-You will have to log out from a server for installed dependencies to take an affect.
+You will have to log out from a server for installed dependencies to take affect.
 
 #### 1.3 Verify
 
@@ -429,7 +429,7 @@ If you want to exit the logs without stopping containers, use `ctrl+c` or `contr
 
 <!-- Docker Compose (macOS) -->
 
-This method shows how to setup and run a Watcher via Docker Compose tooling, and should be used only on your local macOS machine.
+This method shows how to set up and run a Watcher via Docker Compose tooling, and should be used only on your local macOS machine.
 
 ### 1. Install Dependencies
 
@@ -441,7 +441,7 @@ This method shows how to setup and run a Watcher via Docker Compose tooling, and
 
 #### 1.2 Install Docker and Docker-Machine
 
-Docker daemon uses Linux-specific kernel features, therefore you can’t run Docker natively on macOS. You'll have to install docker-machine in order to create VM and attach to it.
+Docker daemon uses Linux-specific kernel features, therefore you can’t run Docker natively on macOS. You'll have to install docker-machine in order to create VM and attach it to.
 
 ```
 brew update && brew install docker docker-machine
@@ -461,7 +461,7 @@ If the installation fails, you'll see the `Security & Privacy` window opened. Un
 
 #### 1.4 Create a Default Docker-Machine
 
-Next, you'll have to create a default machine, specificy the name of machine that Docker will use to execute commands, and connect your shell to the new machine. 
+Next, you'll have to create a default machine, specify the name of machine that Docker will use to execute commands, and connect your shell to the new machine. 
 
 ```
 docker-machine create --driver virtualbox defaul && docker-machine env default && eval "$(docker-machine env default)"
@@ -482,7 +482,7 @@ default   *        virtualbox   Running   tcp://192.168.xxx.xxx:xxxx           v
 
 #### 1.5 Install Docker Compose
 
-The current guide will demonstrate how to setup and manage a Watcher via Docker Compose tooling due to simplicity of running this on your laptop/PC.
+The current guide will demonstrate how to set up and manage a Watcher via Docker Compose tooling due to simplicity of running this on your laptop/PC.
 
 ```
 curl -L https://github.com/docker/compose/releases/download/1.26.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose && exit
@@ -517,7 +517,7 @@ To verify that you're fully synced, check the status of Watcher and Watcher Info
 curl -X POST "http://$REMOTE_SERVER:7534/status.get"
 ```
 
-> - `$REMOTE_SERVER` - an IP address of your remote server. If you run the Watcher on your local machine, replace the value with `localhost`.
+> - `$REMOTE_SERVER` - an IP address of your remote server. If you run the Watcher on your local machine, replace the value with the `localhost`.
 
 Example output:
 ```
@@ -607,7 +607,7 @@ watcher_info_1   | 2020-05-30 06:13:36.445 [info] module=Phoenix.Endpoint.Cowboy
 curl -X POST "http://$REMOTE_SERVER:7434/status.get"
 ```
 
-> - `$REMOTE_SERVER` - an IP address of your remote server. If you run the Watcher on your local machine, replace the value with `localhost`.
+> - `$REMOTE_SERVER` - an IP address of your remote server. If you run the Watcher on your local machine, replace the value with the `localhost`.
 
 Example output:
 ```
@@ -691,4 +691,4 @@ There are two ways to test that your Watcher is working properly:
 1. Use `http://$REMOTE_SERVER:7534` as a `WATCHER_URL` value in your configs to make a transfer in your own or one of the OMG Network projects, such as [omg-js samples](https://github.com/omgnetwork/omg-js-samples). 
 2. Make a transaction or another operation using [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?url=master%2Foperator_api_specs.yaml&urls.primaryName=master%2Finfo_api_specs).
 
-> - `$REMOTE_SERVER` - an IP address of your remote server. If you run the Watcher on your local machine, replace the value with `localhost`.
+> - `$REMOTE_SERVER` - an IP address of your remote server. If you run the Watcher on your local machine, replace the value with the `localhost`.
