@@ -52,7 +52,7 @@ npm install @omisego/react-native-omg-js
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
 
-### 2. Import dependencies
+### 2. Import dependencies, define constants
 
 Processing exits involves using 2 `omg-js` objects. Here's an example of how to instantiate them:
 
@@ -62,6 +62,14 @@ import { RootChain, OmgUtil } from "@omisego/omg-js";
 
 const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
 const rootChain = new RootChain({ web3, plasmaContractAddress });
+
+// define constants
+const exitProcess = {
+  currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
+  maxExits: 1,
+  address: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+  privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
+}
 ```
 
 > - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
@@ -69,7 +77,7 @@ const rootChain = new RootChain({ web3, plasmaContractAddress });
 
 ### 3. Process an exit
 
-> Exit processing is the same for both ETH and ERC20 UTXOs. This method demonstrates exit processing for ETH funds. If you want to process an ERC20 exit, change the `token` value to a corresponding smart contract address.
+> Exit processing is the same for both ETH and ERC20 UTXOs. This method demonstrates exit processing for ERC20 funds. If you want to process an ETH exit, change the `currency` value of the `exitProcess` object into `OmgUtil.transaction.ETH_CURRENCY`.
 
 Before you start processing, you can check the exit queue to see how many available exits the OMG Network has at a given moment:
 
@@ -77,19 +85,22 @@ Before you start processing, you can check the exit queue to see how many availa
 async function processExit() {
   // get exit queue
   const ethQueue = await rootChain.getExitQueue();
-
-  // process exits
-  const exitReceipt = await rootChain.processExits({
-    token: OmgUtil.transaction.ETH_CURRENCY,
-    exitId: 0,
-    maxExitsToProcess: 5,
-    txOptions: {
-      privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
-      from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0"
-    };
-  });
-
-  return exitReceipt;
+  
+  if (ethQueue.length) {
+    // process exits
+    const exitReceipt = await rootChain.processExits({
+      token: exitProcess.currency,
+      exitId: 0,
+      maxExitsToProcess: exitProcess.maxExits,
+      txOptions: {
+        privateKey: exitProcess.privateKey,
+        from: exitProcess.address
+      }
+    });
+    return exitReceipt;
+  } else {
+    console.log("Exit queue is empty");
+  }
 }
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->

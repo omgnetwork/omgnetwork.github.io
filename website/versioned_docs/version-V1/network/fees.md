@@ -10,7 +10,7 @@ Users are charged a fee to transact on the OMG Network. The OMG Network supports
 ## Supported Tokens
 
 There are two ways to find a list of supported tokens:
-1. Block explorer: [Ropsten testnet](https://blockexplorer.ropsten.v1.omg.network/fees).
+1. Block explorer of the corresponding [environment](/environments#tools)
 2. Calling the `getFees` function using one of the available libraries. [`omg-js`](https://github.com/omgnetwork/omg-js) includes a helper method to call the `fees.all` endpoint on the Watcher. Note that the returned response will be indexed by the transaction type.
  
 <!--DOCUSAURUS_CODE_TABS-->

@@ -1,7 +1,7 @@
 ---
 id: version-V1-utxos
-title: Manage UTXOs
-sidebar_label: Manage UTXOs
+title: Manage UTXO
+sidebar_label: Manage UTXO
 original_id: utxos
 ---
 
@@ -76,20 +76,26 @@ npm install @omisego/react-native-omg-js
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
 
-### 2. Import dependencies
+### 2. Import dependencies, define constants
 
 Merging UTXOs involves using 2 `omg-js` objects. Here's an example of how to instantiate them:
 
 ```js
-import Web3 from "web3";
 import { ChildChain, OmgUtil } from "@omisego/omg-js";
-
-const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
 const childChain = new ChildChain({ watcherUrl });
+
+// define constants
+const plasmaContractAddress = plasmaContractAddress;
+
+const utxoMerge = {
+  currency: OmgUtil.transaction.ETH_CURRENCY,
+  address: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+  privateKey: "CD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
+}
 ```
 
-> - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
 > - `watcherUrl` - the Watcher Info URL for defined [environment](/environments) (personal or from OMG Network).
+> - `plasmaContractAddress` - `CONTRACT_ADDRESS_PLASMA_FRAMEWORK` for defined [environment](/environments).
 
 ### 3. Merge UTXOs
 
@@ -100,21 +106,21 @@ Note, the minimum number of UTXOs to merge is 2, the maximum — 4. You also can
 ```js
 async function mergeUtxo() {
   // retrieve all utxos
-  const aliceUtxosAll = await childChain.getUtxos("0x8CB0DE6206f459812525F2BA043b14155C2230C0");
+  const addressUtxosAll = await childChain.getUtxos(utxoMerge.address);
   
   // filter utxos based on the token
-  const aliceEthUtxos = aliceUtxosAll.filter(
-    (u) => u.currency === OmgUtil.transaction.ETH_CURRENCY
+  const addressUtxos = addressUtxosAll.filter(
+    (u) => u.currency === utxoMerge.currency
   );
 
   // slice the array to only 4 utxos
-  const utxosToMerge = aliceEthUtxos.slice(0, 4);
+  const utxosToMerge = addressUtxos.slice(0, 4);
 
   // merge utxos
-  const utxo = await childChain.mergeUtxos({
+  const mergedUtxo = await childChain.mergeUtxos({
     utxos: utxosToMerge,
-    privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7",
-    verifyingContract: "0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9",
+    privateKey: utxoMerge.privateKey,
+    verifyingContract: plasmaContractAddress,
   });
 
   return utxo;
@@ -137,84 +143,9 @@ A user may also want to *split* UTXOs if one would like to exit an amount smalle
 - Alice wants to withdraw 2 ETH back onto the root chain and keep 3 ETH on the child chain.
 - Alice cannot exit 2 ETH unless she splits her UTXO.
 
-In the above scenario, Alice can split her UTXO to withdraw 2 ETH. 
+In the above scenario, Alice can split her UTXO to withdraw 2 ETH.
 
-### Implementation
-
-For splitting UTXO, a user needs to follow the same steps as [making a transaction](/network/transfers) but using the following transaction format:
-- The sender is specified as the recipient. 
-- The input consists of a single UTXO.
-- The amount set in each payment object corresponds to the desired output value. In other words, the amount the user wants to split from the input UTXO.
-
-As a transaction can produce a maximum of <u>four</u> outputs, you can generally have up to <u>three</u> payment objects. Each one will produce an output, the value of the fourth output will correspond to the value remaining after the split(s). It is possible to have four payment objects only if their amounts add up to the exact value of the input UTXO.
-
-> The splitting of UTXO process is the same for both ETH and ERC20. This method demonstrates splitting for ERC20 UTXO. If you want to split ETH UTXO, change the `currency` value to `OmgUtil.transaction.ETH_CURRENCY`.
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!-- JavaScript (ESNext) -->
-```js
-async function splitUtxo() {
-  // define payments objects that will represent new utxos
-  const payments = [
-    {
-      owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
-      amount: "120000000000000",
-    },
-    {
-      owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
-      amount: "250000000000000",
-    },
-    {
-      owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
-      amount: "250000000000000",
-    },
-  ];
-
-  // create a transaction body
-  const transactionBody = await childChain.createTransaction({
-    owner: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-    payments,
-    fee: {
-      currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
-    },
-  });
-
-  // sanitize transaction into the correct typedData format
-  // the second parameter is the address of the RootChain contract
-  const typedData = OmgUtil.transaction.getTypedData(
-    transactionBody.transactions[0],
-    "0x96d5d8bc539694e5fa1ec0dab0e6327ca9e680f9"
-  );
-
-  // define private keys to use for transaction signing
-  const privateKeys = new Array(
-    transactionBody.transactions[0].inputs.length
-  ).fill("0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7");
-
-  // locally sign typedData with passed private keys, useful for multiple different signatures
-  const signatures = childChain.signTransaction(typedData, privateKeys);
-
-  // return encoded and signed transaction ready to be submitted
-  const signedTxn = childChain.buildSignedTransaction(typedData, signatures);
-
-  // submit to the child chain
-  return childChain.submitTransaction(signedTxn);
-}
-
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-### Lifecycle
-
-1. A user defines multiple `payments` objects that will generate new UTXOs. The sender is specified as the recipient.
-2. A user calls the `createTransaction` function to create a transaction that will split a single UTXO.
-3. A user signs, encodes, and submits the transaction's data to the child chain and the Watcher for validation.
-4. If the transaction is valid, the child chain server creates a transaction hash and adds the transaction to a pending block.
-5. The child chain bundles the transactions in the block into a Merkle tree and submits its root hash to the `Plasma Framework` contract.
-6. The Watcher receives a list of transactions from the child chain and recomputes the Merkle root to check for any inconsistency.
+Currently, UTXO splitting is not available via omg-js lib but you can use the OMG Network [Web Wallet](/environments#tools) to achieve the same result.
 
 ## Network Considerations
 

@@ -9,7 +9,7 @@ A deposit involves sending ETH or ERC-20 tokens to the `Vault` smart contract on
 
 ## Implementation
 
-### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js)
+### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js), [`web3`](https://github.com/ethereum/web3.js), [`bn.js`](https://github.com/indutny/bn.js)
 
 To access network features from your application, use our official libraries:
 
@@ -20,7 +20,7 @@ To access network features from your application, use our official libraries:
 Requires Node >= 8.11.3 < 13.0.0
 
 ```js
-npm install @omisego/omg-js
+npm install @omisego/omg-js web3 bn.js
 ```
 
 <!-- Browser -->
@@ -52,7 +52,7 @@ npm install @omisego/react-native-omg-js
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- JavaScript (ESNext) -->
 
-### 2. Import dependencies
+### 2. Import dependencies, define constants
 
 Depositing funds to the OMG Network involves using 2 `omg-js` objects. Here's an example of how to instantiate them:
 
@@ -60,8 +60,25 @@ Depositing funds to the OMG Network involves using 2 `omg-js` objects. Here's an
 import Web3 from "web3";
 import { RootChain, OmgUtil } from "@omisego/omg-js";
 
+// instantiate omg-js and web3 objects
 const web3 = new Web3(new Web3.providers.HttpProvider(web3_provider_url));
 const rootChain = new RootChain({ web3, plasmaContractAddress });
+
+// define constants
+// amount => 0.1 with 18 decimals (ETH) = 100000000000000000
+const ethDeposit = {
+  amount: new BigNumber("100000000000000000"),
+  address: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+  privateKey: OmgUtil.hexPrefix("CD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7")
+}
+
+// amount => 50 with 6 decimals (TUSDT) = 50000000
+const erc20Deposit = {
+  amount: new BigNumber("50000000"),
+  currency: OmgUtil.hexPrefix("0xd92e713d051c37ebb2561803a3b5fbabc4962431"),
+  address: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
+  privateKey: OmgUtil.hexPrefix("CD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7")
+}
 ```
 
 > - `web3_provider_url` - the URL to a full Ethereum RPC node (local or from infrastructure provider, e.g. [Infura](https://infura.io/)).
@@ -72,18 +89,21 @@ const rootChain = new RootChain({ web3, plasmaContractAddress });
 Performing any operation on the OMG Network requires funds. Funds deposit happens when a user sends ETH or ERC20 tokens to the `Vault` smart contract on Ethereum Network. A vault holds custody of tokens transferred to the Plasma Framework. Deposits increase the pool of funds held by the contract and also signals to the child chain server that the funds should be accessible on the child chain.
 
 ```js
-async function makeDeposit () {
-  // deposit ETH funds
-  return rootChain.deposit({
-    amount: "50000000000000000",
+async function makeEthDeposit () {
+  const deposit = await rootChain.deposit({
+    amount: ethDeposit.amount,
     currency: OmgUtil.transaction.ETH_CURRENCY,
     txOptions: {
-      from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
+      from: ethDeposit.address,
+      privateKey: ethDeposit.privateKey,
+      gas: gasLimit
     }
-  })
+  });
+  return deposit;
 }
 ```
+
+> - `gasLimit` - gas limit for your transaction. Please check the current data on [Gas Station](https://ethgasstation.info/calculatorTxV.php) or similar resources.
 
 > Deposit amount is defined in WEI, the smallest denomination of ether (ETH), the currency used on the Ethereum network. You can use [ETH converter](https://eth-converter.com) or alternative tool to know how much WEI you have to put as the `amount` value.
 
@@ -126,37 +146,41 @@ A deposit generates a transaction receipt verifiable on Ethereum Network. A typi
 
 After the funds are confirmed on the rootchain, child chain server generates a transaction in a form of UTXO corresponding to the deposited amount. UTXO (unspent transaction output) is a model used to keep a track of balances on the OMG Network.
 
-If a transaction is successful, you will see a unique `transactionHash` that can be verified on Ethereum block explorer, such as [Etherescan](https://ropsten.etherscan.io/tx/0xbcb340775157d5f0d21ae8bd5b13d51b7dd62bf79737f8ceea1f46bf33ae4fbe). Copy the hash and paste it in the search box for transaction's details.
+If a transaction is successful, you will see a unique `transactionHash` that can be verified on Ethereum block explorer, such as [Etherscan](https://etherscan.io). Copy the hash and paste it in the search box for transaction's details.
 
-Depositing also involves forming a pseudo-block on the child chain. Such a block contains a single transaction with the deposited funds as a new UTXO. You can check a new block on [the OMG Block Explorer](https://blockexplorer.ropsten.v1.omg.network).
+Depositing also involves forming a pseudo-block on the child chain. Such a block contains a single transaction with the deposited funds as a new UTXO. You can check a new block on [the OMG Block Explorer](https://blockexplorer.rinkeby.v1.omg.network).
 
 ### 4. Make an ERC20 deposit
 
 Depositing ERC20 tokens requires an approval of the corresponding `Vault` contract. You can deposit tokens only after this process is finished. 
 
 ```js
-async function makeDeposit () {
+async function makeErc20Deposit () {
   // approve ERC20 token
-  await rootChain.approveToken({
-    erc20Address: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
-    amount: "13000000000000000000",
+  const approval = await rootChain.approveToken({
+    erc20Address: erc20Deposit.currency,
+    amount: erc20Deposit.amount,
     txOptions: {
-      from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
+      from: erc20Deposit.address,
+      privateKey: erc20Deposit.privateKey
     }
-  })
+  });
   
   // deposit ERC20 funds
-  return rootChain.deposit({
-    amount: "13000000000000000000",
-    currency: "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
+  const receipt = await rootChain.deposit({
+    amount: erc20Deposit.amount,
+    currency: erc20Deposit.currency,
     txOptions: {
-      from: "0x8CB0DE6206f459812525F2BA043b14155C2230C0",
-      privateKey: "0xCD55F2A7C476306B27315C7986BC50BD81DB4130D4B5CFD49E3EAF9ED1EDE4F7"
+      from: erc20Deposit.address,
+      privateKey: erc20Deposit.privateKey,
+      gas: gasLimit
     }
-  })
+  });
 }
 ```
+
+> - `gasLimit` - gas limit for your transaction. Please check the current data on [Gas Station](https://ethgasstation.info/calculatorTxV.php) or similar resources.
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Lifecycle
