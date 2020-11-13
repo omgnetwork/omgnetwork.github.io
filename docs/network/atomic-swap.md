@@ -6,7 +6,7 @@ sidebar_label: Make an Atomic Swap
 
 Atomic Swap transaction represents an exchange between 2 different tokens on the OMG Network. A standard exchange rate is 1:1 but you can set your own rate as well. Atomic swaps can be useful during trading operations, claiming community tokens, etc.
 
-### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js), [`ethereumjs-util`](https://github.com/ethereumjs/ethereumjs-util), [`eth-sig-util`](https://github.com/MetaMask/eth-sig-util)
+### 1. Install [`omg-js`](https://github.com/omgnetwork/omg-js), [`ethereumjs-util`](https://github.com/ethereumjs/ethereumjs-util), [`eth-sig-util`](https://github.com/MetaMask/eth-sig-util), [`bn.js`](https://github.com/indutny/bn.js), [`bignumber.js`](https://github.com/MikeMcl/bignumber.js)
 
 To access network features from your application, use our official libraries:
 
@@ -17,9 +17,7 @@ To access network features from your application, use our official libraries:
 Requires Node >= 8.11.3 < 13.0.0
 
 ```js
-npm install @omisego/omg-js
-npm install ethereumjs-util
-npm install eth-sig-util
+npm install @omisego/omg-js ethereumjs-util eth-sig-util bn.js bignumber.js
 ```
 
 <!-- Browser -->
@@ -61,9 +59,9 @@ const ethUtil = require('ethereumjs-util');
 const sigUtil = require('eth-sig-util');
 
 const childChain = new ChildChain({
-  watcherUrl: 'https://watcher-info.rinkeby.v1.omg.network',
+  watcherUrl: watcherUrl,
   watcherProxyUrl: '',
-  plasmaContractAddress: '0xb43f53394d86deab35bc2d8356d6522ced6429b5'
+  plasmaContractAddress: plasmaContractAddress
 });
 
 // constants
@@ -85,8 +83,11 @@ const feePayer = {
   currency: OmgUtil.transaction.ETH_CURRENCY
 }
 
-const plasmaContractAddress = '0xb43f53394d86deab35bc2d8356d6522ced6429b5';
+const plasmaContractAddress = plasmaContractAddress;
 ```
+
+> - `watcherUrl` - the Watcher Info URL for defined [environment](/environments) (personal or from OMG Network).
+> - `plasmaContractAddress` - `CONTRACT_ADDRESS_PLASMA_FRAMEWORK` for defined [environment](/environments).
 
 > The above constants are defined for Rinkeby environment. If you want to work with the Mainnet, check the [Environments](/environments) page.
 

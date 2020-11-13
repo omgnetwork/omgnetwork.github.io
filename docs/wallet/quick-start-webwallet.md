@@ -27,11 +27,11 @@ By the end of the guide, you will achieve the following:
 ## Notes
 * Keep your tokens safe. Please ensure you understand how to store and send tokens without compromising security, always double-check the recipient`s address, never send private keys to anyone unknown unless you want to lose your funds.
 * The quick start guide uses a hosted Web Wallet application. To run it yourself, check the installation instructions in the [Github repository](https://github.com/omgnetwork/web-wallet).
-* The current guide displays how to work with OMG Web Wallet on [Ropsten](https://webwallet.ropsten.v1.omg.network/) environment. However, the same steps can be applied to the [Mainnet](https://webwallet.mainnet.v1.omg.network/) version of the wallet.
+* The current guide displays how to work with OMG Web Wallet on [Rinkeby](https://webwallet.rinkeby.v1.omg.network/) environment. However, the same steps can be applied to the [Mainnet](https://webwallet.mainnet.v1.omg.network/) version of the wallet.
 
 ## Wallet Configuration
 The Web Wallet currently supports two environments:
-- *Ropsten Testnet* (testnet) - the latest Ethereum test network. The purpose of such an environment is to demonstrate all of the features without using or losing real funds and to find critical bugs before launching a software into production. This option is mostly used by developers.
+- *Rinkeby Testnet* (testnet) - the Ethereum test network. The purpose of such an environment is to demonstrate all of the features without using or losing real funds and to find critical bugs before launching a software into production. This option is mostly used by developers.
 - *Main Ethereum Network* (mainnet) - the latest Ethereum live network. It is recommended to use this option after you've already tried the testnet and are confident in working with a particular wallet. This option is mostly used by customers.
 
 You can configure the preferred environment in your Web3 wallet as follows:
@@ -55,7 +55,7 @@ There are several ways to fund your ETH wallet:
 - Exchange ETH for cash with somebody who has it
 - Ask your friends who work in the blockchain industry to send you some
 - Use Ethereum faucets/games to win free ETH
-- Use [Ropsten faucet](https://faucet.metamask.io) if you're planning to work with Ropsten
+- Use [Rinkeby faucet](https://faucet.rinkeby.io) if you're planning to work with Rinkeby
 
 After you fund your Web3 wallet, your ETH rootchain balance in the Web Wallet should be the same, as your balance in MetaMask or another Web3 wallet you are using:
 
@@ -75,7 +75,7 @@ Deposits on the OMG Network require to pass a [deposit finality period](/glossar
 
 ### 1.3 Make an ERC20 Deposit
 
-The process for depositing ERC20 into the OMG Network is very similar to an ETH deposit. For this example, we will use [`MRTY`](https://ropsten.etherscan.io/address/0x77b13a4090434be4bd931ff0f763048f86a1c732) token. To make a deposit, click the `DEPOSIT` button and choose the `ERC20` tab. Fill in the amount of tokens you want to deposit and a smart contract of a defined token as follows:
+The process for depositing ERC20 into the OMG Network is very similar to an ETH deposit. For this example, we will use [TUSDT](https://rinkeby.etherscan.io/token/0xd92e713d051c37ebb2561803a3b5fbabc4962431) token. To make a deposit, click the `DEPOSIT` button and choose the `ERC20` tab. Fill in the amount of tokens you want to deposit and a smart contract of a defined token as follows:
 
 ![](/img/webwallet/deposit-04.png)
 
@@ -101,7 +101,7 @@ Once the transaction is confirmed, you can view its details in the block explore
 
 ### 3.1 Submit an Exit
 
-You've successfully deposited and made a transfer to the OMG Network. If you want to move your funds from the OMG Network back to the Ethereum network, you should start a standard exit. 
+You've successfully deposited and made a transfer to the OMG Network. If you want to move your funds from the OMG Network back to the Ethereum network, you should start a standard exit.
 
 To start an exit, press the `EXIT` button and choose one of the UTXO you want to exit as follows:
 
@@ -119,7 +119,7 @@ Next, press `SUBMIT EXIT` and confirm the transaction in the opened popup as fol
 
 ### 3.2 Process an Exit
 
-To prevent any malicious activity on the network, each exit goes through the [`Challenge Period`](/network/challenge-period). This allows other users to challenge your exit on validity and trust. You can find also find a date when you can process your exit below the transaction id. After the challenge period has passed, you can process your exit to send your funds back to the Ethereum network. 
+To prevent any malicious activity on the network, each exit goes through the [Challenge Period](/network/challenge-period). This allows other users to challenge your exit on validity and trust. You can find also find a date when you can process your exit below the transaction id. After the challenge period has passed, you can process your exit to send your funds back to the Ethereum network. 
 
 To start an exit, press the `Process Exit` button near exit id as follows:
 

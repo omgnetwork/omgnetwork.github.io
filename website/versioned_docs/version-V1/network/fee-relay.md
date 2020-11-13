@@ -89,7 +89,7 @@ const feePayer = {
   privateKey: '5444fec49a972a1c6264745610ef3c8107980540ff3d732af4c5ddb87c5f03c2'
 }
 
-const transactionToken = '0x2a9473359f72c4a756648e589a63cdc8ab1a7ceb';
+const transactionToken = '0xd92e713d051c37ebb2561803a3b5fbabc4962431';
 const plasmaContractAddress = plasmaContractAddress;
 const feeCurrency = OmgUtil.transaction.ETH_CURRENCY;
 const amount = "29";
