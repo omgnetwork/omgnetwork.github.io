@@ -10,6 +10,7 @@
       "network/transfers",
       "network/atomic-swap",
       "network/fee-relay",
+      "network/chained-trx",
       "network/standard-exits",
       "network/in-flight-exits",
       "network/process-exits",
