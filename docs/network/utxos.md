@@ -132,7 +132,7 @@ async function mergeUtxo() {
 ### Lifecycle
 
 1. A user calls the `getUtxos` function to retrieve the list of all available UTXOs.
-2. A user filters an array of UTXOs and returns an UTXOs for desired currency (`ETH_CURRENCY` for ETH or `ERC20_CONTRACT_ADDRESS` for ERC20 tokens). This step is important because you can't merge ETH and ERC20 tokens together.
+2. A user filters an array of UTXOs and returns an UTXOs for the desired currency (`ETH_CURRENCY` for ETH or `ERC20_CONTRACT_ADDRESS` for ERC20 tokens). This step is important because you can't merge ETH and ERC20 tokens together.
 3. A user calls the `mergeUtxos` function and returns an array of merged UTXOs.
 
 ## Splitting UTXOs

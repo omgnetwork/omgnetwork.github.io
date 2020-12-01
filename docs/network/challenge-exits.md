@@ -262,7 +262,7 @@ Indicates an invalid piggyback is in process. Should be challenged.
 
 * Alice sends `UTXO1` to Bob in `TX1`. `TX1` is included in a block. 
 * Bob initiates an in-flight exit on `TX1` and places an `exit_bond`.
-* Bob piggybacks onto the exit referencing `UTXO1` and commiting a `piggyback bond`.
+* Bob piggybacks onto the exit referencing `UTXO1` and comitting a `piggyback bond`.
 * Bob sends `UTXO1` to Carol in `TX2`. `TX2` is included in a block.
 
 **Event**

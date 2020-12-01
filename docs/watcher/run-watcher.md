@@ -99,7 +99,7 @@ docker ps
 
 ### 3. Update Packages
 
-If you're using Linux-based system, make sure to update your packages:
+If you're using a Linux-based system, make sure to update your packages:
 
 ```
 sudo apt-get update
@@ -107,7 +107,7 @@ sudo apt-get update
 
 ## Install
 
-Running a Watcher locally is recommended for testing purposes only. For production, you should use VPS or bare-metal server. This allows to increase uptime, reduce latency, and configure advanced security measures for your instance.
+Running a Watcher locally is recommended for testing purposes only. For production, you should use VPS or a bare-metal server. This allows increasing uptime, reducing latency, and configuring advanced security measures for your instance.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -119,7 +119,7 @@ This method shows how to install and run a Watcher from a bare-metal release of 
 
 #### 1.1 Install Erlang and Elixir
 
-The current implementation is built with Erlang and Elixir, and uses [`asdf`](https://asdf-vm.com) to manage multiple runtime versions. Asdf relies on several libraries that you may need to install first:
+The current implementation is built with Erlang and Elixir and uses [`asdf`](https://asdf-vm.com) to manage multiple runtime versions. Asdf relies on several libraries that you may need to install first:
 
 ```
 sudo apt-get install libssl-dev make automake autoconf libncurses5-dev gcc unzip
@@ -362,7 +362,7 @@ The Watcher consists of `watcher` and `watcher_info` services. You can run `watc
 
 #### 2.1 Configure docker-compose-watcher.yml File
 
-Docker Compose allows defining and running multi-container Docker applications. To launch a Watcher with Compose, first, create YAML file that will contain configurations for our services with `nano` or `vim` text editor:
+Docker Compose allows defining and running multi-container Docker applications. To launch a Watcher with Compose, first, create a YAML file that will contain configurations for our services with `nano` or `vim` text editor:
 
 ```
 mkdir watcher && cd watcher && nano docker-compose-watcher.yml
@@ -461,7 +461,7 @@ If the installation fails, you'll see the `Security & Privacy` window opened. Un
 
 #### 1.4 Create a Default Docker-Machine
 
-Next, you'll have to create a default machine, specify the name of machine that Docker will use to execute commands, and connect your shell to the new machine. 
+Next, you'll have to create a default machine, specify the name of the machine that Docker will use to execute commands, and connect your shell to the new machine. 
 
 ```
 docker-machine create --driver virtualbox defaul && docker-machine env default && eval "$(docker-machine env default)"
@@ -482,7 +482,7 @@ default   *        virtualbox   Running   tcp://192.168.xxx.xxx:xxxx           v
 
 #### 1.5 Install Docker Compose
 
-The current guide will demonstrate how to set up and manage a Watcher via Docker Compose tooling due to simplicity of running this on your laptop/PC.
+The current guide will demonstrate how to set up and manage a Watcher via Docker Compose tooling due to the simplicity of running this on your laptop/PC.
 
 ```
 curl -L https://github.com/docker/compose/releases/download/1.26.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose && exit
@@ -503,7 +503,7 @@ docker-compose version 1.26.0, build d4451659
 
 ### 2. Configure and Run the Watcher Instance
 
-The rest of the steps are the same as described in Docker Compose guide for Linux-based systems. Proceed to `2. Set Up Configuration Files` of `Docker Compose` tab to finish the installation.
+The rest of the steps are the same as described in the Docker Compose guide for Linux-based systems. Proceed to `2. Set Up Configuration Files` of the `Docker Compose` tab to finish the installation.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

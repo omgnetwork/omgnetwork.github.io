@@ -16,16 +16,16 @@ What this looks like for client application, is that instead of having one singl
 - `Erc20Vault`: a vault for clients to deposit ERC20 tokens
 - `EthVault`: a vault for clients to deposit ETH
 - `PlasmaFramework`: a central Plasma framework smart contract
-- `PaymentExitGame`: a smart contract that maintains Plasma security for payment transaction type.
+- `PaymentExitGame`: a smart contract that maintains Plasma security for the payment transaction type.
 
 
 ## Known Issues
-Due to the current Samrong downtime, we are deploying this environment to the ODP much earlier than we had planned. This motivation of this early release is to allow ODP members to continue their integration work while we investigate the current issues with Samrong. While the major happy paths are working, we are still in the process of validating the new network, as well as finishing any supporting libraries and documentation.
+Due to the current Samrong downtime, we are deploying this environment to the ODP much earlier than we had planned. This motivation for this early release is to allow ODP members to continue their integration work while we investigate the current issues with Samrong. While the major happy paths are working, we are still in the process of validating the new network, as well as finishing any supporting libraries and documentation.
 
 Things to be aware of:
 - These contracts are under audit and subject to change before launching the full Lumphini network
 - omg-js (version 3.0.0-alpha.6) does not yet support challenging invalid piggyback events. As well as some implementation examples in the repository being out of date and needing to be updated.
-- js-starter-kit support for v0.3 and documentation is not yet available on master branch
+- js-starter-kit support for v0.3 and documentation is not yet available on the master branch
 
 
 ## Migrating from v0.2 (Samrong) to v0.3 (pre-Lumphini)
@@ -35,7 +35,7 @@ Update your Watcher and Child Chain endpoints to match the new [`pre-lumpini` se
 
 ### Deposits
 - Deposits now go to a vault contract, depending on whether you are depositing ETH or an ERC-20 token. You must now send your deposits to the correct vault contract. If using ETH, deposit into ETH_VAULT. If using ERC-20 send your deposits to the ERC20_VAULT.
-- If depositing ERC-20, the same process of approving still applies - you must approve the ERC20_VAULT address to transfer the amount of tokens that you want to deposit.
+- If depositing ERC-20, the same process of approval still applies - you must approve the ERC20_VAULT address to transfer the amount of tokens that you want to deposit.
 
 ### Transactions
 - The structure of typed data has changed slightly in v0.3, still following the EIP-712 signing method. Please refer to the following if building and [signing the transaction](https://github.com/omgnetwork/plasma-contracts/blob/master/plasma_framework/docs/integration-docs/integration-doc.md#eip-712-signing) yourself.
@@ -43,7 +43,7 @@ Update your Watcher and Child Chain endpoints to match the new [`pre-lumpini` se
 
 ### Exits
 - In v0.3, exits for both ETH and ERC-20 have a prerequisite that an exit queue must exist for the token that is being exited. A new exit queue can be created by calling ‘addExitQueue’ on the Plasma Framework contract, specifying the vault id of the token (1 for ETH, 2 for ERC-20).
-- Exits and their challenges are now called from the PaymentExitGame contract. The inputs for both standard and in flight exits have changed slightly. Please see below for implementation detail with regards to the Omg-js library.
+- Exits and their challenges are now called from the PaymentExitGame contract. The inputs for both standard and in-flight exits have changed slightly. Please see below for implementation detail with regards to the Omg-js library.
 
 ## omg-js
 - For reference implementation of each process, it is recommended to go through the [integration tests](https://github.com/omgnetwork/omg-js/tree/v0.3/packages/integration-tests/test) written in the library.

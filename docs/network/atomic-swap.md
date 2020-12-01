@@ -89,7 +89,7 @@ const plasmaContractAddress = plasmaContractAddress;
 > - `watcherUrl` - the Watcher Info URL for defined [environment](/environments) (personal or from OMG Network).
 > - `plasmaContractAddress` - `CONTRACT_ADDRESS_PLASMA_FRAMEWORK` for defined [environment](/environments).
 
-> The above constants are defined for Rinkeby environment. If you want to work with the Mainnet, check the [Environments](/environments) page.
+> The above constants are defined for the Rinkeby environment. If you want to work with the Mainnet, check the [Environments](/environments) page.
 
 ### 3. Create helpers
 

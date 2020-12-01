@@ -168,7 +168,7 @@ Note, the child chain server collects fees for sending a transaction. The fee ca
 
 #### 3.1 Method A
 
-The most "granular" implementation of transfer includes creating, typing, signing and submitting the transaction. Such an approach will have the following structure of the code:
+The most "granular" implementation of transfer includes creating, typing, signing, and submitting the transaction. Such an approach will have the following structure of the code:
 
 > This method demonstrates a transfer made in ETH. If you want to make an ERC20 transfer, replace `erc20Transfer` with the corresponding `ethTransfer` values.
 
@@ -215,12 +215,12 @@ async function transfer() {
 
 #### Additional Notes
 
-The current technical implementation of `createTransaction` function can return two possible responses:
+The current technical implementation of the `createTransaction` function can return two possible responses:
 
 1. If your transfer can be covered with four inputs or less, you'll create a payment transaction with `"result": "complete"` response.
 2. If your transfer can be covered but with more than four inputs, you'll create a [merge transaction](/network/utxos#merging-utxos) with `"result": "intermediate"` response.
 
-This is a temporary issue and will be fixed over time, however you still need to be aware of this behavior and create an additional check for `result` status after calling the `createTransaction` function. Note, that `"result": "intermediate"` response doesn't re-create a payment transaction in this scenario, thus you'll need to initiate your original transaction again after the merge transaction is confirmed.
+This is a temporary issue and will be fixed over time, however, you still need to be aware of this behavior and create an additional check for `result` status after calling the `createTransaction` function. Note, that `"result": "intermediate"` response doesn't re-create a payment transaction in this scenario, thus you'll need to initiate your original transaction again after the merge transaction is confirmed.
 
 For more advanced types of transactions, please refer to [Make a Fee Relay Transfer](/network/fee-relay) or [Make an Atomic Swap](/network/atomic-swap).
 

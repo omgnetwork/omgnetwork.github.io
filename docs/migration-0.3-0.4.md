@@ -8,12 +8,12 @@ sidebar_label: 0.3 to 0.4
 
 ### Fees
 - Child chain now accepts fee in a transaction submitted to it via `/transaction.submit` 
-- List of accepted fee tokens and corresponding amount can be retrieved via query to `/fees.all` end point
+- List of accepted fee tokens and the corresponding amount can be retrieved via a query to `/fees.all` end point
 - The fee amount in a transaction is implicitly determined by the amount of token difference between outputs and inputs. 
-- The fee amount must be correct as specified in `/fees.all`. Underpaying or Overpaying of fee in a transaction will result in a returned error.
-- Integrator can create a transaction with a valid fee amount via `/transaction.create` API endpoint by specifying fee tokens. Alternatively, a client can build the transaction with valid fee from scratch via a call to fees.all prior to transaction build process.
+- The fee amount must be correct as specified in `/fees.all`. Underpaying or Overpaying a fee in a transaction will result in a returned error.
+- Integrator can create a transaction with a valid fee amount via `/transaction.create` API endpoint by specifying fee tokens. Alternatively, a client can build the transaction with a valid fee from scratch via a call to fees.all before the transaction build process.
 - Currently, the fees are statically set per each environment. This is expected to change once a more dynamic fee model has been applied, however, consuming fee API is expected to stay the same from integration’s point of view.
-- Refer to our guide to [transaction fee](/network/fees) for more example.
+- Refer to our guide to [transaction fee](/network/fees) for more examples.
 
 ### Watcher vs. WatcherInfo
 Two flavors of the watcher are now available: Watcher and WatcherInfo.
@@ -29,7 +29,7 @@ In general, run and/or integrate with the WatcherInfo to utilize the full set of
 - Add `/block.all`, `/block.get`, `/stats.get` endpoints for informational purposes. Available only on the WatcherInfo.
 - Update `/transaction.get` and `/transaction.all` to return each transaction output’s creating_txhash and spending_txhash. Available only on the WatcherInfo.
 - Update `/account.get_transactions`, `/transaction.all` and `/transaction.get` to return transaction type (txtype) and transaction output type (otype). The currently possible types are Payment V1 and Fee Token Claim.
-- Watcher and WatcherInfo no longer serve websocket events for new transactions and exits.
+- Watcher and WatcherInfo no longer serve WebSocket events for new transactions and exits.
 
 ### Strict transaction decoding and checks
 
@@ -38,7 +38,7 @@ NOTE: This is handled by `/transaction.create` and `/transaction.submit_typed`, 
 The transaction decoding and checks are documented in plasma-contracts [here](https://github.com/omgnetwork/plasma-contracts/blob/master/plasma_framework/docs/integration-docs/integration-doc.md#transactions).
 
 ### Obsoleted configurations
-The environment variables with prefixes RINKEBY_, ROPSTEN_ and MAINNET_ have been replaced with ETHEREUM_NETWORK and their non-prefixed names. To upgrade from previous versions, migrate the old configurations to the following new ones:
+The environment variables with prefixes RINKEBY_, ROPSTEN_, and MAINNET_ have been replaced with ETHEREUM_NETWORK and their non-prefixed names. To upgrade from previous versions, migrate the old configurations to the following new ones:
 
 - ETHEREUM_NETWORK
 - AUTHORITY_ADDRESS
@@ -50,7 +50,7 @@ The environment variables with prefixes RINKEBY_, ROPSTEN_ and MAINNET_ have bee
 For more information, see [Deployment Configurations](https://github.com/omgnetwork/elixir-omg/blob/master/docs/deployment_configuration.md).
 
 ### New configurations
-The following new environment variables can be configured to modify the behaviour of your self-hosted Watcher and WatcherInfo.
+The following new environment variables can be configured to modify the behavior of your self-hosted Watcher and WatcherInfo.
 
 - ETHEREUM_EVENTS_CHECK_INTERVAL_MS
 - ETHEREUM_STALLED_SYNC_THRESHOLD_MS
@@ -67,14 +67,14 @@ For more information, see [Deployment Configurations](https://github.com/omgnetw
 - Library has been updated to work with the updated contracts and latest APIs from `elixir-omg`.
 - [API documentation](https://docs.omg.network/omg-js/) significantly improved with correct types and definitions.
 - Introduced input validation so users are able to catch input errors earlier and avoid confusing stack traces
-- Examples folder has been updated to show implementation of new functionality as well as more helper functions.
+- Examples folder has been updated to show ithe mplementation of new functionality as well as more helper functions.
 - See better balance and UTXO information.
-- See ERC20 & ETH specific examples for deposits, transactions, exits and process exits.
+- See ERC20 & ETH specific examples for deposits, transactions, exits, and process exits.
 
 ### ChildChain Module
 - `getFees` - new function to retrieve supported fee tokens and amounts to make transactions.
 - `createTransaction` - arguments are retrieved as an object for better readability. Metadata can also be passed as a simple string instead of being encoded beforehand.
-- `sendTransaction` - arguments are retrieved as an object for better readability. It also accepts a payments and fee object to provide consistency with other function calls in the library. 
+- `sendTransaction` - arguments are retrieved as an object for better readability. It also accepts payments and fee object to provide consistency with other function calls in the library. 
 - `inFlightExitGetInputChallengeData` - new function that gets the data to challenge an invalid input piggybacked on an in-flight exit.
 - `inFlightExitGetOutputChallengeData` - new function that gets the data to challenge an invalid output piggybacked on an in-flight exit.
 

@@ -18,7 +18,7 @@ Application Programming Interface. Acts as the interface between different softw
 ## Average block time
 Source: https://medium.facilelogin.com/the-mystery-behind-block-time-63351e35603a
 
-The average time it takes to mine a block on a blockchain, determined by evaluating the network after n number of blocks. Compares to expected block time, which is a constant value. When average block time is greater than the expected block time, the difficulty level of the proof of work algorithm is reduced, and if it is less than the expected block time, the difficulty level is increased. 
+The average time it takes to mine a block on a blockchain, determined by evaluating the network after n number of blocks. Compares to expected block time, which is a constant value. When the average block time is greater than the expected block time, the difficulty level of the proof of work algorithm is reduced, and if it is less than the expected block time, the difficulty level is increased. 
 
 ## BlockHeight
 The number of blocks in a blockchain counted between the last block and the first block.
@@ -64,7 +64,7 @@ Two transactions are *competing* if they share at least one input. Competitors t
 A custodial service takes care of assets on behalf of clients. For example, a brokerage or other financial institution that holds securities on behalf of clients. In the context of cryptocurrency assets, the custody service stores private keys in a hardware solution to hold cryptocurrency funds on behalf of users who don't want to risk taking care of their keys. 
 
 ## Decentralized Application
-Also known as dApp. An open-source application that utilizes blockchain technology, runs on a P2P (peer-to-peer) network and adheres to its consensus algorithm.
+Also known as dApp. An open-source application that utilizes blockchain technology, runs on a P2P (peer-to-peer) networkm and adheres to its consensus algorithm.
 
 ## Decentralized Exchange
 Also known as DEX. A cryptocurrency exchange that trades via an automated, peer-to-peer process instead of through a centralized authority. A DEX has the following benefits:
@@ -80,7 +80,7 @@ Also known as DEX. A cryptocurrency exchange that trades via an automated, peer-
 * Infrastructure is more secure because it's distributed through nodes.
 
 ## Decentralized Finance
-Also known as DeFi. OMG Network contributes to and supports DeFi, enabling interoperability of multiple solutions to guard against fragmentation. DeFi requires a network with an ecosystem that makes it attractive to build products on it, including adequate liquidity. DeFi can lower barriers to access financial services, supporting the provision of loans, for example data on the blockchain can be used as input to identify credit risk of the debtor. Financial literacy is a requirement since users must look after their keys and use the technology responsibly.
+Also known as DeFi. OMG Network contributes to and supports DeFi, enabling interoperability of multiple solutions to guard against fragmentation. DeFi requires a network with an ecosystem that makes it attractive to build products on it, including adequate liquidity. DeFi can lower barriers to access financial services, supporting the provision of loans, for example, data on the blockchain can be used as input to identify the credit risk of the debtor. Financial literacy is a requirement since users must look after their keys and use the technology responsibly.
 
 ## Decentralized network
 In a decentralized network, such as a blockchain, data is redundantly stored and monitored by multiple nodes, instead of on a private server. Additionally, data is distributed amongst a web of individual machines with different owners that perform continuous consensus on the validity of changes to its state. In a decentralized network, mechanisms exist to reward nodes that align themselves with network consensus and penalize those which do not. See Proof of Stake for more information about OMG Network's enforcement mechanisms. Centralized networks require trust in a central party, which is opaque and gated. Centralized databases are vulnerable to attack because they present a single point of entry for bad actors looking to steal or manipulate data. Decentralized networks are transparent. Every state change of such networks (i.e. every balance and every transaction) is stored on a shared ledger that can be viewed by anyone or is obscured in a way that makes voluntary provable traceability possible where necessary. Thus, there is no need to trust the word of a central authority.
@@ -224,7 +224,7 @@ Also known as PoS. An alternative to Proof-of-Work (PoW). In PoW, a miner spends
 OMG Network used soft slashing in its initial Honte implementation. Returns are distributed in proportion to the number of tokens staked. However, PoS still represents a more equitable system in that returns are directly proportional to your stake. In PoW, the more computing power you have, the cheaper it is to add more - and since computing power is what earns you mining rewards, this leads to people with lots of money collecting disproportionately larger returns. In PoS, a dollar is a dollar no matter how many of them you have.
 
 ## Protocol
-An established set of rules or parameters for formatting, transmitting and communicating data between network devices.
+An established set of rules or parameters for formatting, transmitting, and communicating data between network devices.
 
 ## Prover
 The entity that generates proof for trades.

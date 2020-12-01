@@ -62,7 +62,7 @@ Since a transaction either is or is not canonical, only the transaction's inputs
 
 ### Priority
 
-The above game correctly selects the inputs or outputs that are eligible to exit. However, invalid transactions can still be exitable. For this reason, it's necessary to enforce ordering on exits to ensure that all outputs created by valid transactions will be paid out before any output created by an invalid transaction. To do this, we order every exit by the position of the youngest input to the transaction referenced in each exit, regardless of whether an input or an output is being exited.
+The above game correctly selects the inputs or outputs that are eligible to exit. However, invalid transactions can still be exitable. For this reason, it's necessary to enforce ordering on exits to ensure that all outputs created by valid transactions will be paid out before any output is created by an invalid transaction. To do this, we order every exit by the position of the youngest input to the transaction referenced in each exit, regardless of whether an input or an output is being exited.
 
 ## Exit Protocol Specification
 
@@ -130,8 +130,7 @@ This method was selected for implementation.
 
 1. A user presents the transaction, along with signatures claimed as valid.
 2. The contract validates that the exiting transaction is correctly formed.
-3. Another user can challenge one of these signatures by presenting some transaction that created an input 
-such that the true input owner did not sign the signature. The exit is blocked entirely and the challenging 
+3. Another user can challenge one of these signatures by presenting some transaction that created an input such that the true input owner did not sign the signature. The exit is blocked entirely and the challenging 
 4. A user receives `exit bond`.
 
 *Key features of this method are the following:*
@@ -154,7 +153,7 @@ Determining canonicity involves a challenge-response game:
 * The competing transaction must be exitable and must share input with the exiting transaction, but does not have to be included in the Plasma chain.
 * Multiple competing transactions can be revealed during this period, but only the oldest presented transaction is considered for a response.
 * If any transactions are presented during the first period, any other user can respond to the challenge by proving that the exiting transaction is included in the chain before the oldest presented competing transaction.
-* If the response is sent before the second period ends, the exiting transaction is considered canonical, and the responder receives the `exit bond` that was placed by the user who started the exit. Otherwise, the exiting transaction is considered non-canonical, and the challenger receives `exit bond`.
+* If the response is sent before the second period ends, the exiting transaction is considered canonical, and the responder receives the `exit bond` that was placed by the user who started the exit. Otherwise, the exiting transaction is considered non-canonical, and the challenger receives an `exit bond`.
 
 > This challenge means an honest user can lose the `exit bond` if they're not aware their transaction is non-canonical. If an in-flight exit is opened where some inputs were referenced in a standard exit, and these standard exits were finalized, the in-flight exit is flagged as non-canonical and further canonicity games can't change its status.
 
@@ -375,7 +374,7 @@ This section describes the mitigations against Honest Exit Bond Slashing.
 
 ### Bond sharing
 One way to partially mitigate this attack is for each user who piggybacks to cover some portion of an `exit bond`.
-This cuts the per-person value of `exit bond` proportionally to the number of users who have piggybacked.
+This cuts the per-person value of the `exit bond` proportionally to the number of users who have piggybacked.
 Note that this is stronger mitigation the more users are piggybacking on the exit and would not have any impact if only a single user starts the exit/piggybacks.
 
 ### Small Exit Bond

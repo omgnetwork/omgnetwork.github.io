@@ -4,7 +4,7 @@ title: How to Manage a Watcher
 sidebar_label: Manage a Watcher
 ---
 
-*By the end of this guide you should know how to manage your Watcher installed on VPS or dedicated server. The guide is useful for enterprise and individual clients who want to know how to manage their Watcher and receive notifications about its status, byzantine events, and alarms.*
+*By the end of this guide you should know how to manage your Watcher installed on VPS or a dedicated server. The guide is useful for enterprise and individual clients who want to know how to manage their Watcher and receive notifications about its status, byzantine events, and alarms.*
 
 ## Goals
 
@@ -71,7 +71,7 @@ Watcher monitoring is one of the most important processes you need to set up if 
 
 ### 2.1 Status Cake
 
-To monitor the status of your server, you can use [Pingdom](https://www.pingdom.com/), [Status Cake](https://www.statuscake.com/) or similar software that provides website/VPS monitoring functionality. If you're using Status Cake, go to the `MONITORING > Uptime Monitoring` section, and select `New Uptime Test`. Choose `TCP` test type and fill the required values, including your server's IP address, port, test name, and contact group that contains details about users who will receive notifications.
+To monitor the status of your server, you can use [Pingdom](https://www.pingdom.com/), [Status Cake](https://www.statuscake.com/) or similar software that provides website/VPS monitoring functionality. If you're using Status Cake, go to the `MONITORING > Uptime Monitoring` section, and select `New Uptime Test`. Choose the `TCP` test type and fill in the required values, including your server's IP address, port, test name, and contact group that contains details about users who will receive notifications.
 
 ![statuscake](/img/watcher/04.png)
 
@@ -81,7 +81,7 @@ Status Cake provides multiple ways to receive notifications, such as Datadog, Sl
 
 ## 3. Status Monitoring
 
-Running the OMG Network's Watcher implies that you're running both `Watcher` and `Watcher Info` services that will serve separate [API endpoints](/api#watcher) and provide different access level to the network. Most of the time you'll be using `Watcher Info` service but you should monitor both.
+Running the OMG Network's Watcher implies that you're running both `Watcher` and `Watcher Info` services that will serve separate [API endpoints](/api#watcher) and provide different access levels to the network. Most of the time you'll be using the `Watcher Info` service but you should monitor both.
 
 It is possible for `Watcher` and `Watcher Info` to become inactive, even if its server is up. This can happen due to sudden configuration changes, internet, or hardware issues with your VPS provider. 
 

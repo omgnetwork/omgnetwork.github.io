@@ -134,7 +134,7 @@ The table describes the configuration parameters for Scheduled Finalization Time
 ##### Exit waiting period
 All exits must wait at least the Minimum Finalization Period (MFP) to ensure the required challenge period process. 
  
-Freshly exited UTXOs must wait an additional Required Exit Period (REP), counting from their submission to the root chain contract. 
+Freshly exited UTXOs must wait for an additional Required Exit Period (REP), counting from their submission to the root chain contract. 
  
 Example values for these exit waiting periods, as in Minimal Viable Plasma:
  
@@ -157,12 +157,12 @@ User must validate with the following frequency:
 * Validate exits every `MFP` to challenge invalid regular exits.
 * Validate in-flight exits every `MFP/2` to challenge invalid actions in the in-flight exit protocol.
  
-> To cover all possible misbehaviors that may occur in the network, user must validate at rarest every `min(REP, MFP/2)`.
+> To cover all possible misbehaviors that may occur in the network, the user must validate at rarest every `min(REP, MFP/2)`.
  
 #### Example exit scenario
 Scenario:  MFP = 1 day, REP = 2 day.
  
-The table illustrates the relation between MFP and REP in the scenario:  
+The table illustrates the relationship between MFP and REP in the scenario:  
  
 * Day 1: Operator creates, includes, and starts to exit an invalid UTXO. 
 * Day 3: User has been offline for two days. 
@@ -227,12 +227,12 @@ A submitted transaction that exceeds the limit is queued and scheduled for inclu
 ### Submitting and propagating blocks
 The child chain server submits blocks to the root chain contract.
  
-Every T amount of time, the child chain submits a block (in the form of blocks' transactions Merkle root hash) to the root chain contract, and shares the block's content with the Watcher. Watcher receives the block and extracts the required information. 
+Every T amount of time, the child chain submits a block (in the form of blocks' transactions Merkle root hash) to the root chain contract and shares the block's content with the Watcher. Watcher receives the block and extracts the required information. 
  
 If the child chain operator withholds a submitted block or if it submits an invalid block hiding the block contents, then everyone must exit.
  
 ### Transactions
-A transaction involves spending existing UTXO(s) (inputs), and creating new UTXO(s) (outputs).
+A transaction involves spending existing UTXO(s) (inputs) and creating new UTXO(s) (outputs).
  
 A transaction typically specifies the following:
  
@@ -273,7 +273,7 @@ As a result, the child chain will have the following:
  
   The transaction is valid only when every output for the transaction is unspent.
  
-  Value may be zero when less than 4 inputs are required.
+  The value may be zero when less than 4 inputs are required.
  
 * **sig** 
  
@@ -301,7 +301,7 @@ As a result, the child chain will have the following:
  
 The Watcher validates the child chain, ensuring the child chain consensus mechanism is working properly. It also performs the following operations:
  
-* Tracks the root chain contract, published blocks and transactions.
+* Tracks the root chain contract, published blocks, and transactions.
 * Reports any breach of consensus.
 * As an additional service, collects and stores the account information required to use the child chain.
 * As an additional service, it provides a convenience API to access the child chain API and Ethereum.

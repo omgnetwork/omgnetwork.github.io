@@ -62,7 +62,7 @@ By default, OpenSSH Client is an optional feature. You need to install it if you
 1. Go to `Settings > Apps`, select `Manage optional features`.
 2. Click the `Add a feature` button.
 3. Find `OpenSSH Client`, click `Install`.
-4. Test if the client works with `ssh` command in your terminal.
+4. Test if the client works with the `ssh` command in your terminal.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -164,7 +164,7 @@ To prevent brute force login attempts to the root account, it's recommended to d
 sudo nano /etc/ssh/sshd_config
 ```
 
-To prevent from login into root user, scroll to `#Authentication` section and change `PermitRootLogin` key from `yes` to `no` as follows:
+To prevent from login into root user, scroll to the `#Authentication` section and change the `PermitRootLogin` key from `yes` to `no` as follows:
 
 ```
 # Authentication:
@@ -181,7 +181,7 @@ To apply the changes, restart SSH with the following command:
 sudo service ssh restart
 ```
 
-Now if you try to log into your server with root via SSH, it won't work and return `Permission denied, please try again` message. 
+Now if you try to log into your server with root via SSH, it won't work and return the `Permission denied, please try again` message. 
  
 ### 5. Change the Default Port
 
@@ -191,7 +191,7 @@ Another security measure to prevent people from making different types of attack
 sudo nano /etc/ssh/sshd_config
 ```
 
-Scroll to `# What ports, IPs and protocols we listen for` section and change the port number from `22` to any number higher than 100 or ideally 1000. Save the changes, restart the SSH, and logout from the server. If you try to access your server with default connections, you'll receive `Connection refused` error. You'll need to specify a port number each time you login into the server as follows:
+Scroll to the `# What ports, IPs and protocols we listen for` section and change the port number from `22` to any number higher than 100 or ideally 1000. Save the changes, restart the SSH, and logout from the server. If you try to access your server with default connections, you'll receive a `Connection refused` error. You'll need to specify a port number each time you login into the server as follows:
 
 ```
 ssh $USER@$REMOTE_SERVER -p $PORT
@@ -214,7 +214,7 @@ Open a terminal and run the following command:
 cd ~/.ssh
 ```
 
-If you see `No such file or directory`, you don't have any SSH keys on your local computer. If you have `.shh` folder but you're not sure if you have any existing keys, use this command:
+If you see `No such file or directory`, you don't have any SSH keys on your local computer. If you have a `.shh` folder but you're not sure if you have any existing keys, use this command:
 
 ```
 ls id_*
@@ -240,7 +240,7 @@ Open a command prompt and run the following command:
 cd %userprofile%/.ssh
 ```
 
-If you see `No such file or directory`, you don't have any SSH keys on your local computer. If you have `.shh` folder but you're not sure if you have any existing keys, follow this command:
+If you see `No such file or directory`, you don't have any SSH keys on your local computer. If you have a `.shh` folder but you're not sure if you have any existing keys, follow this command:
 
 ```
 dir id_*
@@ -289,7 +289,7 @@ The key's randomart image is:
 
 #### 6.2 Copy SSH Keys to Your Server
 
-After you've generated the SSH keys, you need to copy the public key to your server. You can do that with `ssh-copy-id` command:
+After you've generated the SSH keys, you need to copy the public key to your server. You can do that with the `ssh-copy-id` command:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Linux -->
@@ -336,13 +336,13 @@ Disabling password logins is the last step of basic security measures for your s
 ssh $USER@$REMOTE_SERVER -p $PORT
 ```
 
-You can disable password logins by changing `sshd_config` file on your server as follows:
+You can disable password logins by changing the `sshd_config` file on your server as follows:
 
 ```
 sudo nano /etc/ssh/sshd_config
 ```
 
-Scroll to `# Change to no to disable tunnelled clear text passwords` section and change `PasswordAuthentication` from `yes` to `no` as follows:
+Scroll to `# Change to no to disable tunneled clear text passwords` section and change `PasswordAuthentication` from `yes` to `no` as follows:
 
 ```
 PasswordAuthentication no
@@ -368,7 +368,7 @@ Save the changes, close the file, and restart the SSH service. If you ever need 
 
 ### 8. Set Up Firewall
 
-A firewall is the last point of contact before anyone in the internet can get into your server. Getting a firewall up is crucial before deploying a server online. The example below demonstrates iptables as a way to set up Firewall rules. However, you may choose another software you're more comfortable with, such as `ufw`, `firewalld`, etc.
+A firewall is the last point of contact before anyone on the internet can get into your server. Getting a firewall up is crucial before deploying a server online. The example below demonstrates iptables as a way to set up Firewall rules. However, you may choose another software you're more comfortable with, such as `ufw`, `firewalld`, etc.
 
 #### 8.1 Check the Current Iptables Rules
 
@@ -424,7 +424,7 @@ If the file is not empty, replace it with the content above. Press `ctrl+o` (Lin
 
 #### 8.4 Restore Iptables
 
-`iptables-restore` is used to restore IP Tables from data specified on STDIN or in file. The command should be used as follows:
+`iptables-restore` is used to restore IP Tables from data specified on STDIN or in a file. The command should be used as follows:
 
 ```
 sudo iptables-restore < /etc/iptables/rules.v4
@@ -432,7 +432,7 @@ sudo iptables-restore < /etc/iptables/rules.v4
 
 #### 8.5 Restart Docker Services
 
-If you are using Docker or any other virtualisation software, you may need to restart their services after doing an `iptables-restore`:
+If you are using Docker or any other virtualization software, you may need to restart their services after doing an `iptables-restore`:
 
 ```
 systemctl restart docker && systemctl restart containerd
@@ -459,7 +459,7 @@ PORT     STATE SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 1.73 seconds
 ```
 
-Example output (for arbitrary port):
+Example output (for the arbitrary port):
 
 ```
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-02 19:04 FLE Daylight Time
@@ -476,11 +476,11 @@ Alternatively, you can use [`Firewall Rule Test`](http://www.firewallruletest.co
 
 ### 9. Set Up Fail2Ban
 
-[Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page) scans log files and bans IPs that show the malicious signs, such as too many password failures, seeking for exploits, etc. Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time, although any arbitrary other action (e.g. sending an email) could also be configured.
+[Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page) scans log files and bans IPs that show malicious signs, such as too many password failures, seeking for exploits, etc. Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time, although any arbitrary other action (e.g. sending an email) could also be configured.
 
 #### 9.1 Install Dependencies
 
-To install the dependencies, use `apt-get` command as follows:
+To install the dependencies, use the `apt-get` command as follows:
 
 ```
 sudo apt-get install fail2ban sendmail

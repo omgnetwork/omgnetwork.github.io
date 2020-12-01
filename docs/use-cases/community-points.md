@@ -35,7 +35,7 @@ sidebar_label: Community Points
 
 The main goal of the product is to give communities a means to create scalable points and rewards systems in a trustless manner. Due to technical limitations, the public blockchain infrastructure such as Ethereum cannot handle the required load of the modern points applications, thus a corresponding scaling solution should be introduced.
 
-Community Points Engine (CPE) is a working proof of concept application that utilizes OMG Network as a trustless, high throughput settlement rail for community points transactions. The full demonstration consists of a working application, and this document which contains details on how special claim, burn, and subscription transactions can be implemented on the network. We demonstrate a full picture of how end users can have true ownership of community points and transact them in a manner that is fast, fee-less, trustless, and usable. All with the security guarantee offered by Ethereum blockchain.
+Community Points Engine (CPE) is a working proof of concept application that utilizes OMG Network as a trustless, high throughput settlement rail for community points transactions. The full demonstration consists of a working application, and this document which contains details on how special claim, burn, and subscription transactions can be implemented on the network. We demonstrate a full picture of how end users can have true ownership of community points and transact them in a manner that is fast, fee-less, trustless, and usable. All with the security guarantee offered by the Ethereum blockchain.
 
 The demonstration consists of 5 different components:
 1. Community Points Client: a chrome plugin that simulates client application that demonstrates Web 2.0 usability
@@ -407,7 +407,7 @@ The current demo includes the following actors:
 The overall flow using the demo involves the following steps:
 1. Distributor mints a defined amount of KARMA, and RCP tokens from the smart contracts
 2. Distributor deposits ETH on the OMG Network to cover the fee costs.
-3. Distributor approves KARMA and RCP tokens of defined amount to make a deposit.
+3. Distributor approves KARMA and RCP tokens of a defined amount to make a deposit.
 4. Distributor deposits KARMA and RCP tokens of defined amount on the OMG Network.
 5. Distributor transfers a defined amount of KARMA tokens to the user on the OMG Network.
 6. Distributor transfers a defined amount of RCP tokens to the Community Points server on the OMG Network.
@@ -444,7 +444,7 @@ There are a few things to consider if you want to convert this proof of concept 
 
 ### 3.1 An Alternative Claim Transaction Design
 
-The proposed implementation is one of the approaches to handle claim transactions. An alternative solution could be using special transaction types on the OMG Network. You can read a high-level overview of the potential implementation in [this document](https://github.com/omgnetwork/community-points/wiki/Reddit-point-on-ALD). Note, this is only a theoretical concept and hasn't been tested on any environment yet.
+The proposed implementation is one of the approaches to handle claim transactions. An alternative solution could be using special transaction types on the OMG Network. You can read a high-level overview of the potential implementation in [this document](https://github.com/omgnetwork/community-points/wiki/Reddit-point-on-ALD). Note, this is only a theoretical concept and hasn't been tested in any environment yet.
 
 ### 3.2 Third-party Services
 
@@ -469,7 +469,7 @@ Listed below are a few dimensions of cost and performance metrics, their definit
 
 Many projects will quote theoretical throughput. It is possible to judge a Layer 2 performance based on its maximum throughput achievable by its design.
 
-If we were to compare to other projects in this dimension, the maximum block size for a Plasma block is at 65,536 (as limited by Merkle tree). Given a 12 second Ethereum block, the maximum block throughput would be 5,461 TPS.
+If we were to compare to other projects in this dimension, the maximum block size for a Plasma block is at 65,536 (as limited by Merkle tree). Given a 12-second Ethereum block, the maximum block throughput would be 5,461 TPS.
 
 Although we could try to manually fabricate 65K Transactions and submit them into a Plasma block and forego the rest of the tech stack, our point of view is that this approach has not taken into account how real-world business transactions work, nor is it reflective of bottlenecks faced by real software and therefore should not be taken as a definitive figure for performance comparison. It is a non-productive benchmark for serious applications.
 
@@ -542,7 +542,7 @@ The response is limited to 200 transactions and is paginated.
 
 #### 3.3.2 Cost
 
-There is always a cost associated with operating a system. Although cost optimization may make for a better business sense, near-zero cost networks will rarely achieve full trustlessness. We believe cost and security go hand in hand. A project picking a trustless solution on the basis of lower cost should seriously consider the degree in which they may require blockchain level of security guarantees. The risk and reward are highly dependent on the type of businesses and applications.
+There is always a cost associated with operating a system. Although cost optimization may make for a better business sense, near-zero cost networks will rarely achieve full trustlessness. We believe cost and security go hand in hand. A project picking a trustless solution on the basis of lower cost should seriously consider the degree to which they may require blockchain level of security guarantees. The risk and reward are highly dependent on the type of businesses and applications.
 
 As with performance, cost per transaction cannot be derived or compared in a trivial manner without taking into consideration multiple other factors e.g. number of transactions per block, Ethereum gas price, gas usage.
 
@@ -601,7 +601,7 @@ Although the network is reliant on the child chain operator to aggregate transac
 #### What are the potential threats and liabilities?
 
 The potential threats for Community Points include the following:
-1. Byzantine events that can happen on the OMG Network: [Unchallenged exit](https://docs.omg.network/network/byzantine-conditions#unchallenged_exit), [Invalid block](https://docs.omg.network/network/byzantine-conditions#invalid_block), [Block withholding](https://docs.omg.network/network/byzantine-conditions#block_withholding), [Invalid exit](https://docs.omg.network/network/challenge-exits#invalid_exit), [Non-canonical in-flight exit](https://docs.omg.network/network/challenge-exits#noncanonical_ife), [Invalid in-flight exit challenge](https://docs.omg.network/network/challenge-exits#invalid_ife_challenge), [Invalid Piggyback](https://docs.omg.network/network/challenge-exits#invalid_piggyback). The events can either be challenged by another user, or in the worst case, the users need to leave the chain as it has become unsafe. These events are not specific to this particular use case but are worth mentioning due to the technical implementation of the network.
+1. Byzantine events that can happen on the OMG Network: [Unchallenged exit](https://docs.omg.network/network/byzantine-conditions#unchallenged_exit), [Invalid block](https://docs.omg.network/network/byzantine-conditions#invalid_block), [Block withholding](https://docs.omg.network/network/byzantine-conditions#block_withholding), [Invalid exit](https://docs.omg.network/network/challenge-exits#invalid_exit), [Non-canonical in-flight exit](https://docs.omg.network/network/challenge-exits#noncanonical_ife), [Invalid in-flight exit challenge](https://docs.omg.network/network/challenge-exits#invalid_ife_challenge), [Invalid Piggyback](https://docs.omg.network/network/challenge-exits#invalid_piggyback). The events can either be challenged by another user or in the worst case, the users need to leave the chain as it has become unsafe. These events are not specific to this particular use case but are worth mentioning due to the technical implementation of the network.
 
 2. The moderator starts manipulating token governance. Any moderator can behave maliciously and manage community points irresponsibly, e.g. issue more tokens than needed, send a large number of tokens to their friends, purchase a limited number of digital items, etc.
 

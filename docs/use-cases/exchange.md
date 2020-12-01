@@ -93,7 +93,7 @@ The `Deposit` terminology for an exchange has a different meaning from a deposit
 1. OMG Network deposit - represents an ETH transaction to the corresponding `Vault` smart contract on the Ethereum network. This creates a new deposit on the OMG Network and allows the depositor to transact on the network until a user decides to withdraw them back to Ethereum.
 2. Exchange deposit - represents a standard transaction on the OMG Network. A safe number of confirmations for a given exchange should equal to a safe number of confirmations on the Ethereum network. This is known as [deposit finality period](https://docs.omg.network/glossary#deposit-finality-period) and is currently set to 10 blocks. The confirmations are counted on the Ethereum because the OMG Network relies on rootchain (Ethereum) security and creates blocks only when new transactions are being formed (i.e. on-demand). 
 
-While implementing a deposit functionality on a given exchange, you should refer to the latter definition. You can implement this step using [Make a Transfer](https://docs.omg.network/network/transfers) guide.
+While implementing a deposit functionality on a given exchange, you should refer to the latter definition. You can implement this step using the [Make a Transfer](https://docs.omg.network/network/transfers) guide.
 
 Note, all of the code samples on the developer portal use Ropsten testnet as an example. The production version on the mainnet will have the same logic, except for the fees:
 - Ropsten - uses ETH as a fee
@@ -107,7 +107,7 @@ fee: {
 }
 ```
 
-Also, make sure to check for response type before signing a transaction. The existing implementation has two possible responses, one of them creates a merge transaction. You can find more details [here](https://docs.omg.network/network/transfers#additional-notes). The same limitation applies to `/transaction.create` endpoint of the [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs).
+Also, make sure to check for response type before signing a transaction. The existing implementation has two possible responses, one of them creates a merge transaction. You can find more details [here](https://docs.omg.network/network/transfers#additional-notes). The same limitation applies to the `/transaction.create` endpoint of the [Watcher Info API](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs).
 
 #### 2.1.4 Make Withdrawals
 
@@ -117,7 +117,7 @@ Withdrawals on a given exchange also represent a standard transaction on the OMG
 
 The OMG Network uses the UTXO-based model for keeping track of balances on its chain. Each transaction can have up to 4 UTXO as inputs and can create up to 4 UTXO as outputs. This means that depositing smaller amounts of funds will create UTXO of low value, and may cause potential issues during funds withdrawal due to the following:
 
-The first two outputs are used to cover the transferred value and transaction fee change, leaving only two outputs. Considering that it's very unlikely a user will withdraw the amount that equals to a single available UTXO value, there will be another change output created. This means that the total number of UTXO you can use for a single withdrawal is 2. Therefore, it's recommended to check that your hot wallet has multiple UTXO of higher value during each withdrawal from an exchange.
+The first two outputs are used to cover the transferred value and transaction fee change, leaving only two outputs. Considering that it's very unlikely a user will withdraw the amount that equals a single available UTXO value, there will be another change output created. This means that the total number of UTXO you can use for a single withdrawal is 2. Therefore, it's recommended to check that your hot wallet has multiple UTXO of higher value during each withdrawal from an exchange.
 
 In general, we suggest every exchange client merge UTXO more frequently or even automate this process as a background service. Merge operations are free because they benefit the network.
 
