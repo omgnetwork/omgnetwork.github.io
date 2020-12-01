@@ -139,7 +139,7 @@ You can deposit funds using the [Deposit Funds](https://docs.omg.network/network
 
 #### 2.1.8 Rebalance Wallets
 
-Lastly, you need to understand how to rebalance the corresponding hot and cold wallets. You can do this by sending funds to another wallet directly or withdraw funds back to the Ethereum network first. This step is fully covered in [Start a Standart Exit](https://docs.omg.network/network/standard-exits) guide, as well as in the [Web Wallet Quick Start](https://docs.omg.network/wallet/quick-start-webwallet#3-withdraw-funds).
+Lastly, you need to understand how to rebalance the corresponding hot and cold wallets. You can do this by sending funds to another wallet directly or withdraw funds back to the Ethereum network first. This step is fully covered in [Start a Standard Exit](https://docs.omg.network/network/standard-exits) guide, as well as in the [Web Wallet Quick Start](https://docs.omg.network/wallet/quick-start-webwallet#3-withdraw-funds).
 
 Each withdrawal from the OMG Network requires to pass an exit period before you can retrieve your funds safely. Note, the exit period differs for each [environment](/environments):
 - Ropsten - 86400 seconds (1 day)

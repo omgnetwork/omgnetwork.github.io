@@ -166,7 +166,7 @@ const checkUtxoForChange = (address, utxo, amount, transactionBody) => {
     throw new Error(`No UTXO provided for ${address}`);
   }
 
-  if (transactionBody.outputs.lenght > 4) {
+  if (transactionBody.outputs.length > 4) {
     throw new Error(`The provided transaction body has 4 outputs. You need to have at least 1 spare output to proceed.`);
   }
 

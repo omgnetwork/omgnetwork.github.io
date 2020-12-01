@@ -85,7 +85,7 @@ const ethExit = {
 > - `plasmaContractAddress` - `CONTRACT_ADDRESS_PLASMA_FRAMEWORK` for defined [environment](/environments).
 > - `watcherUrl` - the Watcher Info URL for defined [environment](/environments) (personal or from OMG Network).
 
-### 3. Start a standart exit
+### 3. Start a standard exit
 
 Exits are processed in queues that contain tokens you can use to start an exit. Before you start an exit, the network has to verify that the exit queue for the token used in the UTXO exists.
 
