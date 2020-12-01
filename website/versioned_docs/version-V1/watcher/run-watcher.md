@@ -120,7 +120,7 @@ This method shows how to install and run a Watcher from a bare-metal release of 
 
 #### 1.1 Install Erlang and Elixir
 
-The current implementation is built with Erland and Elixir, and uses [`asdf`](https://asdf-vm.com) to manage multiple runtime versions. Asdf relies on several libraries that you may need to install first:
+The current implementation is built with Erlang and Elixir, and uses [`asdf`](https://asdf-vm.com) to manage multiple runtime versions. Asdf relies on several libraries that you may need to install first:
 
 ```
 sudo apt-get install libssl-dev make automake autoconf libncurses5-dev gcc unzip
