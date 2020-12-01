@@ -10,7 +10,7 @@ Exits allow a user to withdraw funds from the OMG Network back onto the root cha
 A transaction is considered to be _in-flight_ if it has been broadcasted but has not yet been included in the child chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block where the said transaction is included.
 
 A user may consider an exit _in-flight_ in the following scenarios:
-- The user has signed and broadcast a transaction, but is unable to verify its inclusion in a block.
+- The user has signed and broadcast a transaction but is unable to verify its inclusion in a block.
 - The user can see that the transaction has been included in a block, but believes that the block is invalid due to a dishonest operator.
 
 The user can initiate an IFE regardless of whether the above is correct, but one must commit an [`exit bond`](/network/exitbonds). The purpose of the `exit bond` is to deter users from initiating exits dishonestly, as this bond will be awarded to any party who successfully proves that the exit is dishonest.
@@ -198,11 +198,11 @@ async function startInflightExit() {
 
 > - `gasLimit` - gas limit for your transaction. Please check the current data on [Gas Station](https://ethgasstation.info/calculatorTxV.php) or similar resources.
 
-An in-flight exit creates an exit receipt. Each exit has an id that identifies it. After an in-flight exit starts, you'll have to wait a [challange period](/network/challenge-period) before you can process that exit and receive your funds back on Ethereum Network.
+An in-flight exit creates an exit receipt. Each exit has an id that identifies it. After an in-flight exit starts, you'll have to wait for a [challange period](/network/challenge-period) before you can process that exit and receive your funds back on Ethereum Network.
 
 ## Lifecycle
 
-1. A user calls the `hasToken` function on the `PlasmaFramework` contract to check if there's an exit queue for the token in question. If no exit queue is registered, a user needs to register it using the `addToken` function. The corresponding `PlasmaFramework` contract functions used in this step are `hasExitQueue` and `addExitQueue`. This step is optional but it was included because it prevents from any potential issues a user may encounter during an exit.
+1. A user calls the `hasToken` function on the `PlasmaFramework` contract to check if there's an exit queue for the token in question. If no exit queue is registered, a user needs to register it using the `addToken` function. The corresponding `PlasmaFramework` contract functions used in this step are `hasExitQueue` and `addExitQueue`. This step is optional but it was included because it prevents any potential issues a user may encounter during an exit.
 2. A user calls the `inFlightExitGetData` function on the Watcher to get the necessary exit data to start a standard exit. A transaction is termed exitable if it is correctly formed and properly signed by the owner(s) of the transaction input(s).
 3. A user calls the `startInFlightExit` function on the `PaymentExitGame` contract and commits an [exit bond](/network/exitbonds) to the exit.
 4. A user calls the `piggybackInFlightExitOnInput` or `piggybackInFlightExitOnOutput` function on the `PaymentExitGame` contract to piggyback on in-flight exit input or output call. Such a process is required for every in-flight exit before proceeding to the processing stage.

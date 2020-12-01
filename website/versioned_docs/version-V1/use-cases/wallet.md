@@ -59,7 +59,7 @@ It is required to have funds deposited into OMG Network first before making any 
 
 *Implementation details:*
 
-Each deposit has a [deposit finality period](/glossary#deposit-finality-period) before it can be used on the network. Currently this period equals 10 Ethereum blocks. The confirmations are counted on the Ethereum because the OMG Network relies on rootchain (Ethereum) security and creates blocks only when new transactions are formed (i.e. on-demand). You may use the `waitForChildchainBalance` function from [omg-js documentation](https://docs.omg.network/omg-js/) or implement your custom helper/service for polling the expected amount after the deposit.
+Each deposit has a [deposit finality period](/glossary#deposit-finality-period) before it can be used on the network. Currently, this period equals 10 Ethereum blocks. The confirmations are counted on the Ethereum because the OMG Network relies on rootchain (Ethereum) security and creates blocks only when new transactions are formed (i.e. on-demand). You may use the `waitForChildchainBalance` function from [omg-js documentation](https://docs.omg.network/omg-js/) or implement your custom helper/service for polling the expected amount after the deposit.
 
 #### 2.1.3 Make Transfers
 
@@ -67,7 +67,7 @@ Making transfers on the OMG Network has the same behavior as on other networks, 
 
 *Implementation details:*
 
-When you send a transaction, you will often use [`account/get_utxos`](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs#/Account/account_get_utxos) endpoint to get information about the latest UTXOs. Current implementation returns only confirmed UTXOs that are not used for the pending transaction. One of the ways to mitigate this limitation is to block/disable your wallet UI to prevent sending other transactions until the current transaction is confirmed. Otherwise, you may encounter `UTXO not found` issue. Alternatively, you can keep track of all of the UTXOs used for your transactions but this will create additional complexity for your application.
+When you send a transaction, you will often use [`account/get_utxos`](https://docs.omg.network/elixir-omg/docs-ui/?urls.primaryName=master%2Finfo_api_specs#/Account/account_get_utxos) endpoint to get information about the latest UTXOs. Current implementation returns only confirmed UTXOs that are not used for the pending transaction. One of the ways to mitigate this limitation is to block/disable your wallet UI to prevent sending other transactions until the current transaction is confirmed. Otherwise, you may encounter a `UTXO not found` issue. Alternatively, you can keep track of all of the UTXOs used for your transactions but this will create additional complexity for your application.
 
 ![](/img/wallet/01.png)
 
@@ -82,7 +82,7 @@ Using OMG Network as a value transfer layer offers a faster and cheaper alternat
 
 ### 2.2 Design Guideline
 
-Layer 2 mobile UI and UX can be challenging and confusing, thus our job is to make user flows intuitive, appealing, and easy to navigate. Below you can see recommendations from our team.
+Layer 2 mobile UI and UX can be challenging and confusing, thus our job is to make the user flows intuitive, appealing, and easy to navigate. Below you can see recommendations from our team.
 
 #### Network Distinction
 
@@ -100,7 +100,7 @@ It's a good practice to have a clear visual distinction between the Ethereum pat
 
 ![](/img/wallet/04.png)
 
-3. The OMG Network has a different [fee amount](/network/fees) for different types of operations, including deposit fee, transfer fee, exit fee, and [exit bond](/network/exitbonds). Make sure to be explicit about those, as well as mention if the fee has a flat rate or dynamic rate. You might also set a fee with the highest amount as a default option. Additionally, you may mention that transfer fee is charged in OMG token, the rest of the fees are in ETH.
+3. The OMG Network has a different [fee amount](/network/fees) for different types of operations, including deposit fee, transfer fee, exit fee, and [exit bond](/network/exitbonds). Make sure to be explicit about those, as well as mention if the fee has a flat rate or dynamic rate. You might also set a fee with the highest amount as a default option. Additionally, you may mention that the transfer fee is charged in OMG token, the rest of the fees are in ETH.
 
 ![](/img/wallet/05.png)
 
@@ -128,7 +128,7 @@ It's a good practice to have a clear visual distinction between the Ethereum pat
 
 ![](/img/wallet/09.png)
 
-2. Each withdrawal has to be processed separately. That's why suggesting your users to merge UTXOs first is a great UX pattern. Note, you can't mix different ERC20 tokens during a single UTXO merge so plan your UI accordingly to match this behavior.
+2. Each withdrawal has to be processed separately. That's why suggesting your users merging UTXOs first is a great UX pattern. Note, you can't mix different ERC20 tokens during a single UTXO merge so plan your UI accordingly to match this behavior.
 
 3. A good practice for Layer 2 UX is to notify users (via both UI and push notification) when the challenge period has already passed and you can withdraw your funds back to the Ethereum network.
 

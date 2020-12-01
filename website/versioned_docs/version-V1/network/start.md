@@ -19,7 +19,7 @@ In most of the code samples, Alice refers to the account of a sender (Wallet A),
 
 All of the tutorials use predefined public and private keys for Alice and Bob. They contain only Rinkeby test tokens, thus don't spend all of them, share responsibly with others. If the wallets are empty, feel free to send [Rinkeby faucets](https://faucet.rinkeby.io) there. 
 
-It is always recommended to use personal public and private keys to avoid unexpected movements of the funds on the testnet environment. You should never share your private keys to anyone if they contain funds on the Ethereum mainnet.
+It is recommended to use personal public and private keys to avoid unexpected movements of the funds on the testnet environment. You should never share your private keys with anyone if they contain funds on the Ethereum mainnet.
 
 ### API documentation
 
