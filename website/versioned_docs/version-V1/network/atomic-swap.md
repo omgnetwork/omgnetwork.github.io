@@ -90,7 +90,7 @@ const plasmaContractAddress = plasmaContractAddress;
 > - `watcherUrl` - the Watcher Info URL for defined [environment](/environments) (personal or from OMG Network).
 > - `plasmaContractAddress` - `CONTRACT_ADDRESS_PLASMA_FRAMEWORK` for defined [environment](/environments).
 
-> The above constants are defined for Rinkeby environment. If you want to work with the Mainnet, check the [Environments](/environments) page.
+> The above constants are defined for the Rinkeby environment. If you want to work with the Mainnet, check the [Environments](/environments) page.
 
 ### 3. Create helpers
 
@@ -149,7 +149,7 @@ const getUsableUtxos = async (address, currency, spendAmount, filterEqual) => {
       }
     });
   if (!filteredUtxos.length) {
-    console.log(`There are no utxos that can cover a payment for ${amount} '${currency}'`);
+    console.log(`There are no utxos that can cover a payment for ${spendAmount} '${currency}'`);
   }
   return filteredUtxos;
 }
@@ -166,7 +166,7 @@ const checkUtxoForChange = (address, utxo, amount, transactionBody) => {
     throw new Error(`No UTXO provided for ${address}`);
   }
 
-  if (transactionBody.outputs.lenght > 4) {
+  if (transactionBody.outputs.length > 4) {
     throw new Error(`The provided transaction body has 4 outputs. You need to have at least 1 spare output to proceed.`);
   }
 

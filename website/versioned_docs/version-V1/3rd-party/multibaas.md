@@ -47,7 +47,7 @@ During the sign up you will need to choose the Ethereum network you want to work
 
 ![](/img/multibaas/02.png)
 
-4. Fill the parameters for your new token.
+4. Fill in the parameters for your new token.
 
 The values of the Parameters have the following descriptions:
 - Label - an internal label inside of the MultiBaas panel of the current contract. You may leave a default option or change it to the name of your token.
@@ -60,7 +60,7 @@ The values of the Parameters have the following descriptions:
 
 5. Select an address to sign your transaction.
 
-When you're using MultiBaas the first time, you need to add a public key of the MetaMask wallet you will use to sign all of the transactions for your token. If you haven't set up a MetaMask wallet yet, feel free to use [this guide](/3rd-party/metamask#install-metamask).
+When you're using MultiBaas the first time, you need to add a public key to the MetaMask wallet you will use to sign all of the transactions for your token. If you haven't set up a MetaMask wallet yet, feel free to use [this guide](/3rd-party/metamask#install-metamask).
 
 To sign a transaction, click `select an address` on the right side of the `DEPLOY` button. This will automatically offer a public key of the currently used MetaMask wallet. If the address is correct, press the `+` button as follows:
 
@@ -142,13 +142,13 @@ The steps below will cover how to link `Erc20Vault` but it can be applied to any
 
 ![](/img/multibaas/19.png)
 
-3. Paste the value into `Contract Address` field and press `LINK` as follows:
+3. Paste the value into the `Contract Address` field and press `LINK` as follows:
 
 ![](/img/multibaas/20.png)
 
 You should see a success confirmation after you linked the contract.
 
-4. Go to the contract and verify that you retrieve contract's events:
+4. Go to the contract and verify that you retrieve the contract's events:
 
 ![](/img/multibaas/21.png)
 
@@ -166,7 +166,7 @@ To deposit ERC20 tokens to the OMG Network, use the following steps:
 
 ![](/img/multibaas/22.png)
 
-2. Scroll to the `Methods` block, select the `DEPOSIT` tab and choose the `Deposit ERC20` contract. 
+2. Scroll to the `Methods` block, select the `DEPOSIT` tab, and choose the `Deposit ERC20` contract. 
 
 3. Put the number of tokens you want to deposit and click the `SEND METHOD` button as follows:
 

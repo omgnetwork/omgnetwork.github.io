@@ -112,7 +112,7 @@ async function processExit() {
 5. The `Plasma Framework` contract releases the funds and the exit bond back to the user.
 
 ### Priority Queue
-When a user starts an exit, its placed in a priority queue that exists for every token. Thus, when processing exits, you are processing the exits for the particular queue of that token.
+When a user starts an exit, it's placed in a priority queue that exists for every token. Thus, when processing exits, you are processing the exits for the particular queue of that token.
 
 Exits are placed in the queue based on priority. The priority is calculated based on [several factors](https://github.com/omgnetwork/plasma-contracts/blob/master/plasma_framework/contracts/src/framework/utils/ExitPriority.sol). Deposit UTXO(s) also have an elevated priority compared to other UTXO(s). Therefore, you can only process your exit if the exits before yours have been processed already.
 

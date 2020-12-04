@@ -105,7 +105,7 @@ async function makeEthDeposit () {
 
 > - `gasLimit` - gas limit for your transaction. Please check the current data on [Gas Station](https://ethgasstation.info/calculatorTxV.php) or similar resources.
 
-> Deposit amount is defined in WEI, the smallest denomination of ether (ETH), the currency used on the Ethereum network. You can use [ETH converter](https://eth-converter.com) or alternative tool to know how much WEI you have to put as the `amount` value.
+> Deposit amount is defined in WEI, the smallest denomination of ether (ETH), the currency used on the Ethereum network. You can use [ETH converter](https://eth-converter.com) or an alternative tool to know how much WEI you have to put as the `amount` value.
 
 A deposit generates a transaction receipt verifiable on Ethereum Network. A typical receipt has the following structure:
 
@@ -144,15 +144,15 @@ A deposit generates a transaction receipt verifiable on Ethereum Network. A typi
 }
 ```
 
-After the funds are confirmed on the rootchain, child chain server generates a transaction in a form of UTXO corresponding to the deposited amount. UTXO (unspent transaction output) is a model used to keep a track of balances on the OMG Network.
+After the funds are confirmed on the rootchain, the child chain server generates a transaction in a form of UTXO corresponding to the deposited amount. UTXO (unspent transaction output) is a model used to keep a track of balances on the OMG Network.
 
-If a transaction is successful, you will see a unique `transactionHash` that can be verified on Ethereum block explorer, such as [Etherscan](https://etherscan.io). Copy the hash and paste it in the search box for transaction's details.
+If a transaction is successful, you will see a unique `transactionHash` that can be verified on Ethereum block explorer, such as [Etherscan](https://etherscan.io). Copy the hash and paste it in the search box for the transaction's details.
 
 Depositing also involves forming a pseudo-block on the child chain. Such a block contains a single transaction with the deposited funds as a new UTXO. You can check a new block on [the OMG Block Explorer](https://blockexplorer.rinkeby.v1.omg.network).
 
 ### 4. Make an ERC20 deposit
 
-Depositing ERC20 tokens requires an approval of the corresponding `Vault` contract. You can deposit tokens only after this process is finished. 
+Depositing ERC20 tokens requires approval of the corresponding `Vault` contract. You can deposit tokens only after this process is finished. 
 
 ```js
 async function makeErc20Deposit () {

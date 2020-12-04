@@ -76,7 +76,7 @@ const aliceAddress = "0x8cb0de6206f459812525f2ba043b14155c2230c0";
 
 ### 3. Retrieve balances
 
-There's no direct way to retrieve balances on both Ethereum and OMG networks. Instead, you first retrieve an [RLP encoded](https://github.com/ethereum/wiki/wiki/RLP) array of [BigNum](https://github.com/indutny/bn.js) balances, and then convert it to a preferred format.
+There's no direct way to retrieve balances on both Ethereum and OMG networks. Instead, you first retrieve an [RLP encoded](https://github.com/ethereum/wiki/wiki/RLP) array of [BigNum](https://github.com/indutny/bn.js) balances and then convert it to a preferred format.
 
 The amount in balance array is defined in WEI (e.g. `429903000000000000`), the smallest denomination of ether, ETH. The `currency` contains `0x0000000000000000000000000000000000000000` for ETH currency or a smart contract address (e.g. `0xd92e713d051c37ebb2561803a3b5fbabc4962431`) for ERC20 tokens.
 
@@ -160,14 +160,14 @@ async function retrieveRootChainErc20Balance() {
 }
 ```
 
-> Note, you can return ERC20 balance only for one token at a time.
+> Note, you can return the ERC20 balance only for one token at a time.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Lifecycle
 
 1. A user calls the `getBalance` or `getErc20Balance` function to create a RLP encoded array of balances that contain [BigNum](https://github.com/indutny/bn.js) objects.
-2. A user filters an array of balances and returns an array for desired currency (`ETH_CURRENCY` for ETH or `ERC20_CONTRACT_ADDRESS` for ERC20 tokens).
+2. A user filters an array of balances and returns an array for the desired currency (`ETH_CURRENCY` for ETH or `ERC20_CONTRACT_ADDRESS` for ERC20 tokens).
 3. A user converts the amount of each balance from WEI into a decimal number (optional).
 
 ## Demo Project

@@ -48,7 +48,7 @@ To use the child chain you'll need to deposit funds from Ethereum into the OMG N
 
 When sending properly signed transactions, you authorize yourself as a valid owner of the funds. Additionally, Plasma guarantees the safety of your funds against dishonest attempts by other users or the operator. A Plasma operator API that allows you to get block data for implementing your Watcher.
 
-<!-- Review comment was: Authentication: I can see no point to list ch-ch endpoints in the table. Also this is safer to submit txs through a Watcher -->
+<!-- Review comment was: Authentication: I can see no point to list ch-ch endpoints in the table. Also, this is safer to submit txs through a Watcher -->
 <!-- | Endpoint  | Description   |
 | ---       |   ---         |
 | transaction.submit    | Submits a signed transaction to the child chain. |
@@ -82,8 +82,8 @@ When an error occurs, success is set to false, and data will contain more inform
 | server:internal_server_error  | Something went wrong on the server. You'll need to try again. |
 | operation:bad_request | Parameters required by this operation are missing or incorrect. More information about the error in response object data/messages property. |
 | operation:not_found   | Operation cannot be found. Check the request URL. |
-| challenge:exit_not_found  | The challenge of particular exit is impossible because the exit is inactive or missing |
-| challenge:utxo_not_spent  | The challenge of particular exit is impossible because provided UTXO is not spent |
+| challenge:exit_not_found  | The challenge of a particular exit is impossible because the exit is inactive or missing |
+| challenge:utxo_not_spent  | The challenge of a particular exit is impossible because provided UTXO is not spent |
 | exit:invalid  | UTXO was spent or does not exist. |
 | get_status:econnrefused   | Cannot connect to the Ethereum node. |
 | in_flight_exit:tx_for_input_not_found | No transaction that created input. |

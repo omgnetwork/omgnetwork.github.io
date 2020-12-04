@@ -17,7 +17,7 @@ A vulnerability submission may qualify for a bounty under the following conditio
 
 - Issues must be submitted through the [bounty submission form](https://omg.network/bounty). 
 - The vulnerability is not disclosed publicly or to 3rd parties. A bug report can only be made public with explicit permission (We generally support public disclosure but only once it is assured that all production systems are fixed and no user funds are at risk).
-- You have not used the vulnerability to receive any reward or monetary gain outside of the bug bounty program, or allowed anyone else to profit outside the bug bounty program.
+- You have not used the vulnerability to receive any reward or monetary gain outside of the bug bounty program or allowed anyone else to profit outside the bug bounty program.
 - The vulnerability is not exploited on production systems. (We provide test environments that can be used to demonstrate an issue and to produce a proof of concept. If you face any limitations while testing in the audit environment, please let us know.)
 - Submissions need to be made for components that are in-scope of the program. Out-of-scope submissions are not eligible for a bounty.
 - Make good faith efforts to avoid privacy violations, destruction of data, and interruption or degradation of our services.
@@ -36,7 +36,7 @@ Let us know as soon as possible upon discovery of a potential vulnerability, and
 
 ## Scope
 
-We have set up a dedicated environment for the bug bounty program that should give participants access to all services without the need to spend any time on installation, setup and configuration. There is also no need to worry about accidentally breaking something as this environment is completely isolated from the production services. The bug bounty environment has a shorter finalization time than the production environment to be able to better test the exit flows. 
+We have set up a dedicated environment for the bug bounty program that should give participants access to all services without the need to spend any time on installation, setup, and configuration. There is also no need to worry about accidentally breaking something as this environment is completely isolated from the production services. The bug bounty environment has a shorter finalization time than the production environment to be able to better test the exit flows. 
 
 With the launch of the bug bounty program we put the following components in scope:
 
@@ -59,23 +59,23 @@ The scope will be increased to other systems, so stay tuned for updates.
 
 ### Testing
 
-To interact with the OMG Network, you can leverage [omg-js](https://github.com/omgnetwork/omg-js) the official client reference implementation. You can also check out [omg-cli](https://github.com/omgnetwork/omg-cli) a command line tool that was specifically created to make security testing more straight forward by isolating end points and by providing callable interfaces for both the contracts as well as the watcher component.
+To interact with the OMG Network, you can leverage [omg-js](https://github.com/omgnetwork/omg-js) the official client reference implementation. You can also check out [omg-cli](https://github.com/omgnetwork/omg-cli) a command-line tool that was specifically created to make security testing more straightforward by isolating end points and by providing callable interfaces for both the contracts as well as the watcher component.
 
 For debugging the root chain contracts in the audit environment check out our public [Tenderly project](https://dashboard.tenderly.co/public/omg-network/audit-a69c763-rinkeby-lr). 
 
 
 ## Issues we are interested in
 
-We do appreciate that participants of our bug bounty program spend their time and creativity on finding issues in our systems. We are determined to review issues asap and reward successful submissions fairly and according to the risk that the vulnerability poses to the OMG network. The following list should give you some ideas for issues that we regard as high value submissions.
+We do appreciate that participants of our bug bounty program spend their time and creativity on finding issues in our systems. We are determined to review issues asap and reward successful submissions fairly and according to the risk that the vulnerability poses to the OMG network. The following list should give you some ideas for issues that we regard as high-value submissions.
 
 - Compromise funds from users who have deposited or received funds on the OMG network 
-- Prevent users from depositing, withdrawing or transacting funds on the OMG network
+- Prevent users from depositing, withdrawing, or transacting funds on the OMG network
 - Double spend a UTXO on the plasma network and exit it to the root chain (Ethereum) without raising a byzantine event 
 - Include invalid transactions in a block and the watcher does not raise byzantine events 
-- Brick the exit priority queue of a token so that no funds can be exited anymore. Token must be ERC20 conform. 
+- Brick the exit priority queue of a token so that no funds can be exited anymore. The token must be ERC20 conform. 
 - Gain access to a system and run OS commands aka getting shell
 
-The list is not meant to limit or discourage other types of submissions but it should give some idea on what issues we really care about and increase the chances of a successful submission (and bounty award).
+The list is not meant to limit or discourage other types of submissions but it should give some idea of what issues we really care about and increase the chances of a successful submission (and bounty award).
 
 ## Bounty Rewards
 
@@ -91,7 +91,7 @@ The list is not meant to limit or discourage other types of submissions but it s
 | Primary* |  up to 500 USD |  up to 2,500 USD | up to 10,000 USD  |  up to 25,000 USD  |
 | Secondary**  |  up to 100 USD | up to 500 USD  |  up to 2,000 USD | up to 5,000 USD   |
 
-_*The plasma-contracts, the child chain and the watcher_ <br>
+_*The plasma-contracts, the child chain, and the watcher_ <br>
 _**Any other components in scope that are not primary components_
 
 ## Ineligible methods
@@ -110,11 +110,11 @@ The following vulnerability categories are not eligible for a bounty reward:
 - Outdated third-party software
 - Any HTTP security header related issues
 - Content Spoofing
-- Issues affecting users of outdated or un-patched browsers and platforms.
+- Issues affecting users of outdated or unpatched browsers and platforms.
 - Weak TLS and SSL ciphers
 - Private keys that are not used in production or public test networks 
 - Credentials or API keys that are expired 
 
 --- 
 
-Thank you for helping keep OMG network safe and we wish you happy bug hunting! Let us know if you have questions at bounty@omg.network.
+Thank you for helping keep the OMG Network safe and we wish you happy bug hunting! Let us know if you have questions at bounty@omg.network.

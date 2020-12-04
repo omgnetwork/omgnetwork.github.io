@@ -12,6 +12,10 @@ original_id: release-notes
 The [`elixir-omg`](https://github.com/omgnetwork/elixir-omg) is a OMG Network's Elixir implementation of Plasma that forms the basis for the OMG Network.
 
 - [All Releases](https://github.com/omgnetwork/elixir-omg/releases)
+- [Release v1.0.5](https://github.com/omgnetwork/elixir-omg/releases/tag/v1.0.5)
+- [Release v1.0.4](https://github.com/omgnetwork/elixir-omg/releases/tag/v1.0.4)
+- [Release v1.0.3](https://github.com/omgnetwork/elixir-omg/releases/tag/v1.0.3)
+- [Release v1.0.2](https://github.com/omgnetwork/elixir-omg/releases/tag/v1.0.2)
 - [Release v1.0.1](https://github.com/omgnetwork/elixir-omg/releases/tag/v1.0.1)
 - [Release v1.0.0](https://github.com/omgnetwork/elixir-omg/releases/tag/v1.0.0)
 - [Release v0.4.8](https://github.com/omgnetwork/elixir-omg/releases/tag/v0.4.8)
@@ -46,6 +50,7 @@ The [`elixir-omg`](https://github.com/omgnetwork/elixir-omg) is a OMG Network's 
 The [`omg-js`](https://github.com/omgnetwork/omg-js) is is a Javascript library that allows to interact with OMG Network's MoreVP implementation of Plasma.
 
 - [All Releases](https://github.com/omgnetwork/omg-js/releases)
+- [Release v4.1.1-1.0.4](https://github.com/omgnetwork/omg-js/releases/tag/v4.1.1-1.0.4)
 - [Release v4.0.1-1.0.0](https://github.com/omgnetwork/omg-js/releases/tag/v4.0.1-1.0.0)
 - [Release v4.0.0-0.4.7](https://github.com/omgnetwork/omg-js/releases/tag/v4.0.0-0.4.7)
 - [Release v3.1.0-0.4.6](https://github.com/omgnetwork/omg-js/releases/tag/v3.1.0-0.4.6)
@@ -108,6 +113,7 @@ The [`plasma-contracts`](https://github.com/omgnetwork/plasma-contracts) is a se
 The [`web-wallet`](https://github.com/omgnetwork/web-wallet) is an example client side wallet built with React.js that allows to make interactions with the OMG Network from the browser.
 
 - [All Releases](https://github.com/omgnetwork/web-wallet/releases)
+- [Release v1.1.0](https://github.com/omgnetwork/omg-js/releases/tag/v1.1.0)
 - [Release v1.0.0](https://github.com/omgnetwork/omg-js/releases/tag/v1.0.0)
 
 <!--END_DOCUSAURUS_CODE_TABS-->

@@ -12,7 +12,7 @@ The OMG Network consists of three components interacting together:
  
 ## PlasmaFramework Smart Contract
  
-Deployed to the Ethereum network, the `PlasmaFramework` contract can be seen as a top-level contract containing other smart contract level functionalities, namely deposits, exits and the receipt of blocks from the child chain.
+Deployed to the Ethereum network, the `PlasmaFramework` contract can be seen as a top-level contract containing other smart contract level functionalities, namely deposits, exits, and the receipt of blocks from the child chain.
  
 ## Child Chain
  

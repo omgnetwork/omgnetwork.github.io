@@ -4,7 +4,7 @@ title: Make a Fee Relay Transfer
 sidebar_label: Make a Fee Relay Transfer
 ---
 
-Fee relay transfer allows creating a transaction with where fees are paid by another address. This can be useful when you split the wallets that contain fees and payment funds. This process requires to construct a custom transaction body and make several manual checks because of certain features of the OMG Network.
+Fee relay transfer allows creating a transaction where fees are paid by another address. This can be useful when you split the wallets that contain fees and payment funds. This process requires to construct a custom transaction body and make several manual checks because of certain features of the OMG Network.
 
 ## Implementation
 
