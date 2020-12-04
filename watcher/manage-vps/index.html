@@ -94,7 +94,7 @@
 <li>Go to <code>Settings &gt; Apps</code>, select <code>Manage optional features</code>.</li>
 <li>Click the <code>Add a feature</code> button.</li>
 <li>Find <code>OpenSSH Client</code>, click <code>Install</code>.</li>
-<li>Test if the client works with <code>ssh</code> command in your terminal.</li>
+<li>Test if the client works with the <code>ssh</code> command in your terminal.</li>
 </ol>
 </span></div></div></div></div>
 <p>When you connect to the server the first time, it will show the following message:</p>
@@ -165,7 +165,7 @@ Done.
 <p>To prevent brute force login attempts to the root account, it's recommended to disable root login. This is accomplished by changing configs in the <code>sshd_config</code> file using <code>nano</code> or <code>vi</code> text editors:</p>
 <pre><code class="hljs">sudo nano <span class="hljs-meta-keyword">/etc/</span>ssh/sshd_config
 </code></pre>
-<p>To prevent from login into root user, scroll to <code>#Authentication</code> section and change <code>PermitRootLogin</code> key from <code>yes</code> to <code>no</code> as follows:</p>
+<p>To prevent from login into root user, scroll to the <code>#Authentication</code> section and change the <code>PermitRootLogin</code> key from <code>yes</code> to <code>no</code> as follows:</p>
 <pre><code class="hljs"><span class="hljs-comment"># Authentication:</span>
 <span class="hljs-string">LoginGraceTime</span> <span class="hljs-number">120</span>
 <span class="hljs-string">PermitRootLogin</span> <span class="hljs-literal">no</span>
@@ -175,12 +175,12 @@ Done.
 <p>To apply the changes, restart SSH with the following command:</p>
 <pre><code class="hljs">sudo<span class="hljs-built_in"> service </span>ssh restart
 </code></pre>
-<p>Now if you try to log into your server with root via SSH, it won't work and return <code>Permission denied, please try again</code> message.</p>
+<p>Now if you try to log into your server with root via SSH, it won't work and return the <code>Permission denied, please try again</code> message.</p>
 <h3><a class="anchor" aria-hidden="true" id="5-change-the-default-port"></a><a href="#5-change-the-default-port" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Change the Default Port</h3>
 <p>Another security measure to prevent people from making different types of attacks is to make it harder to find your SSH access port. You can change it in the <code>sshd_config</code> file by using the method from the previous step:</p>
 <pre><code class="hljs">sudo nano <span class="hljs-meta-keyword">/etc/</span>ssh/sshd_config
 </code></pre>
-<p>Scroll to <code># What ports, IPs and protocols we listen for</code> section and change the port number from <code>22</code> to any number higher than 100 or ideally 1000. Save the changes, restart the SSH, and logout from the server. If you try to access your server with default connections, you'll receive <code>Connection refused</code> error. You'll need to specify a port number each time you login into the server as follows:</p>
+<p>Scroll to the <code># What ports, IPs and protocols we listen for</code> section and change the port number from <code>22</code> to any number higher than 100 or ideally 1000. Save the changes, restart the SSH, and logout from the server. If you try to access your server with default connections, you'll receive a <code>Connection refused</code> error. You'll need to specify a port number each time you login into the server as follows:</p>
 <pre><code class="hljs"><span class="hljs-attribute">ssh</span> <span class="hljs-variable">$USER</span>@<span class="hljs-variable">$REMOTE_SERVER</span> -p <span class="hljs-variable">$PORT</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="vps-security-medium"></a><a href="#vps-security-medium" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VPS Security (medium)</h2>
@@ -189,7 +189,7 @@ Done.
 <p>As was mentioned earlier, SSH keys allow a more secure method of authenticating to your server. To establish such a method, you need to have a pair of public and private keys on your laptop. Note, you should check for existing SSH keys and make a backup if they are available but you don't want to use them for this specific server.</p>
 <div class="tabs"><div class="nav-tabs"><div id="tab-group-178-tab-179" class="nav-link active" data-group="group_178" data-tab="tab-group-178-content-179">Linux/macOS</div><div id="tab-group-178-tab-180" class="nav-link" data-group="group_178" data-tab="tab-group-178-content-180">Windows</div></div><div class="tab-content"><div id="tab-group-178-content-179" class="tab-pane active" data-group="group_178" tabindex="-1"><div><span><p>Open a terminal and run the following command:</p>
 <pre><code class="hljs"><span class="hljs-keyword">cd</span> ~<span class="hljs-string">/.ssh</span><br /></code></pre>
-<p>If you see <code>No such file or directory</code>, you don't have any SSH keys on your local computer. If you have <code>.shh</code> folder but you're not sure if you have any existing keys, use this command:</p>
+<p>If you see <code>No such file or directory</code>, you don't have any SSH keys on your local computer. If you have a <code>.shh</code> folder but you're not sure if you have any existing keys, use this command:</p>
 <pre><code class="hljs"><span class="hljs-keyword">ls</span> id_*<br /></code></pre>
 <p>If you have existing SSH keys but you don't want to use them, you can make a backup with the <code>cp</code> command:</p>
 <pre><code class="hljs"><span class="hljs-built_in">mkdir</span> key_backup &amp;&amp; <span class="hljs-keyword">cp</span> id_rsa* key_backup<br /></code></pre>
@@ -197,7 +197,7 @@ Done.
 <pre><code class="hljs"><span class="hljs-attribute">ssh-keygen -t rsa</span><br /></code></pre>
 </span></div></div><div id="tab-group-178-content-180" class="tab-pane" data-group="group_178" tabindex="-1"><div><span><p>Open a command prompt and run the following command:</p>
 <pre><code class="hljs"><span class="hljs-built_in">cd</span> <span class="hljs-variable">%userprofile%</span>/.ssh<br /></code></pre>
-<p>If you see <code>No such file or directory</code>, you don't have any SSH keys on your local computer. If you have <code>.shh</code> folder but you're not sure if you have any existing keys, follow this command:</p>
+<p>If you see <code>No such file or directory</code>, you don't have any SSH keys on your local computer. If you have a <code>.shh</code> folder but you're not sure if you have any existing keys, follow this command:</p>
 <pre><code class="hljs"><span class="hljs-built_in">dir</span> id_*<br /></code></pre>
 <p>If you have existing SSH keys, but you don't want to use them, you can make a backup with the <code>copy</code> command:</p>
 <pre><code class="hljs">mkdir key_backup<br /><span class="hljs-keyword">copy</span><span class="bash"> id_rsa* key_backup</span><br /></code></pre>
@@ -228,7 +228,7 @@ The key's randomart image is:
 +----[SHA256]-----+
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="62-copy-ssh-keys-to-your-server"></a><a href="#62-copy-ssh-keys-to-your-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.2 Copy SSH Keys to Your Server</h4>
-<p>After you've generated the SSH keys, you need to copy the public key to your server. You can do that with <code>ssh-copy-id</code> command:</p>
+<p>After you've generated the SSH keys, you need to copy the public key to your server. You can do that with the <code>ssh-copy-id</code> command:</p>
 <div class="tabs"><div class="nav-tabs"><div id="tab-group-181-tab-182" class="nav-link active" data-group="group_181" data-tab="tab-group-181-content-182">Linux</div><div id="tab-group-181-tab-183" class="nav-link" data-group="group_181" data-tab="tab-group-181-content-183">macOS</div><div id="tab-group-181-tab-184" class="nav-link" data-group="group_181" data-tab="tab-group-181-content-184">Windows</div></div><div class="tab-content"><div id="tab-group-181-content-182" class="tab-pane active" data-group="group_181" tabindex="-1"><div><span><pre><code class="hljs">ssh-<span class="hljs-keyword">copy</span><span class="bash">-id <span class="hljs-variable">$USER</span>@<span class="hljs-variable">$REMOTE_SERVER</span> -p <span class="hljs-variable">$PORT</span></span><br /></code></pre>
 </span></div></div><div id="tab-group-181-content-183" class="tab-pane" data-group="group_181" tabindex="-1"><div><span><p>Some of the versions of macOS may not support <code>ssh-copy-id</code> out of the box, so you need to install it first with <code>brew</code> or other alternatives:</p>
 <pre><code class="hljs">brew install ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span><br /></code></pre>
@@ -245,10 +245,10 @@ The key's randomart image is:
 <p>Disabling password logins is the last step of basic security measures for your server. Make sure to verify one more time that authentication with SSH keys works before disabling password logins. You can accomplish that with the following command:</p>
 <pre><code class="hljs"><span class="hljs-attribute">ssh</span> <span class="hljs-variable">$USER</span>@<span class="hljs-variable">$REMOTE_SERVER</span> -p <span class="hljs-variable">$PORT</span>
 </code></pre>
-<p>You can disable password logins by changing <code>sshd_config</code> file on your server as follows:</p>
+<p>You can disable password logins by changing the <code>sshd_config</code> file on your server as follows:</p>
 <pre><code class="hljs">sudo nano <span class="hljs-meta-keyword">/etc/</span>ssh/sshd_config
 </code></pre>
-<p>Scroll to <code># Change to no to disable tunnelled clear text passwords</code> section and change <code>PasswordAuthentication</code> from <code>yes</code> to <code>no</code> as follows:</p>
+<p>Scroll to <code># Change to no to disable tunneled clear text passwords</code> section and change <code>PasswordAuthentication</code> from <code>yes</code> to <code>no</code> as follows:</p>
 <pre><code class="hljs"><span class="hljs-attribute">PasswordAuthentication</span> <span class="hljs-literal">no</span>
 </code></pre>
 <p>Save the changes, close the file, and restart the SSH service:</p>
@@ -261,7 +261,7 @@ The key's randomart image is:
 <p>Save the changes, close the file, and restart the SSH service. If you ever need IPv6 SSH back, remove the <code>AddressFamily inet</code> line.</p>
 <h2><a class="anchor" aria-hidden="true" id="vps-security-advanced"></a><a href="#vps-security-advanced" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VPS Security (advanced)</h2>
 <h3><a class="anchor" aria-hidden="true" id="8-set-up-firewall"></a><a href="#8-set-up-firewall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8. Set Up Firewall</h3>
-<p>A firewall is the last point of contact before anyone in the internet can get into your server. Getting a firewall up is crucial before deploying a server online. The example below demonstrates iptables as a way to set up Firewall rules. However, you may choose another software you're more comfortable with, such as <code>ufw</code>, <code>firewalld</code>, etc.</p>
+<p>A firewall is the last point of contact before anyone on the internet can get into your server. Getting a firewall up is crucial before deploying a server online. The example below demonstrates iptables as a way to set up Firewall rules. However, you may choose another software you're more comfortable with, such as <code>ufw</code>, <code>firewalld</code>, etc.</p>
 <h4><a class="anchor" aria-hidden="true" id="81-check-the-current-iptables-rules"></a><a href="#81-check-the-current-iptables-rules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8.1 Check the Current Iptables Rules</h4>
 <pre><code class="hljs"><span class="hljs-attribute">sudo iptables -S</span>
 </code></pre>
@@ -301,11 +301,11 @@ COMMIT
 <p>Note, <code>$PORT</code> is a port you're using to connect to the server via SSH. The default value is 22 but if you follow this guide, it should be different by now. See <a href="#5-change-the-default-port"><code>step 5</code></a> for reference.</p>
 </blockquote>
 <h4><a class="anchor" aria-hidden="true" id="84-restore-iptables"></a><a href="#84-restore-iptables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8.4 Restore Iptables</h4>
-<p><code>iptables-restore</code> is used to restore IP Tables from data specified on STDIN or in file. The command should be used as follows:</p>
+<p><code>iptables-restore</code> is used to restore IP Tables from data specified on STDIN or in a file. The command should be used as follows:</p>
 <pre><code class="hljs">sudo iptables-restore &lt; <span class="hljs-regexp">/etc/i</span>ptables/rules.v4
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="85-restart-docker-services"></a><a href="#85-restart-docker-services" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8.5 Restart Docker Services</h4>
-<p>If you are using Docker or any other virtualisation software, you may need to restart their services after doing an <code>iptables-restore</code>:</p>
+<p>If you are using Docker or any other virtualization software, you may need to restart their services after doing an <code>iptables-restore</code>:</p>
 <pre><code class="hljs">systemctl <span class="hljs-built_in">restart</span> docker &amp;&amp; systemctl <span class="hljs-built_in">restart</span> containerd
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="86-check-the-result"></a><a href="#86-check-the-result" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8.6 Check the Result</h4>
@@ -322,7 +322,7 @@ COMMIT
 
 <span class="hljs-attr">Nmap done:</span> <span class="hljs-number">1</span> <span class="hljs-string">IP</span> <span class="hljs-string">address</span> <span class="hljs-string">(1</span> <span class="hljs-string">host</span> <span class="hljs-string">up)</span> <span class="hljs-string">scanned</span> <span class="hljs-string">in</span> <span class="hljs-number">1.73</span> <span class="hljs-string">seconds</span>
 </code></pre>
-<p>Example output (for arbitrary port):</p>
+<p>Example output (for the arbitrary port):</p>
 <pre><code class="hljs">Starting Nmap <span class="hljs-number">7.80</span> ( https:<span class="hljs-comment">//nmap.org ) at 2020-06-02 19:04 FLE Daylight Time</span>
 Nmap scan report <span class="hljs-keyword">for</span> $REMOTE_SERVER
 Host <span class="hljs-keyword">is</span> up (<span class="hljs-number">0.37</span>s latency).
@@ -334,9 +334,9 @@ Nmap done: <span class="hljs-number">1</span> IP address (<span class="hljs-numb
 </code></pre>
 <p>Alternatively, you can use <a href="http://www.firewallruletest.com/"><code>Firewall Rule Test</code></a> to achieve the same result.</p>
 <h3><a class="anchor" aria-hidden="true" id="9-set-up-fail2ban"></a><a href="#9-set-up-fail2ban" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9. Set Up Fail2Ban</h3>
-<p><a href="http://www.fail2ban.org/wiki/index.php/Main_Page">Fail2ban</a> scans log files and bans IPs that show the malicious signs, such as too many password failures, seeking for exploits, etc. Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time, although any arbitrary other action (e.g. sending an email) could also be configured.</p>
+<p><a href="http://www.fail2ban.org/wiki/index.php/Main_Page">Fail2ban</a> scans log files and bans IPs that show malicious signs, such as too many password failures, seeking for exploits, etc. Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time, although any arbitrary other action (e.g. sending an email) could also be configured.</p>
 <h4><a class="anchor" aria-hidden="true" id="91-install-dependencies"></a><a href="#91-install-dependencies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9.1 Install Dependencies</h4>
-<p>To install the dependencies, use <code>apt-get</code> command as follows:</p>
+<p>To install the dependencies, use the <code>apt-get</code> command as follows:</p>
 <pre><code class="hljs">sudo apt-<span class="hljs-builtin-name">get</span> install fail2ban sendmail
 </code></pre>
 <blockquote>

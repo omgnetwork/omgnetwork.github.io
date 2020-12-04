@@ -63,12 +63,12 @@
 <h3><a class="anchor" aria-hidden="true" id="fees"></a><a href="#fees" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fees</h3>
 <ul>
 <li>Child chain now accepts fee in a transaction submitted to it via <code>/transaction.submit</code></li>
-<li>List of accepted fee tokens and corresponding amount can be retrieved via query to <code>/fees.all</code> end point</li>
+<li>List of accepted fee tokens and the corresponding amount can be retrieved via a query to <code>/fees.all</code> end point</li>
 <li>The fee amount in a transaction is implicitly determined by the amount of token difference between outputs and inputs.</li>
-<li>The fee amount must be correct as specified in <code>/fees.all</code>. Underpaying or Overpaying of fee in a transaction will result in a returned error.</li>
-<li>Integrator can create a transaction with a valid fee amount via <code>/transaction.create</code> API endpoint by specifying fee tokens. Alternatively, a client can build the transaction with valid fee from scratch via a call to fees.all prior to transaction build process.</li>
+<li>The fee amount must be correct as specified in <code>/fees.all</code>. Underpaying or Overpaying a fee in a transaction will result in a returned error.</li>
+<li>Integrator can create a transaction with a valid fee amount via <code>/transaction.create</code> API endpoint by specifying fee tokens. Alternatively, a client can build the transaction with a valid fee from scratch via a call to fees.all before the transaction build process.</li>
 <li>Currently, the fees are statically set per each environment. This is expected to change once a more dynamic fee model has been applied, however, consuming fee API is expected to stay the same from integration’s point of view.</li>
-<li>Refer to our guide to <a href="/network/fees">transaction fee</a> for more example.</li>
+<li>Refer to our guide to <a href="/network/fees">transaction fee</a> for more examples.</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="watcher-vs-watcherinfo"></a><a href="#watcher-vs-watcherinfo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Watcher vs. WatcherInfo</h3>
 <p>Two flavors of the watcher are now available: Watcher and WatcherInfo.</p>
@@ -84,13 +84,13 @@
 <li>Add <code>/block.all</code>, <code>/block.get</code>, <code>/stats.get</code> endpoints for informational purposes. Available only on the WatcherInfo.</li>
 <li>Update <code>/transaction.get</code> and <code>/transaction.all</code> to return each transaction output’s creating_txhash and spending_txhash. Available only on the WatcherInfo.</li>
 <li>Update <code>/account.get_transactions</code>, <code>/transaction.all</code> and <code>/transaction.get</code> to return transaction type (txtype) and transaction output type (otype). The currently possible types are Payment V1 and Fee Token Claim.</li>
-<li>Watcher and WatcherInfo no longer serve websocket events for new transactions and exits.</li>
+<li>Watcher and WatcherInfo no longer serve WebSocket events for new transactions and exits.</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="strict-transaction-decoding-and-checks"></a><a href="#strict-transaction-decoding-and-checks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Strict transaction decoding and checks</h3>
 <p>NOTE: This is handled by <code>/transaction.create</code> and <code>/transaction.submit_typed</code>, so it is unlikely to affect integrators.</p>
 <p>The transaction decoding and checks are documented in plasma-contracts <a href="https://github.com/omgnetwork/plasma-contracts/blob/master/plasma_framework/docs/integration-docs/integration-doc.md#transactions">here</a>.</p>
 <h3><a class="anchor" aria-hidden="true" id="obsoleted-configurations"></a><a href="#obsoleted-configurations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Obsoleted configurations</h3>
-<p>The environment variables with prefixes RINKEBY_, ROPSTEN_ and MAINNET_ have been replaced with ETHEREUM_NETWORK and their non-prefixed names. To upgrade from previous versions, migrate the old configurations to the following new ones:</p>
+<p>The environment variables with prefixes RINKEBY_, ROPSTEN_, and MAINNET_ have been replaced with ETHEREUM_NETWORK and their non-prefixed names. To upgrade from previous versions, migrate the old configurations to the following new ones:</p>
 <ul>
 <li>ETHEREUM_NETWORK</li>
 <li>AUTHORITY_ADDRESS</li>
@@ -101,7 +101,7 @@
 </ul>
 <p>For more information, see <a href="https://github.com/omgnetwork/elixir-omg/blob/master/docs/deployment_configuration.md">Deployment Configurations</a>.</p>
 <h3><a class="anchor" aria-hidden="true" id="new-configurations"></a><a href="#new-configurations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New configurations</h3>
-<p>The following new environment variables can be configured to modify the behaviour of your self-hosted Watcher and WatcherInfo.</p>
+<p>The following new environment variables can be configured to modify the behavior of your self-hosted Watcher and WatcherInfo.</p>
 <ul>
 <li>ETHEREUM_EVENTS_CHECK_INTERVAL_MS</li>
 <li>ETHEREUM_STALLED_SYNC_THRESHOLD_MS</li>
@@ -117,15 +117,15 @@
 <li>Library has been updated to work with the updated contracts and latest APIs from <code>elixir-omg</code>.</li>
 <li><a href="https://docs.omg.network/omg-js/">API documentation</a> significantly improved with correct types and definitions.</li>
 <li>Introduced input validation so users are able to catch input errors earlier and avoid confusing stack traces</li>
-<li>Examples folder has been updated to show implementation of new functionality as well as more helper functions.</li>
+<li>Examples folder has been updated to show ithe mplementation of new functionality as well as more helper functions.</li>
 <li>See better balance and UTXO information.</li>
-<li>See ERC20 &amp; ETH specific examples for deposits, transactions, exits and process exits.</li>
+<li>See ERC20 &amp; ETH specific examples for deposits, transactions, exits, and process exits.</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="childchain-module"></a><a href="#childchain-module" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ChildChain Module</h3>
 <ul>
 <li><code>getFees</code> - new function to retrieve supported fee tokens and amounts to make transactions.</li>
 <li><code>createTransaction</code> - arguments are retrieved as an object for better readability. Metadata can also be passed as a simple string instead of being encoded beforehand.</li>
-<li><code>sendTransaction</code> - arguments are retrieved as an object for better readability. It also accepts a payments and fee object to provide consistency with other function calls in the library.</li>
+<li><code>sendTransaction</code> - arguments are retrieved as an object for better readability. It also accepts payments and fee object to provide consistency with other function calls in the library.</li>
 <li><code>inFlightExitGetInputChallengeData</code> - new function that gets the data to challenge an invalid input piggybacked on an in-flight exit.</li>
 <li><code>inFlightExitGetOutputChallengeData</code> - new function that gets the data to challenge an invalid output piggybacked on an in-flight exit.</li>
 </ul>

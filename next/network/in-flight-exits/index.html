@@ -63,7 +63,7 @@
 <p>A transaction is considered to be <em>in-flight</em> if it has been broadcasted but has not yet been included in the child chain. It may also be in-flight from the perspective of an individual user if that user does not have access to the block where the said transaction is included.</p>
 <p>A user may consider an exit <em>in-flight</em> in the following scenarios:</p>
 <ul>
-<li>The user has signed and broadcast a transaction, but is unable to verify its inclusion in a block.</li>
+<li>The user has signed and broadcast a transaction but is unable to verify its inclusion in a block.</li>
 <li>The user can see that the transaction has been included in a block, but believes that the block is invalid due to a dishonest operator.</li>
 </ul>
 <p>The user can initiate an IFE regardless of whether the above is correct, but one must commit an <a href="/network/exitbonds"><code>exit bond</code></a>. The purpose of the <code>exit bond</code> is to deter users from initiating exits dishonestly, as this bond will be awarded to any party who successfully proves that the exit is dishonest.</p>
@@ -102,10 +102,10 @@
 <li><code>gasLimit</code> - gas limit for your transaction. Please check the current data on <a href="https://ethgasstation.info/calculatorTxV.php">Gas Station</a> or similar resources.</li>
 </ul>
 </blockquote>
-<p>An in-flight exit creates an exit receipt. Each exit has an id that identifies it. After an in-flight exit starts, you'll have to wait a <a href="/network/challenge-period">challange period</a> before you can process that exit and receive your funds back on Ethereum Network.</p>
+<p>An in-flight exit creates an exit receipt. Each exit has an id that identifies it. After an in-flight exit starts, you'll have to wait for a <a href="/network/challenge-period">challange period</a> before you can process that exit and receive your funds back on Ethereum Network.</p>
 <h2><a class="anchor" aria-hidden="true" id="lifecycle"></a><a href="#lifecycle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Lifecycle</h2>
 <ol>
-<li>A user calls the <code>hasToken</code> function on the <code>PlasmaFramework</code> contract to check if there's an exit queue for the token in question. If no exit queue is registered, a user needs to register it using the <code>addToken</code> function. The corresponding <code>PlasmaFramework</code> contract functions used in this step are <code>hasExitQueue</code> and <code>addExitQueue</code>. This step is optional but it was included because it prevents from any potential issues a user may encounter during an exit.</li>
+<li>A user calls the <code>hasToken</code> function on the <code>PlasmaFramework</code> contract to check if there's an exit queue for the token in question. If no exit queue is registered, a user needs to register it using the <code>addToken</code> function. The corresponding <code>PlasmaFramework</code> contract functions used in this step are <code>hasExitQueue</code> and <code>addExitQueue</code>. This step is optional but it was included because it prevents any potential issues a user may encounter during an exit.</li>
 <li>A user calls the <code>inFlightExitGetData</code> function on the Watcher to get the necessary exit data to start a standard exit. A transaction is termed exitable if it is correctly formed and properly signed by the owner(s) of the transaction input(s).</li>
 <li>A user calls the <code>startInFlightExit</code> function on the <code>PaymentExitGame</code> contract and commits an <a href="/network/exitbonds">exit bond</a> to the exit.</li>
 <li>A user calls the <code>piggybackInFlightExitOnInput</code> or <code>piggybackInFlightExitOnOutput</code> function on the <code>PaymentExitGame</code> contract to piggyback on in-flight exit input or output call. Such a process is required for every in-flight exit before proceeding to the processing stage.</li>

@@ -92,7 +92,7 @@
 <p><a href="https://docs.omg.network/elixir-omg/docs-ui"><code>Child chain API</code></a> represents a public and open Plasma operator API that allows you to get block data for implementing your Watcher.</p>
 <p>To use the child chain you'll need to deposit funds from Ethereum into the OMG Network. Funds on the network are protected by your private key, which is the authorization mechanism used to sign Ethereum and Plasma transactions.</p>
 <p>When sending properly signed transactions, you authorize yourself as a valid owner of the funds. Additionally, Plasma guarantees the safety of your funds against dishonest attempts by other users or the operator. A Plasma operator API that allows you to get block data for implementing your Watcher.</p>
-<!-- Review comment was: Authentication: I can see no point to list ch-ch endpoints in the table. Also this is safer to submit txs through a Watcher -->
+<!-- Review comment was: Authentication: I can see no point to list ch-ch endpoints in the table. Also, this is safer to submit txs through a Watcher -->
 <!-- | Endpoint  | Description   |
 | ---       |   ---         |
 | transaction.submit    | Submits a signed transaction to the child chain. |
@@ -120,8 +120,8 @@
 <tr><td>server:internal_server_error</td><td>Something went wrong on the server. You'll need to try again.</td></tr>
 <tr><td>operation:bad_request</td><td>Parameters required by this operation are missing or incorrect. More information about the error in response object data/messages property.</td></tr>
 <tr><td>operation:not_found</td><td>Operation cannot be found. Check the request URL.</td></tr>
-<tr><td>challenge:exit_not_found</td><td>The challenge of particular exit is impossible because the exit is inactive or missing</td></tr>
-<tr><td>challenge:utxo_not_spent</td><td>The challenge of particular exit is impossible because provided UTXO is not spent</td></tr>
+<tr><td>challenge:exit_not_found</td><td>The challenge of a particular exit is impossible because the exit is inactive or missing</td></tr>
+<tr><td>challenge:utxo_not_spent</td><td>The challenge of a particular exit is impossible because provided UTXO is not spent</td></tr>
 <tr><td>exit:invalid</td><td>UTXO was spent or does not exist.</td></tr>
 <tr><td>get_status:econnrefused</td><td>Cannot connect to the Ethereum node.</td></tr>
 <tr><td>in_flight_exit:tx_for_input_not_found</td><td>No transaction that created input.</td></tr>
