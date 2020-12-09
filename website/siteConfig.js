@@ -54,8 +54,8 @@ const siteConfig = {
   ogImage: "img/logo/omg-blue.svg",
   twitterImage: "img/logo/omg-blue.svg",
   // Show documentation's last contributor's name.
-  enableUpdateBy: false,
-  enableUpdateTime: false,
+  enableUpdateBy: true,
+  enableUpdateTime: true,
   // omg urls
   gettingStartedUrl: "welcome",
   blockExplorerUrl: "https://omg.eco/blockexplorer",
