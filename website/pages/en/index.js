@@ -141,6 +141,12 @@ class Index extends React.Component {
           url: `${baseUrl}use-cases/exchange`,
           imageLink: `${baseUrl}img/icons/wallet.svg`,
         },
+        {
+          title: "Wallet",
+          content: "Integrate OMG services into your wallet.",
+          url: `${baseUrl}use-cases/wallet`,
+          imageLink: `${baseUrl}img/icons/myapp.svg`,
+        },
       ],
       apiDocs: [
         {
